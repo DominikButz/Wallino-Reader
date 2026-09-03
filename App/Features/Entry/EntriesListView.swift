@@ -22,11 +22,12 @@ struct EntriesListView: View {
             sortDescriptors.append(NSSortDescriptor(key: "readingTime", ascending: entriesSortedByAscending))
         }
 
-        _entries = FetchRequest(
-            entity: Entry.entity(),
-            sortDescriptors: sortDescriptors,
-            predicate: predicate, animation: nil
-        )
+        let fetchRequest = NSFetchRequest<Entry>(entityName: "Entry")
+        fetchRequest.sortDescriptors = sortDescriptors
+        fetchRequest.predicate = predicate
+        fetchRequest.relationshipKeyPathsForPrefetching = ["tags"]
+
+        _entries = FetchRequest(fetchRequest: fetchRequest, animation: nil)
     }
 
     var body: some View {

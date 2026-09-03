@@ -22,6 +22,8 @@ extension View {
             case let .tags(entry):
                 TagSuggestionView(entry: entry)
                     .wallabagPlusProtected()
+            case let .entriesForTag(tag):
+                EntriesForTagView(tag: tag)
             case .about:
                 AboutView()
             case .tips:

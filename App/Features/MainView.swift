@@ -19,9 +19,22 @@ struct MainView: View {
             ZStack {
                 GeometryReader { geometry in
                     @Bindable var router = router
-                    NavigationStack(path: $router.path) {
-                        EntriesView()
-                            .appRouting()
+                    TabView {
+                        NavigationStack(path: $router.path) {
+                            EntriesView()
+                                .appRouting()
+                        }
+                        .tabItem {
+                            Label("Entries", systemImage: "book")
+                        }
+
+                        NavigationStack(path: $router.tagsPath) {
+                            TagsListView()
+                                .appRouting()
+                        }
+                        .tabItem {
+                            Label("Tags", systemImage: "tag")
+                        }
                     }
                     if player.showPlayer {
                         PlayerView()

@@ -40,3 +40,7 @@
 "Auto" = "Automatico";
 "Light" = "Chiaro";
 "Dark" = "Scuro";
+"Tags" = "Tags";
+"Selected tags" = "Selected tags";
+"No tags selected" = "No tags selected";
+"No more tags available" = "No more tags available";

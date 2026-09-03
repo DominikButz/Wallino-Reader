@@ -22,6 +22,7 @@ extension Tag {
     @NSManaged dynamic var id: Int
     @NSManaged dynamic var label: String
     @NSManaged dynamic var slug: String
+    @NSManaged dynamic var entries: Set<Entry>?
 }
 
 extension Tag: Comparable {

@@ -65,7 +65,9 @@ final class WallabagSession: ObservableObject {
 
     func add(tag: String, for entry: Entry) async throws {
         let wallabagEntry = try await kit.send(to: WallabagEntryEndpoint.addTag(tag: tag, entry: entry.id))
-        syncTag(for: entry, with: wallabagEntry)
+        await MainActor.run {
+            syncTag(for: entry, with: wallabagEntry)
+        }
     }
 
     func refresh(entry: Entry) async throws {
@@ -76,23 +78,38 @@ final class WallabagSession: ObservableObject {
 
     func delete(tag: Tag, for entry: Entry) async throws {
         let wallabagEntry = try await kit.send(to: WallabagEntryEndpoint.deleteTag(tagId: tag.id, entry: entry.id))
-        syncTag(for: entry, with: wallabagEntry)
+        await MainActor.run {
+            syncTag(for: entry, with: wallabagEntry)
+        }
     }
 
     private func syncTag(for entry: Entry, with wallabagEntry: WallabagEntry) {
-        entry.tags.removeAll()
+        let currentTags = entry.tags
+        let newTagIds = Set(wallabagEntry.tags?.map { $0.id } ?? [])
 
-        wallabagEntry.tags?.forEach { wallabagTag in
-            if let tag = try? self.coreDataContext.fetch(Tag.fetchOneById(wallabagTag.id)).first {
-                entry.tags.insert(tag)
-            } else {
-                let tag = Tag(context: self.coreDataContext)
-                tag.id = wallabagTag.id
-                tag.slug = wallabagTag.slug
-                tag.label = wallabagTag.label
+        entry.objectWillChange.send()
+
+        for wallabagTag in wallabagEntry.tags ?? [] {
+            if !currentTags.contains(where: { $0.id == wallabagTag.id }) {
+                let tag: Tag
+                if let existingTag = try? self.coreDataContext.fetch(Tag.fetchOneById(wallabagTag.id)).first {
+                    tag = existingTag
+                } else {
+                    tag = Tag(context: self.coreDataContext)
+                    tag.id = wallabagTag.id
+                    tag.slug = wallabagTag.slug
+                    tag.label = wallabagTag.label
+                }
                 entry.tags.insert(tag)
             }
         }
+
+        for tag in currentTags {
+            if !newTagIds.contains(tag.id) {
+                entry.tags.remove(tag)
+            }
+        }
+
         try? coreDataContext.save()
     }
 

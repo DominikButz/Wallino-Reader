@@ -5,4 +5,5 @@ import SwiftUI
 @Observable
 final class Router {
     var path: [RoutePath] = []
+    var tagsPath: [RoutePath] = []
 }

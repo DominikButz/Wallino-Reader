@@ -7,8 +7,8 @@ final class TagsForEntryViewModel {
     @ObservationIgnored
     @Injected(\.wallabagSession) private var session
 
-    var tags: [Tag] = []
-    var entry: Entry?
+    var selectedTags: [Tag] = []
+    var availableTags: [Tag] = []
     var isLoading = false
 
     @ObservationIgnored
@@ -16,12 +16,10 @@ final class TagsForEntryViewModel {
 
     @MainActor
     func load(for entry: Entry) async {
-        tags = (try? coreDataContext.fetch(Tag.fetchRequestSorted())) ?? []
-        tags.filter { tag in
-            entry.tags.contains(tag)
-        }.forEach {
-            $0.isChecked = true
-        }
+        let allTags = (try? coreDataContext.fetch(Tag.fetchRequestSorted())) ?? []
+        let entryTagIds = Set(entry.tags.map { $0.id })
+        selectedTags = allTags.filter { entryTagIds.contains($0.id) }
+        availableTags = allTags.filter { !entryTagIds.contains($0.id) }
     }
 
     func toggle(tag: Tag, for entry: Entry) async {
@@ -29,12 +27,11 @@ final class TagsForEntryViewModel {
             isLoading = false
         }
         isLoading = true
-        if tag.isChecked {
+        if selectedTags.contains(where: { $0.id == tag.id }) {
             await delete(tag: tag, for: entry)
         } else {
-            await add(tag: tag, for: entry)
+            await add(tag: tag.label, for: entry)
         }
-
         await load(for: entry)
     }
 
@@ -43,13 +40,7 @@ final class TagsForEntryViewModel {
         await load(for: entry)
     }
 
-    private func add(tag: Tag, for entry: Entry) async {
-        await add(tag: tag.label, for: entry)
-        tag.isChecked = true
-    }
-
     private func delete(tag: Tag, for entry: Entry) async {
-        tag.isChecked = false
         try? await session.delete(tag: tag, for: entry)
     }
 }

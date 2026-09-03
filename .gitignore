@@ -76,3 +76,5 @@ vendor/
 .bundle/
 
 Config.xcconfig
+
+instructions_1.md

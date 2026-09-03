@@ -77,6 +77,7 @@ struct EntryView: View {
         }
         .toolbarBackground(.ultraThinMaterial, for: .bottomBar)
         .toolbarBackground(.visible, for: .bottomBar)
+        .toolbar(.hidden, for: .tabBar)
         .ignoresSafeArea(.all, edges: .bottom)
         #if os(iOS)
         .navigationBarTitleDisplayMode(.inline)
@@ -132,15 +133,15 @@ struct EntryView: View {
     }
 }
 
-#if DEBUG
-    struct EntryView_Previews: PreviewProvider {
-        static var previews: some View {
-            let coreData = Container.shared.coreData()
-            EntryView(entry: Entry(context: coreData.viewContext))
-            #if os(iOS)
-                .environment(PlayerPublisher())
-            #endif
-                .environment(\.managedObjectContext, coreData.viewContext)
-        }
-    }
-#endif
+//#if DEBUG
+//    struct EntryView_Previews: PreviewProvider {
+//        static var previews: some View {
+//            let coreData = Container.shared.coreData()
+//            EntryView(entry: Entry(context: coreData.viewContext))
+//            #if os(iOS)
+//                .environment(PlayerPublisher())
+//            #endif
+//                .environment(\.managedObjectContext, coreData.viewContext)
+//        }
+//    }
+//#endif

@@ -25,7 +25,6 @@
 		09644B5725C9810A000FFDA1 /* WallabagApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644B5625C9810A000FFDA1 /* WallabagApp.swift */; };
 		09644B5E25C98116000FFDA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644B5D25C98116000FFDA1 /* AppDelegate.swift */; };
 		09644B7E25C98152000FFDA1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644B7D25C98152000FFDA1 /* AppState.swift */; };
-		09FA20240000000000000002 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FA20240000000000000001 /* Theme.swift */; };
 		09644B8C25C98176000FFDA1 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644B8825C98176000FFDA1 /* Route.swift */; };
 		09644B9725C9819F000FFDA1 /* PlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644B9425C9819F000FFDA1 /* PlayerView.swift */; };
 		09644B9825C9819F000FFDA1 /* PlayerPublisher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644B9525C9819F000FFDA1 /* PlayerPublisher.swift */; };
@@ -108,10 +107,14 @@
 		09BE0AF42A9F45E900193FBF /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BE0AF32A9F45E900193FBF /* View+Extension.swift */; };
 		09C34C7C29B1398B00B5C927 /* SharedLib in Frameworks */ = {isa = PBXBuildFile; productRef = 09C34C7B29B1398B00B5C927 /* SharedLib */; };
 		09C34C7E29B1399100B5C927 /* WallabagKit in Frameworks */ = {isa = PBXBuildFile; productRef = 09C34C7D29B1399100B5C927 /* WallabagKit */; };
+		09FA20240000000000000002 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FA20240000000000000001 /* Theme.swift */; };
 		09FCA39F2B60766400148104 /* WallabagKit in Frameworks */ = {isa = PBXBuildFile; productRef = 09FCA39E2B60766400148104 /* WallabagKit */; };
 		09FCA3A32B60768000148104 /* SharedLib in Frameworks */ = {isa = PBXBuildFile; productRef = 09FCA3A22B60768000148104 /* SharedLib */; };
 		81505C5B2B5DC21F003B5CDE /* WallabagIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81505C5A2B5DC21F003B5CDE /* WallabagIntent.swift */; };
 		81505C5D2B5DC23C003B5CDE /* AddEntryIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81505C5C2B5DC23C003B5CDE /* AddEntryIntent.swift */; };
+		B4B3F29430495FC1007633C9 /* EntriesForTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B3F29330495FC1007633C9 /* EntriesForTagView.swift */; };
+		B4B3F29C30496013007633C9 /* TagsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B3F29B30496013007633C9 /* TagsListViewModel.swift */; };
+		B4B3F29D30496013007633C9 /* TagsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B3F29A30496013007633C9 /* TagsListView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -172,7 +175,6 @@
 		09644B5625C9810A000FFDA1 /* WallabagApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallabagApp.swift; sourceTree = "<group>"; };
 		09644B5D25C98116000FFDA1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09644B7D25C98152000FFDA1 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
-		09FA20240000000000000001 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		09644B8825C98176000FFDA1 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
 		09644B9425C9819F000FFDA1 /* PlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerView.swift; sourceTree = "<group>"; };
 		09644B9525C9819F000FFDA1 /* PlayerPublisher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayerPublisher.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 		09644D0F25C9872F000FFDA1 /* BundleKey.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BundleKey.swift; sourceTree = "<group>"; };
 		09644D1725C98755000FFDA1 /* AppDelegateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateExtension.swift; sourceTree = "<group>"; };
 		09644D1F25C98782000FFDA1 /* wallabagStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = wallabagStore.xcdatamodel; sourceTree = "<group>"; };
+		09644D2125C98783000FFDA1 /* wallabagStore 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "wallabagStore 2.xcdatamodel"; sourceTree = "<group>"; };
 		097DD9012B4C0E62005D3930 /* openapi.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = openapi.yaml; sourceTree = "<group>"; };
 		097DD9022B4C0E78005D3930 /* openapi-generator-config.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "openapi-generator-config.yaml"; sourceTree = "<group>"; };
 		097F81DF25CB187B006C85F6 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
@@ -262,8 +265,12 @@
 		09BE0AF32A9F45E900193FBF /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		09BFB28425C8348E00E12B4D /* wallabag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wallabag.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09BFB28725C8348E00E12B4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09FA20240000000000000001 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		81505C5A2B5DC21F003B5CDE /* WallabagIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallabagIntent.swift; sourceTree = "<group>"; };
 		81505C5C2B5DC23C003B5CDE /* AddEntryIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryIntent.swift; sourceTree = "<group>"; };
+		B4B3F29330495FC1007633C9 /* EntriesForTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesForTagView.swift; sourceTree = "<group>"; };
+		B4B3F29A30496013007633C9 /* TagsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsListView.swift; sourceTree = "<group>"; };
+		B4B3F29B30496013007633C9 /* TagsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -493,6 +500,7 @@
 				09644C7725C985AE000FFDA1 /* Picture */,
 				09644C6725C9859C000FFDA1 /* UI */,
 				09644C5B25C98596000FFDA1 /* EntriesListView.swift */,
+				B4B3F29330495FC1007633C9 /* EntriesForTagView.swift */,
 				09644C5825C98596000FFDA1 /* EntriesView.swift */,
 				09644C5925C98596000FFDA1 /* EntryRowView.swift */,
 				09644C5A25C98596000FFDA1 /* EntryView.swift */,
@@ -614,6 +622,8 @@
 			isa = PBXGroup;
 			children = (
 				09644CFA25C9870C000FFDA1 /* TagListFor.swift */,
+				B4B3F29A30496013007633C9 /* TagsListView.swift */,
+				B4B3F29B30496013007633C9 /* TagsListViewModel.swift */,
 				09644CFC25C9870C000FFDA1 /* TagsForEntryViewModel.swift */,
 			);
 			path = Tag;
@@ -747,18 +757,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		09FA20300000000000000001 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				09AD759C2624F93D00708A1E /* html-ressources */,
-				09AD75C02624FEEE00708A1E /* Localizable.strings */,
-				09644D1E25C98782000FFDA1 /* wallabagStore.xcdatamodeld */,
-				0951C61729CC2EB000D8E8C6 /* Assets.xcassets */,
-				099CD12E2B5019F40029E94A /* WallabagStoreKit.storekit */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		09BFB28625C8348E00E12B4D /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -773,6 +771,18 @@
 				09FA20300000000000000001 /* Resources */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		09FA20300000000000000001 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				09AD759C2624F93D00708A1E /* html-ressources */,
+				09AD75C02624FEEE00708A1E /* Localizable.strings */,
+				09644D1E25C98782000FFDA1 /* wallabagStore.xcdatamodeld */,
+				0951C61729CC2EB000D8E8C6 /* Assets.xcassets */,
+				099CD12E2B5019F40029E94A /* WallabagStoreKit.storekit */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		81505C592B5DC209003B5CDE /* Intents */ = {
@@ -1073,9 +1083,12 @@
 				09644C5D25C98596000FFDA1 /* AddEntryView.swift in Sources */,
 				09644C6025C98596000FFDA1 /* EntryView.swift in Sources */,
 				09644CFF25C9870C000FFDA1 /* TagsForEntryViewModel.swift in Sources */,
+				B4B3F29C30496013007633C9 /* TagsListViewModel.swift in Sources */,
+				B4B3F29D30496013007633C9 /* TagsListView.swift in Sources */,
 				09644D1025C9872F000FFDA1 /* BundleKey.swift in Sources */,
 				81505C5B2B5DC21F003B5CDE /* WallabagIntent.swift in Sources */,
 				09644BAF25C98213000FFDA1 /* RefreshButton.swift in Sources */,
+				B4B3F29430495FC1007633C9 /* EntriesForTagView.swift in Sources */,
 				09BE0AF42A9F45E900193FBF /* View+Extension.swift in Sources */,
 				09644C7025C985A9000FFDA1 /* ArchiveEntryButton.swift in Sources */,
 				09FA20240000000000000002 /* Theme.swift in Sources */,
@@ -1579,8 +1592,9 @@
 			isa = XCVersionGroup;
 			children = (
 				09644D1F25C98782000FFDA1 /* wallabagStore.xcdatamodel */,
+				09644D2125C98783000FFDA1 /* wallabagStore 2.xcdatamodel */,
 			);
-			currentVersion = 09644D1F25C98782000FFDA1 /* wallabagStore.xcdatamodel */;
+			currentVersion = 09644D2125C98783000FFDA1 /* wallabagStore 2.xcdatamodel */;
 			path = wallabagStore.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

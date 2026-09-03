@@ -100,6 +100,9 @@ extension AppSync {
 
                 backgroundContext.delete(entryToDelete)
             }
+            if backgroundContext.hasChanges {
+                try backgroundContext.save()
+            }
         } catch {
             logger.error("Error in batch delete")
         }
@@ -116,9 +119,21 @@ extension AppSync {
 
 extension AppSync {
     private func applyTag(from wallabagEntry: WallabagEntry, to entry: Entry) {
-        wallabagEntry.tags?.forEach { wallabagTag in
-            guard let tag = self.tags[wallabagTag.id] else { return }
-            entry.tags.insert(tag)
+        let currentTags = entry.tags
+        let newTagIds = Set(wallabagEntry.tags?.map { $0.id } ?? [])
+
+        for wallabagTag in wallabagEntry.tags ?? [] {
+            if !currentTags.contains(where: { $0.id == wallabagTag.id }) {
+                if let tag = self.tags[wallabagTag.id] {
+                    entry.tags.insert(tag)
+                }
+            }
+        }
+
+        for tag in currentTags {
+            if !newTagIds.contains(tag.id) {
+                entry.tags.remove(tag)
+            }
         }
     }
 

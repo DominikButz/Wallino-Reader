@@ -55,3 +55,7 @@
 "Auto" = "Automatisch";
 "Light" = "Hell";
 "Dark" = "Dunkel";
+"Tags" = "Tags";
+"Selected tags" = "Selected tags";
+"No tags selected" = "No tags selected";
+"No more tags available" = "No more tags available";

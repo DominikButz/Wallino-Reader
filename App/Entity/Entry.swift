@@ -35,7 +35,7 @@ extension Entry {
     @NSManaged dynamic var url: String?
     @NSManaged dynamic var readingTime: Int
     @NSManaged dynamic var screenPosition: Float
-    @NSManaged var tags: Set<Tag>
+    @NSManaged dynamic var tags: Set<Tag>
 }
 
 extension Entry {
