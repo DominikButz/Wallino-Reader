@@ -12,6 +12,12 @@ final class TagsListViewModel {
     }
 
     var tags: [TagWithCount] = []
+    var search: String = ""
+
+    var filteredTags: [TagWithCount] {
+        guard !search.isEmpty else { return tags }
+        return tags.filter { $0.label.localizedCaseInsensitiveContains(search) }
+    }
 
     @ObservationIgnored
     @CoreDataViewContext var coreDataContext: NSManagedObjectContext

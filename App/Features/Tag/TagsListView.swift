@@ -8,7 +8,7 @@ struct TagsListView: View {
 
     var body: some View {
         List {
-            ForEach(viewModel.tags) { tagWithCount in
+            ForEach(viewModel.filteredTags) { tagWithCount in
                 Button(action: {
                     router.tagsPath.append(RoutePath.entriesForTag(tagWithCount.tag))
                 }, label: {
@@ -26,6 +26,7 @@ struct TagsListView: View {
                 .buttonStyle(.plain)
             }
         }
+        .searchable(text: $viewModel.search, prompt: "Search")
         .refreshable {
             appSync.requestSync()
             viewModel.load()

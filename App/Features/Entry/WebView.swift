@@ -193,24 +193,24 @@ import WebKit
 
 #endif
 
-struct WebView_Previews: PreviewProvider {
-    static var entry: Entry = {
-        let entry = Entry()
-        entry.title = "Test"
-        entry.content = "<p>Nice Content</p>"
-        return entry
-    }()
-
-    static var previews: some View {
-        Group {
-            WebView(
-                entry: entry, progress: .constant(0.5)
-            ).environmentObject(AppSetting())
-            .colorScheme(.light)
-            WebView(
-                entry: entry, progress: .constant(0.5)
-            ).environmentObject(AppSetting())
-            .colorScheme(.dark)
-        }
-    }
-}
+//struct WebView_Previews: PreviewProvider {
+//    static var entry: Entry = {
+//        let entry = Entry()
+//        entry.title = "Test"
+//        entry.content = "<p>Nice Content</p>"
+//        return entry
+//    }()
+//
+//    static var previews: some View {
+//        Group {
+//            WebView(
+//                entry: entry, progress: .constant(0.5)
+//            ).environmentObject(AppSetting())
+//            .colorScheme(.light)
+//            WebView(
+//                entry: entry, progress: .constant(0.5)
+//            ).environmentObject(AppSetting())
+//            .colorScheme(.dark)
+//        }
+//    }
+//}

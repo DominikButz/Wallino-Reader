@@ -26,7 +26,12 @@ struct EntryView: View {
         WebView(entry: entry, progress: $progress)
             .ignoresSafeArea()
             .safeAreaInset(edge: .top) {
-                ProgressView(value: max(0, min(progress, 1)), total: 1)
+                VStack(spacing: 0) {
+                    ProgressView(value: max(0, min(progress, 1)), total: 1)
+                    if !entry.tags.isEmpty && progress <= 0 {
+                        tagsView
+                    }
+                }
             }
             .addSwipeToBack {
                 dismiss()
@@ -85,6 +90,33 @@ struct EntryView: View {
     }
 
     @ViewBuilder
+    private var tagsView: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack {
+                ForEach(entry.tags.sorted(by: >)) { tag in
+                    HStack(spacing: 2) {
+                        Image(systemName: "tag")
+                        Text(tag.label)
+                    }
+                    .foregroundStyle(Color.primary)
+                    .padding(4)
+                    .background(
+                        Capsule()
+                            .fill(Color.gray.quaternary)
+                            .clipped()
+                    )
+                    .clipShape(Capsule())
+                    .font(.footnote)
+                }
+            }
+            .padding(.horizontal)
+        }
+        .padding(.leading, 5)
+        .padding(.top, 8)
+        .padding(.bottom, 16)
+    }
+
+    @ViewBuilder
     private var bottomBarButton: some View {
         Button(role: .destructive, action: {
             showDeleteConfirm = true
@@ -105,7 +137,7 @@ struct EntryView: View {
         Button(action: {
             showTag.toggle()
         }, label: {
-            Label("Tag", systemImage: showTag ? "tag.fill" : "tag")
+            Label("Tags", systemImage: showTag ? "tag.fill" : "tag")
         })
         Button(action: {
             appSync.refresh(entry: entry)
@@ -133,15 +165,17 @@ struct EntryView: View {
     }
 }
 
-//#if DEBUG
-//    struct EntryView_Previews: PreviewProvider {
-//        static var previews: some View {
-//            let coreData = Container.shared.coreData()
-//            EntryView(entry: Entry(context: coreData.viewContext))
-//            #if os(iOS)
-//                .environment(PlayerPublisher())
-//            #endif
-//                .environment(\.managedObjectContext, coreData.viewContext)
-//        }
-//    }
-//#endif
+#if DEBUG
+    struct EntryView_Previews: PreviewProvider {
+        static var previews: some View {
+            let coreData = Container.shared.coreData()
+            EntryView(entry: Entry(context: coreData.viewContext))
+                .environment(AppSync())
+                .environmentObject(AppSetting())
+            #if os(iOS)
+                .environment(PlayerPublisher())
+            #endif
+                .environment(\.managedObjectContext, coreData.viewContext)
+        }
+    }
+#endif

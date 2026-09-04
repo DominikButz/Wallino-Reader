@@ -9,7 +9,13 @@ final class TagsForEntryViewModel {
 
     var selectedTags: [Tag] = []
     var availableTags: [Tag] = []
+    var search: String = ""
     var isLoading = false
+
+    var filteredAvailableTags: [Tag] {
+        guard !search.isEmpty else { return availableTags }
+        return availableTags.filter { $0.label.localizedCaseInsensitiveContains(search) }
+    }
 
     @ObservationIgnored
     @CoreDataViewContext var coreDataContext: NSManagedObjectContext

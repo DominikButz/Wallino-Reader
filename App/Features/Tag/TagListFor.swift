@@ -51,11 +51,11 @@ struct TagListFor: View {
                 }
 
                 Section("Tags") {
-                    if viewModel.availableTags.isEmpty {
+                    if viewModel.filteredAvailableTags.isEmpty {
                         Text("No more tags available")
                             .foregroundStyle(.secondary)
                     } else {
-                        ForEach(viewModel.availableTags) { tag in
+                        ForEach(viewModel.filteredAvailableTags) { tag in
                             Button(action: {
                                 Task {
                                     await viewModel.toggle(tag: tag, for: entry)
@@ -70,10 +70,11 @@ struct TagListFor: View {
                     }
                 }
             }
+            .searchable(text: $viewModel.search, prompt: "Search")
             .task {
                 await viewModel.load(for: entry)
             }
-            .navigationTitle("Tag")
+            .navigationTitle("Tags")
             .navigationBarTitleDisplayMode(.large)
         }
     }
