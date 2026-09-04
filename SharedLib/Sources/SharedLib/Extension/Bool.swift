@@ -5,3 +5,4 @@ public extension Bool {
         self ? 1 : 0
     }
 }
+

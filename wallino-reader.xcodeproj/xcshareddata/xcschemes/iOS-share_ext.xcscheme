@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "09644ACD25C94825000FFDA1"
-               BuildableName = "bagit.appex"
-               BlueprintName = "bagit"
+               BuildableName = "iOS-share_ext.appex"
+               BlueprintName = "iOS-share_ext"
                ReferencedContainer = "container:wallabag.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -30,8 +30,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "09BFB28325C8348E00E12B4D"
-               BuildableName = "wallabag.app"
-               BlueprintName = "wallabag"
+               BuildableName = "Wallino Reader.app"
+               BlueprintName = "Wallino Reader"
                ReferencedContainer = "container:wallabag.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -72,8 +72,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "09BFB28325C8348E00E12B4D"
-            BuildableName = "wallabag.app"
-            BlueprintName = "wallabag"
+            BuildableName = "Wallino Reader.app"
+            BlueprintName = "Wallino Reader"
             ReferencedContainer = "container:wallabag.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -91,8 +91,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "09BFB28325C8348E00E12B4D"
-            BuildableName = "wallabag.app"
-            BlueprintName = "wallabag"
+            BuildableName = "Wallino Reader.app"
+            BlueprintName = "Wallino Reader"
             ReferencedContainer = "container:wallabag.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "09BFB28325C8348E00E12B4D"
-               BuildableName = "wallabag.app"
-               BlueprintName = "wallabag"
+               BuildableName = "Wallino Reader.app"
+               BlueprintName = "Wallino Reader"
                ReferencedContainer = "container:wallabag.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -77,8 +77,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "09BFB28325C8348E00E12B4D"
-            BuildableName = "wallabag.app"
-            BlueprintName = "wallabag"
+            BuildableName = "Wallino Reader.app"
+            BlueprintName = "Wallino Reader"
             ReferencedContainer = "container:wallabag.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -97,8 +97,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "09BFB28325C8348E00E12B4D"
-            BuildableName = "wallabag.app"
-            BlueprintName = "wallabag"
+            BuildableName = "Wallino Reader.app"
+            BlueprintName = "Wallino Reader"
             ReferencedContainer = "container:wallabag.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

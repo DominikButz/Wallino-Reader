@@ -5,7 +5,7 @@ public struct Password {
     private var keychain: KeychainPasswordItem
 
     public init() {
-        keychain = KeychainPasswordItem(service: "wallabag", account: "main", accessGroup: "group.wallabag.share_extension")
+        keychain = KeychainPasswordItem(service: "wallino-reader", account: "main", accessGroup: "group.com.duoyun.wallino-reader")
     }
 
     public var wrappedValue: String {

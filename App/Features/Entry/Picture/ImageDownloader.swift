@@ -6,7 +6,7 @@ import Foundation
     final class ImageDownloader {
         private var cacheStore = ImageCache.shared
 
-        private var dispatchQueue = DispatchQueue(label: "fr.district-web.wallabag.image-downloader", qos: .background)
+        private var dispatchQueue = DispatchQueue(label: "com.duoyun.wallino-reader.image-downloader", qos: .background)
 
         func loadImage(url: URL) async -> UIImage? {
             if let imageCache = await cacheStore[url.absoluteString] {

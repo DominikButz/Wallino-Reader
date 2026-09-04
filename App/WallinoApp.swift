@@ -4,10 +4,10 @@ import os
 import SharedLib
 import SwiftUI
 
-let logger = Logger(subsystem: "fr.district-web.wallabag", category: "main")
+let logger = Logger(subsystem: "com.duoyun.wallino-reader", category: "main")
 
 @main
-struct WallabagApp: App {
+struct WallinoApp: App {
     @Environment(\.scenePhase) var scenePhase
     #if os(iOS)
         @UIApplicationDelegateAdaptor(AppDelegate.self) private var appDelegate

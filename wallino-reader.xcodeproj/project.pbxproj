@@ -18,11 +18,11 @@
 		09564E0D2851C57200D39E95 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09564E0C2851C57200D39E95 /* SettingView.swift */; };
 		09644AD125C94825000FFDA1 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644AD025C94825000FFDA1 /* ShareViewController.swift */; };
 		09644AD425C94825000FFDA1 /* MainInterface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09644AD225C94825000FFDA1 /* MainInterface.storyboard */; };
-		09644AD825C94825000FFDA1 /* bagit.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 09644ACE25C94825000FFDA1 /* bagit.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		09644AD825C94825000FFDA1 /* iOS-share_ext.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 09644ACE25C94825000FFDA1 /* iOS-share_ext.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		09644AE325C94863000FFDA1 /* ShareExtensionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644AE225C94863000FFDA1 /* ShareExtensionError.swift */; };
 		09644AEA25C94879000FFDA1 /* ExtensionClass.js in Resources */ = {isa = PBXBuildFile; fileRef = 09644AE925C94879000FFDA1 /* ExtensionClass.js */; };
 		09644B0F25C94C6B000FFDA1 /* HTMLEntities in Frameworks */ = {isa = PBXBuildFile; productRef = 09644B0E25C94C6B000FFDA1 /* HTMLEntities */; };
-		09644B5725C9810A000FFDA1 /* WallabagApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644B5625C9810A000FFDA1 /* WallabagApp.swift */; };
+		09644B5725C9810A000FFDA1 /* WallinoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644B5625C9810A000FFDA1 /* WallinoApp.swift */; };
 		09644B5E25C98116000FFDA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644B5D25C98116000FFDA1 /* AppDelegate.swift */; };
 		09644B7E25C98152000FFDA1 /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644B7D25C98152000FFDA1 /* AppState.swift */; };
 		09644B8C25C98176000FFDA1 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644B8825C98176000FFDA1 /* Route.swift */; };
@@ -123,14 +123,14 @@
 			containerPortal = 09BFB27525C8348E00E12B4D /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 09BFB28325C8348E00E12B4D;
-			remoteInfo = "wallabag (iOS)";
+			remoteInfo = "Wallino Reader";
 		};
 		09644AD625C94825000FFDA1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 09BFB27525C8348E00E12B4D /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 09644ACD25C94825000FFDA1;
-			remoteInfo = bagit;
+			remoteInfo = "iOS-share_ext";
 		};
 /* End PBXContainerItemProxy section */
 
@@ -141,7 +141,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				09644AD825C94825000FFDA1 /* bagit.appex in Embed Foundation Extensions */,
+				09644AD825C94825000FFDA1 /* iOS-share_ext.appex in Embed Foundation Extensions */,
 			);
 			name = "Embed Foundation Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -165,14 +165,14 @@
 		094BE2B82B5E952C00DFBF5A /* TagSuggestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSuggestionViewModel.swift; sourceTree = "<group>"; };
 		0951C61729CC2EB000D8E8C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09564E0C2851C57200D39E95 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
-		09644ACE25C94825000FFDA1 /* bagit.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = bagit.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		09644ACE25C94825000FFDA1 /* iOS-share_ext.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = iOS-share_ext.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		09644AD025C94825000FFDA1 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
 		09644AD325C94825000FFDA1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/MainInterface.storyboard; sourceTree = "<group>"; };
 		09644AD525C94825000FFDA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09644AE225C94863000FFDA1 /* ShareExtensionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareExtensionError.swift; sourceTree = "<group>"; };
 		09644AE925C94879000FFDA1 /* ExtensionClass.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = ExtensionClass.js; sourceTree = "<group>"; };
-		09644AF025C9494D000FFDA1 /* bagit.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = bagit.entitlements; sourceTree = "<group>"; };
-		09644B5625C9810A000FFDA1 /* WallabagApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallabagApp.swift; sourceTree = "<group>"; };
+		09644AF025C9494D000FFDA1 /* iOS-share_extDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS-share_extDebug.entitlements; sourceTree = "<group>"; };
+		09644B5625C9810A000FFDA1 /* WallinoApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallinoApp.swift; sourceTree = "<group>"; };
 		09644B5D25C98116000FFDA1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09644B7D25C98152000FFDA1 /* AppState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		09644B8825C98176000FFDA1 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Route.swift; sourceTree = "<group>"; };
@@ -241,7 +241,7 @@
 		099CD12E2B5019F40029E94A /* WallabagStoreKit.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = WallabagStoreKit.storekit; sourceTree = "<group>"; };
 		099CD1302B501D950029E94A /* WallabagPlusStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallabagPlusStore.swift; sourceTree = "<group>"; };
 		099CD1362B516DA30029E94A /* WallabagPlusProtectedModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallabagPlusProtectedModifier.swift; sourceTree = "<group>"; };
-		09AD75962624F4E800708A1E /* wallabag.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wallabag.entitlements; sourceTree = "<group>"; };
+		09AD75962624F4E800708A1E /* wallino.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wallino.entitlements; sourceTree = "<group>"; };
 		09AD759D2624F93D00708A1E /* article.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = article.html; sourceTree = "<group>"; };
 		09AD759E2624F93D00708A1E /* main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = main.css; sourceTree = "<group>"; };
 		09AD759F2624F93D00708A1E /* ratatouille.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = ratatouille.css; sourceTree = "<group>"; };
@@ -263,7 +263,7 @@
 		09B8C3A72B27AF62002AEA2C /* SynthesisEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisEntryView.swift; sourceTree = "<group>"; };
 		09BCBBD3282BD46A00B234CB /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
 		09BE0AF32A9F45E900193FBF /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
-		09BFB28425C8348E00E12B4D /* wallabag.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = wallabag.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		09BFB28425C8348E00E12B4D /* Wallino Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wallino Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		09BFB28725C8348E00E12B4D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09FA20240000000000000001 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		81505C5A2B5DC21F003B5CDE /* WallabagIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallabagIntent.swift; sourceTree = "<group>"; };
@@ -271,6 +271,8 @@
 		B4B3F29330495FC1007633C9 /* EntriesForTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesForTagView.swift; sourceTree = "<group>"; };
 		B4B3F29A30496013007633C9 /* TagsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsListView.swift; sourceTree = "<group>"; };
 		B4B3F29B30496013007633C9 /* TagsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsListViewModel.swift; sourceTree = "<group>"; };
+		B4B3F2CB304AB3F8007633C9 /* wallinoDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wallinoDebug.entitlements; sourceTree = "<group>"; };
+		B4B3F2D0304AB4CA007633C9 /* iOS-share_ext.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS-share_ext.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -374,17 +376,18 @@
 			path = Tag;
 			sourceTree = "<group>";
 		};
-		09644ACF25C94825000FFDA1 /* bagit */ = {
+		09644ACF25C94825000FFDA1 /* iOS-share_ext */ = {
 			isa = PBXGroup;
 			children = (
-				09644AF025C9494D000FFDA1 /* bagit.entitlements */,
+				B4B3F2D0304AB4CA007633C9 /* iOS-share_ext.entitlements */,
+				09644AF025C9494D000FFDA1 /* iOS-share_extDebug.entitlements */,
 				09644AD025C94825000FFDA1 /* ShareViewController.swift */,
 				09644AD225C94825000FFDA1 /* MainInterface.storyboard */,
 				09644AD525C94825000FFDA1 /* Info.plist */,
 				09644AE225C94863000FFDA1 /* ShareExtensionError.swift */,
 				09644AE925C94879000FFDA1 /* ExtensionClass.js */,
 			);
-			path = bagit;
+			path = iOS-share_ext;
 			sourceTree = "<group>";
 		};
 		09644B1525C94CA6000FFDA1 /* Frameworks */ = {
@@ -734,12 +737,13 @@
 		09BFB27425C8348E00E12B4D = {
 			isa = PBXGroup;
 			children = (
+				B4B3F2CB304AB3F8007633C9 /* wallinoDebug.entitlements */,
 				097DD9022B4C0E78005D3930 /* openapi-generator-config.yaml */,
 				097DD9012B4C0E62005D3930 /* openapi.yaml */,
 				09B8C3A02B27AB5F002AEA2C /* Config.xcconfig */,
-				09AD75962624F4E800708A1E /* wallabag.entitlements */,
+				09AD75962624F4E800708A1E /* wallino.entitlements */,
 				81505C592B5DC209003B5CDE /* Intents */,
-				09644ACF25C94825000FFDA1 /* bagit */,
+				09644ACF25C94825000FFDA1 /* iOS-share_ext */,
 				09644B1525C94CA6000FFDA1 /* Frameworks */,
 				09BFB28625C8348E00E12B4D /* App */,
 				09BFB28525C8348E00E12B4D /* Products */,
@@ -750,8 +754,8 @@
 		09BFB28525C8348E00E12B4D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				09BFB28425C8348E00E12B4D /* wallabag.app */,
-				09644ACE25C94825000FFDA1 /* bagit.appex */,
+				09BFB28425C8348E00E12B4D /* Wallino Reader.app */,
+				09644ACE25C94825000FFDA1 /* iOS-share_ext.appex */,
 				094AA03B2629EB1F006E5605 /* wallabagTests.xctest */,
 			);
 			name = Products;
@@ -762,7 +766,7 @@
 			children = (
 				09BFB28725C8348E00E12B4D /* Info.plist */,
 				09644B5D25C98116000FFDA1 /* AppDelegate.swift */,
-				09644B5625C9810A000FFDA1 /* WallabagApp.swift */,
+				09644B5625C9810A000FFDA1 /* WallinoApp.swift */,
 				097F824C25CB1B17006C85F6 /* Entity */,
 				09644D1625C9874D000FFDA1 /* Extension */,
 				09644B8425C98161000FFDA1 /* Features */,
@@ -815,9 +819,9 @@
 			productReference = 094AA03B2629EB1F006E5605 /* wallabagTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		09644ACD25C94825000FFDA1 /* bagit */ = {
+		09644ACD25C94825000FFDA1 /* iOS-share_ext */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 09644ADC25C94825000FFDA1 /* Build configuration list for PBXNativeTarget "bagit" */;
+			buildConfigurationList = 09644ADC25C94825000FFDA1 /* Build configuration list for PBXNativeTarget "iOS-share_ext" */;
 			buildPhases = (
 				09644ACA25C94825000FFDA1 /* Sources */,
 				09644ACB25C94825000FFDA1 /* Frameworks */,
@@ -827,18 +831,18 @@
 			);
 			dependencies = (
 			);
-			name = bagit;
+			name = "iOS-share_ext";
 			packageProductDependencies = (
 				09AE6ECB29B13AAE0025DF93 /* WallabagKit */,
 				09800D8E29B9DEFE00DAB403 /* SharedLib */,
 			);
-			productName = bagit;
-			productReference = 09644ACE25C94825000FFDA1 /* bagit.appex */;
+			productName = "iOS-share_ext";
+			productReference = 09644ACE25C94825000FFDA1 /* iOS-share_ext.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
-		09BFB28325C8348E00E12B4D /* wallabag */ = {
+		09BFB28325C8348E00E12B4D /* Wallino Reader */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 09BFB2B225C8348E00E12B4D /* Build configuration list for PBXNativeTarget "wallabag" */;
+			buildConfigurationList = 09BFB2B225C8348E00E12B4D /* Build configuration list for PBXNativeTarget "Wallino Reader" */;
 			buildPhases = (
 				09BFB28025C8348E00E12B4D /* Sources */,
 				09BFB28125C8348E00E12B4D /* Frameworks */,
@@ -852,7 +856,7 @@
 				097DD9002B4C0E2A005D3930 /* PBXTargetDependency */,
 				09644AD725C94825000FFDA1 /* PBXTargetDependency */,
 			);
-			name = wallabag;
+			name = "Wallino Reader";
 			packageProductDependencies = (
 				09644B0E25C94C6B000FFDA1 /* HTMLEntities */,
 				09C34C7B29B1398B00B5C927 /* SharedLib */,
@@ -865,8 +869,8 @@
 				099CB2D52D458A1D00C1039A /* RevenueCat */,
 				099CB2DC2D458B3200C1039A /* RevenueCatUI */,
 			);
-			productName = "wallabag (iOS)";
-			productReference = 09BFB28425C8348E00E12B4D /* wallabag.app */;
+			productName = "Wallino Reader";
+			productReference = 09BFB28425C8348E00E12B4D /* Wallino Reader.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -925,8 +929,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				09BFB28325C8348E00E12B4D /* wallabag */,
-				09644ACD25C94825000FFDA1 /* bagit */,
+				09BFB28325C8348E00E12B4D /* Wallino Reader */,
+				09644ACD25C94825000FFDA1 /* iOS-share_ext */,
 				094AA03A2629EB1F006E5605 /* wallabagTests */,
 			);
 		};
@@ -1020,7 +1024,7 @@
 				0940869A2B684842000DA980 /* AddEntryModel.swift in Sources */,
 				09644D1825C98755000FFDA1 /* AppDelegateExtension.swift in Sources */,
 				09644BD825C9833E000FFDA1 /* DependencyInjection.swift in Sources */,
-				09644B5725C9810A000FFDA1 /* WallabagApp.swift in Sources */,
+				09644B5725C9810A000FFDA1 /* WallinoApp.swift in Sources */,
 				09644C6F25C985A9000FFDA1 /* EntryPictoImage.swift in Sources */,
 				09644C9E25C98615000FFDA1 /* MainView.swift in Sources */,
 				098BDD0829BF04E3003DF719 /* RouteSwiftUIExtension.swift in Sources */,
@@ -1100,13 +1104,13 @@
 /* Begin PBXTargetDependency section */
 		094AA0412629EB1F006E5605 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 09BFB28325C8348E00E12B4D /* wallabag */;
+			target = 09BFB28325C8348E00E12B4D /* Wallino Reader */;
 			targetProxy = 094AA0402629EB1F006E5605 /* PBXContainerItemProxy */;
 		};
 		09644AD725C94825000FFDA1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			platformFilter = ios;
-			target = 09644ACD25C94825000FFDA1 /* bagit */;
+			target = 09644ACD25C94825000FFDA1 /* iOS-share_ext */;
 			targetProxy = 09644AD625C94825000FFDA1 /* PBXContainerItemProxy */;
 		};
 		097DD9002B4C0E2A005D3930 /* PBXTargetDependency */ = {
@@ -1158,7 +1162,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "fr.district-web.wallabagTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.duoyun.wallino-readerTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1166,7 +1170,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/wallabag.app/wallabag";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wallino Reader.app/Wallino Reader";
 			};
 			name = Debug;
 		};
@@ -1182,7 +1186,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "fr.district-web.wallabagTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.duoyun.wallino-readerTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
@@ -1190,7 +1194,7 @@
 				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/wallabag.app/wallabag";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Wallino Reader.app/Wallino Reader";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -1198,17 +1202,17 @@
 		09644ADA25C94825000FFDA1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = bagit/bagit.entitlements;
+				CODE_SIGN_ENTITLEMENTS = iOS-share_ext/iOS-share_extDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 319;
-				DEVELOPMENT_TEAM = G97URPCGB8;
-				INFOPLIST_FILE = bagit/Info.plist;
+				DEVELOPMENT_TEAM = 76FXG652LY;
+				INFOPLIST_FILE = iOS-share_ext/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "fr.district-web.wallabag.bagit";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.duoyun.wallino-reader.debug.ios-share";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1220,17 +1224,17 @@
 		09644ADB25C94825000FFDA1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_ENTITLEMENTS = bagit/bagit.entitlements;
+				CODE_SIGN_ENTITLEMENTS = iOS-share_ext/iOS-share_ext.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 319;
-				DEVELOPMENT_TEAM = G97URPCGB8;
-				INFOPLIST_FILE = bagit/Info.plist;
+				DEVELOPMENT_TEAM = 76FXG652LY;
+				INFOPLIST_FILE = iOS-share_ext/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "fr.district-web.wallabag.bagit";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.duoyun.wallino-reader.ios-share";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -1369,7 +1373,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = wallabag.entitlements;
+				CODE_SIGN_ENTITLEMENTS = wallinoDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76FXG652LY;
 				ENABLE_HARDENED_RUNTIME = NO;
@@ -1380,8 +1384,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "fr.district-web.wallabag";
-				PRODUCT_NAME = wallabag;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.duoyun.wallino-reader.debug";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "com.duoyun.wallino-reader.debug";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = "com.duoyun.wallino-reader.debug";
+				PRODUCT_NAME = "Wallino Reader";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
@@ -1398,7 +1404,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = wallabag.entitlements;
+				CODE_SIGN_ENTITLEMENTS = wallino.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 76FXG652LY;
 				ENABLE_HARDENED_RUNTIME = NO;
@@ -1409,8 +1415,10 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "fr.district-web.wallabag";
-				PRODUCT_NAME = wallabag;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.duoyun.wallino-reader";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "com.duoyun.wallino-reader";
+				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = "com.duoyun.wallino-reader";
+				PRODUCT_NAME = "Wallino Reader";
 				SDKROOT = iphoneos;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
 				SUPPORTS_MACCATALYST = NO;
@@ -1434,7 +1442,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		09644ADC25C94825000FFDA1 /* Build configuration list for PBXNativeTarget "bagit" */ = {
+		09644ADC25C94825000FFDA1 /* Build configuration list for PBXNativeTarget "iOS-share_ext" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				09644ADA25C94825000FFDA1 /* Debug */,
@@ -1452,7 +1460,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		09BFB2B225C8348E00E12B4D /* Build configuration list for PBXNativeTarget "wallabag" */ = {
+		09BFB2B225C8348E00E12B4D /* Build configuration list for PBXNativeTarget "Wallino Reader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				09BFB2B325C8348E00E12B4D /* Debug */,
