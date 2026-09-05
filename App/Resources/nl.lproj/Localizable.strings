@@ -1,38 +1,55 @@
 
-
-
-"It is free and will remain so." = "Deze is gratis en zal zo blijven.";
-
-// Tip View
-"This application is developed on free time" = "Deze applicatie is ontwikkeld door vrijwilligers";
-
-// PasteBoard View
-"New url in pasteboard detected" = "Nieuwe URL opgemerkt in het klembord";
-"Read" = "Gelezen";
-"Unread" = "Ongelezen";
-"Starred" = "Favoriet";
+// Menu
+"Menu" = "Menu";
+"Entries" = "Items";
+"Add entry" = "Item toevoegen";
+"About" = "Over";
+"Don" = "Donatie";
+"Bug report" = "Foutrapport";
+"Setting" = "Instelling";
+"Logout" = "Afmelden";
 
 // Mode picker
 "All" = "Alle";
-"Logout" = "Afmelden";
-"Setting" = "Instelling";
-"Bug report" = "Foutrapport";
-"Tips" = "Tips";
-"About" = "Over";
-"Add entry" = "Item toevoegen";
+"Starred" = "Favoriet";
+"Unread" = "Ongelezen";
+"Read" = "Gelezen";
 
-// Menu
-"Menu" = "Menu";
+// PasteBoard View
+"New url in pasteboard detected" = "Nieuwe URL opgemerkt in het klembord";
+
+// Tip View
+"This application is developed on free time" = "Deze applicatie is ontwikkeld door vrijwilligers";
+"It is free and will remain so." = "Deze is gratis en zal zo blijven.";
+"But you can contribute financially by making a donation whenever you want to support the project." = "Maar u kunt ook financieel bijdragen door een donatie te doen u het project wilt steunen.";
+"Loading..." = "Laden...";
+"It seems impossible to make a payment." = "Het lijkt niet mogelijk om een betaling te doen. te betalen.";
 
 // Common
 "Submit" = "Verzenden";
-"Cancel" = "Annuleren";
-"Add" = "Toevoegen";
 "Back" = "Terug";
-"It seems impossible to make a payment." = "Het lijkt niet mogelijk om een betaling te doen. te betalen.";
-"Loading..." = "Laden...";
-"But you can contribute financially by making a donation whenever you want to support the project." = "Maar u kunt ook financieel bijdragen door een donatie te doen u het project wilt steunen.";
-"Entries" = "Items";
+"Add" = "Toevoegen";
+"Cancel" = "Annuleren";
+"Confirm delete?" = "Verwijderen bevestigen?";
+
+// Search
+"Search" = "Zoeken";
+
+// Picker
+"All" = "Alle";
+"Starred" = "Favoriet";
+"Unread" = "Ongelezen";
+"Read" = "Gelezen";
+
+// Entry
+"Reading time %@" = "Leestijd %@";
+
+// About
+"Project page" = "Projectpagina";
+"Made by Maxime Marinel @bourvill" = "Gemaakt door Maxime Marinel @bourvill";
+
+//Player
+"Select one entry" = "Selecteer een artikel";
 
 // Theme
 "Appearance" = "Weergave";
@@ -41,6 +58,64 @@
 "Light" = "Licht";
 "Dark" = "Donker";
 "Tags" = "Tags";
-"Selected tags" = "Selected tags";
-"No tags selected" = "No tags selected";
-"No more tags available" = "No more tags available";
+"Selected tags" = "Geselecteerde tags";
+"No tags selected" = "Geen tags geselecteerd";
+"No more tags available" = "Geen tags meer beschikbaar";
+
+// Share
+"Share URL" = "URL delen";
+"Share as PDF" = "Delen als PDF";
+
+// Additional UI strings
+"Log in" = "Inloggen";
+"Login" = "Gebruikersnaam";
+"Password" = "Wachtwoord";
+"Login & Password" = "Gebruikersnaam en wachtwoord";
+"Client id" = "Client-ID";
+"Client secret" = "Clientgeheim";
+"Client id & secret" = "Client-ID en -geheim";
+"Server" = "Server";
+"Next" = "Volgende";
+"Open documentation" = "Documentatie openen";
+"Report issue" = "Probleem melden";
+"Delete" = "Verwijderen";
+"Refresh" = "Vernieuwen";
+"Refres entries from server" = "Artikelen vernieuwen vanaf de server";
+"Refresh entries" = "Artikelen vernieuwen";
+"Settings" = "Instellingen";
+"Entries list" = "Artikellijst";
+"Default mode" = "Standaardmodus";
+"Notifications" = "Meldingen";
+"Show total entries badge" = "Badge met totaal aantal artikelen tonen";
+"Entry" = "Artikel";
+"Justify entry" = "Tekst uitvullen";
+"Sync" = "Synchronisatie";
+"Refresh on startup" = "Vernieuwen bij opstarten";
+"Show image in list" = "Afbeelding in lijst tonen";
+"Text size" = "Tekstgrootte";
+"Change entry text size" = "Tekstgrootte van artikel wijzigen";
+"Sort options" = "Sorteeropties";
+"Order by id" = "Sorteren op id";
+"Order by reading time" = "Sorteren op leestijd";
+"Sorting" = "Sortering";
+"Mark as read" = "Markeer als gelezen";
+"Mark as unread" = "Markeer als ongelezen";
+"Mark as favorite" = "Markeer als favoriet";
+"Unstar" = "Uit favorieten verwijderen";
+"Entry option" = "Artikelopties";
+"Open in Safari" = "In Safari openen";
+"Help assistant" = "Hulpassistent";
+"Suggest tag" = "Tag voorstellen";
+"Synthesis" = "Samenvatting";
+"Load entry" = "Artikel laden";
+"Load entry in text-to-speech player" = "Artikel laden in voorleesspeler";
+"Great! Entry was added" = "Geweldig! Artikel is toegevoegd";
+"Url" = "URL";
+"Submitting..." = "Verzenden…";
+"Tag suggestion" = "Tagsuggestie";
+"Your assistant is working" = "Je assistent is bezig";
+"New tag" = "Nieuwe tag";
+"Tag name" = "Tagnaam";
+"Thank you for your Tip!" = "Bedankt voor je fooi!";
+"Version %@ build %@" = "Versie %@ build %@";
+"Sorry, this feature require you subscribe to wallabag Plus" = "Sorry, voor deze functie moet je je abonneren op wallabag Plus";

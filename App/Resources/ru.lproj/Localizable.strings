@@ -1,45 +1,55 @@
 
-
-
+// Menu
+"Menu" = "Меню";
+"Entries" = "Записи";
+"Add entry" = "Добавить запись";
+"About" = "О приложении";
+"Don" = "Пожертвование";
+"Bug report" = "Отчёт об ошибке";
 "Setting" = "Настройки";
-"Tips" = "Подсказки";
-"Cancel" = "Отмена";
-"Add" = "Добавить";
-"Back" = "Назад";
-
-// Common
-"Submit" = "Отправить";
-"It seems impossible to make a payment." = "Похоже, платёж произвести невозможно.";
-"Loading..." = "…";
-"But you can contribute financially by making a donation whenever you want to support the project." = "Но вы можете внести финансовый вклад, сделав пожертвование, когда захотите поддержать проект.";
-"It is free and will remain so." = "Это бесплатно и таковым останется.";
-
-// Tip View
-"This application is developed on free time" = "Это приложение разрабатывается в свободное время";
-"Read" = "Прочитанные";
-"Unread" = "Непрочитанные";
-"Starred" = "Помеченные";
+"Logout" = "Выход";
 
 // Mode picker
 "All" = "Все";
-"Logout" = "Выход";
-"Bug report" = "Отчёт об ошибке";
-"About" = "О приложении";
-"Add entry" = "Добавить запись";
-"Entries" = "Записи";
+"Starred" = "Помеченные";
+"Unread" = "Непрочитанные";
+"Read" = "Прочитанные";
 
-// Menu
-"Menu" = "Меню";
-"Made by Maxime Marinel @bourvill" = "Сделано Максимом Маринелем @bourvill";
+// PasteBoard View
+"New url in pasteboard detected" = "Обнаружена новая ссылка в буфере обмена";
 
-// About
-"Project page" = "Страница проекта";
+// Tip View
+"This application is developed on free time" = "Это приложение разрабатывается в свободное время";
+"It is free and will remain so." = "Это бесплатно и таковым останется.";
+"But you can contribute financially by making a donation whenever you want to support the project." = "Но вы можете внести финансовый вклад, сделав пожертвование, когда захотите поддержать проект.";
+"Loading..." = "…";
+"It seems impossible to make a payment." = "Похоже, платёж произвести невозможно.";
+
+// Common
+"Submit" = "Отправить";
+"Back" = "Назад";
+"Add" = "Добавить";
+"Cancel" = "Отмена";
+"Confirm delete?" = "Подтвердить удаление?";
+
+// Search
+"Search" = "Поиск";
+
+// Picker
+"All" = "Все";
+"Starred" = "Помеченные";
+"Unread" = "Непрочитанные";
+"Read" = "Прочитанные";
 
 // Entry
 "Reading time %@" = "Время чтения %@";
 
-// Search
-"Search" = "Поиск";
+// About
+"Project page" = "Страница проекта";
+"Made by Maxime Marinel @bourvill" = "Сделано Максимом Маринелем @bourvill";
+
+//Player
+"Select one entry" = "Выберите статью";
 
 // Theme
 "Appearance" = "Оформление";
@@ -47,7 +57,65 @@
 "Auto" = "Автоматически";
 "Light" = "Светлая";
 "Dark" = "Темная";
-"Tags" = "Tags";
-"Selected tags" = "Selected tags";
-"No tags selected" = "No tags selected";
-"No more tags available" = "No more tags available";
+"Tags" = "Теги";
+"Selected tags" = "Выбранные теги";
+"No tags selected" = "Теги не выбраны";
+"No more tags available" = "Больше нет доступных тегов";
+
+// Share
+"Share URL" = "Поделиться ссылкой";
+"Share as PDF" = "Поделиться в формате PDF";
+
+// Additional UI strings
+"Log in" = "Войти";
+"Login" = "Логин";
+"Password" = "Пароль";
+"Login & Password" = "Логин и пароль";
+"Client id" = "ID клиента";
+"Client secret" = "Секрет клиента";
+"Client id & secret" = "ID и секрет клиента";
+"Server" = "Сервер";
+"Next" = "Далее";
+"Open documentation" = "Открыть документацию";
+"Report issue" = "Сообщить о проблеме";
+"Delete" = "Удалить";
+"Refresh" = "Обновить";
+"Refres entries from server" = "Обновить статьи с сервера";
+"Refresh entries" = "Обновить статьи";
+"Settings" = "Настройки";
+"Entries list" = "Список статей";
+"Default mode" = "Режим по умолчанию";
+"Notifications" = "Уведомления";
+"Show total entries badge" = "Показывать бейдж с количеством статей";
+"Entry" = "Статья";
+"Justify entry" = "Выравнивание по ширине";
+"Sync" = "Синхронизация";
+"Refresh on startup" = "Обновлять при запуске";
+"Show image in list" = "Показывать изображение в списке";
+"Text size" = "Размер текста";
+"Change entry text size" = "Изменить размер текста статьи";
+"Sort options" = "Параметры сортировки";
+"Order by id" = "Сортировать по ID";
+"Order by reading time" = "Сортировать по времени чтения";
+"Sorting" = "Сортировка";
+"Mark as read" = "Отметить как прочитанное";
+"Mark as unread" = "Отметить как непрочитанное";
+"Mark as favorite" = "Добавить в избранное";
+"Unstar" = "Убрать из избранного";
+"Entry option" = "Параметры статьи";
+"Open in Safari" = "Открыть в Safari";
+"Help assistant" = "Помощник";
+"Suggest tag" = "Предложить тег";
+"Synthesis" = "Краткое содержание";
+"Load entry" = "Загрузить статью";
+"Load entry in text-to-speech player" = "Загрузить статью в голосовой проигрыватель";
+"Great! Entry was added" = "Отлично! Статья добавлена";
+"Url" = "URL";
+"Submitting..." = "Отправка…";
+"Tag suggestion" = "Предложение тега";
+"Your assistant is working" = "Ваш помощник работает";
+"New tag" = "Новый тег";
+"Tag name" = "Название тега";
+"Thank you for your Tip!" = "Спасибо за чаевые!";
+"Version %@ build %@" = "Версия %@ сборка %@";
+"Sorry, this feature require you subscribe to wallabag Plus" = "К сожалению, эта функция требует подписки wallabag Plus";

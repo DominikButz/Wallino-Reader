@@ -15,6 +15,10 @@ struct EntryView: View {
     @State var showTag: Bool = false
     @State private var showDeleteConfirm = false
     @State private var progress = 0.0
+    #if os(iOS)
+        @State private var pdfShareFile: ShareableFile?
+        @State private var isGeneratingPDF = false
+    #endif
 
     #if os(iOS)
         let toolbarPlacement: ToolbarItemPlacement = .bottomBar
@@ -80,6 +84,11 @@ struct EntryView: View {
             TagListFor(entry: entry)
                 .presentationDetents([.medium, .large])
         }
+        #if os(iOS)
+            .sheet(item: $pdfShareFile) { file in
+                ActivityView(activityItems: [file.url])
+            }
+        #endif
         .toolbarBackground(.ultraThinMaterial, for: .bottomBar)
         .toolbarBackground(.visible, for: .bottomBar)
         .toolbar(.hidden, for: .tabBar)
@@ -131,9 +140,15 @@ struct EntryView: View {
         })
         if let url = entry.url?.url {
             ShareLink(item: url) {
-                Label("Share", systemImage: "square.and.arrow.up")
+                Label("Share URL", systemImage: "square.and.arrow.up")
             }
         }
+        #if os(iOS)
+            Button(action: shareAsPDF, label: {
+                Label("Share as PDF", systemImage: "doc.richtext")
+            })
+            .disabled(isGeneratingPDF)
+        #endif
         Button(action: {
             showTag.toggle()
         }, label: {
@@ -163,6 +178,29 @@ struct EntryView: View {
             .accessibilityHint("Load entry in text-to-speech player")
         #endif
     }
+
+    #if os(iOS)
+        private func shareAsPDF() {
+            guard !isGeneratingPDF else { return }
+            isGeneratingPDF = true
+
+            let articleHTML = entry.titleHtml + (entry.content ?? "")
+            Task { @MainActor in
+                defer { isGeneratingPDF = false }
+                do {
+                    let data = try await EntryPDFGenerator().generatePDF(articleHTML: articleHTML)
+                    let sanitizedTitle = (entry.title ?? "")
+                        .components(separatedBy: CharacterSet(charactersIn: "/\\:?%*|\"<>"))
+                        .joined()
+                        .trimmingCharacters(in: .whitespacesAndNewlines)
+                    let filename = "\(sanitizedTitle.isEmpty ? "article" : sanitizedTitle).pdf"
+                    let url = FileManager.default.temporaryDirectory.appendingPathComponent(filename)
+                    try data.write(to: url)
+                    pdfShareFile = ShareableFile(url: url)
+                } catch {}
+            }
+        }
+    #endif
 }
 
 #if DEBUG

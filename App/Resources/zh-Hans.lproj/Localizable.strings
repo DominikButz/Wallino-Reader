@@ -1,50 +1,52 @@
 
-
-
-"Cancel" = "取消";
-"Add" = "添加";
-"Back" = "返回";
-
-// Common
-"Submit" = "提交";
-"It seems impossible to make a payment." = "似乎无法完成支付。";
-"Loading..." = "加载中…";
-"But you can contribute financially by making a donation whenever you want to support the project." = "但不论何时只要你想支持这个项目，你都可以通过捐款来提供资金。";
-"It is free and will remain so." = "它是免费的，而且将一直如此。";
-
-// Tip View
-"This application is developed on free time" = "这个应用程序是在空闲时间开发的";
-
-// PasteBoard View
-"New url in pasteboard detected" = "检测到粘贴板中的新 url";
-"Read" = "已读";
-"Unread" = "未读";
-"Starred" = "标星";
+// Menu
+"Menu" = "菜单";
+"Entries" = "条目";
+"Add entry" = "添加条目";
+"About" = "关于";
+"Don" = "捐赠";
+"Bug report" = "Bug 报告";
+"Setting" = "设置";
+"Logout" = "退出";
 
 // Mode picker
 "All" = "全部";
-"Logout" = "退出";
-"Setting" = "设置";
-"Bug report" = "Bug 报告";
-"Tips" = "提示";
-"About" = "关于";
-"Add entry" = "添加条目";
-"Entries" = "条目";
+"Starred" = "标星";
+"Unread" = "未读";
+"Read" = "已读";
 
-// Menu
-"Menu" = "菜单";
-"Made by Maxime Marinel @bourvill" = "由 Maxime Marinel @bourvill 打造";
+// PasteBoard View
+"New url in pasteboard detected" = "检测到粘贴板中的新 url";
 
-// About
-"Project page" = "项目页面";
+// Tip View
+"This application is developed on free time" = "这个应用程序是在空闲时间开发的";
+"It is free and will remain so." = "它是免费的，而且将一直如此。";
+"But you can contribute financially by making a donation whenever you want to support the project." = "但不论何时只要你想支持这个项目，你都可以通过捐款来提供资金。";
+"Loading..." = "加载中…";
+"It seems impossible to make a payment." = "似乎无法完成支付。";
+
+// Common
+"Submit" = "提交";
+"Back" = "返回";
+"Add" = "添加";
+"Cancel" = "取消";
+"Confirm delete?" = "确认删除？";
+
+// Search
+"Search" = "搜索";
+
+// Picker
+"All" = "全部";
+"Starred" = "标星";
+"Unread" = "未读";
+"Read" = "已读";
 
 // Entry
 "Reading time %@" = "阅读时间 %@";
 
-// Search
-"Search" = "搜索";
-"Don" = "捐赠";
-"Confirm delete?" = "确认删除？";
+// About
+"Project page" = "项目页面";
+"Made by Maxime Marinel @bourvill" = "由 Maxime Marinel @bourvill 打造";
 
 //Player
 "Select one entry" = "选择一个条目";
@@ -55,7 +57,65 @@
 "Auto" = "自动";
 "Light" = "浅色";
 "Dark" = "深色";
-"Tags" = "Tags";
-"Selected tags" = "Selected tags";
-"No tags selected" = "No tags selected";
-"No more tags available" = "No more tags available";
+"Tags" = "标签";
+"Selected tags" = "已选标签";
+"No tags selected" = "未选择标签";
+"No more tags available" = "没有更多可用标签";
+
+// Share
+"Share URL" = "分享链接";
+"Share as PDF" = "以 PDF 分享";
+
+// Additional UI strings
+"Log in" = "登录";
+"Login" = "用户名";
+"Password" = "密码";
+"Login & Password" = "用户名和密码";
+"Client id" = "客户端 ID";
+"Client secret" = "客户端密钥";
+"Client id & secret" = "客户端 ID 和密钥";
+"Server" = "服务器";
+"Next" = "下一步";
+"Open documentation" = "打开文档";
+"Report issue" = "报告问题";
+"Delete" = "删除";
+"Refresh" = "刷新";
+"Refres entries from server" = "从服务器刷新文章";
+"Refresh entries" = "刷新文章";
+"Settings" = "设置";
+"Entries list" = "文章列表";
+"Default mode" = "默认模式";
+"Notifications" = "通知";
+"Show total entries badge" = "显示文章总数角标";
+"Entry" = "文章";
+"Justify entry" = "两端对齐";
+"Sync" = "同步";
+"Refresh on startup" = "启动时刷新";
+"Show image in list" = "在列表中显示图片";
+"Text size" = "文字大小";
+"Change entry text size" = "更改文章文字大小";
+"Sort options" = "排序选项";
+"Order by id" = "按 ID 排序";
+"Order by reading time" = "按阅读时间排序";
+"Sorting" = "排序";
+"Mark as read" = "标记为已读";
+"Mark as unread" = "标记为未读";
+"Mark as favorite" = "标记为收藏";
+"Unstar" = "取消收藏";
+"Entry option" = "文章选项";
+"Open in Safari" = "在 Safari 中打开";
+"Help assistant" = "帮助助手";
+"Suggest tag" = "推荐标签";
+"Synthesis" = "摘要";
+"Load entry" = "加载文章";
+"Load entry in text-to-speech player" = "在语音播放器中加载文章";
+"Great! Entry was added" = "太棒了！文章已添加";
+"Url" = "URL";
+"Submitting..." = "正在提交…";
+"Tag suggestion" = "标签建议";
+"Your assistant is working" = "您的助手正在工作";
+"New tag" = "新标签";
+"Tag name" = "标签名称";
+"Thank you for your Tip!" = "感谢您的小费！";
+"Version %@ build %@" = "版本 %@ 构建 %@";
+"Sorry, this feature require you subscribe to wallabag Plus" = "抱歉，此功能需要订阅 wallabag Plus";

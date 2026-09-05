@@ -1,48 +1,52 @@
 
+// Menu
+"Menu" = "Menü";
+"Entries" = "Girdiler";
+"Add entry" = "Girdi ekle";
+"About" = "Hakkında";
+"Don" = "Bağış";
+"Bug report" = "Hata raporu";
+"Setting" = "Ayarlar";
+"Logout" = "Çıkış yap";
 
-"Made by Maxime Marinel @bourvill" = "Maxime Marinel @bourvill tarafından hazırlandı";
+// Mode picker
+"All" = "Tümü";
+"Starred" = "Yıldızlılar";
+"Unread" = "Okunmamış";
+"Read" = "Okunmuş";
 
-// About
-"Project page" = "Proje sayfası";
+// PasteBoard View
+"New url in pasteboard detected" = "Panoda yeni link tespit edildi";
+
+// Tip View
+"This application is developed on free time" = "Bu uygulama serbest zamanlarımızda yapılmıştır";
+"It is free and will remain so." = "Ücretsizdir ve de öyle kalmaya devam edecektir.";
+"But you can contribute financially by making a donation whenever you want to support the project." = "Ama dilediğiniz miktarda bağış yaparak projeye destek verebilirsiniz.";
+"Loading..." = "Yükleniyor...";
+"It seems impossible to make a payment." = "Ödeme yapmanız şu an için mümkün değil gibi duruyor.";
+
+// Common
+"Submit" = "Gönder";
+"Back" = "Geri";
+"Add" = "Ekle";
+"Cancel" = "İptal et";
+"Confirm delete?" = "Silinsin mi?";
+
+// Search
+"Search" = "Ara";
+
+// Picker
+"All" = "Tümü";
+"Starred" = "Yıldızlılar";
+"Unread" = "Okunmamış";
+"Read" = "Okunmuş";
 
 // Entry
 "Reading time %@" = "Okuma süresi %@";
 
-// Search
-"Search" = "Ara";
-"Confirm delete?" = "Silinsin mi?";
-"Cancel" = "İptal et";
-"Add" = "Ekle";
-"Back" = "Geri";
-
-// Common
-"Submit" = "Gönder";
-"It seems impossible to make a payment." = "Ödeme yapmanız şu an için mümkün değil gibi duruyor.";
-"Loading..." = "Yükleniyor...";
-"But you can contribute financially by making a donation whenever you want to support the project." = "Ama dilediğiniz miktarda bağış yaparak projeye destek verebilirsiniz.";
-"It is free and will remain so." = "Ücretsizdir ve de öyle kalmaya devam edecektir.";
-
-// Tip View
-"This application is developed on free time" = "Bu uygulama serbest zamanlarımızda yapılmıştır";
-
-// PasteBoard View
-"New url in pasteboard detected" = "Panoda yeni link tespit edildi";
-"Read" = "Okunmuş";
-"Unread" = "Okunmamış";
-"Starred" = "Yıldızlılar";
-
-// Picker
-"All" = "Tümü";
-"Logout" = "Çıkış yap";
-"Setting" = "Ayarlar";
-"Bug report" = "Hata raporu";
-"Don" = "Bağış";
-"About" = "Hakkında";
-"Add entry" = "Girdi ekle";
-"Entries" = "Girdiler";
-
-// Menu
-"Menu" = "Menü";
+// About
+"Project page" = "Proje sayfası";
+"Made by Maxime Marinel @bourvill" = "Maxime Marinel @bourvill tarafından hazırlandı";
 
 //Player
 "Select one entry" = "Bir makale seçin";
@@ -53,7 +57,65 @@
 "Auto" = "Otomatik";
 "Light" = "Açık";
 "Dark" = "Koyu";
-"Tags" = "Tags";
-"Selected tags" = "Selected tags";
-"No tags selected" = "No tags selected";
-"No more tags available" = "No more tags available";
+"Tags" = "Etiketler";
+"Selected tags" = "Seçilen etiketler";
+"No tags selected" = "Etiket seçilmedi";
+"No more tags available" = "Başka etiket yok";
+
+// Share
+"Share URL" = "URL'yi paylaş";
+"Share as PDF" = "PDF olarak paylaş";
+
+// Additional UI strings
+"Log in" = "Giriş yap";
+"Login" = "Kullanıcı adı";
+"Password" = "Parola";
+"Login & Password" = "Kullanıcı adı ve parola";
+"Client id" = "İstemci kimliği";
+"Client secret" = "İstemci parolası";
+"Client id & secret" = "İstemci kimliği ve parolası";
+"Server" = "Sunucu";
+"Next" = "İleri";
+"Open documentation" = "Belgeleri aç";
+"Report issue" = "Sorun bildir";
+"Delete" = "Sil";
+"Refresh" = "Yenile";
+"Refres entries from server" = "Makaleleri sunucudan yenile";
+"Refresh entries" = "Makaleleri yenile";
+"Settings" = "Ayarlar";
+"Entries list" = "Makale listesi";
+"Default mode" = "Varsayılan mod";
+"Notifications" = "Bildirimler";
+"Show total entries badge" = "Toplam makale rozetini göster";
+"Entry" = "Makale";
+"Justify entry" = "Metni iki yana yasla";
+"Sync" = "Eşitleme";
+"Refresh on startup" = "Başlangıçta yenile";
+"Show image in list" = "Listede görseli göster";
+"Text size" = "Metin boyutu";
+"Change entry text size" = "Makale metin boyutunu değiştir";
+"Sort options" = "Sıralama seçenekleri";
+"Order by id" = "Kimliğe göre sırala";
+"Order by reading time" = "Okuma süresine göre sırala";
+"Sorting" = "Sıralama";
+"Mark as read" = "Okundu olarak işaretle";
+"Mark as unread" = "Okunmadı olarak işaretle";
+"Mark as favorite" = "Favori olarak işaretle";
+"Unstar" = "Favorilerden çıkar";
+"Entry option" = "Makale seçenekleri";
+"Open in Safari" = "Safari'de aç";
+"Help assistant" = "Yardım asistanı";
+"Suggest tag" = "Etiket öner";
+"Synthesis" = "Özet";
+"Load entry" = "Makaleyi yükle";
+"Load entry in text-to-speech player" = "Makaleyi metin okuma oynatıcısında yükle";
+"Great! Entry was added" = "Harika! Makale eklendi";
+"Url" = "URL";
+"Submitting..." = "Gönderiliyor…";
+"Tag suggestion" = "Etiket önerisi";
+"Your assistant is working" = "Asistanınız çalışıyor";
+"New tag" = "Yeni etiket";
+"Tag name" = "Etiket adı";
+"Thank you for your Tip!" = "Bahşişiniz için teşekkürler!";
+"Version %@ build %@" = "Sürüm %@ derleme %@";
+"Sorry, this feature require you subscribe to wallabag Plus" = "Üzgünüz, bu özellik wallabag Plus aboneliği gerektirir";

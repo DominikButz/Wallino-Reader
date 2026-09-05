@@ -1,0 +1,16 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="ratatouille.css" media="all">
+    <link rel="stylesheet" href="pdf.css" media="all">
+  </head>
+  <body>
+    <article> %@ </article>
+    <script>
+        var imgs = document.getElementsByTagName("img");
+        for (var i = 0; i < imgs.length; i++) {
+            imgs[i].removeAttribute("srcset");
+        }
+    </script>
+  </body>
+</html>

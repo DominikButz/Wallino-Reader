@@ -115,6 +115,10 @@
 		B4B3F29430495FC1007633C9 /* EntriesForTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B3F29330495FC1007633C9 /* EntriesForTagView.swift */; };
 		B4B3F29C30496013007633C9 /* TagsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B3F29B30496013007633C9 /* TagsListViewModel.swift */; };
 		B4B3F29D30496013007633C9 /* TagsListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B3F29A30496013007633C9 /* TagsListView.swift */; };
+		B4B3F2E1304C0000007633C9 /* EntryPDFGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B3F2E0304C0000007633C9 /* EntryPDFGenerator.swift */; };
+		B4B3F2E3304C0000007633C9 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B3F2E2304C0000007633C9 /* ActivityView.swift */; };
+		B4B3F2E5304C0000007633C9 /* article-pdf.html in Resources */ = {isa = PBXBuildFile; fileRef = B4B3F2E4304C0000007633C9 /* article-pdf.html */; };
+		B4B3F2E7304C0000007633C9 /* pdf.css in Resources */ = {isa = PBXBuildFile; fileRef = B4B3F2E6304C0000007633C9 /* pdf.css */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -273,6 +277,10 @@
 		B4B3F29B30496013007633C9 /* TagsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagsListViewModel.swift; sourceTree = "<group>"; };
 		B4B3F2CB304AB3F8007633C9 /* wallinoDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wallinoDebug.entitlements; sourceTree = "<group>"; };
 		B4B3F2D0304AB4CA007633C9 /* iOS-share_ext.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = iOS-share_ext.entitlements; sourceTree = "<group>"; };
+		B4B3F2E0304C0000007633C9 /* EntryPDFGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryPDFGenerator.swift; sourceTree = "<group>"; };
+		B4B3F2E2304C0000007633C9 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
+		B4B3F2E4304C0000007633C9 /* article-pdf.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "article-pdf.html"; sourceTree = "<group>"; };
+		B4B3F2E6304C0000007633C9 /* pdf.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = pdf.css; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -501,6 +509,7 @@
 			children = (
 				094086972B684837000DA980 /* Add */,
 				09644C7725C985AE000FFDA1 /* Picture */,
+				B4B3F2E8304C0000007633C9 /* PDF */,
 				09644C6725C9859C000FFDA1 /* UI */,
 				09644C5B25C98596000FFDA1 /* EntriesListView.swift */,
 				B4B3F29330495FC1007633C9 /* EntriesForTagView.swift */,
@@ -512,6 +521,14 @@
 			path = Entry;
 			sourceTree = "<group>";
 		};
+		B4B3F2E8304C0000007633C9 /* PDF */ = {
+			isa = PBXGroup;
+			children = (
+				B4B3F2E0304C0000007633C9 /* EntryPDFGenerator.swift */,
+			);
+			path = PDF;
+			sourceTree = "<group>";
+		};
 		09644C6725C9859C000FFDA1 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -520,6 +537,7 @@
 				09644C6A25C985A9000FFDA1 /* EntryPictoImage.swift */,
 				09644C6C25C985A9000FFDA1 /* FontSizeSelectorView.swift */,
 				09644C6825C985A9000FFDA1 /* StarEntryButton.swift */,
+				B4B3F2E2304C0000007633C9 /* ActivityView.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -704,6 +722,8 @@
 				09AD759E2624F93D00708A1E /* main.css */,
 				09AD759F2624F93D00708A1E /* ratatouille.css */,
 				09AD75A02624F93D00708A1E /* justify.css */,
+				B4B3F2E4304C0000007633C9 /* article-pdf.html */,
+				B4B3F2E6304C0000007633C9 /* pdf.css */,
 			);
 			path = "html-ressources";
 			sourceTree = "<group>";
@@ -966,6 +986,8 @@
 				09AD75A42624F93D00708A1E /* justify.css in Resources */,
 				0951C61829CC2EB000D8E8C6 /* Assets.xcassets in Resources */,
 				09AD75A22624F93D00708A1E /* main.css in Resources */,
+				B4B3F2E5304C0000007633C9 /* article-pdf.html in Resources */,
+				B4B3F2E7304C0000007633C9 /* pdf.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1089,6 +1111,8 @@
 				09644CFF25C9870C000FFDA1 /* TagsForEntryViewModel.swift in Sources */,
 				B4B3F29C30496013007633C9 /* TagsListViewModel.swift in Sources */,
 				B4B3F29D30496013007633C9 /* TagsListView.swift in Sources */,
+				B4B3F2E1304C0000007633C9 /* EntryPDFGenerator.swift in Sources */,
+				B4B3F2E3304C0000007633C9 /* ActivityView.swift in Sources */,
 				09644D1025C9872F000FFDA1 /* BundleKey.swift in Sources */,
 				81505C5B2B5DC21F003B5CDE /* WallabagIntent.swift in Sources */,
 				09644BAF25C98213000FFDA1 /* RefreshButton.swift in Sources */,

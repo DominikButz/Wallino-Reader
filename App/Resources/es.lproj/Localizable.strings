@@ -1,5 +1,54 @@
+
+// Menu
+"Menu" = "Menú";
+"Entries" = "Artículos";
+"Add entry" = "Añadir artículo";
+"About" = "Acerca de";
+"Don" = "Donación";
+"Bug report" = "Informe de error";
+"Setting" = "Configuración";
+"Logout" = "Cerrar sesión";
+
+// Mode picker
+"All" = "Todos";
+"Starred" = "Favoritos";
+"Unread" = "No leídos";
+"Read" = "Leídos";
+
+// PasteBoard View
+"New url in pasteboard detected" = "Nueva URL detectada en el portapapeles";
+
 // Tip View
 "This application is developed on free time" = "Esta aplicación se desarrolla en tiempo libre.";
+"It is free and will remain so." = "Es gratuita y lo seguirá siendo.";
+"But you can contribute financially by making a donation whenever you want to support the project." = "Pero puede contribuir económicamente haciendo una donación cuando quiera apoyar el proyecto.";
+"Loading..." = "Cargando…";
+"It seems impossible to make a payment." = "Parece imposible realizar un pago.";
+
+// Common
+"Submit" = "Enviar";
+"Back" = "Atrás";
+"Add" = "Añadir";
+"Cancel" = "Cancelar";
+"Confirm delete?" = "¿Confirmar eliminación?";
+
+// Search
+"Search" = "Buscar";
+
+// Picker
+"All" = "Todos";
+"Starred" = "Favoritos";
+"Unread" = "No leídos";
+"Read" = "Leídos";
+
+// Entry
+"Reading time %@" = "Tiempo de lectura %@";
+
+// About
+"Project page" = "Página del proyecto";
+"Made by Maxime Marinel @bourvill" = "Hecho por Maxime Marinel @bourvill";
+
+//Player
 "Select one entry" = "Selecciona una entrada";
 
 // Theme
@@ -8,12 +57,65 @@
 "Auto" = "Automático";
 "Light" = "Claro";
 "Dark" = "Oscuro";
-"Setting" = "Configuración";
-"About" = "Acerca de";
+"Tags" = "Etiquetas";
+"Selected tags" = "Etiquetas seleccionadas";
+"No tags selected" = "No hay etiquetas seleccionadas";
+"No more tags available" = "No hay más etiquetas disponibles";
 
-// Menu
-"Menu" = "Menú";
-"Tags" = "Tags";
-"Selected tags" = "Selected tags";
-"No tags selected" = "No tags selected";
-"No more tags available" = "No more tags available";
+// Share
+"Share URL" = "Compartir URL";
+"Share as PDF" = "Compartir como PDF";
+
+// Additional UI strings
+"Log in" = "Iniciar sesión";
+"Login" = "Usuario";
+"Password" = "Contraseña";
+"Login & Password" = "Usuario y contraseña";
+"Client id" = "ID de cliente";
+"Client secret" = "Secreto de cliente";
+"Client id & secret" = "ID y secreto de cliente";
+"Server" = "Servidor";
+"Next" = "Siguiente";
+"Open documentation" = "Abrir documentación";
+"Report issue" = "Informar de un problema";
+"Delete" = "Eliminar";
+"Refresh" = "Actualizar";
+"Refres entries from server" = "Actualizar artículos desde el servidor";
+"Refresh entries" = "Actualizar artículos";
+"Settings" = "Ajustes";
+"Entries list" = "Lista de artículos";
+"Default mode" = "Modo por defecto";
+"Notifications" = "Notificaciones";
+"Show total entries badge" = "Mostrar insignia del total de artículos";
+"Entry" = "Artículo";
+"Justify entry" = "Justificar texto";
+"Sync" = "Sincronización";
+"Refresh on startup" = "Actualizar al iniciar";
+"Show image in list" = "Mostrar imagen en la lista";
+"Text size" = "Tamaño del texto";
+"Change entry text size" = "Cambiar el tamaño del texto del artículo";
+"Sort options" = "Opciones de orden";
+"Order by id" = "Ordenar por id";
+"Order by reading time" = "Ordenar por tiempo de lectura";
+"Sorting" = "Orden";
+"Mark as read" = "Marcar como leído";
+"Mark as unread" = "Marcar como no leído";
+"Mark as favorite" = "Marcar como favorito";
+"Unstar" = "Quitar de favoritos";
+"Entry option" = "Opciones del artículo";
+"Open in Safari" = "Abrir en Safari";
+"Help assistant" = "Asistente de ayuda";
+"Suggest tag" = "Sugerir etiqueta";
+"Synthesis" = "Síntesis";
+"Load entry" = "Cargar artículo";
+"Load entry in text-to-speech player" = "Cargar artículo en el reproductor de voz";
+"Great! Entry was added" = "¡Genial! Se añadió el artículo";
+"Url" = "URL";
+"Submitting..." = "Enviando…";
+"Tag suggestion" = "Sugerencia de etiqueta";
+"Your assistant is working" = "Tu asistente está trabajando";
+"New tag" = "Nueva etiqueta";
+"Tag name" = "Nombre de la etiqueta";
+"Thank you for your Tip!" = "¡Gracias por tu propina!";
+"Version %@ build %@" = "Versión %@ compilación %@";
+"Sorry, this feature require you subscribe to wallabag Plus" = "Lo sentimos, esta función requiere suscribirse a wallabag Plus";

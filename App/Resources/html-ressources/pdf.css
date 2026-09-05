@@ -1,0 +1,54 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: #FFF;
+  color: #000;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+article {
+  padding: 0;
+}
+
+article h1 {
+  font-size: 1.6em;
+  line-height: 1.25;
+  margin: 0 0 0.8em;
+  font-weight: 700;
+}
+
+article h2,
+article h3,
+article h4,
+article h5,
+article h6 {
+  line-height: 1.3;
+}
+
+article img {
+  max-width: 100%;
+  height: auto;
+}
+
+article a {
+  color: #000;
+  text-decoration: underline;
+}
+
+article pre,
+article code {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+article blockquote {
+  margin: 0;
+  padding: 0.5em 1em;
+  border-left: 3px solid #CCC;
+}

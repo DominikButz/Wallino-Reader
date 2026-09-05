@@ -1,47 +1,55 @@
 
-
-
-// Common
-"Submit" = "送信";
-
-// Search
-"Search" = "検索";
-"Cancel" = "キャンセル";
-"Add" = "追加";
-"Back" = "戻る";
-"Read" = "既読";
-"Unread" = "未読";
-
-// Picker
-"All" = "全て";
-"Logout" = "ログアウト";
-"Bug report" = "バグを報告";
-"About" = "アプリについて";
-"Add entry" = "記事を追加";
-"Entries" = "記事";
-"Setting" = "設定";
-
 // Menu
 "Menu" = "メニュー";
-"It seems impossible to make a payment." = "決済を行うことができないようです。";
+"Entries" = "記事";
+"Add entry" = "記事を追加";
+"About" = "アプリについて";
+"Don" = "寄付";
+"Bug report" = "バグを報告";
+"Setting" = "設定";
+"Logout" = "ログアウト";
 
-// Entry
-"Reading time %@" = "推定読書時間 %@";
-"But you can contribute financially by making a donation whenever you want to support the project." = "しかし、このアプリが素晴らしいと思った場合は寄付をすることで、このプロジェクトを金銭的に支援することができます。";
-"It is free and will remain so." = "このアプリは今後もずっと無料で利用可能です。";
-
-// Tip View
-"This application is developed on free time" = "このアプリは作製者の自由時間に開発されています。";
+// Mode picker
+"All" = "全て";
+"Starred" = "スター";
+"Unread" = "未読";
+"Read" = "既読";
 
 // PasteBoard View
 "New url in pasteboard detected" = "クリップボードに新しい URL を検出しました";
-"Made by Maxime Marinel @bourvill" = "作成者: Maxime Marinel @bourvill";
+
+// Tip View
+"This application is developed on free time" = "このアプリは作製者の自由時間に開発されています。";
+"It is free and will remain so." = "このアプリは今後もずっと無料で利用可能です。";
+"But you can contribute financially by making a donation whenever you want to support the project." = "しかし、このアプリが素晴らしいと思った場合は寄付をすることで、このプロジェクトを金銭的に支援することができます。";
+"Loading..." = "読み込み中...";
+"It seems impossible to make a payment." = "決済を行うことができないようです。";
+
+// Common
+"Submit" = "送信";
+"Back" = "戻る";
+"Add" = "追加";
+"Cancel" = "キャンセル";
+"Confirm delete?" = "削除してもよろしいですか？";
+
+// Search
+"Search" = "検索";
+
+// Picker
+"All" = "全て";
+"Starred" = "スター";
+"Unread" = "未読";
+"Read" = "既読";
+
+// Entry
+"Reading time %@" = "推定読書時間 %@";
 
 // About
 "Project page" = "プロジェクトページ";
-"Loading..." = "読み込み中...";
-"Don" = "寄付";
-"Starred" = "スター";
+"Made by Maxime Marinel @bourvill" = "作成者: Maxime Marinel @bourvill";
+
+//Player
+"Select one entry" = "記事を選択してください";
 
 // Theme
 "Appearance" = "外観";
@@ -49,7 +57,65 @@
 "Auto" = "自動";
 "Light" = "ライト";
 "Dark" = "ダーク";
-"Tags" = "Tags";
-"Selected tags" = "Selected tags";
-"No tags selected" = "No tags selected";
-"No more tags available" = "No more tags available";
+"Tags" = "タグ";
+"Selected tags" = "選択したタグ";
+"No tags selected" = "タグが選択されていません";
+"No more tags available" = "利用可能なタグはありません";
+
+// Share
+"Share URL" = "URLを共有";
+"Share as PDF" = "PDFとして共有";
+
+// Additional UI strings
+"Log in" = "ログイン";
+"Login" = "ログイン";
+"Password" = "パスワード";
+"Login & Password" = "ログインとパスワード";
+"Client id" = "クライアントID";
+"Client secret" = "クライアントシークレット";
+"Client id & secret" = "クライアントIDとシークレット";
+"Server" = "サーバー";
+"Next" = "次へ";
+"Open documentation" = "ドキュメントを開く";
+"Report issue" = "問題を報告";
+"Delete" = "削除";
+"Refresh" = "更新";
+"Refres entries from server" = "サーバーから記事を更新";
+"Refresh entries" = "記事を更新";
+"Settings" = "設定";
+"Entries list" = "記事一覧";
+"Default mode" = "デフォルトモード";
+"Notifications" = "通知";
+"Show total entries badge" = "記事数のバッジを表示";
+"Entry" = "記事";
+"Justify entry" = "両端揃え";
+"Sync" = "同期";
+"Refresh on startup" = "起動時に更新";
+"Show image in list" = "一覧に画像を表示";
+"Text size" = "文字サイズ";
+"Change entry text size" = "記事の文字サイズを変更";
+"Sort options" = "並び替えオプション";
+"Order by id" = "IDで並び替え";
+"Order by reading time" = "読了時間で並び替え";
+"Sorting" = "並び替え";
+"Mark as read" = "既読にする";
+"Mark as unread" = "未読にする";
+"Mark as favorite" = "お気に入りに追加";
+"Unstar" = "お気に入りから削除";
+"Entry option" = "記事のオプション";
+"Open in Safari" = "Safariで開く";
+"Help assistant" = "ヘルプアシスタント";
+"Suggest tag" = "タグを提案";
+"Synthesis" = "要約";
+"Load entry" = "記事を読み込む";
+"Load entry in text-to-speech player" = "読み上げプレーヤーで記事を読み込む";
+"Great! Entry was added" = "記事が追加されました";
+"Url" = "URL";
+"Submitting..." = "送信中…";
+"Tag suggestion" = "タグの提案";
+"Your assistant is working" = "アシスタントが作業中です";
+"New tag" = "新しいタグ";
+"Tag name" = "タグ名";
+"Thank you for your Tip!" = "チップをありがとうございます！";
+"Version %@ build %@" = "バージョン %@ ビルド %@";
+"Sorry, this feature require you subscribe to wallabag Plus" = "この機能にはwallabag Plusへの登録が必要です";

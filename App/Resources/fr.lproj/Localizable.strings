@@ -3,33 +3,34 @@
 "Menu" = "Menu";
 "Entries" = "Articles";
 "Add entry" = "Ajouter un article";
-
-// Common
-"Back" = "Retour";
-"Submit" = "Soumettre";
-"Cancel" = "Annuler";
-"Add" = "Ajouter";
-"It seems impossible to make a payment." = "Il semble impossible d'effectuer un paiement.";
-"Loading..." = "Chargement…";
-"But you can contribute financially by making a donation whenever you want to support the project." = "Mais vous pouvez contribuer financièrement en faisant un don chaque fois que vous souhaitez soutenir le projet.";
-"It is free and will remain so." = "Elle est gratuite et le restera.";
-
-// Tip View
-"This application is developed on free time" = "Cette application est développée sur le temps libre";
-
-// PasteBoard View
-"New url in pasteboard detected" = "Nouvelle URL détectée dans le presse-papier";
-"Read" = "Lus";
+"About" = "À propos";
+"Don" = "Don";
+"Bug report" = "Rapport d'erreur";
+"Setting" = "Paramètres";
+"Logout" = "Se déconnecter";
 
 // Mode picker
 "All" = "Tous";
-"Unread" = "Non lus";
 "Starred" = "Favoris";
-"Logout" = "Se déconnecter";
-"Setting" = "Paramètres";
-"Bug report" = "Rapport d'erreur";
-"Don" = "Don";
-"About" = "À propos";
+"Unread" = "Non lus";
+"Read" = "Lus";
+
+// PasteBoard View
+"New url in pasteboard detected" = "Nouvelle URL détectée dans le presse-papier";
+
+// Tip View
+"This application is developed on free time" = "Cette application est développée sur le temps libre";
+"It is free and will remain so." = "Elle est gratuite et le restera.";
+"But you can contribute financially by making a donation whenever you want to support the project." = "Mais vous pouvez contribuer financièrement en faisant un don chaque fois que vous souhaitez soutenir le projet.";
+"Loading..." = "Chargement…";
+"It seems impossible to make a payment." = "Il semble impossible d'effectuer un paiement.";
+
+// Common
+"Submit" = "Soumettre";
+"Back" = "Retour";
+"Add" = "Ajouter";
+"Cancel" = "Annuler";
+"Confirm delete?" = "Confirmer la suppression ?";
 
 // Search
 "Search" = "Rechercher";
@@ -49,11 +50,6 @@
 
 //Player
 "Select one entry" = "Sélectionnez une entrée";
-"Confirm delete?" = "Confirmer la suppression ?";
-
-"Order by id" = "Trier par id";
-"Order by reading time" = "Trier par temps de lecture";
-"Sorting" = "Tri";
 
 // Theme
 "Appearance" = "Apparence";
@@ -62,6 +58,64 @@
 "Light" = "Clair";
 "Dark" = "Sombre";
 "Tags" = "Tags";
-"Selected tags" = "Selected tags";
-"No tags selected" = "No tags selected";
-"No more tags available" = "No more tags available";
+"Selected tags" = "Tags sélectionnés";
+"No tags selected" = "Aucun tag sélectionné";
+"No more tags available" = "Plus aucun tag disponible";
+
+// Share
+"Share URL" = "Partager l'URL";
+"Share as PDF" = "Partager en PDF";
+
+// Additional UI strings
+"Log in" = "Se connecter";
+"Login" = "Identifiant";
+"Password" = "Mot de passe";
+"Login & Password" = "Identifiant et mot de passe";
+"Client id" = "Identifiant client";
+"Client secret" = "Secret client";
+"Client id & secret" = "Identifiant et secret client";
+"Server" = "Serveur";
+"Next" = "Suivant";
+"Open documentation" = "Ouvrir la documentation";
+"Report issue" = "Signaler un problème";
+"Delete" = "Supprimer";
+"Refresh" = "Actualiser";
+"Refres entries from server" = "Actualiser les articles depuis le serveur";
+"Refresh entries" = "Actualiser les articles";
+"Settings" = "Réglages";
+"Entries list" = "Liste des articles";
+"Default mode" = "Mode par défaut";
+"Notifications" = "Notifications";
+"Show total entries badge" = "Afficher le badge du nombre d'articles";
+"Entry" = "Article";
+"Justify entry" = "Justifier le texte";
+"Sync" = "Synchronisation";
+"Refresh on startup" = "Actualiser au démarrage";
+"Show image in list" = "Afficher l'image dans la liste";
+"Text size" = "Taille du texte";
+"Change entry text size" = "Modifier la taille du texte de l'article";
+"Sort options" = "Options de tri";
+"Order by id" = "Trier par id";
+"Order by reading time" = "Trier par temps de lecture";
+"Sorting" = "Tri";
+"Mark as read" = "Marquer comme lu";
+"Mark as unread" = "Marquer comme non lu";
+"Mark as favorite" = "Marquer comme favori";
+"Unstar" = "Retirer des favoris";
+"Entry option" = "Options de l'article";
+"Open in Safari" = "Ouvrir dans Safari";
+"Help assistant" = "Assistant d'aide";
+"Suggest tag" = "Suggérer un tag";
+"Synthesis" = "Synthèse";
+"Load entry" = "Charger l'article";
+"Load entry in text-to-speech player" = "Charger l'article dans le lecteur de synthèse vocale";
+"Great! Entry was added" = "Super ! L'article a été ajouté";
+"Url" = "URL";
+"Submitting..." = "Envoi en cours…";
+"Tag suggestion" = "Suggestion de tag";
+"Your assistant is working" = "Votre assistant travaille";
+"New tag" = "Nouveau tag";
+"Tag name" = "Nom du tag";
+"Thank you for your Tip!" = "Merci pour votre pourboire !";
+"Version %@ build %@" = "Version %@ build %@";
+"Sorry, this feature require you subscribe to wallabag Plus" = "Désolé, cette fonctionnalité nécessite de souscrire à wallabag Plus";

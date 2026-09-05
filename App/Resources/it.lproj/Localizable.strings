@@ -1,38 +1,55 @@
 
-
-
-"Cancel" = "Annulla";
-"Add" = "Aggiungi";
-"Back" = "Indietro";
-
-// Common
-"Submit" = "Invia";
-"It seems impossible to make a payment." = "Sembra impossibile effettuare un pagamento.";
-"Loading..." = "Caricamento…";
-"But you can contribute financially by making a donation whenever you want to support the project." = "Ma puoi contribuire finanziariamente facendo una donazione ogni volta che vuoi sostenere il progetto.";
-"It is free and will remain so." = "È gratuita e lo rimarrà.";
-
-// Tip View
-"This application is developed on free time" = "Questa applicazione è sviluppata nel tempo libero";
-
-// PasteBoard View
-"New url in pasteboard detected" = "Rilevato nuovo URL negli appunti";
-"Read" = "Letti";
-"Unread" = "Non letti";
-"Starred" = "Preferiti";
+// Menu
+"Menu" = "Menù";
+"Entries" = "Articoli";
+"Add entry" = "Aggiungi un articolo";
+"About" = "Informazioni";
+"Don" = "Donazione";
+"Bug report" = "Segnalazione di errore";
+"Setting" = "Impostazione";
+"Logout" = "Esci";
 
 // Mode picker
 "All" = "Tutti";
-"Logout" = "Esci";
-"Setting" = "Impostazione";
-"Bug report" = "Segnalazione di errore";
-"Tips" = "Suggerimenti";
-"About" = "Informazioni";
-"Add entry" = "Aggiungi un articolo";
-"Entries" = "Articoli";
+"Starred" = "Preferiti";
+"Unread" = "Non letti";
+"Read" = "Letti";
 
-// Menu
-"Menu" = "Menù";
+// PasteBoard View
+"New url in pasteboard detected" = "Rilevato nuovo URL negli appunti";
+
+// Tip View
+"This application is developed on free time" = "Questa applicazione è sviluppata nel tempo libero";
+"It is free and will remain so." = "È gratuita e lo rimarrà.";
+"But you can contribute financially by making a donation whenever you want to support the project." = "Ma puoi contribuire finanziariamente facendo una donazione ogni volta che vuoi sostenere il progetto.";
+"Loading..." = "Caricamento…";
+"It seems impossible to make a payment." = "Sembra impossibile effettuare un pagamento.";
+
+// Common
+"Submit" = "Invia";
+"Back" = "Indietro";
+"Add" = "Aggiungi";
+"Cancel" = "Annulla";
+"Confirm delete?" = "Confermare l'eliminazione?";
+
+// Search
+"Search" = "Cerca";
+
+// Picker
+"All" = "Tutti";
+"Starred" = "Preferiti";
+"Unread" = "Non letti";
+"Read" = "Letti";
+
+// Entry
+"Reading time %@" = "Tempo di lettura %@";
+
+// About
+"Project page" = "Pagina del progetto";
+"Made by Maxime Marinel @bourvill" = "Creato da Maxime Marinel @bourvill";
+
+//Player
+"Select one entry" = "Seleziona un articolo";
 
 // Theme
 "Appearance" = "Aspetto";
@@ -40,7 +57,65 @@
 "Auto" = "Automatico";
 "Light" = "Chiaro";
 "Dark" = "Scuro";
-"Tags" = "Tags";
-"Selected tags" = "Selected tags";
-"No tags selected" = "No tags selected";
-"No more tags available" = "No more tags available";
+"Tags" = "Tag";
+"Selected tags" = "Tag selezionati";
+"No tags selected" = "Nessun tag selezionato";
+"No more tags available" = "Nessun altro tag disponibile";
+
+// Share
+"Share URL" = "Condividi URL";
+"Share as PDF" = "Condividi come PDF";
+
+// Additional UI strings
+"Log in" = "Accedi";
+"Login" = "Nome utente";
+"Password" = "Password";
+"Login & Password" = "Nome utente e password";
+"Client id" = "ID client";
+"Client secret" = "Segreto client";
+"Client id & secret" = "ID e segreto client";
+"Server" = "Server";
+"Next" = "Avanti";
+"Open documentation" = "Apri la documentazione";
+"Report issue" = "Segnala un problema";
+"Delete" = "Elimina";
+"Refresh" = "Aggiorna";
+"Refres entries from server" = "Aggiorna gli articoli dal server";
+"Refresh entries" = "Aggiorna gli articoli";
+"Settings" = "Impostazioni";
+"Entries list" = "Elenco articoli";
+"Default mode" = "Modalità predefinita";
+"Notifications" = "Notifiche";
+"Show total entries badge" = "Mostra badge numero articoli";
+"Entry" = "Articolo";
+"Justify entry" = "Giustifica il testo";
+"Sync" = "Sincronizzazione";
+"Refresh on startup" = "Aggiorna all'avvio";
+"Show image in list" = "Mostra immagine nell'elenco";
+"Text size" = "Dimensione del testo";
+"Change entry text size" = "Cambia la dimensione del testo dell'articolo";
+"Sort options" = "Opzioni di ordinamento";
+"Order by id" = "Ordina per id";
+"Order by reading time" = "Ordina per tempo di lettura";
+"Sorting" = "Ordinamento";
+"Mark as read" = "Segna come letto";
+"Mark as unread" = "Segna come non letto";
+"Mark as favorite" = "Segna come preferito";
+"Unstar" = "Rimuovi dai preferiti";
+"Entry option" = "Opzioni articolo";
+"Open in Safari" = "Apri in Safari";
+"Help assistant" = "Assistente";
+"Suggest tag" = "Suggerisci tag";
+"Synthesis" = "Sintesi";
+"Load entry" = "Carica articolo";
+"Load entry in text-to-speech player" = "Carica articolo nel lettore vocale";
+"Great! Entry was added" = "Ottimo! Articolo aggiunto";
+"Url" = "URL";
+"Submitting..." = "Invio in corso…";
+"Tag suggestion" = "Suggerimento tag";
+"Your assistant is working" = "Il tuo assistente sta lavorando";
+"New tag" = "Nuovo tag";
+"Tag name" = "Nome del tag";
+"Thank you for your Tip!" = "Grazie per la tua mancia!";
+"Version %@ build %@" = "Versione %@ build %@";
+"Sorry, this feature require you subscribe to wallabag Plus" = "Spiacenti, questa funzione richiede l'abbonamento a wallabag Plus";

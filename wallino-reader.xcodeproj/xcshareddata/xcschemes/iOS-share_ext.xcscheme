@@ -18,7 +18,7 @@
                BlueprintIdentifier = "09644ACD25C94825000FFDA1"
                BuildableName = "iOS-share_ext.appex"
                BlueprintName = "iOS-share_ext"
-               ReferencedContainer = "container:wallabag.xcodeproj">
+               ReferencedContainer = "container:wallino-reader.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -32,7 +32,7 @@
                BlueprintIdentifier = "09BFB28325C8348E00E12B4D"
                BuildableName = "Wallino Reader.app"
                BlueprintName = "Wallino Reader"
-               ReferencedContainer = "container:wallabag.xcodeproj">
+               ReferencedContainer = "container:wallino-reader.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -50,7 +50,7 @@
                BlueprintIdentifier = "094AA03A2629EB1F006E5605"
                BuildableName = "wallabagTests.xctest"
                BlueprintName = "wallabagTests"
-               ReferencedContainer = "container:wallabag.xcodeproj">
+               ReferencedContainer = "container:wallino-reader.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -74,7 +74,7 @@
             BlueprintIdentifier = "09BFB28325C8348E00E12B4D"
             BuildableName = "Wallino Reader.app"
             BlueprintName = "Wallino Reader"
-            ReferencedContainer = "container:wallabag.xcodeproj">
+            ReferencedContainer = "container:wallino-reader.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -93,7 +93,7 @@
             BlueprintIdentifier = "09BFB28325C8348E00E12B4D"
             BuildableName = "Wallino Reader.app"
             BlueprintName = "Wallino Reader"
-            ReferencedContainer = "container:wallabag.xcodeproj">
+            ReferencedContainer = "container:wallino-reader.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -17,7 +17,7 @@
                BlueprintIdentifier = "09BFB28325C8348E00E12B4D"
                BuildableName = "Wallino Reader.app"
                BlueprintName = "Wallino Reader"
-               ReferencedContainer = "container:wallabag.xcodeproj">
+               ReferencedContainer = "container:wallino-reader.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,7 +45,7 @@
                BlueprintIdentifier = "094AA03A2629EB1F006E5605"
                BuildableName = "wallabagTests.xctest"
                BlueprintName = "wallabagTests"
-               ReferencedContainer = "container:wallabag.xcodeproj">
+               ReferencedContainer = "container:wallino-reader.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -79,7 +79,7 @@
             BlueprintIdentifier = "09BFB28325C8348E00E12B4D"
             BuildableName = "Wallino Reader.app"
             BlueprintName = "Wallino Reader"
-            ReferencedContainer = "container:wallabag.xcodeproj">
+            ReferencedContainer = "container:wallino-reader.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <StoreKitConfigurationFileReference
@@ -99,9 +99,18 @@
             BlueprintIdentifier = "09BFB28325C8348E00E12B4D"
             BuildableName = "Wallino Reader.app"
             BlueprintName = "Wallino Reader"
-            ReferencedContainer = "container:wallabag.xcodeproj">
+            ReferencedContainer = "container:wallino-reader.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "09BFB28325C8348E00E12B4D"
+            BuildableName = "Wallino Reader.app"
+            BlueprintName = "Wallino Reader"
+            ReferencedContainer = "container:wallino-reader.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

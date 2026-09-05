@@ -1,50 +1,52 @@
 
-
-
-"Cancel" = "Odustani";
-"Add" = "Dodaj";
-"Back" = "Natrag";
-
-// Common
-"Submit" = "Pošalji";
-"It seems impossible to make a payment." = "Čini se da nije moguće izvršiti plaćanje.";
-"Loading..." = "Učitavanje …";
-"But you can contribute financially by making a donation whenever you want to support the project." = "Ali možeš doprinijeti donacijom kad god želiš podržati projekt.";
-"It is free and will remain so." = "Besplatan je i tako će i ostati.";
-
-// Tip View
-"This application is developed on free time" = "Ovaj se program razvija u slobodno vrijeme";
-
-// PasteBoard View
-"New url in pasteboard detected" = "Otkriven je novi URL u međuspremniku";
-"Read" = "Pročitani";
-"Unread" = "Nepročitani";
-"Starred" = "Omiljeni";
+// Menu
+"Menu" = "Izbornik";
+"Entries" = "Zapisi";
+"Add entry" = "Dodaj zapis";
+"About" = "Informacije";
+"Don" = "Don";
+"Bug report" = "Izvještaj o grešci";
+"Setting" = "Postavke";
+"Logout" = "Odjava";
 
 // Mode picker
 "All" = "Sve";
-"Logout" = "Odjava";
-"Setting" = "Postavke";
-"Bug report" = "Izvještaj o grešci";
-"Tips" = "Savjeti";
-"About" = "Informacije";
-"Entries" = "Zapisi";
-"Add entry" = "Dodaj zapis";
+"Starred" = "Omiljeni";
+"Unread" = "Nepročitani";
+"Read" = "Pročitani";
 
-// Menu
-"Menu" = "Izbornik";
-"Don" = "Don";
-"Made by Maxime Marinel @bourvill" = "Autor: Maxime Marinel @bourvill";
+// PasteBoard View
+"New url in pasteboard detected" = "Otkriven je novi URL u međuspremniku";
 
-// About
-"Project page" = "Stranica projekta";
+// Tip View
+"This application is developed on free time" = "Ovaj se program razvija u slobodno vrijeme";
+"It is free and will remain so." = "Besplatan je i tako će i ostati.";
+"But you can contribute financially by making a donation whenever you want to support the project." = "Ali možeš doprinijeti donacijom kad god želiš podržati projekt.";
+"Loading..." = "Učitavanje …";
+"It seems impossible to make a payment." = "Čini se da nije moguće izvršiti plaćanje.";
+
+// Common
+"Submit" = "Pošalji";
+"Back" = "Natrag";
+"Add" = "Dodaj";
+"Cancel" = "Odustani";
+"Confirm delete?" = "Potvrditi brisanje?";
+
+// Search
+"Search" = "Traži";
+
+// Picker
+"All" = "Sve";
+"Starred" = "Omiljeni";
+"Unread" = "Nepročitani";
+"Read" = "Pročitani";
 
 // Entry
 "Reading time %@" = "Vrijeme za čitanje %@";
 
-// Search
-"Search" = "Traži";
-"Confirm delete?" = "Potvrditi brisanje?";
+// About
+"Project page" = "Stranica projekta";
+"Made by Maxime Marinel @bourvill" = "Autor: Maxime Marinel @bourvill";
 
 //Player
 "Select one entry" = "Odaberi unos";
@@ -55,7 +57,65 @@
 "Auto" = "Automatski";
 "Light" = "Svijetlo";
 "Dark" = "Tamno";
-"Tags" = "Tags";
-"Selected tags" = "Selected tags";
-"No tags selected" = "No tags selected";
-"No more tags available" = "No more tags available";
+"Tags" = "Oznake";
+"Selected tags" = "Odabrane oznake";
+"No tags selected" = "Nije odabrana nijedna oznaka";
+"No more tags available" = "Nema više dostupnih oznaka";
+
+// Share
+"Share URL" = "Podijeli URL";
+"Share as PDF" = "Podijeli kao PDF";
+
+// Additional UI strings
+"Log in" = "Prijava";
+"Login" = "Korisničko ime";
+"Password" = "Lozinka";
+"Login & Password" = "Korisničko ime i lozinka";
+"Client id" = "ID klijenta";
+"Client secret" = "Tajna klijenta";
+"Client id & secret" = "ID i tajna klijenta";
+"Server" = "Poslužitelj";
+"Next" = "Dalje";
+"Open documentation" = "Otvori dokumentaciju";
+"Report issue" = "Prijavi problem";
+"Delete" = "Izbriši";
+"Refresh" = "Osvježi";
+"Refres entries from server" = "Osvježi članke s poslužitelja";
+"Refresh entries" = "Osvježi članke";
+"Settings" = "Postavke";
+"Entries list" = "Popis članaka";
+"Default mode" = "Zadani način";
+"Notifications" = "Obavijesti";
+"Show total entries badge" = "Prikaži značku ukupnog broja članaka";
+"Entry" = "Članak";
+"Justify entry" = "Poravnaj tekst";
+"Sync" = "Sinkronizacija";
+"Refresh on startup" = "Osvježi pri pokretanju";
+"Show image in list" = "Prikaži sliku na popisu";
+"Text size" = "Veličina teksta";
+"Change entry text size" = "Promijeni veličinu teksta članka";
+"Sort options" = "Mogućnosti sortiranja";
+"Order by id" = "Sortiraj po ID-u";
+"Order by reading time" = "Sortiraj po vremenu čitanja";
+"Sorting" = "Sortiranje";
+"Mark as read" = "Označi kao pročitano";
+"Mark as unread" = "Označi kao nepročitano";
+"Mark as favorite" = "Označi kao omiljeno";
+"Unstar" = "Ukloni iz omiljenih";
+"Entry option" = "Mogućnosti članka";
+"Open in Safari" = "Otvori u Safariju";
+"Help assistant" = "Asistent za pomoć";
+"Suggest tag" = "Predloži oznaku";
+"Synthesis" = "Sažetak";
+"Load entry" = "Učitaj članak";
+"Load entry in text-to-speech player" = "Učitaj članak u čitač teksta";
+"Great! Entry was added" = "Super! Članak je dodan";
+"Url" = "URL";
+"Submitting..." = "Slanje…";
+"Tag suggestion" = "Prijedlog oznake";
+"Your assistant is working" = "Vaš asistent radi";
+"New tag" = "Nova oznaka";
+"Tag name" = "Naziv oznake";
+"Thank you for your Tip!" = "Hvala na napojnici!";
+"Version %@ build %@" = "Verzija %@ build %@";
+"Sorry, this feature require you subscribe to wallabag Plus" = "Nažalost, ova značajka zahtijeva pretplatu na wallabag Plus";
