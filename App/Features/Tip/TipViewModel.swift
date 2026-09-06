@@ -1,35 +1,36 @@
 import Foundation
 import Observation
-import RevenueCat
+import StoreKit
 
 @Observable
 final class TipViewModel {
-    @ObservationIgnored @BundleKey("REVENUECAT_KEY")
-    private var revenueCatKey: String
-
-    var canMakePayments: Bool = false
-    var tipProduct: StoreProduct?
+    var tipProduct: Product?
     var paymentSuccess = false
 
-    init() {
-        canMakePayments = Purchases.canMakePayments()
-        Purchases.configure(withAPIKey: revenueCatKey)
+    var canMakePayments: Bool {
+        AppStore.canMakePayments
     }
 
     func loadProduct() async {
-        guard canMakePayments else { return }
-        tipProduct = await Purchases.shared.products(["tips1"]).first
+        tipProduct = try? await Product.products(for: ["tips1"]).first
     }
 
+    @MainActor
     func purchaseTip() async throws {
         guard let product = tipProduct else { return }
 
-        let result = try await Purchases.shared.purchase(product: product)
+        let result = try await product.purchase()
 
-        paymentSuccess = !result.userCancelled
+        switch result {
+        case let .success(verification):
+            if case let .verified(transaction) = verification {
+                paymentSuccess = true
+                await transaction.finish()
+            }
+        case .userCancelled, .pending:
+            break
+        @unknown default:
+            break
+        }
     }
-}
-
-public enum StoreError: Error {
-    case failedVerification
 }

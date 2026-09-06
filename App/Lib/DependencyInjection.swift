@@ -79,17 +79,4 @@ extension Container {
             return kit
         }.scope(.singleton)
     }
-
-    var chatAssistant: Factory<ChatAssistantProtocol> {
-        self {
-            ChatAssistant()
-        }
-    }
-
-    var wallabagPlusStore: Factory<WallabagPlusStore> {
-        self {
-            WallabagPlusStore()
-        }
-        .singleton
-    }
 }

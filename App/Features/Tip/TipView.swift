@@ -27,8 +27,8 @@ struct TipView: View {
                             label: {
                                 tipViewModel.tipProduct.map { product in
                                     HStack {
-                                        Text(product.localizedTitle)
-                                        Text(product.localizedPriceString)
+                                        Text(product.displayName)
+                                        Text(product.displayPrice)
                                     }
                                 }
                             }

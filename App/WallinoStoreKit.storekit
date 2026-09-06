@@ -95,41 +95,6 @@
       }
     ]
   },
-  "subscriptionGroups" : [
-    {
-      "id" : "21433277",
-      "localizations" : [
-
-      ],
-      "name" : "Wallabag",
-      "subscriptions" : [
-        {
-          "adHocOffers" : [
-
-          ],
-          "codeOffers" : [
-
-          ],
-          "displayPrice" : "2.99",
-          "familyShareable" : false,
-          "groupNumber" : 1,
-          "internalID" : "6475806829",
-          "introductoryOffer" : null,
-          "localizations" : [
-
-          ],
-          "productID" : "wallabagplus",
-          "recurringSubscriptionPeriod" : "P1M",
-          "referenceName" : "Wallabag plus",
-          "subscriptionGroupID" : "21433277",
-          "type" : "RecurringSubscription",
-          "winbackOffers" : [
-
-          ]
-        }
-      ]
-    }
-  ],
   "version" : {
     "major" : 4,
     "minor" : 0

@@ -12,8 +12,6 @@
 		094AA03E2629EB1F006E5605 /* wallabagTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094AA03D2629EB1F006E5605 /* wallabagTests.swift */; };
 		094AA05A2629EB60006E5605 /* ImageCacheTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094A9FED2629E6BB006E5605 /* ImageCacheTests.swift */; };
 		094AA0692629EB98006E5605 /* ImageDownloaderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094AA00F2629E739006E5605 /* ImageDownloaderTests.swift */; };
-		094BE2B52B5E94F900DFBF5A /* SynthesisEntryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BE2B42B5E94F900DFBF5A /* SynthesisEntryViewModel.swift */; };
-		094BE2B92B5E952C00DFBF5A /* TagSuggestionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 094BE2B82B5E952C00DFBF5A /* TagSuggestionViewModel.swift */; };
 		0951C61829CC2EB000D8E8C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0951C61729CC2EB000D8E8C6 /* Assets.xcassets */; };
 		09564E0D2851C57200D39E95 /* SettingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09564E0C2851C57200D39E95 /* SettingView.swift */; };
 		09644AD125C94825000FFDA1 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644AD025C94825000FFDA1 /* ShareViewController.swift */; };
@@ -81,27 +79,15 @@
 		09644D1825C98755000FFDA1 /* AppDelegateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644D1725C98755000FFDA1 /* AppDelegateExtension.swift */; };
 		09644D2025C98782000FFDA1 /* wallabagStore.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09644D1E25C98782000FFDA1 /* wallabagStore.xcdatamodeld */; };
 		097DD8FA2B4C0DB8005D3930 /* Factory in Frameworks */ = {isa = PBXBuildFile; productRef = 097DD8F92B4C0DB8005D3930 /* Factory */; };
-		097DD8FC2B4C0E02005D3930 /* OpenAPIRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = 097DD8FB2B4C0E02005D3930 /* OpenAPIRuntime */; };
-		097DD8FE2B4C0E08005D3930 /* OpenAPIURLSession in Frameworks */ = {isa = PBXBuildFile; productRef = 097DD8FD2B4C0E08005D3930 /* OpenAPIURLSession */; };
-		097DD9042B4C0EE0005D3930 /* openapi-generator-config.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 097DD9022B4C0E78005D3930 /* openapi-generator-config.yaml */; };
-		097DD9052B4C0EE0005D3930 /* openapi.yaml in Resources */ = {isa = PBXBuildFile; fileRef = 097DD9012B4C0E62005D3930 /* openapi.yaml */; };
 		097F81EB25CB18BA006C85F6 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097F81DF25CB187B006C85F6 /* Router.swift */; };
 		09800D8F29B9DEFE00DAB403 /* SharedLib in Frameworks */ = {isa = PBXBuildFile; productRef = 09800D8E29B9DEFE00DAB403 /* SharedLib */; };
 		098BDD0829BF04E3003DF719 /* RouteSwiftUIExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098BDD0729BF04E3003DF719 /* RouteSwiftUIExtension.swift */; };
 		098CF4D629CD830E00DEAE50 /* ServerViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098CF4D529CD830E00DEAE50 /* ServerViewModelTests.swift */; };
-		09952D112B566EAB0059D24F /* TagSuggestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09952D102B566EAB0059D24F /* TagSuggestionView.swift */; };
-		099CB2D62D458A1D00C1039A /* RevenueCat in Frameworks */ = {isa = PBXBuildFile; productRef = 099CB2D52D458A1D00C1039A /* RevenueCat */; };
-		099CB2DD2D458B3200C1039A /* RevenueCatUI in Frameworks */ = {isa = PBXBuildFile; productRef = 099CB2DC2D458B3200C1039A /* RevenueCatUI */; };
-		099CD12C2B4FCDB90029E94A /* WallabagPlusSubscribeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099CD12B2B4FCDB90029E94A /* WallabagPlusSubscribeView.swift */; };
-		099CD1312B501D950029E94A /* WallabagPlusStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099CD1302B501D950029E94A /* WallabagPlusStore.swift */; };
-		099CD1372B516DA30029E94A /* WallabagPlusProtectedModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099CD1362B516DA30029E94A /* WallabagPlusProtectedModifier.swift */; };
 		09AD75A12624F93D00708A1E /* article.html in Resources */ = {isa = PBXBuildFile; fileRef = 09AD759D2624F93D00708A1E /* article.html */; };
 		09AD75A22624F93D00708A1E /* main.css in Resources */ = {isa = PBXBuildFile; fileRef = 09AD759E2624F93D00708A1E /* main.css */; };
 		09AD75A32624F93D00708A1E /* ratatouille.css in Resources */ = {isa = PBXBuildFile; fileRef = 09AD759F2624F93D00708A1E /* ratatouille.css */; };
 		09AD75A42624F93D00708A1E /* justify.css in Resources */ = {isa = PBXBuildFile; fileRef = 09AD75A02624F93D00708A1E /* justify.css */; };
 		09AD75BE2624FEEE00708A1E /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09AD75C02624FEEE00708A1E /* Localizable.strings */; };
-		09B8C3A62B27AD2D002AEA2C /* ChatAssistant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B8C3A52B27AD2D002AEA2C /* ChatAssistant.swift */; };
-		09B8C3A82B27AF62002AEA2C /* SynthesisEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B8C3A72B27AF62002AEA2C /* SynthesisEntryView.swift */; };
 		09B977CD2B5E984900512851 /* WallabagKit in Frameworks */ = {isa = PBXBuildFile; productRef = 09AE6ECB29B13AAE0025DF93 /* WallabagKit */; };
 		09BCBBD4282BD46A00B234CB /* RouterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BCBBD3282BD46A00B234CB /* RouterTests.swift */; };
 		09BE0AF42A9F45E900193FBF /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BE0AF32A9F45E900193FBF /* View+Extension.swift */; };
@@ -165,8 +151,6 @@
 		094AA03B2629EB1F006E5605 /* wallabagTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = wallabagTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		094AA03D2629EB1F006E5605 /* wallabagTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = wallabagTests.swift; sourceTree = "<group>"; };
 		094AA03F2629EB1F006E5605 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		094BE2B42B5E94F900DFBF5A /* SynthesisEntryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisEntryViewModel.swift; sourceTree = "<group>"; };
-		094BE2B82B5E952C00DFBF5A /* TagSuggestionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSuggestionViewModel.swift; sourceTree = "<group>"; };
 		0951C61729CC2EB000D8E8C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09564E0C2851C57200D39E95 /* SettingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingView.swift; sourceTree = "<group>"; };
 		09644ACE25C94825000FFDA1 /* iOS-share_ext.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "iOS-share_ext.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -235,16 +219,10 @@
 		09644D1725C98755000FFDA1 /* AppDelegateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateExtension.swift; sourceTree = "<group>"; };
 		09644D1F25C98782000FFDA1 /* wallabagStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = wallabagStore.xcdatamodel; sourceTree = "<group>"; };
 		09644D2125C98783000FFDA1 /* wallabagStore 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "wallabagStore 2.xcdatamodel"; sourceTree = "<group>"; };
-		097DD9012B4C0E62005D3930 /* openapi.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = openapi.yaml; sourceTree = "<group>"; };
-		097DD9022B4C0E78005D3930 /* openapi-generator-config.yaml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = "openapi-generator-config.yaml"; sourceTree = "<group>"; };
 		097F81DF25CB187B006C85F6 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		098BDD0729BF04E3003DF719 /* RouteSwiftUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteSwiftUIExtension.swift; sourceTree = "<group>"; };
 		098CF4D529CD830E00DEAE50 /* ServerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerViewModelTests.swift; sourceTree = "<group>"; };
-		09952D102B566EAB0059D24F /* TagSuggestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagSuggestionView.swift; sourceTree = "<group>"; };
-		099CD12B2B4FCDB90029E94A /* WallabagPlusSubscribeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallabagPlusSubscribeView.swift; sourceTree = "<group>"; };
-		099CD12E2B5019F40029E94A /* WallabagStoreKit.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = WallabagStoreKit.storekit; sourceTree = "<group>"; };
-		099CD1302B501D950029E94A /* WallabagPlusStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallabagPlusStore.swift; sourceTree = "<group>"; };
-		099CD1362B516DA30029E94A /* WallabagPlusProtectedModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallabagPlusProtectedModifier.swift; sourceTree = "<group>"; };
+		099CD12E2B5019F40029E94A /* WallinoStoreKit.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = WallinoStoreKit.storekit; sourceTree = "<group>"; };
 		09AD75962624F4E800708A1E /* wallino.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wallino.entitlements; sourceTree = "<group>"; };
 		09AD759D2624F93D00708A1E /* article.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = article.html; sourceTree = "<group>"; };
 		09AD759E2624F93D00708A1E /* main.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = main.css; sourceTree = "<group>"; };
@@ -263,8 +241,6 @@
 		09AD75D42624FF5F00708A1E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		09AD75D52624FF6900708A1E /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		09B8C3A02B27AB5F002AEA2C /* Config.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
-		09B8C3A52B27AD2D002AEA2C /* ChatAssistant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatAssistant.swift; sourceTree = "<group>"; };
-		09B8C3A72B27AF62002AEA2C /* SynthesisEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SynthesisEntryView.swift; sourceTree = "<group>"; };
 		09BCBBD3282BD46A00B234CB /* RouterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouterTests.swift; sourceTree = "<group>"; };
 		09BE0AF32A9F45E900193FBF /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		09BFB28425C8348E00E12B4D /* Wallino Reader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Wallino Reader.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -306,13 +282,9 @@
 			files = (
 				09644B0F25C94C6B000FFDA1 /* HTMLEntities in Frameworks */,
 				09C34C7E29B1399100B5C927 /* WallabagKit in Frameworks */,
-				097DD8FC2B4C0E02005D3930 /* OpenAPIRuntime in Frameworks */,
 				09C34C7C29B1398B00B5C927 /* SharedLib in Frameworks */,
 				09FCA39F2B60766400148104 /* WallabagKit in Frameworks */,
-				099CB2D62D458A1D00C1039A /* RevenueCat in Frameworks */,
-				097DD8FE2B4C0E08005D3930 /* OpenAPIURLSession in Frameworks */,
 				097DD8FA2B4C0DB8005D3930 /* Factory in Frameworks */,
-				099CB2DD2D458B3200C1039A /* RevenueCatUI in Frameworks */,
 				09FCA3A32B60768000148104 /* SharedLib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -366,24 +338,6 @@
 			path = wallabagTests;
 			sourceTree = "<group>";
 		};
-		094BE2B22B5E94EA00DFBF5A /* Synthesis */ = {
-			isa = PBXGroup;
-			children = (
-				09B8C3A72B27AF62002AEA2C /* SynthesisEntryView.swift */,
-				094BE2B42B5E94F900DFBF5A /* SynthesisEntryViewModel.swift */,
-			);
-			path = Synthesis;
-			sourceTree = "<group>";
-		};
-		094BE2B62B5E951F00DFBF5A /* Tag */ = {
-			isa = PBXGroup;
-			children = (
-				09952D102B566EAB0059D24F /* TagSuggestionView.swift */,
-				094BE2B82B5E952C00DFBF5A /* TagSuggestionViewModel.swift */,
-			);
-			path = Tag;
-			sourceTree = "<group>";
-		};
 		09644ACF25C94825000FFDA1 /* iOS-share_ext */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,8 +381,6 @@
 		09644B8425C98161000FFDA1 /* Features */ = {
 			isa = PBXGroup;
 			children = (
-				099CD1272B4FCC570029E94A /* WallabagPlus */,
-				09B8C3A42B27ACB4002AEA2C /* AI */,
 				09644C9D25C98615000FFDA1 /* MainView.swift */,
 				09644C8525C985C4000FFDA1 /* About */,
 				09644C8D25C985D9000FFDA1 /* BugReport */,
@@ -697,16 +649,6 @@
 			path = Server;
 			sourceTree = "<group>";
 		};
-		099CD1272B4FCC570029E94A /* WallabagPlus */ = {
-			isa = PBXGroup;
-			children = (
-				099CD12B2B4FCDB90029E94A /* WallabagPlusSubscribeView.swift */,
-				099CD1302B501D950029E94A /* WallabagPlusStore.swift */,
-				099CD1362B516DA30029E94A /* WallabagPlusProtectedModifier.swift */,
-			);
-			path = WallabagPlus;
-			sourceTree = "<group>";
-		};
 		09AD759C2624F93D00708A1E /* html-ressources */ = {
 			isa = PBXGroup;
 			children = (
@@ -718,16 +660,6 @@
 				B4B3F2E6304C0000007633C9 /* pdf.css */,
 			);
 			path = "html-ressources";
-			sourceTree = "<group>";
-		};
-		09B8C3A42B27ACB4002AEA2C /* AI */ = {
-			isa = PBXGroup;
-			children = (
-				094BE2B62B5E951F00DFBF5A /* Tag */,
-				094BE2B22B5E94EA00DFBF5A /* Synthesis */,
-				09B8C3A52B27AD2D002AEA2C /* ChatAssistant.swift */,
-			);
-			path = AI;
 			sourceTree = "<group>";
 		};
 		09BCBBD2282BD44100B234CB /* Router */ = {
@@ -750,8 +682,6 @@
 			isa = PBXGroup;
 			children = (
 				B4B3F2CB304AB3F8007633C9 /* wallinoDebug.entitlements */,
-				097DD9022B4C0E78005D3930 /* openapi-generator-config.yaml */,
-				097DD9012B4C0E62005D3930 /* openapi.yaml */,
 				09B8C3A02B27AB5F002AEA2C /* Config.xcconfig */,
 				09AD75962624F4E800708A1E /* wallino.entitlements */,
 				81505C592B5DC209003B5CDE /* Intents */,
@@ -785,7 +715,7 @@
 				09644B7C25C9814C000FFDA1 /* Lib */,
 				09644BE425C98343000FFDA1 /* PropertyWrapper */,
 				09FA20300000000000000001 /* Resources */,
-				099CD12E2B5019F40029E94A /* WallabagStoreKit.storekit */,
+				099CD12E2B5019F40029E94A /* WallinoStoreKit.storekit */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -873,7 +803,6 @@
 			buildRules = (
 			);
 			dependencies = (
-				097DD9002B4C0E2A005D3930 /* PBXTargetDependency */,
 				09644AD725C94825000FFDA1 /* PBXTargetDependency */,
 			);
 			name = "Wallino Reader";
@@ -882,12 +811,8 @@
 				09C34C7B29B1398B00B5C927 /* SharedLib */,
 				09C34C7D29B1399100B5C927 /* WallabagKit */,
 				097DD8F92B4C0DB8005D3930 /* Factory */,
-				097DD8FB2B4C0E02005D3930 /* OpenAPIRuntime */,
-				097DD8FD2B4C0E08005D3930 /* OpenAPIURLSession */,
 				09FCA39E2B60766400148104 /* WallabagKit */,
 				09FCA3A22B60768000148104 /* SharedLib */,
-				099CB2D52D458A1D00C1039A /* RevenueCat */,
-				099CB2DC2D458B3200C1039A /* RevenueCatUI */,
 			);
 			productName = "Wallino Reader";
 			productReference = 09BFB28425C8348E00E12B4D /* Wallino Reader.app */;
@@ -937,13 +862,9 @@
 			mainGroup = 09BFB27425C8348E00E12B4D;
 			packageReferences = (
 				09644B0D25C94C6B000FFDA1 /* XCRemoteSwiftPackageReference "swift-html-entities" */,
-				097DD8F52B4C0CCC005D3930 /* XCRemoteSwiftPackageReference "swift-openapi-generator" */,
-				097DD8F62B4C0D3A005D3930 /* XCRemoteSwiftPackageReference "swift-openapi-runtime" */,
-				097DD8F72B4C0D54005D3930 /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */,
 				097DD8F82B4C0DB8005D3930 /* XCRemoteSwiftPackageReference "Factory" */,
 				09FCA39D2B60766400148104 /* XCLocalSwiftPackageReference "WallabagKit" */,
 				09FCA3A12B60768000148104 /* XCLocalSwiftPackageReference "SharedLib" */,
-				09D405722D45872300C7D2EB /* XCRemoteSwiftPackageReference "purchases-ios-spm" */,
 			);
 			productRefGroup = 09BFB28525C8348E00E12B4D /* Products */;
 			projectDirPath = "";
@@ -979,9 +900,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09AD75A32624F93D00708A1E /* ratatouille.css in Resources */,
-				097DD9052B4C0EE0005D3930 /* openapi.yaml in Resources */,
 				09AD75A12624F93D00708A1E /* article.html in Resources */,
-				097DD9042B4C0EE0005D3930 /* openapi-generator-config.yaml in Resources */,
 				09AD75BE2624FEEE00708A1E /* Localizable.strings in Resources */,
 				09AD75A42624F93D00708A1E /* justify.css in Resources */,
 				0951C61829CC2EB000D8E8C6 /* Assets.xcassets in Resources */,
@@ -1053,7 +972,6 @@
 				09644C8F25C985E8000FFDA1 /* BugReportView.swift in Sources */,
 				09644BFB25C983F8000FFDA1 /* Tag.swift in Sources */,
 				09644CD625C986C0000FFDA1 /* ClientIdClientSecretView.swift in Sources */,
-				09952D112B566EAB0059D24F /* TagSuggestionView.swift in Sources */,
 				09644B9725C9819F000FFDA1 /* PlayerView.swift in Sources */,
 				09644CF225C986EE000FFDA1 /* SearchViewModel.swift in Sources */,
 				09644BA325C981B4000FFDA1 /* ErrorViewModel.swift in Sources */,
@@ -1063,23 +981,18 @@
 				09644B7E25C98152000FFDA1 /* AppState.swift in Sources */,
 				09644C6E25C985A9000FFDA1 /* DeleteEntryButton.swift in Sources */,
 				09644B8C25C98176000FFDA1 /* Route.swift in Sources */,
-				094BE2B52B5E94F900DFBF5A /* SynthesisEntryViewModel.swift in Sources */,
 				09644BAD25C98213000FFDA1 /* CoreDataSync.swift in Sources */,
 				09644BDE25C9833E000FFDA1 /* WallabagSession.swift in Sources */,
 				09644C7125C985A9000FFDA1 /* FontSizeSelectorView.swift in Sources */,
 				09644C7D25C985B8000FFDA1 /* ImageCache.swift in Sources */,
 				09644CC225C98674000FFDA1 /* PasteBoardView.swift in Sources */,
-				099CD12C2B4FCDB90029E94A /* WallabagPlusSubscribeView.swift in Sources */,
-				09B8C3A82B27AF62002AEA2C /* SynthesisEntryView.swift in Sources */,
 				09644CC325C98674000FFDA1 /* PasteBoardViewModel.swift in Sources */,
 				09644C6D25C985A9000FFDA1 /* StarEntryButton.swift in Sources */,
 				09644C6125C98596000FFDA1 /* EntriesListView.swift in Sources */,
-				099CD1372B516DA30029E94A /* WallabagPlusProtectedModifier.swift in Sources */,
 				09644CF325C986EE000FFDA1 /* SearchView.swift in Sources */,
 				09564E0D2851C57200D39E95 /* SettingView.swift in Sources */,
 				09644C5F25C98596000FFDA1 /* EntryRowView.swift in Sources */,
 				09644CE925C986CC000FFDA1 /* ServerViewModel.swift in Sources */,
-				099CD1312B501D950029E94A /* WallabagPlusStore.swift in Sources */,
 				09644CD725C986C0000FFDA1 /* ClientIdClientSecretViewModel.swift in Sources */,
 				09644CCB25C9869D000FFDA1 /* RegistrationView.swift in Sources */,
 				09644BFC25C983F8000FFDA1 /* Entry.swift in Sources */,
@@ -1088,8 +1001,6 @@
 				09644BB725C98232000FFDA1 /* AppSetting.swift in Sources */,
 				09644C7F25C985B8000FFDA1 /* ImageDownloaderPublisher.swift in Sources */,
 				09644CE825C986CC000FFDA1 /* ServerView.swift in Sources */,
-				09B8C3A62B27AD2D002AEA2C /* ChatAssistant.swift in Sources */,
-				094BE2B92B5E952C00DFBF5A /* TagSuggestionViewModel.swift in Sources */,
 				09644CFD25C9870C000FFDA1 /* TagListFor.swift in Sources */,
 				09644BFA25C983F8000FFDA1 /* Podcast.swift in Sources */,
 				09644BAE25C98213000FFDA1 /* AppSync.swift in Sources */,
@@ -1136,10 +1047,6 @@
 			platformFilter = ios;
 			target = 09644ACD25C94825000FFDA1 /* iOS-share_ext */;
 			targetProxy = 09644AD625C94825000FFDA1 /* PBXContainerItemProxy */;
-		};
-		097DD9002B4C0E2A005D3930 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			productRef = 097DD8FF2B4C0E2A005D3930 /* OpenAPIGenerator */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1521,44 +1428,12 @@
 				minimumVersion = 3.0.200;
 			};
 		};
-		097DD8F52B4C0CCC005D3930 /* XCRemoteSwiftPackageReference "swift-openapi-generator" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-openapi-generator";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.0;
-			};
-		};
-		097DD8F62B4C0D3A005D3930 /* XCRemoteSwiftPackageReference "swift-openapi-runtime" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-openapi-runtime";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.1.0;
-			};
-		};
-		097DD8F72B4C0D54005D3930 /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-openapi-urlsession";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
 		097DD8F82B4C0DB8005D3930 /* XCRemoteSwiftPackageReference "Factory" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hmlongco/Factory";
 			requirement = {
 				kind = upToNextMajorVersion;
 				minimumVersion = 2.3.1;
-			};
-		};
-		09D405722D45872300C7D2EB /* XCRemoteSwiftPackageReference "purchases-ios-spm" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/RevenueCat/purchases-ios-spm.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.16.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -1574,34 +1449,9 @@
 			package = 097DD8F82B4C0DB8005D3930 /* XCRemoteSwiftPackageReference "Factory" */;
 			productName = Factory;
 		};
-		097DD8FB2B4C0E02005D3930 /* OpenAPIRuntime */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 097DD8F62B4C0D3A005D3930 /* XCRemoteSwiftPackageReference "swift-openapi-runtime" */;
-			productName = OpenAPIRuntime;
-		};
-		097DD8FD2B4C0E08005D3930 /* OpenAPIURLSession */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 097DD8F72B4C0D54005D3930 /* XCRemoteSwiftPackageReference "swift-openapi-urlsession" */;
-			productName = OpenAPIURLSession;
-		};
-		097DD8FF2B4C0E2A005D3930 /* OpenAPIGenerator */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 097DD8F52B4C0CCC005D3930 /* XCRemoteSwiftPackageReference "swift-openapi-generator" */;
-			productName = "plugin:OpenAPIGenerator";
-		};
 		09800D8E29B9DEFE00DAB403 /* SharedLib */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = SharedLib;
-		};
-		099CB2D52D458A1D00C1039A /* RevenueCat */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 09D405722D45872300C7D2EB /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
-			productName = RevenueCat;
-		};
-		099CB2DC2D458B3200C1039A /* RevenueCatUI */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 09D405722D45872300C7D2EB /* XCRemoteSwiftPackageReference "purchases-ios-spm" */;
-			productName = RevenueCatUI;
 		};
 		09AE6ECB29B13AAE0025DF93 /* WallabagKit */ = {
 			isa = XCSwiftPackageProductDependency;

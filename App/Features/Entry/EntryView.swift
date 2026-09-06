@@ -56,20 +56,6 @@ struct EntryView: View {
             ToolbarItem(placement: toolbarPlacement) {
                 FontSizeSelectorView()
             }
-            ToolbarItem(placement: toolbarPlacement) {
-                Menu(content: {
-                    NavigationLink(value: RoutePath.synthesis(entry), label: {
-                        Text("Synthesis")
-                    })
-                    NavigationLink(value: RoutePath.tags(entry), label: {
-                        Text("Suggest tag")
-                    })
-                }, label: {
-                    Label("Help assistant", systemImage: "hands.and.sparkles")
-                        .foregroundColor(.primary)
-                        .labelStyle(.iconOnly)
-                })
-            }
         }
         .alert("Confirm delete?", isPresented: $showDeleteConfirm) {
             Button(role: .destructive, action: {

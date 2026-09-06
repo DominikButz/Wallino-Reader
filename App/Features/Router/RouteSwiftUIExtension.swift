@@ -16,12 +16,6 @@ extension View {
                 AddEntryView()
             case let .entry(entry):
                 EntryView(entry: entry)
-            case let .synthesis(entry):
-                SynthesisEntryView(entry: entry)
-                    .wallabagPlusProtected()
-            case let .tags(entry):
-                TagSuggestionView(entry: entry)
-                    .wallabagPlusProtected()
             case let .entriesForTag(tag):
                 EntriesForTagView(tag: tag)
             case .about:

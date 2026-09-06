@@ -15,7 +15,6 @@ struct WallinoApp: App {
 
     @State private var router = Container.shared.router()
     @State private var appSync = Container.shared.appSync()
-    @State private var wallabagPlusStore = Container.shared.wallabagPlusStore()
     @State private var errorHandler = Container.shared.errorHandler()
 
     @InjectedObject(\.appState) private var appState
@@ -35,7 +34,6 @@ struct WallinoApp: App {
             #endif
                 .environment(router)
                 .environment(appSync)
-                .environment(wallabagPlusStore)
                 .environment(errorHandler)
                 .environmentObject(appSetting)
                 .environment(\.managedObjectContext, coreData.viewContext)
@@ -45,7 +43,6 @@ struct WallinoApp: App {
             if newScenePhase == .active {
                 Task {
                     await appState.initSession()
-                    await wallabagPlusStore.checkPro()
                 }
                 #if os(iOS)
                     requestNotificationAuthorization()
