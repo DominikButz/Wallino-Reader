@@ -78,3 +78,4 @@ vendor/
 Config.xcconfig
 
 instructions_1.md
+media/*
