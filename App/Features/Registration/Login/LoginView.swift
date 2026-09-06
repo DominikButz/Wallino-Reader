@@ -23,7 +23,7 @@ struct LoginView: View {
             loginViewModel.error.map { error in
                 VStack {
                     Text(error).foregroundColor(.red)
-                    Link("Report issue", destination: "https://github.com/wallabag/ios-app/issues")
+                    Link("Report issue", destination: "https://github.com/DominikButz/Wallino-Reader/issues")
                 }
             }
         }
