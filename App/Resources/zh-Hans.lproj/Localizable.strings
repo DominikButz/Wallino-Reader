@@ -113,3 +113,5 @@
 "Tag name" = "标签名称";
 "Thank you for your Tip!" = "感谢您的小费！";
 "Version %@ build %@" = "版本 %@ 构建 %@";
+"Error" = "错误";
+"Ok" = "确定";

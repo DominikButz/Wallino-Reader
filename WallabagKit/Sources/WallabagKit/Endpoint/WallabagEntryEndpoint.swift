@@ -4,7 +4,7 @@ public enum WallabagEntryEndpoint: WallabagKitEndpoint {
     public typealias Object = WallabagEntry
 
     case get(page: Int = 1, perPage: Int = 30)
-    case add(url: String, title: String?, content: String?)
+    case add(url: String, title: String?, content: String?, tags: [String], starred: Bool, archived: Bool)
     case addTag(tag: String, entry: Int)
     case delete(id: Int)
     case deleteTag(tagId: Int, entry: Int)
@@ -54,17 +54,35 @@ public enum WallabagEntryEndpoint: WallabagKitEndpoint {
 
     public func getBody() -> Data {
         switch self {
-        case let .add(url, title, content):
+        case let .add(url, title, content, tags, starred, archived):
+            var parameters: WallabagKit.Parameters = [
+                "url": url,
+                "starred": starred ? 1 : 0,
+                "archive": archived ? 1 : 0,
+            ]
+
+            if let title, !title.isEmpty {
+                parameters["title"] = title
+            }
+
+            if let content, !content.isEmpty {
+                parameters["content"] = content
+            }
+
+            if !tags.isEmpty {
+                parameters["tags"] = tags.joined(separator: ",")
+            }
+
             // swiftlint:disable:next force_try
-            try! JSONSerialization.data(withJSONObject: ["url": url, "title": title, "content": content], options: .prettyPrinted)
+            return try! JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
         case let .update(_, parameters):
             // swiftlint:disable:next force_try
-            try! JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
+            return try! JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
         case let .addTag(tag, _):
             // swiftlint:disable:next force_try
-            try! JSONSerialization.data(withJSONObject: ["tags": tag], options: .prettyPrinted)
+            return try! JSONSerialization.data(withJSONObject: ["tags": tag], options: .prettyPrinted)
         default:
-            "".data(using: .utf8)!
+            return "".data(using: .utf8)!
         }
     }
 

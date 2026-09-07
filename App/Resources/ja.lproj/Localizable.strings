@@ -113,3 +113,5 @@
 "Tag name" = "タグ名";
 "Thank you for your Tip!" = "チップをありがとうございます！";
 "Version %@ build %@" = "バージョン %@ ビルド %@";
+"Error" = "エラー";
+"Ok" = "OK";

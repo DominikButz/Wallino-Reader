@@ -71,6 +71,16 @@ public class WallabagKit {
         return try decoder.decode(T.Object.self, from: data)
     }
 
+    public func fetchTags() async throws -> [WallabagTag] {
+        let urlRequest = request(for: WallabagTagEndpoint.get, withAuth: true)
+        let (data, response) = try await session.data(for: urlRequest)
+        guard let response = response as? HTTPURLResponse else { fatalError() }
+
+        try handleStatusCode(from: response, with: data)
+
+        return try decoder.decode([WallabagTag].self, from: data)
+    }
+
     public func request(for endpoint: any WallabagKitEndpoint, withAuth: Bool = false) -> URLRequest {
         var urlRequest = URLRequest(url: URL(string: "\(host)\(endpoint.endpoint())")!)
         urlRequest.httpMethod = endpoint.method().rawValue

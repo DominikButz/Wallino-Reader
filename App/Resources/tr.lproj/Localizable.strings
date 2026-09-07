@@ -113,3 +113,5 @@
 "Tag name" = "Etiket adı";
 "Thank you for your Tip!" = "Bahşişiniz için teşekkürler!";
 "Version %@ build %@" = "Sürüm %@ derleme %@";
+"Error" = "Hata";
+"Ok" = "Tamam";

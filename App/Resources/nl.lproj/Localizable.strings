@@ -113,3 +113,5 @@
 "Tag name" = "Tagnaam";
 "Thank you for your Tip!" = "Bedankt voor je fooi!";
 "Version %@ build %@" = "Versie %@ build %@";
+"Error" = "Fout";
+"Ok" = "OK";

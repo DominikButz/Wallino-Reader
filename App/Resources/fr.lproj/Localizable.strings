@@ -113,3 +113,5 @@
 "Tag name" = "Nom du tag";
 "Thank you for your Tip!" = "Merci pour votre pourboire !";
 "Version %@ build %@" = "Version %@ build %@";
+"Error" = "Erreur";
+"Ok" = "OK";

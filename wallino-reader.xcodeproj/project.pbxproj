@@ -19,6 +19,9 @@
 		09644AD825C94825000FFDA1 /* iOS-share_ext.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = 09644ACE25C94825000FFDA1 /* iOS-share_ext.appex */; platformFilter = ios; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		09644AE325C94863000FFDA1 /* ShareExtensionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644AE225C94863000FFDA1 /* ShareExtensionError.swift */; };
 		09644AEA25C94879000FFDA1 /* ExtensionClass.js in Resources */ = {isa = PBXBuildFile; fileRef = 09644AE925C94879000FFDA1 /* ExtensionClass.js */; };
+		B4B3F300304B1234007633C9 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B3F301304B1234007633C9 /* ShareView.swift */; };
+		B4B3F302304B1234007633C9 /* ShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B3F303304B1234007633C9 /* ShareViewModel.swift */; };
+		B4B3F304304B1234007633C9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09AD75C02624FEEE00708A1E /* Localizable.strings */; };
 		09644B0F25C94C6B000FFDA1 /* HTMLEntities in Frameworks */ = {isa = PBXBuildFile; productRef = 09644B0E25C94C6B000FFDA1 /* HTMLEntities */; };
 		09644B5725C9810A000FFDA1 /* WallinoApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644B5625C9810A000FFDA1 /* WallinoApp.swift */; };
 		09644B5E25C98116000FFDA1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644B5D25C98116000FFDA1 /* AppDelegate.swift */; };
@@ -159,6 +162,8 @@
 		09644AD525C94825000FFDA1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		09644AE225C94863000FFDA1 /* ShareExtensionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareExtensionError.swift; sourceTree = "<group>"; };
 		09644AE925C94879000FFDA1 /* ExtensionClass.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = ExtensionClass.js; sourceTree = "<group>"; };
+		B4B3F301304B1234007633C9 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
+		B4B3F303304B1234007633C9 /* ShareViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewModel.swift; sourceTree = "<group>"; };
 		09644AF025C9494D000FFDA1 /* iOS-share_extDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "iOS-share_extDebug.entitlements"; sourceTree = "<group>"; };
 		09644B5625C9810A000FFDA1 /* WallinoApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WallinoApp.swift; sourceTree = "<group>"; };
 		09644B5D25C98116000FFDA1 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -348,6 +353,8 @@
 				09644AD525C94825000FFDA1 /* Info.plist */,
 				09644AE225C94863000FFDA1 /* ShareExtensionError.swift */,
 				09644AE925C94879000FFDA1 /* ExtensionClass.js */,
+				B4B3F301304B1234007633C9 /* ShareView.swift */,
+				B4B3F303304B1234007633C9 /* ShareViewModel.swift */,
 			);
 			path = "iOS-share_ext";
 			sourceTree = "<group>";
@@ -892,6 +899,7 @@
 				09644AD425C94825000FFDA1 /* MainInterface.storyboard in Resources */,
 				09190AFB2ACD461B00634123 /* Assets.xcassets in Resources */,
 				09644AEA25C94879000FFDA1 /* ExtensionClass.js in Resources */,
+				B4B3F304304B1234007633C9 /* Localizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -953,6 +961,8 @@
 			files = (
 				09644AE325C94863000FFDA1 /* ShareExtensionError.swift in Sources */,
 				09644AD125C94825000FFDA1 /* ShareViewController.swift in Sources */,
+				B4B3F300304B1234007633C9 /* ShareView.swift in Sources */,
+				B4B3F302304B1234007633C9 /* ShareViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1316,6 +1326,7 @@
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = App/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Wallino Debug";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1349,6 +1360,7 @@
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = App/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "Wallino Reader";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

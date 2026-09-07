@@ -113,3 +113,5 @@
 "Tag name" = "Naziv oznake";
 "Thank you for your Tip!" = "Hvala na napojnici!";
 "Version %@ build %@" = "Verzija %@ build %@";
+"Error" = "Greška";
+"Ok" = "U redu";
