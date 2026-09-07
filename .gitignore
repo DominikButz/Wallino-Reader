@@ -79,4 +79,6 @@ Config.xcconfig
 
 instructions_1.md
 media/*
+api_keys/*
 codebase_documentation.md
+code_base_info.md
