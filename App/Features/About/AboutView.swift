@@ -9,12 +9,12 @@ struct AboutView: View {
 
     var body: some View {
         VStack {
-            Text("wallabag").font(.largeTitle).fontWeight(.bold)
+            Text("Wallino Reader").font(.largeTitle).fontWeight(.bold)
             Text(String(format: "Version %@ build %@".localized, arguments: [version, build]))
             Spacer()
-            Link("Project page", destination: "https://github.com/wallabag/ios-app")
+            Link("Project page", destination: "https://github.com/DominikButz/Wallino-Reader")
             Spacer()
-            Text("Made by Maxime Marinel @bourvill")
+            Text("Made by Dominik Butz")
         }
         .navigationTitle("About")
     }

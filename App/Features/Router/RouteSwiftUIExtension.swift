@@ -20,12 +20,15 @@ extension View {
                 EntriesForTagView(tag: tag)
             case .about:
                 AboutView()
+            case .accountLogout:
+                LogoutView()
             case .tips:
                 TipView()
             case .setting:
                 SettingView()
             case .registration:
                 RegistrationView()
+            
             }
         }
     }

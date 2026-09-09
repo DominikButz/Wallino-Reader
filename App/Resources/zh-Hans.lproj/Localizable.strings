@@ -115,3 +115,7 @@
 "Version %@ build %@" = "版本 %@ 构建 %@";
 "Error" = "错误";
 "Ok" = "确定";
+
+// Logout
+"Account / Logout" = "账户 / 退出";
+"Username:" = "用户名:";

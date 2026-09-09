@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>Wallino Reader</string>
+	<string>$(INFOPLIST_KEY_CFBundleDisplayName)</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -19,7 +19,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
 	<key>CFBundleVersion</key>
-	<string>319</string>
+	<string>1</string>
 	<key>ITSEncryptionExportComplianceCode</key>
 	<string></string>
 	<key>NSAppTransportSecurity</key>
@@ -36,9 +36,9 @@
                 extensionItems, $extensionItem,
                 SUBQUERY (
                     $extensionItem.attachments, $attachment,
-                    ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "com.adobe.pdf" ||
-                    ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.image" ||
-                    ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO "public.url"
+                    ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO &quot;com.adobe.pdf&quot; ||
+                    ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO &quot;public.image&quot; ||
+                    ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO &quot;public.url&quot;
                 ).@count == 1
             ).@count &gt; 0
             </string>

@@ -75,11 +75,12 @@ struct EntriesView: View {
                         Label("Setting", systemImage: "gear")
                     })
                     Divider()
-                    Button(role: .destructive, action: {
-                        appState.logout()
+                    Button(action: {
+                        router.path.append(RoutePath.accountLogout)
                     }, label: {
-                        Label("Logout", systemImage: "person")
-                    }).foregroundColor(.red)
+                        Label("Account / Logout", systemImage: "person")
+                    })
+                    
                 }, label: {
                     Label("Menu", systemImage: "list.bullet")
                 })
@@ -91,13 +92,13 @@ struct EntriesView: View {
     }
 }
 
-#if DEBUG
-    struct ArticleListView_Previews: PreviewProvider {
-        static var previews: some View {
-            EntriesView()
-            #if os(iOS)
-                .environmentObject(PasteBoardViewModel())
-            #endif
-        }
-    }
-#endif
+//#if DEBUG
+//    struct ArticleListView_Previews: PreviewProvider {
+//        static var previews: some View {
+//            EntriesView()
+//            #if os(iOS)
+//                .environmentObject(PasteBoardViewModel())
+//            #endif
+//        }
+//    }
+//#endif

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 60;
+	objectVersion = 70;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -264,6 +264,10 @@
 		B4B3F303304B1234007633C9 /* ShareViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		B43A8277304FF0FD009CC39F /* Logout */ = {isa = PBXFileSystemSynchronizedRootGroup; explicitFileTypes = {}; explicitFolders = (); path = Logout; sourceTree = "<group>"; };
+/* End PBXFileSystemSynchronizedRootGroup section */
+
 /* Begin PBXFrameworksBuildPhase section */
 		094AA0382629EB1F006E5605 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
@@ -388,6 +392,7 @@
 		09644B8425C98161000FFDA1 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				B43A8277304FF0FD009CC39F /* Logout */,
 				09644C9D25C98615000FFDA1 /* MainView.swift */,
 				09644C8525C985C4000FFDA1 /* About */,
 				09644C8D25C985D9000FFDA1 /* BugReport */,
@@ -812,6 +817,9 @@
 			dependencies = (
 				09644AD725C94825000FFDA1 /* PBXTargetDependency */,
 			);
+			fileSystemSynchronizedGroups = (
+				B43A8277304FF0FD009CC39F /* Logout */,
+			);
 			name = "Wallino Reader";
 			packageProductDependencies = (
 				09644B0E25C94C6B000FFDA1 /* HTMLEntities */,
@@ -1148,6 +1156,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 76FXG652LY;
 				INFOPLIST_FILE = "iOS-share_ext/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Wallino Debug";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1171,6 +1180,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 76FXG652LY;
 				INFOPLIST_FILE = "iOS-share_ext/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Wallino Reader";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

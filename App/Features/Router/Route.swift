@@ -9,4 +9,5 @@ enum RoutePath: Hashable {
     case tips
     case about
     case setting
+    case accountLogout
 }

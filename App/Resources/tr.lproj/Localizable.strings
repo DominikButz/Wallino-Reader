@@ -115,3 +115,7 @@
 "Version %@ build %@" = "Sürüm %@ derleme %@";
 "Error" = "Hata";
 "Ok" = "Tamam";
+
+// Logout
+"Account / Logout" = "Hesap / Çıkış yap";
+"Username:" = "Kullanıcı adı:";

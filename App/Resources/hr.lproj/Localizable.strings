@@ -115,3 +115,7 @@
 "Version %@ build %@" = "Verzija %@ build %@";
 "Error" = "Greška";
 "Ok" = "U redu";
+
+// Logout
+"Account / Logout" = "Račun / Odjava";
+"Username:" = "Korisničko ime:";

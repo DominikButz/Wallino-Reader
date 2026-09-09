@@ -115,3 +115,7 @@
 "Version %@ build %@" = "バージョン %@ ビルド %@";
 "Error" = "エラー";
 "Ok" = "OK";
+
+// Logout
+"Account / Logout" = "アカウント / ログアウト";
+"Username:" = "ユーザー名:";

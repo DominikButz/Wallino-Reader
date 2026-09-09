@@ -62,9 +62,11 @@ Carthage/Build
 fastlane/report.xml
 fastlane/Deliverfile
 fastlane/Appfile
+fastlane/.env
 fastlane/Preview.html
 #Preview.html
-#fastlane/screenshots
+fastlane/screenshots
+fastlane/build
 fastlane/test_output
 fastlane/metadata/review_information
 fastlane/metadata/trade_representative_contact_information
