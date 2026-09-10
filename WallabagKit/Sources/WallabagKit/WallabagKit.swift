@@ -81,6 +81,17 @@ public class WallabagKit {
         return try decoder.decode([WallabagTag].self, from: data)
     }
 
+    public func fetchAnnotations(for entry: Int) async throws -> [WallabagAnnotation] {
+        let urlRequest = request(for: WallabagAnnotationEndpoint.get(entry: entry), withAuth: true)
+        let (data, response) = try await session.data(for: urlRequest)
+        guard let response = response as? HTTPURLResponse else { fatalError() }
+
+        try handleStatusCode(from: response, with: data)
+
+        let collection = try decoder.decode(WallabagAnnotationCollection.self, from: data)
+        return collection.rows
+    }
+
     public func request(for endpoint: any WallabagKitEndpoint, withAuth: Bool = false) -> URLRequest {
         var urlRequest = URLRequest(url: URL(string: "\(host)\(endpoint.endpoint())")!)
         urlRequest.httpMethod = endpoint.method().rawValue

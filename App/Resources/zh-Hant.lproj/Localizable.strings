@@ -116,6 +116,12 @@
 "Error" = "錯誤";
 "Ok" = "確定";
 
+// Annotation
+"Add annotation" = "新增註釋";
+"Add a note..." = "新增註釋...";
+
+"Edit" = "編輯";
+
 // Logout
 "Account / Logout" = "帳戶 / 登出";
 "Username:" = "使用者名稱:";

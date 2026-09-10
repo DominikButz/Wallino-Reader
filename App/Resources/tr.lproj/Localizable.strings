@@ -116,6 +116,12 @@
 "Error" = "Hata";
 "Ok" = "Tamam";
 
+// Annotation
+"Add annotation" = "Açıklama ekle";
+"Add a note..." = "Not ekle...";
+
+"Edit" = "Düzenle";
+
 // Logout
 "Account / Logout" = "Hesap / Çıkış yap";
 "Username:" = "Kullanıcı adı:";

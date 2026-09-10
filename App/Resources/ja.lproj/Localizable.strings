@@ -116,6 +116,12 @@
 "Error" = "エラー";
 "Ok" = "OK";
 
+// Annotation
+"Add annotation" = "注釈を追加";
+"Add a note..." = "メモを追加...";
+
+"Edit" = "編集";
+
 // Logout
 "Account / Logout" = "アカウント / ログアウト";
 "Username:" = "ユーザー名:";

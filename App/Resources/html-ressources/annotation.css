@@ -1,0 +1,149 @@
+.wallino-annotation-highlight {
+    background-color: rgba(255, 235, 59, 0.6);
+    border-radius: 2px;
+    padding: 0 1px;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+}
+
+.wallino-annotation-tooltip {
+    position: fixed;
+    z-index: 10000;
+    display: none;
+    box-sizing: border-box;
+    border-radius: 12px;
+    padding: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.wallino-annotation-tooltip.visible {
+    display: block;
+}
+
+.wallino-annotation-tooltip textarea {
+    box-sizing: border-box;
+    width: 100%;
+    border: 1px solid #40758a;
+    border-radius: 8px;
+    padding: 8px;
+    font-size: 15px;
+    font-family: inherit;
+    color: #000000;
+    background-color: #ffffff;
+    resize: none;
+    -webkit-appearance: none;
+}
+
+.wallino-annotation-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.wallino-annotation-actions button {
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 15px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.wallino-annotation-cancel {
+    color: #40758a;
+    background-color: transparent;
+}
+
+.wallino-annotation-ok {
+    color: #ffffff;
+    background-color: #40758a;
+}
+
+.wallino-annotation-ok:disabled {
+    opacity: 0.4;
+}
+
+.wallino-annotation-viewer {
+    position: fixed;
+    z-index: 10000;
+    display: none;
+    box-sizing: border-box;
+    border-radius: 12px;
+    padding: 12px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.wallino-annotation-viewer.visible {
+    display: block;
+}
+
+.wallino-annotation-viewer-header {
+    display: flex;
+    justify-content: flex-end;
+    gap: 16px;
+    margin: -6px -6px 8px 0;
+}
+
+.wallino-annotation-viewer-header button {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 27px;
+    line-height: 1;
+    padding: 4px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.wallino-annotation-viewer-header .wallino-annotation-edit {
+    color: #40758a;
+}
+
+.wallino-annotation-viewer-header .wallino-annotation-delete {
+    color: #ff3b30;
+}
+
+.wallino-annotation-viewer-text {
+    font-size: 15px;
+    color: #000000;
+    white-space: pre-wrap;
+    word-break: break-word;
+}
+
+@media (prefers-color-scheme: dark) {
+    .wallino-annotation-tooltip {
+        background-color: #1c1c1e;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .wallino-annotation-tooltip textarea {
+        border-color: #5193ac;
+        color: #ffffff;
+        background-color: #2c2c2e;
+    }
+
+    .wallino-annotation-cancel {
+        color: #5193ac;
+    }
+
+    .wallino-annotation-ok {
+        background-color: #5193ac;
+    }
+
+    .wallino-annotation-viewer {
+        background-color: #1c1c1e;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+    }
+
+    .wallino-annotation-viewer-header .wallino-annotation-edit {
+        color: #5193ac;
+    }
+
+    .wallino-annotation-viewer-text {
+        color: #ffffff;
+    }
+}

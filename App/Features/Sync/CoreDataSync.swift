@@ -43,8 +43,9 @@ final class CoreDataSync {
             // MARK: ENTRY
 
             if let entry = object as? Entry {
-                // skip tag at this time
+                // skip tag and annotation relationship changes at this time
                 changedValues.removeValue(forKey: "tags")
+                changedValues.removeValue(forKey: "annotations")
                 if changedValues.count > 0 {
                     logger.debug("Push update entry \(entry.id) to remote")
                     Task {

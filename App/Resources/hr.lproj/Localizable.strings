@@ -116,6 +116,12 @@
 "Error" = "Greška";
 "Ok" = "U redu";
 
+// Annotation
+"Add annotation" = "Dodaj napomenu";
+"Add a note..." = "Dodaj bilješku...";
+
+"Edit" = "Uredi";
+
 // Logout
 "Account / Logout" = "Račun / Odjava";
 "Username:" = "Korisničko ime:";

@@ -36,6 +36,7 @@ final class AppSync {
             await synchronizeTags()
             await synchronizeEntries()
             purge()
+            await synchronizeAnnotations()
             await MainActor.run {
                 self.inProgress = false
             }
@@ -158,5 +159,47 @@ extension AppSync {
             }
             try backgroundContext.save()
         } catch _ {}
+    }
+}
+
+// MARK: - Annotation
+
+extension AppSync {
+    private func synchronizeAnnotations() async {
+        let entries = (try? backgroundContext.fetch(Entry.fetchRequestSorted())) ?? []
+
+        for entry in entries {
+            let annotations: [WallabagAnnotation]
+            do {
+                annotations = try await session.kit.fetchAnnotations(for: entry.id)
+            } catch {
+                continue
+            }
+            applyAnnotations(annotations, to: entry)
+        }
+
+        if backgroundContext.hasChanges {
+            try? backgroundContext.save()
+        }
+    }
+
+    private func applyAnnotations(_ wallabagAnnotations: [WallabagAnnotation], to entry: Entry) {
+        let currentAnnotations = entry.annotations
+        let newIds = Set(wallabagAnnotations.map { $0.id })
+
+        for wallabagAnnotation in wallabagAnnotations {
+            if let existing = currentAnnotations.first(where: { $0.id == wallabagAnnotation.id }) {
+                existing.hydrate(from: wallabagAnnotation)
+            } else {
+                let annotation = Annotation(context: backgroundContext)
+                annotation.hydrate(from: wallabagAnnotation)
+                annotation.entry = entry
+            }
+        }
+
+        let annotationsToDelete = currentAnnotations.filter { !newIds.contains($0.id) }
+        for annotation in annotationsToDelete {
+            backgroundContext.delete(annotation)
+        }
     }
 }

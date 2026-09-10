@@ -39,8 +39,10 @@
 		09644BFA25C983F8000FFDA1 /* Podcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644BF725C983F8000FFDA1 /* Podcast.swift */; };
 		09644BFB25C983F8000FFDA1 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644BF825C983F8000FFDA1 /* Tag.swift */; };
 		09644BFC25C983F8000FFDA1 /* Entry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644BF925C983F8000FFDA1 /* Entry.swift */; };
+		D0C1A1000000000000000002 /* Annotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C1A1000000000000000001 /* Annotation.swift */; };
 		09644C4F25C9850D000FFDA1 /* CoreDataViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644C4E25C9850D000FFDA1 /* CoreDataViewContext.swift */; };
 		09644C5C25C98596000FFDA1 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644C5625C98596000FFDA1 /* WebView.swift */; };
+		D0C1A1000000000000000009 /* AnnotationEditMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C1A1000000000000000008 /* AnnotationEditMenu.swift */; };
 		09644C5D25C98596000FFDA1 /* AddEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644C5725C98596000FFDA1 /* AddEntryView.swift */; };
 		09644C5E25C98596000FFDA1 /* EntriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644C5825C98596000FFDA1 /* EntriesView.swift */; };
 		09644C5F25C98596000FFDA1 /* EntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644C5925C98596000FFDA1 /* EntryRowView.swift */; };
@@ -105,6 +107,8 @@
 		B4B3F2E3304C0000007633C9 /* ActivityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B3F2E2304C0000007633C9 /* ActivityView.swift */; };
 		B4B3F2E5304C0000007633C9 /* article-pdf.html in Resources */ = {isa = PBXBuildFile; fileRef = B4B3F2E4304C0000007633C9 /* article-pdf.html */; };
 		B4B3F2E7304C0000007633C9 /* pdf.css in Resources */ = {isa = PBXBuildFile; fileRef = B4B3F2E6304C0000007633C9 /* pdf.css */; };
+		D0C1A1000000000000000005 /* annotation.js in Resources */ = {isa = PBXBuildFile; fileRef = D0C1A1000000000000000004 /* annotation.js */; };
+		D0C1A1000000000000000007 /* annotation.css in Resources */ = {isa = PBXBuildFile; fileRef = D0C1A1000000000000000006 /* annotation.css */; };
 		B4B3F300304B1234007633C9 /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B3F301304B1234007633C9 /* ShareView.swift */; };
 		B4B3F302304B1234007633C9 /* ShareViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B3F303304B1234007633C9 /* ShareViewModel.swift */; };
 		B4B3F304304B1234007633C9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 09AD75C02624FEEE00708A1E /* Localizable.strings */; };
@@ -182,8 +186,10 @@
 		09644BF725C983F8000FFDA1 /* Podcast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Podcast.swift; sourceTree = "<group>"; };
 		09644BF825C983F8000FFDA1 /* Tag.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
 		09644BF925C983F8000FFDA1 /* Entry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Entry.swift; sourceTree = "<group>"; };
+		D0C1A1000000000000000001 /* Annotation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Annotation.swift; sourceTree = "<group>"; };
 		09644C4E25C9850D000FFDA1 /* CoreDataViewContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataViewContext.swift; sourceTree = "<group>"; };
 		09644C5625C98596000FFDA1 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		D0C1A1000000000000000008 /* AnnotationEditMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationEditMenu.swift; sourceTree = "<group>"; };
 		09644C5725C98596000FFDA1 /* AddEntryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEntryView.swift; sourceTree = "<group>"; };
 		09644C5825C98596000FFDA1 /* EntriesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntriesView.swift; sourceTree = "<group>"; };
 		09644C5925C98596000FFDA1 /* EntryRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryRowView.swift; sourceTree = "<group>"; };
@@ -222,6 +228,7 @@
 		09644D1725C98755000FFDA1 /* AppDelegateExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegateExtension.swift; sourceTree = "<group>"; };
 		09644D1F25C98782000FFDA1 /* wallabagStore.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = wallabagStore.xcdatamodel; sourceTree = "<group>"; };
 		09644D2125C98783000FFDA1 /* wallabagStore 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "wallabagStore 2.xcdatamodel"; sourceTree = "<group>"; };
+		D0C1A1000000000000000003 /* wallabagStore 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "wallabagStore 3.xcdatamodel"; sourceTree = "<group>"; };
 		097F81DF25CB187B006C85F6 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
 		098BDD0729BF04E3003DF719 /* RouteSwiftUIExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RouteSwiftUIExtension.swift; sourceTree = "<group>"; };
 		098CF4D529CD830E00DEAE50 /* ServerViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerViewModelTests.swift; sourceTree = "<group>"; };
@@ -260,6 +267,8 @@
 		B4B3F2E2304C0000007633C9 /* ActivityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityView.swift; sourceTree = "<group>"; };
 		B4B3F2E4304C0000007633C9 /* article-pdf.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "article-pdf.html"; sourceTree = "<group>"; };
 		B4B3F2E6304C0000007633C9 /* pdf.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = pdf.css; sourceTree = "<group>"; };
+		D0C1A1000000000000000004 /* annotation.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = annotation.js; sourceTree = "<group>"; };
+		D0C1A1000000000000000006 /* annotation.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = annotation.css; sourceTree = "<group>"; };
 		B4B3F301304B1234007633C9 /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 		B4B3F303304B1234007633C9 /* ShareViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -481,6 +490,7 @@
 				09644C5925C98596000FFDA1 /* EntryRowView.swift */,
 				09644C5A25C98596000FFDA1 /* EntryView.swift */,
 				09644C5625C98596000FFDA1 /* WebView.swift */,
+				D0C1A1000000000000000008 /* AnnotationEditMenu.swift */,
 			);
 			path = Entry;
 			sourceTree = "<group>";
@@ -630,6 +640,7 @@
 				09644BF925C983F8000FFDA1 /* Entry.swift */,
 				09644BF725C983F8000FFDA1 /* Podcast.swift */,
 				09644BF825C983F8000FFDA1 /* Tag.swift */,
+				D0C1A1000000000000000001 /* Annotation.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -670,6 +681,8 @@
 				09AD75A02624F93D00708A1E /* justify.css */,
 				B4B3F2E4304C0000007633C9 /* article-pdf.html */,
 				B4B3F2E6304C0000007633C9 /* pdf.css */,
+				D0C1A1000000000000000004 /* annotation.js */,
+				D0C1A1000000000000000006 /* annotation.css */,
 			);
 			path = "html-ressources";
 			sourceTree = "<group>";
@@ -923,6 +936,8 @@
 				09AD75A22624F93D00708A1E /* main.css in Resources */,
 				B4B3F2E5304C0000007633C9 /* article-pdf.html in Resources */,
 				B4B3F2E7304C0000007633C9 /* pdf.css in Resources */,
+				D0C1A1000000000000000005 /* annotation.js in Resources */,
+				D0C1A1000000000000000007 /* annotation.css in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -979,6 +994,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09644C5C25C98596000FFDA1 /* WebView.swift in Sources */,
+				D0C1A1000000000000000009 /* AnnotationEditMenu.swift in Sources */,
 				09644B5E25C98116000FFDA1 /* AppDelegate.swift in Sources */,
 				0940869A2B684842000DA980 /* AddEntryModel.swift in Sources */,
 				09644D1825C98755000FFDA1 /* AppDelegateExtension.swift in Sources */,
@@ -1014,6 +1030,7 @@
 				09644CD725C986C0000FFDA1 /* ClientIdClientSecretViewModel.swift in Sources */,
 				09644CCB25C9869D000FFDA1 /* RegistrationView.swift in Sources */,
 				09644BFC25C983F8000FFDA1 /* Entry.swift in Sources */,
+				D0C1A1000000000000000002 /* Annotation.swift in Sources */,
 				097F81EB25CB18BA006C85F6 /* Router.swift in Sources */,
 				81505C5D2B5DC23C003B5CDE /* AddEntryIntent.swift in Sources */,
 				09644BB725C98232000FFDA1 /* AppSetting.swift in Sources */,
@@ -1507,8 +1524,9 @@
 			children = (
 				09644D1F25C98782000FFDA1 /* wallabagStore.xcdatamodel */,
 				09644D2125C98783000FFDA1 /* wallabagStore 2.xcdatamodel */,
+				D0C1A1000000000000000003 /* wallabagStore 3.xcdatamodel */,
 			);
-			currentVersion = 09644D2125C98783000FFDA1 /* wallabagStore 2.xcdatamodel */;
+			currentVersion = D0C1A1000000000000000003 /* wallabagStore 3.xcdatamodel */;
 			path = wallabagStore.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

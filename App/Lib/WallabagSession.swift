@@ -76,6 +76,45 @@ final class WallabagSession: ObservableObject {
         entry.hydrate(from: wallabagEntry)
     }
 
+    func add(annotation text: String, quote: String, ranges: [AnnotationRange], entryId: Int) async throws -> Int? {
+        let wallabagAnnotation = try await kit.send(to: WallabagAnnotationEndpoint.add(entry: entryId, text: text, quote: quote, ranges: ranges))
+
+        return await MainActor.run {
+            guard let entry = try? coreDataContext.fetch(Entry.fetchOneById(entryId)).first else {
+                return nil
+            }
+            let annotation = Annotation(context: coreDataContext)
+            annotation.hydrate(from: wallabagAnnotation)
+            annotation.entry = entry
+            try? coreDataContext.save()
+            return annotation.id
+        }
+    }
+
+    func update(annotation id: Int, text: String) async throws {
+        let wallabagAnnotation = try await kit.send(to: WallabagAnnotationEndpoint.update(annotation: id, text: text))
+
+        await MainActor.run {
+            guard let annotation = try? coreDataContext.fetch(Annotation.fetchOneById(id)).first else {
+                return
+            }
+            annotation.text = wallabagAnnotation.text
+            try? coreDataContext.save()
+        }
+    }
+
+    func delete(annotation id: Int) async throws {
+        _ = try await kit.send(to: WallabagAnnotationEndpoint.delete(annotation: id))
+
+        await MainActor.run {
+            guard let annotation = try? coreDataContext.fetch(Annotation.fetchOneById(id)).first else {
+                return
+            }
+            coreDataContext.delete(annotation)
+            try? coreDataContext.save()
+        }
+    }
+
     func delete(tag: Tag, for entry: Entry) async throws {
         let wallabagEntry = try await kit.send(to: WallabagEntryEndpoint.deleteTag(tagId: tag.id, entry: entry.id))
         await MainActor.run {

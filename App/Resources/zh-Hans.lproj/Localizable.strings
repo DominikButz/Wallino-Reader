@@ -116,6 +116,12 @@
 "Error" = "错误";
 "Ok" = "确定";
 
+// Annotation
+"Add annotation" = "添加注释";
+"Add a note..." = "添加注释...";
+
+"Edit" = "编辑";
+
 // Logout
 "Account / Logout" = "账户 / 退出";
 "Username:" = "用户名:";

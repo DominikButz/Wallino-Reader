@@ -116,6 +116,12 @@
 "Error" = "Erreur";
 "Ok" = "OK";
 
+// Annotation
+"Add annotation" = "Ajouter une annotation";
+"Add a note..." = "Ajouter une note...";
+
+"Edit" = "Modifier";
+
 // Logout
 "Account / Logout" = "Compte / Se déconnecter";
 "Username:" = "Identifiant :";

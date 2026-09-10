@@ -36,6 +36,7 @@ extension Entry {
     @NSManaged dynamic var readingTime: Int
     @NSManaged dynamic var screenPosition: Float
     @NSManaged dynamic var tags: Set<Tag>
+    @NSManaged dynamic var annotations: Set<Annotation>
 }
 
 extension Entry {
