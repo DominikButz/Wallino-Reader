@@ -34,9 +34,9 @@ class ShareViewController: UIViewController {
         }
     }
 
-    private func embedShareView(with item: (url: String, title: String?, content: String?)) {
+    private func embedShareView(with item: (urls: [String], title: String?, content: String?)) {
         let viewModel = ShareViewModel(
-            url: item.url,
+            urls: item.urls,
             title: item.title,
             contentHTML: item.content,
             onComplete: { [weak self] in
@@ -63,7 +63,7 @@ class ShareViewController: UIViewController {
         present(alertController, animated: true)
     }
 
-    private func extractSharedItem() async throws -> (url: String, title: String?, content: String?) {
+    private func extractSharedItem() async throws -> (urls: [String], title: String?, content: String?) {
         guard let item = extensionContext?.inputItems.first as? NSExtensionItem else {
             throw ShareExtensionError.retrievingURL
         }
@@ -75,13 +75,24 @@ class ShareViewController: UIViewController {
            let dictionary = loaded as? NSDictionary,
            let results = dictionary[NSExtensionJavaScriptPreprocessingResultsKey] as? NSDictionary,
            let href = results["href"] as? String {
-            return (href, results["title"] as? String, results["contentHTML"] as? String)
+            return ([href], results["title"] as? String, results["contentHTML"] as? String)
         }
 
         if let attachment = attachments.first(where: { $0.hasItemConformingToTypeIdentifier(UTType.url.identifier) }),
            let loaded = try? await loadItem(from: attachment, typeIdentifier: UTType.url.identifier),
            let url = (loaded as? NSURL)?.absoluteString {
-            return (url, nil, nil)
+            return ([url], nil, nil)
+        }
+
+        // Many apps (e.g. newspaper apps) export the shared article as plain
+        // text in which the URL is embedded rather than as a URL attachment.
+        if let attachment = attachments.first(where: { $0.hasItemConformingToTypeIdentifier(UTType.plainText.identifier) }),
+           let loaded = try? await loadItem(from: attachment, typeIdentifier: UTType.plainText.identifier),
+           let text = loaded as? String {
+            let urls = text.detectedURLs.map(\.absoluteString)
+            if !urls.isEmpty {
+                return (urls, nil, nil)
+            }
         }
 
         throw ShareExtensionError.retrievingURL

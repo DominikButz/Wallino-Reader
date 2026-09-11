@@ -12,9 +12,11 @@ struct ShareView: View {
                         Text(title)
                             .font(.headline)
                     }
-                    Text(viewModel.url)
-                        .font(.caption)
-                        .foregroundStyle(.secondary)
+                    ForEach(viewModel.urls, id: \.self) { url in
+                        Text(url)
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
                 }
 
                 Section {

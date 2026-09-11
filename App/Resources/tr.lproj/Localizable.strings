@@ -107,6 +107,7 @@
 "Load entry" = "Makaleyi yükle";
 "Load entry in text-to-speech player" = "Makaleyi metin okuma oynatıcısında yükle";
 "Great! Entry was added" = "Harika! Makale eklendi";
+"Great! %d entries were added" = "Harika! %d makale eklendi";
 "Url" = "URL";
 "Submitting..." = "Gönderiliyor…";
 "New tag" = "Yeni etiket";

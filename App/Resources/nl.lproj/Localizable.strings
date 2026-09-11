@@ -107,6 +107,7 @@
 "Load entry" = "Artikel laden";
 "Load entry in text-to-speech player" = "Artikel laden in voorleesspeler";
 "Great! Entry was added" = "Geweldig! Artikel is toegevoegd";
+"Great! %d entries were added" = "Geweldig! %d artikelen zijn toegevoegd";
 "Url" = "URL";
 "Submitting..." = "Verzenden…";
 "New tag" = "Nieuwe tag";

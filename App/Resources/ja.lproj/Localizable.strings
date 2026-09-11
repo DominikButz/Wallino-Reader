@@ -107,6 +107,7 @@
 "Load entry" = "記事を読み込む";
 "Load entry in text-to-speech player" = "読み上げプレーヤーで記事を読み込む";
 "Great! Entry was added" = "記事が追加されました";
+"Great! %d entries were added" = "記事を %d 件追加しました";
 "Url" = "URL";
 "Submitting..." = "送信中…";
 "New tag" = "新しいタグ";

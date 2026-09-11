@@ -38,8 +38,9 @@
                     $extensionItem.attachments, $attachment,
                     ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO &quot;com.adobe.pdf&quot; ||
                     ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO &quot;public.image&quot; ||
-                    ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO &quot;public.url&quot;
-                ).@count == 1
+                    ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO &quot;public.url&quot; ||
+                    ANY $attachment.registeredTypeIdentifiers UTI-CONFORMS-TO &quot;public.plain-text&quot;
+                ).@count &gt; 0
             ).@count &gt; 0
             </string>
 			<key>NSExtensionJavaScriptPreprocessingFile</key>

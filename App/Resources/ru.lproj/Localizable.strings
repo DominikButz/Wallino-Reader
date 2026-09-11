@@ -107,6 +107,7 @@
 "Load entry" = "Загрузить статью";
 "Load entry in text-to-speech player" = "Загрузить статью в голосовой проигрыватель";
 "Great! Entry was added" = "Отлично! Статья добавлена";
+"Great! %d entries were added" = "Отлично! Добавлено статей: %d";
 "Url" = "URL";
 "Submitting..." = "Отправка…";
 "New tag" = "Новый тег";

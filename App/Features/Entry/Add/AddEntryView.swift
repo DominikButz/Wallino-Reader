@@ -1,3 +1,4 @@
+import SharedLib
 import SwiftUI
 
 struct AddEntryView: View {
@@ -12,7 +13,11 @@ struct AddEntryView: View {
                 .disableAutocorrection(true)
             HStack {
                 if model.succeeded {
-                    Text("Great! Entry was added")
+                    if model.addedCount > 1 {
+                        Text(String(format: "Great! %d entries were added".localized, arguments: [model.addedCount]))
+                    } else {
+                        Text("Great! Entry was added")
+                    }
                 } else {
                     Button(model.submitting ? "Submitting..." : "Submit") {
                         Task {

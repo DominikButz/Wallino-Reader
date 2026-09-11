@@ -6,7 +6,7 @@ import WallabagKit
 @MainActor
 @Observable
 final class ShareViewModel {
-    let url: String
+    let urls: [String]
     let title: String?
     let contentHTML: String?
 
@@ -26,13 +26,13 @@ final class ShareViewModel {
     private let onCancel: () -> Void
 
     init(
-        url: String,
+        urls: [String],
         title: String?,
         contentHTML: String?,
         onComplete: @escaping () -> Void,
         onCancel: @escaping () -> Void
     ) {
-        self.url = url
+        self.urls = urls
         self.title = title
         self.contentHTML = contentHTML
         self.onComplete = onComplete
@@ -87,16 +87,18 @@ final class ShareViewModel {
 
         do {
             try await ensureAuthenticated()
-            let _: WallabagEntry = try await kit.send(
-                to: WallabagEntryEndpoint.add(
-                    url: url,
-                    title: title,
-                    content: contentHTML,
-                    tags: selectedTags,
-                    starred: isStarred,
-                    archived: isRead
+            for url in urls {
+                let _: WallabagEntry = try await kit.send(
+                    to: WallabagEntryEndpoint.add(
+                        url: url,
+                        title: title,
+                        content: contentHTML,
+                        tags: selectedTags,
+                        starred: isStarred,
+                        archived: isRead
+                    )
                 )
-            )
+            }
             onComplete()
         } catch {
             errorMessage = error.localizedDescription

@@ -107,6 +107,7 @@
 "Load entry" = "Charger l'article";
 "Load entry in text-to-speech player" = "Charger l'article dans le lecteur de synthèse vocale";
 "Great! Entry was added" = "Super ! L'article a été ajouté";
+"Great! %d entries were added" = "Super ! %d articles ont été ajoutés";
 "Url" = "URL";
 "Submitting..." = "Envoi en cours…";
 "New tag" = "Nouveau tag";

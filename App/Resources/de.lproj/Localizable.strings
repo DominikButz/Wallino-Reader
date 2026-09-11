@@ -107,6 +107,7 @@
 "Load entry" = "Eintrag laden";
 "Load entry in text-to-speech player" = "Eintrag im Vorlese-Player laden";
 "Great! Entry was added" = "Super! Eintrag wurde hinzugefügt";
+"Great! %d entries were added" = "Super! %d Einträge wurden hinzugefügt";
 "Url" = "URL";
 "Submitting..." = "Wird gesendet…";
 "New tag" = "Neuer Tag";

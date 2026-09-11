@@ -107,6 +107,7 @@
 "Load entry" = "加载文章";
 "Load entry in text-to-speech player" = "在语音播放器中加载文章";
 "Great! Entry was added" = "太棒了！文章已添加";
+"Great! %d entries were added" = "太棒了！已添加 %d 篇文章";
 "Url" = "URL";
 "Submitting..." = "正在提交…";
 "New tag" = "新标签";

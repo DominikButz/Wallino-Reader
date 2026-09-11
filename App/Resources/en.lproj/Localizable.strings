@@ -107,6 +107,7 @@
 "Load entry" = "Load entry";
 "Load entry in text-to-speech player" = "Load entry in text-to-speech player";
 "Great! Entry was added" = "Great! Entry was added";
+"Great! %d entries were added" = "Great! %d entries were added";
 "Url" = "Url";
 "Submitting..." = "Submitting...";
 "New tag" = "New tag";
