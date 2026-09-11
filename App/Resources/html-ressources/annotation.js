@@ -7,131 +7,10 @@
         return;
     }
 
-    var DEFAULT_STRINGS = {
-        addAnnotation: 'Add annotation',
-        cancel: 'Cancel',
-        ok: 'Ok',
-        placeholder: 'Add a note...',
-        edit: 'Edit',
-        delete: 'Delete'
-    };
-
-    function getStrings() {
-        return window.__annotationStrings || DEFAULT_STRINGS;
-    }
-
-    var tooltip = null;
-    var viewerTooltip = null;
     var currentSelection = null;
     var highlightSpan = null;
     var displayed = false;
     var annotationsById = {};
-    var editingId = null;
-    var activeHighlight = null;
-
-    function createTooltip() {
-        var tip = document.createElement('div');
-        tip.className = 'wallino-annotation-tooltip';
-
-        var textarea = document.createElement('textarea');
-        textarea.rows = 3;
-        textarea.placeholder = getStrings().placeholder;
-
-        var cancelBtn = document.createElement('button');
-        cancelBtn.type = 'button';
-        cancelBtn.className = 'wallino-annotation-cancel';
-        cancelBtn.textContent = getStrings().cancel;
-
-        var okBtn = document.createElement('button');
-        okBtn.type = 'button';
-        okBtn.className = 'wallino-annotation-ok';
-        okBtn.textContent = getStrings().ok;
-
-        cancelBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            onCancel();
-        });
-
-        okBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            onOk(textarea.value.trim());
-        });
-
-        var actions = document.createElement('div');
-        actions.className = 'wallino-annotation-actions';
-        actions.appendChild(cancelBtn);
-        actions.appendChild(okBtn);
-
-        tip.appendChild(textarea);
-        tip.appendChild(actions);
-        document.body.appendChild(tip);
-        return tip;
-    }
-
-    function createViewerTooltip() {
-        var tip = document.createElement('div');
-        tip.className = 'wallino-annotation-viewer';
-
-        var header = document.createElement('div');
-        header.className = 'wallino-annotation-viewer-header';
-
-        var editBtn = document.createElement('button');
-        editBtn.type = 'button';
-        editBtn.className = 'wallino-annotation-edit';
-        editBtn.textContent = '\u270E';
-        editBtn.setAttribute('aria-label', getStrings().edit);
-
-        var deleteBtn = document.createElement('button');
-        deleteBtn.type = 'button';
-        deleteBtn.className = 'wallino-annotation-delete';
-        deleteBtn.textContent = '\u2715';
-        deleteBtn.setAttribute('aria-label', getStrings().delete);
-
-        editBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            onEdit();
-        });
-
-        deleteBtn.addEventListener('click', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            onDelete();
-        });
-
-        header.appendChild(editBtn);
-        header.appendChild(deleteBtn);
-
-        var text = document.createElement('div');
-        text.className = 'wallino-annotation-viewer-text';
-
-        tip.appendChild(header);
-        tip.appendChild(text);
-        document.body.appendChild(tip);
-        return tip;
-    }
-
-    function ensureTooltip() {
-        if (!tooltip) {
-            tooltip = createTooltip();
-        }
-    }
-
-    function ensureViewerTooltip() {
-        if (!viewerTooltip) {
-            viewerTooltip = createViewerTooltip();
-        }
-    }
-
-    function tooltipVisible() {
-        return !!(tooltip && tooltip.classList.contains('visible'));
-    }
-
-    function viewerVisible() {
-        return !!(viewerTooltip && viewerTooltip.classList.contains('visible'));
-    }
 
     function getArticleElement() {
         return document.querySelector('article');
@@ -368,69 +247,18 @@
         range.insertNode(highlightSpan);
     }
 
-    function viewportHeight() {
-        if (window.visualViewport && window.visualViewport.height) {
-            return window.visualViewport.height;
-        }
-        return window.innerHeight;
-    }
-
-    function positionElement(element, ref) {
-        element.style.left = '8px';
-        element.style.width = (window.innerWidth - 16) + 'px';
-        var height = viewportHeight();
-        var top;
-        if (!ref) {
-            top = 8;
-        } else {
-            var rect = ref.getBoundingClientRect();
-            top = rect.bottom + 8;
-            if (top + element.offsetHeight > height) {
-                top = rect.top - element.offsetHeight - 8;
-            }
-        }
-        top = Math.max(8, Math.min(top, height - element.offsetHeight - 8));
-        element.style.top = top + 'px';
-    }
-
-    function repositionVisibleTooltip() {
-        if (tooltipVisible()) {
-            positionElement(tooltip, editingId != null ? activeHighlight : highlightSpan);
-        } else if (viewerVisible()) {
-            positionElement(viewerTooltip, activeHighlight);
-        }
-    }
-
-    function showEditor(text) {
-        ensureTooltip();
-        var textarea = tooltip.querySelector('textarea');
-        textarea.value = text || '';
-        positionElement(tooltip, editingId != null ? activeHighlight : highlightSpan);
-        tooltip.classList.add('visible');
-        textarea.focus();
-    }
-
     function annotateSelection() {
         var data = getSelectionData() || currentSelection;
-        if (!data || !data.range || tooltipVisible() || viewerVisible()) {
+        if (!data || !data.range) {
             return;
         }
         currentSelection = data;
-        editingId = null;
-        activeHighlight = null;
         highlightSelection(data.range);
-        showEditor('');
-    }
-
-    function onCancel() {
-        if (editingId == null) {
-            unwrapSpan(highlightSpan);
-            highlightSpan = null;
-        }
-        editingId = null;
-        closeTooltip();
-        currentSelection = null;
-        activeHighlight = null;
+        window.webkit.messageHandlers.annotation.postMessage({
+            type: 'showAdd',
+            quote: data.quote,
+            ranges: data.ranges
+        });
     }
 
     function unwrapSpan(span) {
@@ -456,38 +284,18 @@
         delete annotationsById[id];
     }
 
-    function closeTooltip() {
-        if (!tooltip) {
-            return;
-        }
-        tooltip.classList.remove('visible');
-        tooltip.querySelector('textarea').value = '';
+    function removeAnnotation(id) {
+        removeHighlightById(id);
     }
 
-    function closeViewer() {
-        if (!viewerTooltip) {
+    function openEditor(span) {
+        var id = parseInt(span.getAttribute('data-annotation-id'), 10);
+        if (isNaN(id)) {
             return;
         }
-        viewerTooltip.classList.remove('visible');
-        activeHighlight = null;
-    }
-
-    function onOk(text) {
-        if (editingId != null) {
-            annotationsById[editingId] = text;
-            window.webkit.messageHandlers.annotation.postMessage({ type: 'update', id: editingId, text: text });
-            editingId = null;
-        } else if (currentSelection) {
-            window.webkit.messageHandlers.annotation.postMessage({
-                type: 'add',
-                text: text,
-                quote: currentSelection.quote,
-                ranges: currentSelection.ranges
-            });
-            currentSelection = null;
-        }
-        closeTooltip();
-        activeHighlight = null;
+        var text = annotationsById[id] || '';
+        var quote = span.textContent || '';
+        window.webkit.messageHandlers.annotation.postMessage({ type: 'showEdit', id: id, text: text, quote: quote });
     }
 
     function onSelectionChange() {
@@ -498,53 +306,13 @@
     }
 
     function onDocumentClick(e) {
-        if (tooltipVisible()) {
-            return;
-        }
         var target = e.target;
         var span = target.closest ? target.closest('.wallino-annotation-highlight') : null;
         if (span && span.getAttribute('data-annotation-id')) {
             e.preventDefault();
             e.stopPropagation();
-            onHighlightTap(span);
-            return;
+            openEditor(span);
         }
-        if (viewerVisible()) {
-            closeViewer();
-        }
-    }
-
-    function onHighlightTap(span) {
-        var id = parseInt(span.getAttribute('data-annotation-id'), 10);
-        if (isNaN(id)) {
-            return;
-        }
-        activeHighlight = span;
-        ensureViewerTooltip();
-        viewerTooltip.querySelector('.wallino-annotation-viewer-text').textContent = annotationsById[id] || '';
-        viewerTooltip.setAttribute('data-annotation-id', String(id));
-        positionElement(viewerTooltip, span);
-        viewerTooltip.classList.add('visible');
-    }
-
-    function onEdit() {
-        var id = parseInt(viewerTooltip.getAttribute('data-annotation-id'), 10);
-        if (isNaN(id)) {
-            return;
-        }
-        viewerTooltip.classList.remove('visible');
-        editingId = id;
-        showEditor(annotationsById[id] || '');
-    }
-
-    function onDelete() {
-        var id = parseInt(viewerTooltip.getAttribute('data-annotation-id'), 10);
-        if (isNaN(id)) {
-            return;
-        }
-        closeViewer();
-        removeHighlightById(id);
-        window.webkit.messageHandlers.annotation.postMessage({ type: 'delete', id: id });
     }
 
     function onAnnotationAdded(id, text) {
@@ -555,17 +323,27 @@
         highlightSpan = null;
     }
 
+    function onAnnotationUpdated(id, text) {
+        annotationsById[id] = text;
+    }
+
+    function onAnnotationAddCancelled() {
+        unwrapSpan(highlightSpan);
+        highlightSpan = null;
+        currentSelection = null;
+    }
+
     function init() {
         document.addEventListener('selectionchange', onSelectionChange);
         document.addEventListener('click', onDocumentClick);
-        if (window.visualViewport) {
-            window.visualViewport.addEventListener('resize', repositionVisibleTooltip);
-        }
     }
 
     window.__wallinoAnnotateSelection = annotateSelection;
     window.__wallinoDisplayAnnotations = displayAnnotations;
     window.__wallinoOnAnnotationAdded = onAnnotationAdded;
+    window.__wallinoOnAnnotationUpdated = onAnnotationUpdated;
+    window.__wallinoOnAnnotationAddCancelled = onAnnotationAddCancelled;
+    window.__wallinoRemoveAnnotation = removeAnnotation;
 
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);

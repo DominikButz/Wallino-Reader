@@ -122,6 +122,16 @@
 
 "Edit" = "Изменить";
 
+"New annotation" = "Новая аннотация";
+"Edit annotation" = "Изменить аннотацию";
+"Save" = "Сохранить";
+"Selected text" = "Выбранный текст";
+"Annotation" = "Аннотация";
+"Annotations" = "Аннотации";
+
+"Delete All Annotations" = "Удалить все аннотации";
+"This deletes all annotations locally and on the server." = "Это удалит все аннотации локально и на сервере.";
+
 // Logout
 "Account / Logout" = "Учётная запись / Выход";
 "Username:" = "Имя пользователя:";

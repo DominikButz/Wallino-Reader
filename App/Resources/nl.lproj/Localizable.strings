@@ -122,6 +122,16 @@
 
 "Edit" = "Bewerken";
 
+"New annotation" = "Nieuwe annotatie";
+"Edit annotation" = "Annotatie bewerken";
+"Save" = "Opslaan";
+"Selected text" = "Geselecteerde tekst";
+"Annotation" = "Annotatie";
+"Annotations" = "Annotaties";
+
+"Delete All Annotations" = "Alle annotaties verwijderen";
+"This deletes all annotations locally and on the server." = "Hiermee worden alle annotaties lokaal en op de server verwijderd.";
+
 // Logout
 "Account / Logout" = "Account / Afmelden";
 "Username:" = "Gebruikersnaam:";

@@ -122,6 +122,16 @@
 
 "Edit" = "Uredi";
 
+"New annotation" = "Nova napomena";
+"Edit annotation" = "Uredi napomenu";
+"Save" = "Spremi";
+"Selected text" = "Odabrani tekst";
+"Annotation" = "Napomena";
+"Annotations" = "Napomene";
+
+"Delete All Annotations" = "Izbriši sve napomene";
+"This deletes all annotations locally and on the server." = "Ovo briše sve napomene lokalno i na poslužitelju.";
+
 // Logout
 "Account / Logout" = "Račun / Odjava";
 "Username:" = "Korisničko ime:";

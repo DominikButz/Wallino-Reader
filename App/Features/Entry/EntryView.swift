@@ -16,6 +16,7 @@ struct EntryView: View {
     @State private var showDeleteConfirm = false
     @State private var progress = 0.0
     #if os(iOS)
+        @StateObject private var annotationEditor = AnnotationEditorViewModel()
         @State private var pdfShareFile: ShareableFile?
         @State private var isGeneratingPDF = false
     #endif
@@ -27,8 +28,14 @@ struct EntryView: View {
     #endif
 
     var body: some View {
-        WebView(entry: entry, progress: $progress)
-            .ignoresSafeArea()
+        Group {
+            #if os(iOS)
+                WebView(entry: entry, progress: $progress, annotationEditor: annotationEditor)
+            #else
+                WebView(entry: entry, progress: $progress)
+            #endif
+        }
+        .ignoresSafeArea()
             .safeAreaInset(edge: .top) {
                 VStack(spacing: 0) {
                     ProgressView(value: max(0, min(progress, 1)), total: 1)
@@ -70,6 +77,12 @@ struct EntryView: View {
             TagListFor(entry: entry)
                 .presentationDetents([.medium, .large])
         }
+        #if os(iOS)
+            .sheet(item: $annotationEditor.state) { _ in
+                AnnotationEditorView(viewModel: annotationEditor)
+                    .presentationDetents([.medium, .large])
+            }
+        #endif
         #if os(iOS)
             .sheet(item: $pdfShareFile) { file in
                 ActivityView(activityItems: [file.url])

@@ -122,6 +122,16 @@
 
 "Edit" = "編集";
 
+"New annotation" = "新しい注釈";
+"Edit annotation" = "注釈を編集";
+"Save" = "保存";
+"Selected text" = "選択したテキスト";
+"Annotation" = "注釈";
+"Annotations" = "注釈";
+
+"Delete All Annotations" = "すべての注釈を削除";
+"This deletes all annotations locally and on the server." = "これにより、すべての注釈がローカルとサーバーの両方から削除されます。";
+
 // Logout
 "Account / Logout" = "アカウント / ログアウト";
 "Username:" = "ユーザー名:";

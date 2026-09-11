@@ -4,7 +4,7 @@ import Foundation
 public struct Setting<T> {
     let key: String
     let defaultValue: T
-    let userDefaults = UserDefaults(suiteName: "group.com.duoyun.wallino-reader")!
+    let userDefaults = UserDefaults(suiteName: WallabagAppGroup.identifier)!
 
     init(_ key: String, defaultValue: T) {
         self.key = key

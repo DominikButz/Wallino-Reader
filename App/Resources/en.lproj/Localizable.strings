@@ -119,8 +119,17 @@
 // Annotation
 "Add annotation" = "Add annotation";
 "Add a note..." = "Add a note...";
-
 "Edit" = "Edit";
+
+"New annotation" = "New annotation";
+"Edit annotation" = "Edit annotation";
+"Save" = "Save";
+"Selected text" = "Selected text";
+"Annotation" = "Annotation";
+"Annotations" = "Annotations";
+
+"Delete All Annotations" = "Delete All Annotations";
+"This deletes all annotations locally and on the server." = "This deletes all annotations locally and on the server.";
 
 // Logout
 "Account / Logout" = "Account / Logout";

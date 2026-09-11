@@ -1,5 +1,16 @@
 import Foundation
 
+/// The App Group used to share data with the share extension. Debug builds use
+/// a separate group so debug and production never share data.
+public enum WallabagAppGroup {
+    public static var identifier: String {
+        let bundleIdentifier = Bundle.main.bundleIdentifier ?? ""
+        return bundleIdentifier.contains(".debug")
+            ? "group.com.duoyun.wallino-reader.debug"
+            : "group.com.duoyun.wallino-reader"
+    }
+}
+
 public enum WallabagUserDefaults {
     @Setting("host", defaultValue: "")
     public static var host: String

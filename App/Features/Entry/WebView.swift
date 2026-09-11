@@ -10,6 +10,7 @@ import WebKit
         var entry: Entry
         @EnvironmentObject var appSetting: AppSetting
         @Binding var progress: Double
+        var annotationEditor: AnnotationEditorViewModel
 
         func makeCoordinator() -> Coordinator {
             Coordinator(self, appSetting: appSetting)
@@ -17,7 +18,6 @@ import WebKit
 
         class Coordinator: NSObject, WKNavigationDelegate, UIScrollViewDelegate, WKScriptMessageHandler {
             @CoreDataViewContext var context: NSManagedObjectContext
-            @Injected(\.wallabagSession) private var session
             var appSetting: AppSetting
 
             private var webView: WebView
@@ -29,6 +29,11 @@ import WebKit
                 super.init()
             }
 
+            func attach(_ webView: WKWebView) {
+                wkWebView = webView
+                self.webView.annotationEditor.webView = webView
+            }
+
             func userContentController(_: WKUserContentController, didReceive message: WKScriptMessage) {
                 guard message.name == "annotation",
                       let body = message.body as? [String: Any],
@@ -38,65 +43,18 @@ import WebKit
                 }
 
                 switch type {
-                case "add":
-                    guard let text = body["text"] as? String else { return }
+                case "showAdd":
                     let quote = body["quote"] as? String ?? ""
                     let ranges = parseRanges(body["ranges"])
-                    let entryId = webView.entry.id
-
-                    Task {
-                        if let id = try? await session.add(annotation: text, quote: quote, ranges: ranges, entryId: entryId) {
-                            notifyAnnotationAdded(id: id, text: text)
-                        }
-                    }
-                case "update":
-                    guard let text = body["text"] as? String else { return }
+                    webView.annotationEditor.presentAdd(quote: quote, ranges: ranges, entryId: webView.entry.id)
+                case "showEdit":
                     let id = intValue(body["id"])
-
-                    Task {
-                        try? await session.update(annotation: id, text: text)
-                    }
-                case "delete":
-                    let id = intValue(body["id"])
-
-                    Task {
-                        try? await session.delete(annotation: id)
-                    }
+                    let text = body["text"] as? String ?? ""
+                    let quote = body["quote"] as? String ?? ""
+                    webView.annotationEditor.presentEdit(id: id, quote: quote, text: text)
                 default:
                     break
                 }
-            }
-
-            private func notifyAnnotationAdded(id: Int, text: String) {
-                guard let data = try? JSONEncoder().encode(text),
-                      let textJSON = String(data: data, encoding: .utf8)
-                else {
-                    return
-                }
-
-                let script = "window.__wallinoOnAnnotationAdded(\(id), \(textJSON))"
-                DispatchQueue.main.async { [weak self] in
-                    self?.wkWebView?.evaluateJavaScript(script)
-                }
-            }
-
-            func injectAnnotationStrings(in webView: WKWebView) {
-                let strings: [String: String] = [
-                    "addAnnotation": NSLocalizedString("Add annotation", bundle: .main, value: "Add annotation", comment: ""),
-                    "cancel": NSLocalizedString("Cancel", bundle: .main, value: "Cancel", comment: ""),
-                    "ok": NSLocalizedString("Ok", bundle: .main, value: "Ok", comment: ""),
-                    "placeholder": NSLocalizedString("Add a note...", bundle: .main, value: "Add a note...", comment: ""),
-                    "edit": NSLocalizedString("Edit", bundle: .main, value: "Edit", comment: ""),
-                    "delete": NSLocalizedString("Delete", bundle: .main, value: "Delete", comment: ""),
-                ]
-
-                guard let data = try? JSONSerialization.data(withJSONObject: strings),
-                      let json = String(data: data, encoding: .utf8)
-                else {
-                    return
-                }
-
-                webView.evaluateJavaScript("window.__annotationStrings = \(json);")
             }
 
             func displayAnnotations(in webView: WKWebView) {
@@ -185,7 +143,6 @@ import WebKit
 
             func webView(_ webView: WKWebView, didFinish _: WKNavigation!) {
                 webView.fontSizePercent(appSetting.webFontSizePercent)
-                injectAnnotationStrings(in: webView)
                 displayAnnotations(in: webView)
                 self.webViewToLastPosition(in: webView)
             }
@@ -249,7 +206,7 @@ import WebKit
             webView.scrollView.backgroundColor = .clear
             webView.scrollView.contentInsetAdjustmentBehavior = .always
 
-            context.coordinator.wkWebView = webView
+            context.coordinator.attach(webView)
 
             webView.load(content: entry.titleHtml + (entry.content ?? ""), justify: UserDefaults.standard.bool(forKey: "justifyArticle"))
 

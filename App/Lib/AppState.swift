@@ -25,7 +25,10 @@ final class AppState: ObservableObject {
         if registred {
             logger.info("App state request session")
 
-            await session.requestSession(clientId: WallabagUserDefaults.clientId, clientSecret: WallabagUserDefaults.clientSecret, username: WallabagUserDefaults.login, password: WallabagUserDefaults.password)
+            let refreshed = await session.refreshSession()
+            if !refreshed {
+                await session.requestSession(clientId: WallabagUserDefaults.clientId, clientSecret: WallabagUserDefaults.clientSecret, username: WallabagUserDefaults.login, password: WallabagUserDefaults.password)
+            }
 
             if UserDefaults.standard.bool(forKey: "refreshOnStartup") {
                 await appSync.requestSync()

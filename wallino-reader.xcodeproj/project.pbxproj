@@ -43,6 +43,7 @@
 		09644C4F25C9850D000FFDA1 /* CoreDataViewContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644C4E25C9850D000FFDA1 /* CoreDataViewContext.swift */; };
 		09644C5C25C98596000FFDA1 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644C5625C98596000FFDA1 /* WebView.swift */; };
 		D0C1A1000000000000000009 /* AnnotationEditMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C1A1000000000000000008 /* AnnotationEditMenu.swift */; };
+		D0C1A1000000000000000011 /* AnnotationEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C1A1000000000000000010 /* AnnotationEditorView.swift */; };
 		09644C5D25C98596000FFDA1 /* AddEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644C5725C98596000FFDA1 /* AddEntryView.swift */; };
 		09644C5E25C98596000FFDA1 /* EntriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644C5825C98596000FFDA1 /* EntriesView.swift */; };
 		09644C5F25C98596000FFDA1 /* EntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09644C5925C98596000FFDA1 /* EntryRowView.swift */; };
@@ -190,6 +191,7 @@
 		09644C4E25C9850D000FFDA1 /* CoreDataViewContext.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataViewContext.swift; sourceTree = "<group>"; };
 		09644C5625C98596000FFDA1 /* WebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		D0C1A1000000000000000008 /* AnnotationEditMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationEditMenu.swift; sourceTree = "<group>"; };
+		D0C1A1000000000000000010 /* AnnotationEditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationEditorView.swift; sourceTree = "<group>"; };
 		09644C5725C98596000FFDA1 /* AddEntryView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEntryView.swift; sourceTree = "<group>"; };
 		09644C5825C98596000FFDA1 /* EntriesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntriesView.swift; sourceTree = "<group>"; };
 		09644C5925C98596000FFDA1 /* EntryRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryRowView.swift; sourceTree = "<group>"; };
@@ -491,6 +493,7 @@
 				09644C5A25C98596000FFDA1 /* EntryView.swift */,
 				09644C5625C98596000FFDA1 /* WebView.swift */,
 				D0C1A1000000000000000008 /* AnnotationEditMenu.swift */,
+				D0C1A1000000000000000010 /* AnnotationEditorView.swift */,
 			);
 			path = Entry;
 			sourceTree = "<group>";
@@ -995,6 +998,7 @@
 			files = (
 				09644C5C25C98596000FFDA1 /* WebView.swift in Sources */,
 				D0C1A1000000000000000009 /* AnnotationEditMenu.swift in Sources */,
+				D0C1A1000000000000000011 /* AnnotationEditorView.swift in Sources */,
 				09644B5E25C98116000FFDA1 /* AppDelegate.swift in Sources */,
 				0940869A2B684842000DA980 /* AddEntryModel.swift in Sources */,
 				09644D1825C98755000FFDA1 /* AppDelegateExtension.swift in Sources */,

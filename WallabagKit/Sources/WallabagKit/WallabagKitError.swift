@@ -17,6 +17,19 @@ public enum WallabagKitError: Error {
     case wrap(error: Error)
 }
 
+extension WallabagKitError {
+    public var isAuthenticationFailure: Bool {
+        switch self {
+        case .authenticationRequired, .invalidToken:
+            return true
+        case let .jsonError(json):
+            return ["access_denied", "invalid_token", "invalid_grant", "expired_token"].contains(json.error)
+        default:
+            return false
+        }
+    }
+}
+
 public struct WallabagJsonError: Decodable {
     public let error: String
     public let errorDescription: String

@@ -9,7 +9,12 @@ struct SettingView: View {
     @AppStorage("defaultMode") var defaultMode: String = RetrieveMode.allArticles.rawValue
     @AppStorage("itemPerPageDuringSync") var itemPerPageDuringSync: Int = 50
     @AppStorage("refreshOnStartup") var refreshOnStartup: Bool = false
+    @Injected(\.wallabagSession) private var session
     @EnvironmentObject var appSetting: AppSetting
+    #if DEBUG
+        @State private var showDeleteAllAnnotationsConfirm = false
+        @State private var isDeletingAllAnnotations = false
+    #endif
 
     var body: some View {
         Form {
@@ -34,12 +39,48 @@ struct SettingView: View {
             Section("Entry") {
                 Toggle("Justify entry", isOn: $justifyArticle)
             }
+#if DEBUG
+            Section("Annotations") {
+                
+                Button(role: .destructive) {
+                    showDeleteAllAnnotationsConfirm = true
+                } label: {
+                    HStack {
+                        Text("Delete All Annotations")
+                        if isDeletingAllAnnotations {
+                            Spacer()
+                            ProgressView()
+                        }
+                    }
+                }
+                .disabled(isDeletingAllAnnotations)
+                
+            }
+#endif
+            
             Section("Sync") {
                 Stepper("Items per page during sync: \(itemPerPageDuringSync)", value: $itemPerPageDuringSync, in: 20 ... 200)
                 Toggle("Refresh on startup", isOn: $refreshOnStartup)
+ 
             }
+            
+            
         }
         .navigationTitle("Settings")
+        #if DEBUG
+            .alert("Delete All Annotations", isPresented: $showDeleteAllAnnotationsConfirm) {
+                Button("Cancel", role: .cancel) {}
+                Button("Delete", role: .destructive) {
+                    isDeletingAllAnnotations = true
+                    Task {
+                        await session.deleteAllAnnotations()
+                        isDeletingAllAnnotations = false
+                    }
+                }
+            } message: {
+                Text("This deletes all annotations locally and on the server.")
+            }
+        #endif
     }
 }
 

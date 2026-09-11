@@ -62,6 +62,26 @@ public class WallabagKit {
         return token
     }
 
+    public func requestTokenWithRefreshTokenAsync(refreshToken: String) async throws -> WallabagToken {
+        let urlRequest = request(for: WallabagOauth.refresh(
+            clientId: clientId ?? "",
+            clientSecret: clientSecret ?? "",
+            refreshToken: refreshToken
+        ))
+
+        let (data, response) = try await session.data(for: urlRequest)
+        guard let response = response as? HTTPURLResponse else { fatalError() }
+
+        try handleStatusCode(from: response, with: data)
+
+        let token = try decoder.decode(WallabagToken.self, from: data)
+
+        accessToken = token.accessToken
+        self.refreshToken = token.refreshToken
+
+        return token
+    }
+
     public func send<T: WallabagKitEndpoint>(to: T) async throws -> T.Object {
         let (data, response) = try await session.data(for: request(for: to, withAuth: true))
         guard let response = response as? HTTPURLResponse else { fatalError() }
@@ -69,6 +89,13 @@ public class WallabagKit {
         try handleStatusCode(from: response, with: data)
 
         return try decoder.decode(T.Object.self, from: data)
+    }
+
+    public func delete(to endpoint: any WallabagKitEndpoint) async throws {
+        let (data, response) = try await session.data(for: request(for: endpoint, withAuth: true))
+        guard let response = response as? HTTPURLResponse else { fatalError() }
+
+        try handleStatusCode(from: response, with: data)
     }
 
     public func fetchTags() async throws -> [WallabagTag] {
@@ -95,9 +122,13 @@ public class WallabagKit {
     public func request(for endpoint: any WallabagKitEndpoint, withAuth: Bool = false) -> URLRequest {
         var urlRequest = URLRequest(url: URL(string: "\(host)\(endpoint.endpoint())")!)
         urlRequest.httpMethod = endpoint.method().rawValue
-        urlRequest.httpBody = endpoint.getBody()
         urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+
+        let body = endpoint.getBody()
+        if !body.isEmpty {
+            urlRequest.httpBody = body
+            urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        }
 
         if withAuth {
             urlRequest.setValue("Bearer \(accessToken ?? "")", forHTTPHeaderField: "Authorization")

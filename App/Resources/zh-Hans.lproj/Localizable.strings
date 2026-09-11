@@ -122,6 +122,16 @@
 
 "Edit" = "编辑";
 
+"New annotation" = "新建注释";
+"Edit annotation" = "编辑注释";
+"Save" = "保存";
+"Selected text" = "选中的文本";
+"Annotation" = "注释";
+"Annotations" = "注释";
+
+"Delete All Annotations" = "删除所有注释";
+"This deletes all annotations locally and on the server." = "这将删除本地和服务器上的所有注释。";
+
 // Logout
 "Account / Logout" = "账户 / 退出";
 "Username:" = "用户名:";

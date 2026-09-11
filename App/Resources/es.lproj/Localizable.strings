@@ -122,6 +122,16 @@
 
 "Edit" = "Editar";
 
+"New annotation" = "Nueva anotación";
+"Edit annotation" = "Editar anotación";
+"Save" = "Guardar";
+"Selected text" = "Texto seleccionado";
+"Annotation" = "Anotación";
+"Annotations" = "Anotaciones";
+
+"Delete All Annotations" = "Eliminar todas las anotaciones";
+"This deletes all annotations locally and on the server." = "Esto elimina todas las anotaciones localmente y en el servidor.";
+
 // Logout
 "Account / Logout" = "Cuenta / Cerrar sesión";
 "Username:" = "Usuario:";

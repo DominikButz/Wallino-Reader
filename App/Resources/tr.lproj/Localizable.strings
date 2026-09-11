@@ -122,6 +122,16 @@
 
 "Edit" = "Düzenle";
 
+"New annotation" = "Yeni not";
+"Edit annotation" = "Notu düzenle";
+"Save" = "Kaydet";
+"Selected text" = "Seçilen metin";
+"Annotation" = "Not";
+"Annotations" = "Notlar";
+
+"Delete All Annotations" = "Tüm notları sil";
+"This deletes all annotations locally and on the server." = "Bu, tüm notları yerel olarak ve sunucuda siler.";
+
 // Logout
 "Account / Logout" = "Hesap / Çıkış yap";
 "Username:" = "Kullanıcı adı:";

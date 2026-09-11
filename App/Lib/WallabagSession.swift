@@ -27,24 +27,59 @@ final class WallabagSession: ObservableObject {
 
         do {
             let token = try await kit.requestTokenAsync()
-            WallabagUserDefaults.refreshToken = token.refreshToken
-            WallabagUserDefaults.accessToken = token.accessToken
-            kit.accessToken = token.accessToken
-            kit.refreshToken = token.refreshToken
-            state = .connected
+            persist(token)
+            logger.info("Wallabag session obtained via password grant, expiresIn=\(token.expiresIn)")
         } catch {
-            guard let error = error as? WallabagKitError else {
-                state = .error(reason: "Unknown error")
-                return
-            }
-            switch error {
-            case let WallabagKitError.jsonError(jsonError):
-                state = .error(reason: jsonError.errorDescription)
-            case WallabagKitError.invalidApiEndpoint:
-                state = .error(reason: "Invalid api endpoint, check your host configuration")
-            default:
-                state = .error(reason: error.localizedDescription)
-            }
+            handleSessionError(error)
+        }
+    }
+
+    /// Refreshes the access token using the stored refresh token. This does not
+    /// require the user password, so it also works when the password isn't
+    /// available (e.g. keychain access failure).
+    @discardableResult
+    func refreshSession() async -> Bool {
+        kit.clientId = WallabagUserDefaults.clientId
+        kit.clientSecret = WallabagUserDefaults.clientSecret
+
+        guard let refreshToken = WallabagUserDefaults.refreshToken, !refreshToken.isEmpty else {
+            return false
+        }
+
+        do {
+            let token = try await kit.requestTokenWithRefreshTokenAsync(refreshToken: refreshToken)
+            persist(token)
+            logger.info("Wallabag session refreshed via refresh token, expiresIn=\(token.expiresIn)")
+            return true
+        } catch {
+            logger.error("Wallabag refresh-token request failed: \(String(describing: error))")
+            return false
+        }
+    }
+
+    private func persist(_ token: WallabagToken) {
+        WallabagUserDefaults.accessToken = token.accessToken
+        kit.accessToken = token.accessToken
+        if !token.refreshToken.isEmpty {
+            WallabagUserDefaults.refreshToken = token.refreshToken
+            kit.refreshToken = token.refreshToken
+        }
+        state = .connected
+    }
+
+    private func handleSessionError(_ error: Error) {
+        logger.error("Wallabag session request failed: \(String(describing: error))")
+        guard let error = error as? WallabagKitError else {
+            state = .error(reason: "Unknown error")
+            return
+        }
+        switch error {
+        case let WallabagKitError.jsonError(jsonError):
+            state = .error(reason: jsonError.errorDescription)
+        case WallabagKitError.invalidApiEndpoint:
+            state = .error(reason: "Invalid api endpoint, check your host configuration")
+        default:
+            state = .error(reason: error.localizedDescription)
         }
     }
 
@@ -77,7 +112,9 @@ final class WallabagSession: ObservableObject {
     }
 
     func add(annotation text: String, quote: String, ranges: [AnnotationRange], entryId: Int) async throws -> Int? {
-        let wallabagAnnotation = try await kit.send(to: WallabagAnnotationEndpoint.add(entry: entryId, text: text, quote: quote, ranges: ranges))
+        let wallabagAnnotation = try await performAuthenticated {
+            try await kit.send(to: WallabagAnnotationEndpoint.add(entry: entryId, text: text, quote: quote, ranges: ranges))
+        }
 
         return await MainActor.run {
             guard let entry = try? coreDataContext.fetch(Entry.fetchOneById(entryId)).first else {
@@ -92,7 +129,9 @@ final class WallabagSession: ObservableObject {
     }
 
     func update(annotation id: Int, text: String) async throws {
-        let wallabagAnnotation = try await kit.send(to: WallabagAnnotationEndpoint.update(annotation: id, text: text))
+        let wallabagAnnotation = try await performAuthenticated {
+            try await kit.send(to: WallabagAnnotationEndpoint.update(annotation: id, text: text))
+        }
 
         await MainActor.run {
             guard let annotation = try? coreDataContext.fetch(Annotation.fetchOneById(id)).first else {
@@ -104,7 +143,9 @@ final class WallabagSession: ObservableObject {
     }
 
     func delete(annotation id: Int) async throws {
-        _ = try await kit.send(to: WallabagAnnotationEndpoint.delete(annotation: id))
+        try await performAuthenticated {
+            try await kit.delete(to: WallabagAnnotationEndpoint.delete(annotation: id))
+        }
 
         await MainActor.run {
             guard let annotation = try? coreDataContext.fetch(Annotation.fetchOneById(id)).first else {
@@ -112,6 +153,43 @@ final class WallabagSession: ObservableObject {
             }
             coreDataContext.delete(annotation)
             try? coreDataContext.save()
+        }
+    }
+
+    #if DEBUG
+        /// Debug-only helper: deletes every annotation both on the server and locally.
+        /// Runs the network work in the background so the main queue is not blocked.
+        func deleteAllAnnotations() async {
+            let ids: [Int] = await MainActor.run {
+                ((try? coreDataContext.fetch(Annotation.fetchRequestSorted())) ?? []).map(\.id)
+            }
+
+            for id in ids {
+                try? await delete(annotation: id)
+            }
+
+            logger.info("Deleted all annotations (\(ids.count) total)")
+        }
+    #endif
+
+    /// Runs an authenticated operation and, if it fails because the access token
+    /// is missing/expired, re-authenticates once with the stored credentials and retries.
+    @discardableResult
+    private func performAuthenticated<T>(_ operation: () async throws -> T) async throws -> T {
+        do {
+            return try await operation()
+        } catch let error as WallabagKitError where error.isAuthenticationFailure {
+            logger.error("Wallabag authentication failure (\(String(describing: error))), refreshing session and retrying")
+            let refreshed = await refreshSession()
+            if !refreshed {
+                await requestSession(
+                    clientId: WallabagUserDefaults.clientId,
+                    clientSecret: WallabagUserDefaults.clientSecret,
+                    username: WallabagUserDefaults.login,
+                    password: WallabagUserDefaults.password
+                )
+            }
+            return try await operation()
         }
     }
 
