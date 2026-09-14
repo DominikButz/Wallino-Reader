@@ -1,7 +1,12 @@
-wallabag, a self hostable application for saving web pages
+Wallino Reader is a an iOS app for a self-hosted Wallabag server app. If you don't host Wallabag yourself, please check out the official Wallabag iOS app, since it also offers a subscription based backend without self hosting. 
 
-Unlike other services, wallabag is free (as in freedom) and open source.
+Wallino is free and open source, please check out the GitHub repository. 
 
-To use this application, you need an instance of wallabag.
 
-For example, you can install wallabag on your own web server.
+Features:
+- Archive news articles from websites and news apps for archiving or reading later. 
+- Use the share extension from other apps: Wallino can even extract the news article link from text
+- Set tags for better organisation of your reading archive
+- Export the original link or export the article text as PDF to share with others
+
+Read the Wallabag documentation to find out more about how to set up Wallabag on your home server or rented cloud server. 

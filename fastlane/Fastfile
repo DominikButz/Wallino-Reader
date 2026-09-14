@@ -17,9 +17,11 @@ platform :ios do
 
     build_app(
       scheme: "Wallino Reader",
-      xcodeproj: "wallino-reader.xcodeproj",
+      project: "wallino-reader.xcodeproj",
       export_method: "app-store",
-      output_directory: "fastlane/build"
+      output_directory: "fastlane/build",
+      xcargs: "-allowProvisioningUpdates",
+      export_xcargs: "-allowProvisioningUpdates"
     )
 
     upload_to_testflight(api_key: api_key)

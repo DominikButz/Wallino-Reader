@@ -15,21 +15,13 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
-### ios screenshots
+### ios beta
 
 ```sh
-[bundle exec] fastlane ios screenshots
+[bundle exec] fastlane ios beta
 ```
 
-Generate new localized screenshots
-
-### ios setversion
-
-```sh
-[bundle exec] fastlane ios setversion
-```
-
-Set version
+Build and upload a new build to TestFlight
 
 ### ios incrementbuildnumber
 
@@ -39,6 +31,14 @@ Set version
 
 Increment build number
 
+### ios setversion
+
+```sh
+[bundle exec] fastlane ios setversion
+```
+
+Set version
+
 ### ios test
 
 ```sh
@@ -46,6 +46,14 @@ Increment build number
 ```
 
 Run tests
+
+### ios screenshots
+
+```sh
+[bundle exec] fastlane ios screenshots
+```
+
+Generate new localized screenshots
 
 ----
 

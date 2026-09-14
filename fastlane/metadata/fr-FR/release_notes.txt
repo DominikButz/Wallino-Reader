@@ -1,5 +1,0 @@
-- Add swipe action in entries list
-- Fix reachability button in entry
-- Reading time is now based on user config
-- Fix pasteboard detection
-- Fix error during login process
