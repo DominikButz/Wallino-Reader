@@ -14,7 +14,6 @@
                 let appState = Container.shared.appState()
                 appState.registred = true
                 WallabagUserDefaults.defaultMode = "allArticles"
-                WallabagUserDefaults.badgeEnabled = false
 
                 let context = Container.shared.coreData().viewContext
 

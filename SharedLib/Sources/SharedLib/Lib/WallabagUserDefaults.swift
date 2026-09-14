@@ -45,9 +45,6 @@ public enum WallabagUserDefaults {
     @GeneralSetting("justifyArticle", defaultValue: true)
     public static var justifyArticle: Bool
 
-    @GeneralSetting("badge", defaultValue: true)
-    public static var badgeEnabled: Bool
-
     @GeneralSetting("defaultMode", defaultValue: "allArticles")
     public static var defaultMode: String
 

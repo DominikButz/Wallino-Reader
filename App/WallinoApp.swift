@@ -1,7 +1,6 @@
 import Factory
 import Foundation
 import os
-import SharedLib
 import SwiftUI
 
 let logger = Logger(subsystem: "com.duoyun.wallino-reader", category: "main")
@@ -44,14 +43,10 @@ struct WallinoApp: App {
                 Task {
                     await appState.initSession()
                 }
-                #if os(iOS)
-                    requestNotificationAuthorization()
-                #endif
             }
 
             if newScenePhase == .background {
                 coreData.saveContext()
-                updateBadge()
             }
         }
         .commands {
@@ -63,33 +58,4 @@ struct WallinoApp: App {
             }
         }
     }
-
-    private func updateBadge() {
-        if !WallabagUserDefaults.badgeEnabled {
-            setBadgeNumber(0)
-            return
-        }
-
-        do {
-            let fetchRequest = Entry.fetchRequestSorted()
-            fetchRequest.predicate = RetrieveMode(fromCase: WallabagUserDefaults.defaultMode).predicate()
-            let entries = try coreData.viewContext.fetch(fetchRequest)
-            setBadgeNumber(entries.count)
-        } catch {
-            fatalError(error.localizedDescription)
-        }
-    }
-
-    private func setBadgeNumber(_ number: Int) {
-        Task {
-            try? await UNUserNotificationCenter.current().setBadgeCount(number)
-        }
-    }
-
-    #if os(iOS)
-        private func requestNotificationAuthorization() {
-            let center = UNUserNotificationCenter.current()
-            center.requestAuthorization(options: [.badge]) { _, _ in }
-        }
-    #endif
 }
