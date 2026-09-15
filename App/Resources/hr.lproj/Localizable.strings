@@ -46,7 +46,9 @@
 
 // About
 "Project page" = "Stranica projekta";
-"Made by Maxime Marinel @bourvill" = "Autor: Maxime Marinel @bourvill";
+"Based on Maxime Marinel's Wallabag for iOS" = "Temeljeno na Wallabag za iOS autora Maximea Marinela";
+"Created by Dominik Butz" = "Autor: Dominik Butz";
+"Special Thanks" = "Posebna zahvala";
 
 //Player
 "Select one entry" = "Odaberi unos";
@@ -95,7 +97,7 @@
 "Text size" = "Veličina teksta";
 "Change entry text size" = "Promijeni veličinu teksta članka";
 "Sort options" = "Mogućnosti sortiranja";
-"Order by id" = "Sortiraj po ID-u";
+"Order by date" = "Sortiraj po datumu";
 "Order by reading time" = "Sortiraj po vremenu čitanja";
 "Sorting" = "Sortiranje";
 "Mark as read" = "Označi kao pročitano";
@@ -104,7 +106,7 @@
 "Unstar" = "Ukloni iz omiljenih";
 "Entry option" = "Mogućnosti članka";
 "Open in Safari" = "Otvori u Safariju";
-"Load entry" = "Učitaj članak";
+"Text-to-speech" = "Čitač teksta";
 "Load entry in text-to-speech player" = "Učitaj članak u čitač teksta";
 "Great! Entry was added" = "Super! Članak je dodan";
 "Great! %d entries were added" = "Super! Dodano je %d članaka";

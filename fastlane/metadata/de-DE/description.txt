@@ -8,4 +8,4 @@ Funktionen:
 - Vergeben Sie Tags für eine bessere Organisation Ihres Lesearchivs.
 - Exportieren Sie den Original-Link oder den Artikeltext als PDF, um ihn mit anderen zu teilen.
 
-Lesen Sie die Wallabag-Dokumentation, um mehr über die Einrichtung von Wallabag auf Ihrem eigenen Server oder einem gemieteten Cloud-Server zu erfahren.
+Lesen Sie die Wallabag-Dokumentation, um mehr über die Einrichtung von Wallabag auf Ihrem eigenen Server oder einem gemieteten Cloud-Server zu erfahren: https://doc.wallabag.org.

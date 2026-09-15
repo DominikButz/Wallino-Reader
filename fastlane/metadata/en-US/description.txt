@@ -9,4 +9,4 @@ Features:
 - Set tags for better organisation of your reading archive
 - Export the original link or export the article text as PDF to share with others
 
-Read the Wallabag documentation to find out more about how to set up Wallabag on your home server or rented cloud server. 
+Read the Wallabag documentation to find out more about how to set up Wallabag on your home server or rented cloud server: https://doc.wallabag.org. 

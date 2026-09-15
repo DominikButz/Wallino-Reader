@@ -46,7 +46,9 @@
 
 // About
 "Project page" = "プロジェクトページ";
-"Made by Maxime Marinel @bourvill" = "作成者: Maxime Marinel @bourvill";
+"Based on Maxime Marinel's Wallabag for iOS" = "Maxime Marinel の iOS 用 Wallabag をベースにしています";
+"Created by Dominik Butz" = "作成者: Dominik Butz";
+"Special Thanks" = "スペシャルサンクス";
 
 //Player
 "Select one entry" = "記事を選択してください";
@@ -95,7 +97,7 @@
 "Text size" = "文字サイズ";
 "Change entry text size" = "記事の文字サイズを変更";
 "Sort options" = "並び替えオプション";
-"Order by id" = "IDで並び替え";
+"Order by date" = "日付で並び替え";
 "Order by reading time" = "読了時間で並び替え";
 "Sorting" = "並び替え";
 "Mark as read" = "既読にする";
@@ -104,7 +106,7 @@
 "Unstar" = "お気に入りから削除";
 "Entry option" = "記事のオプション";
 "Open in Safari" = "Safariで開く";
-"Load entry" = "記事を読み込む";
+"Text-to-speech" = "読み上げ";
 "Load entry in text-to-speech player" = "読み上げプレーヤーで記事を読み込む";
 "Great! Entry was added" = "記事が追加されました";
 "Great! %d entries were added" = "記事を %d 件追加しました";

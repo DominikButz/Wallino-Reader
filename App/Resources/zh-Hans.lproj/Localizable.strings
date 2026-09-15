@@ -46,7 +46,9 @@
 
 // About
 "Project page" = "项目页面";
-"Made by Maxime Marinel @bourvill" = "由 Maxime Marinel @bourvill 打造";
+"Based on Maxime Marinel's Wallabag for iOS" = "基于 Maxime Marinel 的 iOS 版 Wallabag";
+"Created by Dominik Butz" = "由 Dominik Butz 创建";
+"Special Thanks" = "特别鸣谢";
 
 //Player
 "Select one entry" = "选择一个条目";
@@ -95,7 +97,7 @@
 "Text size" = "文字大小";
 "Change entry text size" = "更改文章文字大小";
 "Sort options" = "排序选项";
-"Order by id" = "按 ID 排序";
+"Order by date" = "按日期排序";
 "Order by reading time" = "按阅读时间排序";
 "Sorting" = "排序";
 "Mark as read" = "标记为已读";
@@ -104,7 +106,7 @@
 "Unstar" = "取消收藏";
 "Entry option" = "文章选项";
 "Open in Safari" = "在 Safari 中打开";
-"Load entry" = "加载文章";
+"Text-to-speech" = "文字转语音";
 "Load entry in text-to-speech player" = "在语音播放器中加载文章";
 "Great! Entry was added" = "太棒了！文章已添加";
 "Great! %d entries were added" = "太棒了！已添加 %d 篇文章";

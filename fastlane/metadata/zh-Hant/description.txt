@@ -8,4 +8,4 @@ Wallino 免費且開放原始碼，歡迎查看 GitHub 儲存庫。
 - 設定標籤，更好地整理您的閱讀歸檔。
 - 匯出原始連結或將文章文字匯出為 PDF，以便與他人分享。
 
-請閱讀 Wallabag 文件，了解如何在您自己的伺服器或租用的雲端伺服器上設定 Wallabag。
+請閱讀 Wallabag 文件，了解如何在您自己的伺服器或租用的雲端伺服器上設定 Wallabag：https://doc.wallabag.org。

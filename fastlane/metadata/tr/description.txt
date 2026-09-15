@@ -8,4 +8,4 @@ Wallino ücretsiz ve açık kaynaklıdır; GitHub deposuna göz atabilirsiniz.
 - Okuma arşivinizi daha iyi düzenlemek için etiketler belirleyin.
 - Orijinal bağlantıyı veya makale metnini PDF olarak dışa aktararak başkalarıyla paylaşın.
 
-Wallabag'i kendi sunucunuza veya kiraladığınız bir bulut sunucusuna nasıl kuracağınız hakkında daha fazla bilgi için Wallabag belgelerine bakın.
+Wallabag'i kendi sunucunuza veya kiraladığınız bir bulut sunucusuna nasıl kuracağınız hakkında daha fazla bilgi için Wallabag belgelerine bakın: https://doc.wallabag.org.

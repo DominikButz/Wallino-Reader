@@ -46,7 +46,9 @@
 
 // About
 "Project page" = "Proje sayfası";
-"Made by Maxime Marinel @bourvill" = "Maxime Marinel @bourvill tarafından hazırlandı";
+"Based on Maxime Marinel's Wallabag for iOS" = "Maxime Marinel'in iOS için Wallabag uygulamasından uyarlanmıştır";
+"Created by Dominik Butz" = "Dominik Butz tarafından oluşturuldu";
+"Special Thanks" = "Özel teşekkür";
 
 //Player
 "Select one entry" = "Bir makale seçin";
@@ -95,7 +97,7 @@
 "Text size" = "Metin boyutu";
 "Change entry text size" = "Makale metin boyutunu değiştir";
 "Sort options" = "Sıralama seçenekleri";
-"Order by id" = "Kimliğe göre sırala";
+"Order by date" = "Tarihe göre sırala";
 "Order by reading time" = "Okuma süresine göre sırala";
 "Sorting" = "Sıralama";
 "Mark as read" = "Okundu olarak işaretle";
@@ -104,7 +106,7 @@
 "Unstar" = "Favorilerden çıkar";
 "Entry option" = "Makale seçenekleri";
 "Open in Safari" = "Safari'de aç";
-"Load entry" = "Makaleyi yükle";
+"Text-to-speech" = "Metin okuma";
 "Load entry in text-to-speech player" = "Makaleyi metin okuma oynatıcısında yükle";
 "Great! Entry was added" = "Harika! Makale eklendi";
 "Great! %d entries were added" = "Harika! %d makale eklendi";

@@ -46,7 +46,9 @@
 
 // About
 "Project page" = "Страница проекта";
-"Made by Maxime Marinel @bourvill" = "Сделано Максимом Маринелем @bourvill";
+"Based on Maxime Marinel's Wallabag for iOS" = "На основе Wallabag для iOS Максима Маринеля";
+"Created by Dominik Butz" = "Создано Домиником Бутцем";
+"Special Thanks" = "Особая благодарность";
 
 //Player
 "Select one entry" = "Выберите статью";
@@ -95,7 +97,7 @@
 "Text size" = "Размер текста";
 "Change entry text size" = "Изменить размер текста статьи";
 "Sort options" = "Параметры сортировки";
-"Order by id" = "Сортировать по ID";
+"Order by date" = "Сортировать по дате";
 "Order by reading time" = "Сортировать по времени чтения";
 "Sorting" = "Сортировка";
 "Mark as read" = "Отметить как прочитанное";
@@ -104,7 +106,7 @@
 "Unstar" = "Убрать из избранного";
 "Entry option" = "Параметры статьи";
 "Open in Safari" = "Открыть в Safari";
-"Load entry" = "Загрузить статью";
+"Text-to-speech" = "Озвучивание текста";
 "Load entry in text-to-speech player" = "Загрузить статью в голосовой проигрыватель";
 "Great! Entry was added" = "Отлично! Статья добавлена";
 "Great! %d entries were added" = "Отлично! Добавлено статей: %d";

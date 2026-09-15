@@ -2,7 +2,7 @@ import CoreData
 import SwiftUI
 
 struct EntriesForTagView: View {
-    @AppStorage("entriesSortedById") var entriesSortedById = true
+    @AppStorage("entriesSortedByCreatedDate") var entriesSortedByCreatedDate = true
     @AppStorage("entriesSortedByReadingTime") var entriesSortedByReadingTime = false
     @AppStorage("entriesSortedByAscending") var entriesSortedByAscending = false
 
@@ -11,7 +11,7 @@ struct EntriesForTagView: View {
     var body: some View {
         EntriesListView(
             predicate: NSPredicate(format: "ANY tags == %@", tag),
-            entriesSortedById: entriesSortedById,
+            entriesSortedByCreatedDate: entriesSortedByCreatedDate,
             entriesSortedByReadingTime: entriesSortedByReadingTime,
             entriesSortedByAscending: entriesSortedByAscending
         )
@@ -19,7 +19,7 @@ struct EntriesForTagView: View {
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Menu(content: {
-                    Toggle("Order by id", systemImage: "line.3.horizontal.decrease.circle", isOn: $entriesSortedById)
+                    Toggle("Order by date", systemImage: "line.3.horizontal.decrease.circle", isOn: $entriesSortedByCreatedDate)
                     Toggle("Order by reading time", systemImage: "clock.arrow.circlepath", isOn: $entriesSortedByReadingTime)
                     Divider()
                     Toggle("Sorting", systemImage: entriesSortedByAscending ? "arrow.up.circle" : "arrow.down.circle", isOn: $entriesSortedByAscending)

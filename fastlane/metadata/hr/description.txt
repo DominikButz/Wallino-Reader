@@ -8,4 +8,4 @@ Značajke:
 - Postavite oznake za bolju organizaciju svoje arhive za čitanje.
 - Izvezite izvornu poveznicu ili tekst članka kao PDF za dijeljenje s drugima.
 
-Pročitajte Wallabag dokumentaciju kako biste saznali više o postavljanju Wallabaga na vlastiti ili unajmljeni poslužitelj u oblaku.
+Pročitajte Wallabag dokumentaciju kako biste saznali više o postavljanju Wallabaga na vlastiti ili unajmljeni poslužitelj u oblaku: https://doc.wallabag.org.

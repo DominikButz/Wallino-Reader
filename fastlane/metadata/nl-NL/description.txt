@@ -8,4 +8,4 @@ Functies:
 - Stel tags in voor een betere organisatie van je leesarchief.
 - Exporteer de oorspronkelijke link of de artikeltekst als PDF om met anderen te delen.
 
-Lees de Wallabag-documentatie voor meer informatie over het instellen van Wallabag op je eigen server of een gehuurde cloudserver.
+Lees de Wallabag-documentatie voor meer informatie over het instellen van Wallabag op je eigen server of een gehuurde cloudserver: https://doc.wallabag.org.

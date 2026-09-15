@@ -9,13 +9,13 @@ struct EntriesListView: View {
 
     init(
         predicate: NSPredicate,
-        entriesSortedById: Bool,
+        entriesSortedByCreatedDate: Bool,
         entriesSortedByReadingTime: Bool,
         entriesSortedByAscending: Bool
     ) {
         var sortDescriptors: [NSSortDescriptor] = []
-        if entriesSortedById {
-            sortDescriptors.append(NSSortDescriptor(key: "id", ascending: entriesSortedByAscending))
+        if entriesSortedByCreatedDate {
+            sortDescriptors.append(NSSortDescriptor(key: "createdAt", ascending: entriesSortedByAscending))
         }
 
         if entriesSortedByReadingTime {

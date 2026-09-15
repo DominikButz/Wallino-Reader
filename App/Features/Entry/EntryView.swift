@@ -172,7 +172,7 @@ struct EntryView: View {
             Button(action: {
                 player.load(entry)
             }, label: {
-                Label("Load entry", systemImage: "music.note")
+                Label("Text-to-speech", systemImage: "music.note")
             })
             .accessibilityHint("Load entry in text-to-speech player")
         #endif

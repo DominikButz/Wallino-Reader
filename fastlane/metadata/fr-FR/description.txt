@@ -9,4 +9,4 @@ Fonctionnalités :
 - Définissez des balises pour mieux organiser votre archive de lecture
 - Exportez le lien d'origine ou le texte de l'article au format PDF pour le partager avec d'autres
 
-Consultez la documentation Wallabag pour en savoir plus sur la configuration de Wallabag sur votre serveur personnel ou un serveur cloud loué.
+Consultez la documentation Wallabag pour en savoir plus sur la configuration de Wallabag sur votre serveur personnel ou un serveur cloud loué : https://doc.wallabag.org.

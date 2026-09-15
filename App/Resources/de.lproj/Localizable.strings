@@ -46,7 +46,9 @@
 
 // About
 "Project page" = "Projektseite";
-"Made by Maxime Marinel @bourvill" = "Erstellt von Maxime Marinel @bourvill";
+"Based on Maxime Marinel's Wallabag for iOS" = "Basiert auf Maxime Marinel's Wallabag für iOS";
+"Created by Dominik Butz" = "Erstellt von Dominik Butz";
+"Special Thanks" = "Besonderer Dank";
 
 //Player
 "Select one entry" = "Eintrag auswählen";
@@ -95,7 +97,7 @@
 "Text size" = "Textgröße";
 "Change entry text size" = "Textgröße des Eintrags ändern";
 "Sort options" = "Sortieroptionen";
-"Order by id" = "Nach ID sortieren";
+"Order by date" = "Nach Datum sortieren";
 "Order by reading time" = "Nach Lesezeit sortieren";
 "Sorting" = "Sortierung";
 "Mark as read" = "Als gelesen markieren";
@@ -104,7 +106,7 @@
 "Unstar" = "Favorit entfernen";
 "Entry option" = "Eintragsoptionen";
 "Open in Safari" = "In Safari öffnen";
-"Load entry" = "Eintrag laden";
+"Text-to-speech" = "Vorlesen";
 "Load entry in text-to-speech player" = "Eintrag im Vorlese-Player laden";
 "Great! Entry was added" = "Super! Eintrag wurde hinzugefügt";
 "Great! %d entries were added" = "Super! %d Einträge wurden hinzugefügt";

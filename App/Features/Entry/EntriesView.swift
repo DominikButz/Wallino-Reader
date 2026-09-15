@@ -6,14 +6,14 @@ struct EntriesView: View {
     @Environment(Router.self) var router: Router
     @EnvironmentObject var appState: AppState
     @StateObject var searchViewModel = SearchViewModel()
-    @AppStorage("entriesSortedById") var entriesSortedById = true
+    @AppStorage("entriesSortedByCreatedDate") var entriesSortedByCreatedDate = true
     @AppStorage("entriesSortedByReadingTime") var entriesSortedByReadingTime = false
     @AppStorage("entriesSortedByAscending") var entriesSortedByAscending = false
 
     var body: some View {
         EntriesListView(
             predicate: searchViewModel.predicate,
-            entriesSortedById: entriesSortedById,
+            entriesSortedByCreatedDate: entriesSortedByCreatedDate,
             entriesSortedByReadingTime: entriesSortedByReadingTime,
             entriesSortedByAscending: entriesSortedByAscending
         )
@@ -29,20 +29,20 @@ struct EntriesView: View {
             }
             .background(.ultraThinMaterial)
         }
-        .onChange(of: entriesSortedById) { _, newValue in
+        .onChange(of: entriesSortedByCreatedDate) { _, newValue in
             if newValue {
                 entriesSortedByReadingTime = false
             }
         }
         .onChange(of: entriesSortedByReadingTime) { _, newValue in
             if newValue {
-                entriesSortedById = false
+                entriesSortedByCreatedDate = false
             }
         }
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Menu(content: {
-                    Toggle("Order by id", systemImage: "line.3.horizontal.decrease.circle", isOn: $entriesSortedById)
+                    Toggle("Order by date", systemImage: "line.3.horizontal.decrease.circle", isOn: $entriesSortedByCreatedDate)
                     Toggle("Order by reading time", systemImage: "clock.arrow.circlepath", isOn: $entriesSortedByReadingTime)
                     Divider()
                     Toggle("Sorting", systemImage: entriesSortedByAscending ? "arrow.up.circle" : "arrow.down.circle", isOn: $entriesSortedByAscending)
