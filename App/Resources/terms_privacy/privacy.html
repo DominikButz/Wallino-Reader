@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Wallino Reader</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+      line-height: 1.6;
+      color: #333;
+      background: #fff;
+    }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    h2 { font-size: 1.3rem; margin-top: 2rem; }
+    p, li { font-size: 0.95rem; }
+    ul { padding-left: 1.5rem; }
+    li { margin-bottom: 0.4rem; }
+    a { color: #007aff; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .meta { color: #888; font-size: 0.85rem; margin-bottom: 2rem; }
+  </style>
+</head>
+<body>
+
+<h1>Privacy Policy</h1>
+<p class="meta">Last updated: September 17, 2026</p>
+
+<h2>1. Overview</h2>
+<p>Wallino Reader ("the App") is a free, open-source iOS client for <a href="https://wallabag.org">wallabag</a>, a self-hosted read-it-later service. The developer of Wallino Reader is committed to protecting your privacy. This policy describes how the App handles your data.</p>
+
+<h2>2. No Data Collection</h2>
+<p>Wallino Reader does <strong>not</strong> collect, record, or transmit any user data to the developer of Wallino Reader or to any third party on the developer's behalf. This includes, but is not limited to:</p>
+<ul>
+  <li>Articles, web content, or links saved through the App;</li>
+  <li>Tags, annotations, or reading lists;</li>
+  <li>Server credentials, URLs, or authentication tokens;</li>
+  <li>Device identifiers, usage statistics, or diagnostic data.</li>
+</ul>
+<p>The App contains <strong>no analytics, crash reporting, or telemetry</strong> of any kind. There are no third-party analytics SDKs, no tracking frameworks, and no hidden data collection mechanisms.</p>
+
+<h2>2.1 No Tracking</h2>
+<p>Wallino Reader does not track your activity across other apps, websites, or web services. The App does not use Apple's App Tracking Transparency framework and does not access the advertising identifier (IDFA).</p>
+
+<h2>2.2 No Sale or Sharing of Data</h2>
+<p>Since no user data is collected, user data is never sold, rented, traded, or forwarded to third parties.</p>
+
+<h2>3. Data Stored on Your Device</h2>
+<p>Wallino Reader stores data <strong>locally on your device only</strong>. This data never leaves your device except when you explicitly sync it with your own self-hosted Wallabag server. The following data is stored locally:</p>
+
+<ul>
+  <li><strong>Articles, tags, and annotations</strong> — saved in a local Core Data database for offline reading.</li>
+  <li><strong>Server URL and OAuth credentials</strong> — stored in the app's UserDefaults (within an App Group, shared with the share extension).</li>
+  <li><strong>Wallabag password</strong> — stored securely in the iOS Keychain.</li>
+  <li><strong>App preferences</strong> — reading settings such as font size, theme, and display options, stored in UserDefaults.</li>
+  <li><strong>Image cache</strong> — article preview images are cached in the app's Caches directory and in memory for performance.</li>
+</ul>
+
+<h2>4. Network Communication</h2>
+<p>Wallino Reader communicates with exactly two external services:</p>
+
+<ul>
+  <li><strong>Your Wallabag server</strong> — all article syncing, adding, deleting, and authentication requests are sent exclusively to the server URL you configure in the App. No other servers receive your data.</li>
+  <li><strong>Apple App Store (StoreKit)</strong> — used solely for processing optional in-app tip donations. Apple's handling of purchase data is governed by Apple's own privacy policy.</li>
+</ul>
+
+<p>Additionally, article preview images are loaded from the URLs specified in the articles themselves (i.e., from the original websites where the articles were published).</p>
+
+<p>The App does not make network requests to any other third-party servers or services.</p>
+
+<h2>5. Self-Hosted Server Responsibility</h2>
+<p>Wallino Reader is designed to work with a Wallabag server that you host and control yourself. The developer of Wallino Reader does <strong>not</strong> operate, host, or maintain any Wallabag server instance. The developer of Wallino Reader has no access to data stored on your server.</p>
+
+<p>You are solely responsible for:</p>
+<ul>
+  <li>Securing your Wallabag server, including enabling and enforcing HTTPS/TLS encryption for all connections;</li>
+  <li>Protecting your server credentials and access tokens;</li>
+  <li>Implementing appropriate access controls and security measures on your server;</li>
+  <li>Backing up the data stored on your server.</li>
+</ul>
+
+<p>The developer of Wallino Reader is <strong>not responsible or liable for data leaks, data loss, or security breaches</strong> resulting from server misconfiguration, the use of unencrypted HTTP connections, or bugs in the Wallabag server software, which is a separate open-source project not developed or controlled by the developer of Wallino Reader. Refer to the <a href="https://doc.wallabag.org">Wallabag documentation</a> for guidance on securing your server.</p>
+
+<h2>6. Third-Party Dependencies</h2>
+<p>The App uses the following third-party software components, none of which collect user data:</p>
+<ul>
+  <li><strong>Factory</strong> — a dependency injection framework (no network access, no data collection).</li>
+  <li><strong>swift-html-entities</strong> — an HTML entity encoding/decoding library (no network access, no data collection).</li>
+</ul>
+<p>No other third-party SDKs, frameworks, or libraries are included in the App.</p>
+
+<h2>7. Children's Privacy</h2>
+<p>Wallino Reader is not directed at children under the age of 13 (or the applicable age of digital consent in your jurisdiction). The App does not knowingly collect information from children.</p>
+
+<h2>8. Changes to This Policy</h2>
+<p>This Privacy Policy may be updated from time to time. Any changes will be reflected by updating the "Last updated" date above. Continued use of the App after changes constitutes acceptance of the revised policy.</p>
+
+<h2>9. Open Source</h2>
+<p>Wallino Reader is free and open-source software released under the <a href="https://opensource.org/licenses/MIT">MIT License</a>. You may review the complete source code on <a href="https://github.com/DominikButz/Wallino-Reader">GitHub</a> to verify the privacy practices described in this policy.</p>
+
+<h2>10. Contact</h2>
+<p>If you have questions about this Privacy Policy, please open an issue on the <a href="https://github.com/DominikButz/Wallino-Reader/issues">Wallino Reader GitHub repository</a>.</p>
+
+</body>
+</html>

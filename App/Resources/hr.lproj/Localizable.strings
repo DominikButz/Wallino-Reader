@@ -46,9 +46,8 @@
 
 // About
 "Project page" = "Stranica projekta";
-"Based on Maxime Marinel's Wallabag for iOS" = "Temeljeno na Wallabag za iOS autora Maximea Marinela";
-"Created by Dominik Butz" = "Autor: Dominik Butz";
-"Special Thanks" = "Posebna zahvala";
+"Based on Maxime Marinel's Wallabag for iOS" = "Temeljeno na Wallabag za iOS autora Maximea Marinela i Wallabag poslužitelju koji su razvili Nicolas Lœuillet, Thomas Citharel, Jérémy Benoist, Kevin Decherf i Yassine Guedidi. Posebna zahvala!";
+"Forked & developed by Dominik Butz" = "Forkirano i razvio Dominik Butz";
 
 //Player
 "Select one entry" = "Odaberi unos";

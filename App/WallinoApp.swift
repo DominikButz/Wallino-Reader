@@ -1,6 +1,7 @@
 import Factory
 import Foundation
 import os
+import StoreKit
 import SwiftUI
 
 let logger = Logger(subsystem: "com.duoyun.wallino-reader", category: "main")
@@ -37,6 +38,9 @@ struct WallinoApp: App {
                 .environmentObject(appSetting)
                 .environment(\.managedObjectContext, coreData.viewContext)
                 .preferredColorScheme(appSetting.theme.colorScheme)
+                .task {
+                    await listenForStoreKitTransactions()
+                }
         }
         .onChange(of: scenePhase) { _, newScenePhase in
             if newScenePhase == .active {
@@ -55,6 +59,15 @@ struct WallinoApp: App {
                     appSync.requestSync()
                 }
                 .keyboardShortcut("r", modifiers: .command)
+            }
+        }
+    }
+
+    private func listenForStoreKitTransactions() async {
+        for await result in Transaction.updates {
+            if case let .verified(transaction) = result {
+                logger.info("Unhandled StoreKit transaction finished: \(transaction.id)")
+                await transaction.finish()
             }
         }
     }

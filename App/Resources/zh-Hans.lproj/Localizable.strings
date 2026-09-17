@@ -46,9 +46,8 @@
 
 // About
 "Project page" = "项目页面";
-"Based on Maxime Marinel's Wallabag for iOS" = "基于 Maxime Marinel 的 iOS 版 Wallabag";
-"Created by Dominik Butz" = "由 Dominik Butz 创建";
-"Special Thanks" = "特别鸣谢";
+"Based on Maxime Marinel's Wallabag for iOS" = "基于 Maxime Marinel 的 iOS 版 Wallabag 以及由 Nicolas Lœuillet、Thomas Citharel、Jérémy Benoist、Kevin Decherf 和 Yassine Guedidi 开发的 Wallabag 服务器。特别鸣谢！";
+"Forked & developed by Dominik Butz" = "由 Dominik Butz 分叉并开发";
 
 //Player
 "Select one entry" = "选择一个条目";

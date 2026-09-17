@@ -46,9 +46,8 @@
 
 // About
 "Project page" = "プロジェクトページ";
-"Based on Maxime Marinel's Wallabag for iOS" = "Maxime Marinel の iOS 用 Wallabag をベースにしています";
-"Created by Dominik Butz" = "作成者: Dominik Butz";
-"Special Thanks" = "スペシャルサンクス";
+"Based on Maxime Marinel's Wallabag for iOS" = "Maxime Marinel の iOS 用 Wallabag および Nicolas Lœuillet、Thomas Citharel、Jérémy Benoist、Kevin Decherf、Yassine Guedidi が開発した Wallabag サーバーをベースにしています。スペシャルサンクス！";
+"Forked & developed by Dominik Butz" = "フォーク＆開発: Dominik Butz";
 
 //Player
 "Select one entry" = "記事を選択してください";

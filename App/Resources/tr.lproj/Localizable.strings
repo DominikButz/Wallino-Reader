@@ -46,9 +46,8 @@
 
 // About
 "Project page" = "Proje sayfası";
-"Based on Maxime Marinel's Wallabag for iOS" = "Maxime Marinel'in iOS için Wallabag uygulamasından uyarlanmıştır";
-"Created by Dominik Butz" = "Dominik Butz tarafından oluşturuldu";
-"Special Thanks" = "Özel teşekkür";
+"Based on Maxime Marinel's Wallabag for iOS" = "Maxime Marinel'in iOS için Wallabag uygulaması ve Nicolas Lœuillet, Thomas Citharel, Jérémy Benoist, Kevin Decherf ile Yassine Guedidi tarafından geliştirilen Wallabag sunucusu temel alınmıştır. Özel teşekkürler!";
+"Forked & developed by Dominik Butz" = "Dominik Butz tarafından çatallanmış ve geliştirilmiştir";
 
 //Player
 "Select one entry" = "Bir makale seçin";

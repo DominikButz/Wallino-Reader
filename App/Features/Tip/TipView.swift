@@ -45,6 +45,7 @@ struct TipView: View {
         }
         .padding()
         .navigationTitle("Don")
+        .toolbar(.hidden, for: .tabBar)
         .task {
             await tipViewModel.loadProduct()
         }

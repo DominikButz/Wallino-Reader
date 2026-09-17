@@ -63,6 +63,7 @@ struct SettingView: View {
             
         }
         .navigationTitle("Settings")
+        .toolbar(.hidden, for: .tabBar)
         #if DEBUG
             .alert("Delete All Annotations", isPresented: $showDeleteAllAnnotationsConfirm) {
                 Button("Cancel", role: .cancel) {}

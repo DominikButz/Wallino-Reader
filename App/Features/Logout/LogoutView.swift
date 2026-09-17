@@ -37,6 +37,7 @@ struct LogoutView: View {
             
         }.navigationTitle("Account Logout")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar(.hidden, for: .tabBar)
         
     }
 }

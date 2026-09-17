@@ -8,6 +8,8 @@ enum RoutePath: Hashable {
     case entriesForTag(Tag)
     case tips
     case about
+    case terms
+    case privacy
     case setting
     case accountLogout
 }

@@ -1,9 +1,12 @@
 import Foundation
 import Observation
 import StoreKit
+import os
 
 @Observable
 final class TipViewModel {
+    private static let logger = Logger(subsystem: Bundle.main.bundleIdentifier ?? "wallino-reader", category: "TipViewModel")
+
     var tipProduct: Product?
     var paymentSuccess = false
 
@@ -12,7 +15,20 @@ final class TipViewModel {
     }
 
     func loadProduct() async {
-        tipProduct = try? await Product.products(for: ["tips1"]).first
+        for attempt in 1 ... 3 {
+            do {
+                let products = try await Product.products(for: ["wallino.tip1"])
+                if let product = products.first {
+                    tipProduct = product
+                    return
+                }
+                Self.logger.warning("Attempt \(attempt): Product 'wallino.tip1' not found in returned products.")
+            } catch {
+                Self.logger.warning("Attempt \(attempt): Failed to fetch products: \(error.localizedDescription)")
+            }
+            try? await Task.sleep(for: .seconds(1))
+        }
+        Self.logger.error("Failed to load tip product after 3 attempts.")
     }
 
     @MainActor

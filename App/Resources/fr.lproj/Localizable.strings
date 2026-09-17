@@ -46,9 +46,8 @@
 
 // About
 "Project page" = "Page du projet";
-"Based on Maxime Marinel's Wallabag for iOS" = "Basé sur Wallabag pour iOS de Maxime Marinel";
-"Created by Dominik Butz" = "Créé par Dominik Butz";
-"Special Thanks" = "Remerciements spéciaux";
+"Based on Maxime Marinel's Wallabag for iOS" = "Basé sur Wallabag pour iOS de Maxime Marinel et le serveur Wallabag développé par Nicolas Lœuillet, Thomas Citharel, Jérémy Benoist, Kevin Decherf et Yassine Guedidi. Remerciements spéciaux !";
+"Forked & developed by Dominik Butz" = "Fourché et développé par Dominik Butz";
 
 //Player
 "Select one entry" = "Sélectionnez une entrée";

@@ -20,6 +20,10 @@ extension View {
                 EntriesForTagView(tag: tag)
             case .about:
                 AboutView()
+            case .terms:
+                HTMLViewerContainerView(fileName: "terms", navTitle: "Terms and Conditions")
+            case .privacy:
+                HTMLViewerContainerView(fileName: "privacy", navTitle: "Privacy Policy")
             case .accountLogout:
                 LogoutView()
             case .tips:
