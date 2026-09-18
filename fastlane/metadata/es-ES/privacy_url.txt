@@ -1,1 +1,1 @@
-https://www.district-web.fr/wallabag-reader/privacy
+https://github.com/DominikButz/Wallino-Reader/blob/main/App/Resources/terms_privacy/privacy.html

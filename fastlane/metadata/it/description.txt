@@ -7,5 +7,6 @@ Funzionalità:
 - Usa l'estensione di condivisione da altre app: Wallino può persino estrarre il link dell'articolo dal testo.
 - Imposta i tag per organizzare meglio il tuo archivio di lettura.
 - Esporta il link originale o il testo dell'articolo in PDF per condividerlo con altri.
+- Integrazione con Apple Intelligence: tagging automatico e riepiloghi degli articoli.
 
 Leggi la documentazione di Wallabag per saperne di più su come configurare Wallabag sul tuo server domestico o su un server cloud: https://doc.wallabag.org.

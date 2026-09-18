@@ -8,5 +8,6 @@ Fonctionnalités :
 - Utilisez l'extension de partage depuis d'autres applications : Wallino peut même extraire le lien d'un article d'actualité à partir d'un texte
 - Définissez des balises pour mieux organiser votre archive de lecture
 - Exportez le lien d'origine ou le texte de l'article au format PDF pour le partager avec d'autres
+- Intégration Apple Intelligence : étiquetage automatique et résumés d'articles.
 
 Consultez la documentation Wallabag pour en savoir plus sur la configuration de Wallabag sur votre serveur personnel ou un serveur cloud loué : https://doc.wallabag.org.

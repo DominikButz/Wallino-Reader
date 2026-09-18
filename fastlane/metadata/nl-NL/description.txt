@@ -7,5 +7,6 @@ Functies:
 - Gebruik de deel-extensie vanuit andere apps: Wallino kan de link naar het artikel zelfs uit tekst halen.
 - Stel tags in voor een betere organisatie van je leesarchief.
 - Exporteer de oorspronkelijke link of de artikeltekst als PDF om met anderen te delen.
+- Apple Intelligence-integratie: automatische tagging en artikel samenvattingen.
 
 Lees de Wallabag-documentatie voor meer informatie over het instellen van Wallabag op je eigen server of een gehuurde cloudserver: https://doc.wallabag.org.

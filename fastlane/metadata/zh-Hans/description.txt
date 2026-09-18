@@ -7,5 +7,6 @@ Wallino 免费且开源，欢迎查看 GitHub 仓库。
 - 从其他应用使用分享扩展：Wallino 甚至可以从文本中提取新闻文章链接。
 - 设置标签，更好地整理您的阅读归档。
 - 导出原始链接或将文章文本导出为 PDF，以便与他人分享。
+- Apple Intelligence 集成：自动标签和文章摘要。
 
 请阅读 Wallabag 文档，了解如何在您自己的服务器或租用的云服务器上设置 Wallabag：https://doc.wallabag.org。
