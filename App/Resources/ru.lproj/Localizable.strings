@@ -137,3 +137,19 @@
 // Logout
 "Account / Logout" = "Учётная запись / Выход";
 "Username:" = "Имя пользователя:";
+
+// Auto-tag
+"Auto-tag" = "Автотеги";
+"Added tags: %@" = "Добавленные теги: %@";
+"No tags suggested" = "Теги не предложены";
+"Auto-tagging failed" = "Не удалось добавить теги";
+"Auto-tag new entry" = "Автоматически помечать новые записи";
+
+// Summarize
+"AI actions" = "Действия ИИ";
+"Summarize" = "Кратко изложить";
+"Summary" = "Сводка";
+"Summarizing…" = "Создание сводки…";
+"Copy" = "Копировать";
+"Copied" = "Скопировано";
+"Done" = "Готово";

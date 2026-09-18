@@ -59,4 +59,14 @@ public enum WallabagUserDefaults {
 
     @GeneralSetting("theme", defaultValue: "auto")
     public static var theme: String
+
+    /// Whether new entries should be tagged automatically by Apple Intelligence.
+    /// Stored in the App Group so the share extension can read it too.
+    @Setting("autoTagNewEntry", defaultValue: true)
+    public static var autoTagNewEntry: Bool
+
+    /// Entry ids that were added without tags and still need auto-tagging once
+    /// the main app is opened. Shared between the app and the share extension.
+    @Setting("pendingAutoTagEntryIds", defaultValue: [])
+    public static var pendingAutoTagEntryIds: [Int]
 }

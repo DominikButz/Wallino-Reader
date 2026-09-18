@@ -137,3 +137,19 @@
 // Logout
 "Account / Logout" = "Account / Afmelden";
 "Username:" = "Gebruikersnaam:";
+
+// Auto-tag
+"Auto-tag" = "Automatisch taggen";
+"Added tags: %@" = "Toegevoegde tags: %@";
+"No tags suggested" = "Geen tags voorgesteld";
+"Auto-tagging failed" = "Automatisch taggen mislukt";
+"Auto-tag new entry" = "Nieuwe items automatisch taggen";
+
+// Summarize
+"AI actions" = "AI-acties";
+"Summarize" = "Samenvatten";
+"Summary" = "Samenvatting";
+"Summarizing…" = "Samenvatten…";
+"Copy" = "Kopiëren";
+"Copied" = "Gekopieerd";
+"Done" = "Gereed";

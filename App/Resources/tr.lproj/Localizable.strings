@@ -137,3 +137,19 @@
 // Logout
 "Account / Logout" = "Hesap / Çıkış yap";
 "Username:" = "Kullanıcı adı:";
+
+// Auto-tag
+"Auto-tag" = "Otomatik etiketle";
+"Added tags: %@" = "Eklenen etiketler: %@";
+"No tags suggested" = "Etiket önerilmedi";
+"Auto-tagging failed" = "Otomatik etiketleme başarısız";
+"Auto-tag new entry" = "Yeni kayıtları otomatik etiketle";
+
+// Summarize
+"AI actions" = "Yapay zeka işlemleri";
+"Summarize" = "Özetle";
+"Summary" = "Özet";
+"Summarizing…" = "Özetleniyor…";
+"Copy" = "Kopyala";
+"Copied" = "Kopyalandı";
+"Done" = "Bitti";

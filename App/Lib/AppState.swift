@@ -30,12 +30,19 @@ final class AppState: ObservableObject {
                 await session.requestSession(clientId: WallabagUserDefaults.clientId, clientSecret: WallabagUserDefaults.clientSecret, username: WallabagUserDefaults.login, password: WallabagUserDefaults.password)
             }
 
-            if UserDefaults.standard.bool(forKey: "refreshOnStartup") {
+            if UserDefaults.standard.bool(forKey: "refreshOnStartup") || hasPendingAutoTags() {
                 await appSync.requestSync()
             }
 
             await fetchConfig()
         }
+    }
+
+    /// Whether entries added elsewhere (e.g. the share extension) still need to
+    /// be auto-tagged. Triggers a sync so the main app can fetch them first.
+    private func hasPendingAutoTags() -> Bool {
+        guard #available(iOS 26.0, macOS 26.0, *) else { return false }
+        return !WallabagUserDefaults.pendingAutoTagEntryIds.isEmpty
     }
 
     func logout() {

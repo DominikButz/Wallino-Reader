@@ -87,8 +87,9 @@ final class ShareViewModel {
 
         do {
             try await ensureAuthenticated()
+            var createdEntryIds: [Int] = []
             for url in urls {
-                let _: WallabagEntry = try await kit.send(
+                let entry: WallabagEntry = try await kit.send(
                     to: WallabagEntryEndpoint.add(
                         url: url,
                         title: title,
@@ -98,11 +99,23 @@ final class ShareViewModel {
                         archived: isRead
                     )
                 )
+                createdEntryIds.append(entry.id)
             }
+            enqueuePendingAutoTagIfNeeded(createdEntryIds)
             onComplete()
         } catch {
             errorMessage = error.localizedDescription
         }
+    }
+
+    /// When the person did not pick any tag and auto-tagging is enabled, remember
+    /// the new entries so the main app can tag them once it is opened. The model
+    /// is not run here to keep the extension's memory usage low.
+    private func enqueuePendingAutoTagIfNeeded(_ entryIds: [Int]) {
+        guard selectedTags.isEmpty, WallabagUserDefaults.autoTagNewEntry, !entryIds.isEmpty else { return }
+        var pending = WallabagUserDefaults.pendingAutoTagEntryIds
+        pending.append(contentsOf: entryIds.filter { !pending.contains($0) })
+        WallabagUserDefaults.pendingAutoTagEntryIds = pending
     }
 
     func cancel() {

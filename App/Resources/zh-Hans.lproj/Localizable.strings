@@ -137,3 +137,19 @@
 // Logout
 "Account / Logout" = "账户 / 退出";
 "Username:" = "用户名:";
+
+// Auto-tag
+"Auto-tag" = "自动标签";
+"Added tags: %@" = "已添加标签：%@";
+"No tags suggested" = "未建议任何标签";
+"Auto-tagging failed" = "自动标签失败";
+"Auto-tag new entry" = "自动为新条目添加标签";
+
+// Summarize
+"AI actions" = "AI 操作";
+"Summarize" = "总结";
+"Summary" = "摘要";
+"Summarizing…" = "正在总结…";
+"Copy" = "拷贝";
+"Copied" = "已拷贝";
+"Done" = "完成";

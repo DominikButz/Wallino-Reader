@@ -120,6 +120,15 @@
 		D0C1A1000000000000000007 /* annotation.css in Resources */ = {isa = PBXBuildFile; fileRef = D0C1A1000000000000000006 /* annotation.css */; };
 		D0C1A1000000000000000009 /* AnnotationEditMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C1A1000000000000000008 /* AnnotationEditMenu.swift */; };
 		D0C1A1000000000000000011 /* AnnotationEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0C1A1000000000000000010 /* AnnotationEditorView.swift */; };
+		B4C0DE0000000000000001A2 /* EntryEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C0DE0000000000000001A1 /* EntryEntity.swift */; };
+		B4C0DE0000000000000002A2 /* AutoTagService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C0DE0000000000000002A1 /* AutoTagService.swift */; };
+		B4C0DE0000000000000002B2 /* AutoTagViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C0DE0000000000000002B1 /* AutoTagViewModel.swift */; };
+		B4C0DE0000000000000002C2 /* AutoTagButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C0DE0000000000000002C1 /* AutoTagButton.swift */; };
+		B4C0DE0000000000000002D2 /* AutoTagCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C0DE0000000000000002D1 /* AutoTagCoordinator.swift */; };
+		B4C0DE0000000000000003A2 /* SummaryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C0DE0000000000000003A1 /* SummaryService.swift */; };
+		B4C0DE0000000000000003B2 /* SummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C0DE0000000000000003B1 /* SummaryViewModel.swift */; };
+		B4C0DE0000000000000003C2 /* EntryAIActionsMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C0DE0000000000000003C1 /* EntryAIActionsMenu.swift */; };
+		B4C0DE0000000000000003D2 /* SummarySheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C0DE0000000000000003D1 /* SummarySheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -284,6 +293,15 @@
 		D0C1A1000000000000000006 /* annotation.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = annotation.css; sourceTree = "<group>"; };
 		D0C1A1000000000000000008 /* AnnotationEditMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationEditMenu.swift; sourceTree = "<group>"; };
 		D0C1A1000000000000000010 /* AnnotationEditorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationEditorView.swift; sourceTree = "<group>"; };
+		B4C0DE0000000000000001A1 /* EntryEntity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryEntity.swift; sourceTree = "<group>"; };
+		B4C0DE0000000000000002A1 /* AutoTagService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTagService.swift; sourceTree = "<group>"; };
+		B4C0DE0000000000000002B1 /* AutoTagViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTagViewModel.swift; sourceTree = "<group>"; };
+		B4C0DE0000000000000002C1 /* AutoTagButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTagButton.swift; sourceTree = "<group>"; };
+		B4C0DE0000000000000002D1 /* AutoTagCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoTagCoordinator.swift; sourceTree = "<group>"; };
+		B4C0DE0000000000000003A1 /* SummaryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryService.swift; sourceTree = "<group>"; };
+		B4C0DE0000000000000003B1 /* SummaryViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummaryViewModel.swift; sourceTree = "<group>"; };
+		B4C0DE0000000000000003C1 /* EntryAIActionsMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EntryAIActionsMenu.swift; sourceTree = "<group>"; };
+		B4C0DE0000000000000003D1 /* SummarySheet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SummarySheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -503,6 +521,8 @@
 				09644C5925C98596000FFDA1 /* EntryRowView.swift */,
 				09644C5A25C98596000FFDA1 /* EntryView.swift */,
 				09644C5625C98596000FFDA1 /* WebView.swift */,
+				B4C0DE0000000000000003A1 /* SummaryService.swift */,
+				B4C0DE0000000000000003B1 /* SummaryViewModel.swift */,
 				D0C1A1000000000000000008 /* AnnotationEditMenu.swift */,
 				D0C1A1000000000000000010 /* AnnotationEditorView.swift */,
 			);
@@ -518,6 +538,9 @@
 				09644C6C25C985A9000FFDA1 /* FontSizeSelectorView.swift */,
 				09644C6825C985A9000FFDA1 /* StarEntryButton.swift */,
 				B4B3F2E2304C0000007633C9 /* ActivityView.swift */,
+				B4C0DE0000000000000002C1 /* AutoTagButton.swift */,
+				B4C0DE0000000000000003C1 /* EntryAIActionsMenu.swift */,
+				B4C0DE0000000000000003D1 /* SummarySheet.swift */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -627,6 +650,9 @@
 				B4B3F29A30496013007633C9 /* TagsListView.swift */,
 				B4B3F29B30496013007633C9 /* TagsListViewModel.swift */,
 				09644CFC25C9870C000FFDA1 /* TagsForEntryViewModel.swift */,
+				B4C0DE0000000000000002A1 /* AutoTagService.swift */,
+				B4C0DE0000000000000002B1 /* AutoTagViewModel.swift */,
+				B4C0DE0000000000000002D1 /* AutoTagCoordinator.swift */,
 			);
 			path = Tag;
 			sourceTree = "<group>";
@@ -778,6 +804,7 @@
 			children = (
 				81505C5A2B5DC21F003B5CDE /* WallabagIntent.swift */,
 				81505C5C2B5DC23C003B5CDE /* AddEntryIntent.swift */,
+				B4C0DE0000000000000001A1 /* EntryEntity.swift */,
 			);
 			path = Intents;
 			sourceTree = "<group>";
@@ -1100,6 +1127,15 @@
 				09BE0AF42A9F45E900193FBF /* View+Extension.swift in Sources */,
 				09644C7025C985A9000FFDA1 /* ArchiveEntryButton.swift in Sources */,
 				09FA20240000000000000002 /* Theme.swift in Sources */,
+				B4C0DE0000000000000001A2 /* EntryEntity.swift in Sources */,
+				B4C0DE0000000000000002A2 /* AutoTagService.swift in Sources */,
+				B4C0DE0000000000000002B2 /* AutoTagViewModel.swift in Sources */,
+				B4C0DE0000000000000002C2 /* AutoTagButton.swift in Sources */,
+				B4C0DE0000000000000002D2 /* AutoTagCoordinator.swift in Sources */,
+				B4C0DE0000000000000003A2 /* SummaryService.swift in Sources */,
+				B4C0DE0000000000000003B2 /* SummaryViewModel.swift in Sources */,
+				B4C0DE0000000000000003C2 /* EntryAIActionsMenu.swift in Sources */,
+				B4C0DE0000000000000003D2 /* SummarySheet.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

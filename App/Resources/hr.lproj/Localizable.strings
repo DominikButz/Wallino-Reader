@@ -137,3 +137,19 @@
 // Logout
 "Account / Logout" = "Račun / Odjava";
 "Username:" = "Korisničko ime:";
+
+// Auto-tag
+"Auto-tag" = "Automatske oznake";
+"Added tags: %@" = "Dodane oznake: %@";
+"No tags suggested" = "Nema predloženih oznaka";
+"Auto-tagging failed" = "Automatsko dodavanje oznaka nije uspjelo";
+"Auto-tag new entry" = "Automatski označi nove zapise";
+
+// Summarize
+"AI actions" = "AI radnje";
+"Summarize" = "Sažmi";
+"Summary" = "Sažetak";
+"Summarizing…" = "Sažimanje…";
+"Copy" = "Kopiraj";
+"Copied" = "Kopirano";
+"Done" = "Gotovo";

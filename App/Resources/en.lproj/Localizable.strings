@@ -137,3 +137,19 @@
 // Logout
 "Account / Logout" = "Account / Logout";
 "Username:" = "Username:";
+
+// Auto-tag
+"Auto-tag" = "Auto-tag";
+"Added tags: %@" = "Added tags: %@";
+"No tags suggested" = "No tags suggested";
+"Auto-tagging failed" = "Auto-tagging failed";
+"Auto-tag new entry" = "Auto-tag new entry";
+
+// Summarize
+"AI actions" = "AI actions";
+"Summarize" = "Summarize";
+"Summary" = "Summary";
+"Summarizing…" = "Summarizing…";
+"Copy" = "Copy";
+"Copied" = "Copied";
+"Done" = "Done";

@@ -137,3 +137,19 @@
 // Logout
 "Account / Logout" = "Konto / Abmelden";
 "Username:" = "Benutzername:";
+
+// Auto-tag
+"Auto-tag" = "Auto-Tag";
+"Added tags: %@" = "Hinzugefügte Tags: %@";
+"No tags suggested" = "Keine Tags vorgeschlagen";
+"Auto-tagging failed" = "Auto-Tagging fehlgeschlagen";
+"Auto-tag new entry" = "Neue Einträge automatisch taggen";
+
+// Summarize
+"AI actions" = "KI-Aktionen";
+"Summarize" = "Zusammenfassen";
+"Summary" = "Zusammenfassung";
+"Summarizing…" = "Zusammenfassen…";
+"Copy" = "Kopieren";
+"Copied" = "Kopiert";
+"Done" = "Fertig";

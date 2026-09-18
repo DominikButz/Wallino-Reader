@@ -83,11 +83,13 @@ final class WallabagSession: ObservableObject {
         }
     }
 
-    func addEntry(url: String) async throws {
+    @discardableResult
+    func addEntry(url: String) async throws -> Entry {
         let wallabagEntry: WallabagEntry = try await kit.send(to: WallabagEntryEndpoint.add(url: url, title: nil, content: nil, tags: [], starred: false, archived: false))
 
         let entry = Entry(context: coreDataContext)
         entry.hydrate(from: wallabagEntry)
+        return entry
     }
 
     func update(_ entry: Entry, parameters: WallabagKit.Parameters) async throws {
@@ -99,7 +101,9 @@ final class WallabagSession: ObservableObject {
     }
 
     func add(tag: String, for entry: Entry) async throws {
-        let wallabagEntry = try await kit.send(to: WallabagEntryEndpoint.addTag(tag: tag, entry: entry.id))
+        let wallabagEntry = try await performAuthenticated {
+            try await kit.send(to: WallabagEntryEndpoint.addTag(tag: tag, entry: entry.id))
+        }
         await MainActor.run {
             syncTag(for: entry, with: wallabagEntry)
         }
@@ -194,7 +198,9 @@ final class WallabagSession: ObservableObject {
     }
 
     func delete(tag: Tag, for entry: Entry) async throws {
-        let wallabagEntry = try await kit.send(to: WallabagEntryEndpoint.deleteTag(tagId: tag.id, entry: entry.id))
+        let wallabagEntry = try await performAuthenticated {
+            try await kit.send(to: WallabagEntryEndpoint.deleteTag(tagId: tag.id, entry: entry.id))
+        }
         await MainActor.run {
             syncTag(for: entry, with: wallabagEntry)
         }

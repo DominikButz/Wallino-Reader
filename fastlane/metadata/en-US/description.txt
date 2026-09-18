@@ -6,7 +6,9 @@ Wallino is free and open source, please check out the GitHub repository.
 Features:
 - Archive news articles from websites and news apps for archiving or reading later. 
 - Use the share extension from other apps: Wallino can even extract the news article link from text
-- Set tags for better organisation of your reading archive
+- Assign tags to articles to better organise your article archive. 
 - Export the original link or export the article text as PDF to share with others
+- Apple Intelligence integration: automatic tagging and article summaries. 
+
 
 Read the Wallabag documentation to find out more about how to set up Wallabag on your home server or rented cloud server: https://doc.wallabag.org. 

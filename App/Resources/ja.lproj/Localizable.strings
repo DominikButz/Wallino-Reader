@@ -137,3 +137,19 @@
 // Logout
 "Account / Logout" = "アカウント / ログアウト";
 "Username:" = "ユーザー名:";
+
+// Auto-tag
+"Auto-tag" = "自動タグ付け";
+"Added tags: %@" = "追加したタグ: %@";
+"No tags suggested" = "タグが提案されませんでした";
+"Auto-tagging failed" = "自動タグ付けに失敗しました";
+"Auto-tag new entry" = "新規項目を自動タグ付け";
+
+// Summarize
+"AI actions" = "AI アクション";
+"Summarize" = "要約";
+"Summary" = "要約";
+"Summarizing…" = "要約中…";
+"Copy" = "コピー";
+"Copied" = "コピーしました";
+"Done" = "完了";

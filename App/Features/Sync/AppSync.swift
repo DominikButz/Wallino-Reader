@@ -37,11 +37,19 @@ final class AppSync {
             await synchronizeEntries()
             purge()
             await synchronizeAnnotations()
+            await processPendingAutoTags()
             await MainActor.run {
                 self.inProgress = false
             }
         }
         inProgress = true
+    }
+
+    @MainActor
+    private func processPendingAutoTags() async {
+        if #available(iOS 26.0, macOS 26.0, *) {
+            await AutoTagCoordinator().processPendingEntries()
+        }
     }
 }
 

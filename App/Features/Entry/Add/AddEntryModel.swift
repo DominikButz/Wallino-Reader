@@ -27,12 +27,23 @@ final class AddEntryModel {
 
         submitting = true
         do {
+            var addedEntries: [Entry] = []
             for detectedURL in urls {
-                try await session.addEntry(url: detectedURL.absoluteString)
+                let entry = try await session.addEntry(url: detectedURL.absoluteString)
+                addedEntries.append(entry)
             }
             addedCount = urls.count
             succeeded = true
+            await autoTag(addedEntries)
             try await Task.sleep(for: .seconds(3))
         } catch {}
+    }
+
+    private func autoTag(_ entries: [Entry]) async {
+        guard #available(iOS 26.0, macOS 26.0, *) else { return }
+        let coordinator = AutoTagCoordinator()
+        for entry in entries {
+            await coordinator.autoTagNewEntry(entry)
+        }
     }
 }

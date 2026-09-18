@@ -34,6 +34,9 @@ struct SettingView: View {
             }
             Section("Entry") {
                 Toggle("Justify entry", isOn: $justifyArticle)
+                if #available(iOS 26.0, macOS 26.0, *) {
+                    Toggle("Auto-tag new entry", isOn: $appSetting.autoTagNewEntry)
+                }
             }
 #if DEBUG
             Section("Annotations") {

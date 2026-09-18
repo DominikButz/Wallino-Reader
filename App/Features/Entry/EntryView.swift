@@ -63,6 +63,11 @@ struct EntryView: View {
             ToolbarItem(placement: toolbarPlacement) {
                 FontSizeSelectorView()
             }
+            if #available(iOS 26.0, macOS 26.0, *), AutoTagService.isAvailable {
+                ToolbarItem(placement: toolbarPlacement) {
+                    EntryAIActionsMenu(entry: entry)
+                }
+            }
         }
         .alert("Confirm delete?", isPresented: $showDeleteConfirm) {
             Button(role: .destructive, action: {
