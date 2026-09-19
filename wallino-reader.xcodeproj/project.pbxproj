@@ -1240,7 +1240,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "iOS-share_ext/iOS-share_extDebug.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 76FXG652LY;
 				INFOPLIST_FILE = "iOS-share_ext/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Wallino Debug";
@@ -1264,7 +1264,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "iOS-share_ext/iOS-share_ext.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 76FXG652LY;
 				INFOPLIST_FILE = "iOS-share_ext/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Wallino Reader";
@@ -1418,7 +1418,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = wallinoDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 76FXG652LY;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
@@ -1452,7 +1452,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = wallino.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = 76FXG652LY;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
