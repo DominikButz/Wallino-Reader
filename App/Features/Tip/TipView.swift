@@ -4,12 +4,13 @@ struct TipView: View {
     @State var tipViewModel = TipViewModel()
 
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 20) {
             Text("This application is developed on free time")
             Text("It is free and will remain so.")
             Text("But you can contribute financially by making a donation whenever you want to support the project.")
-            Spacer()
+           
             if tipViewModel.paymentSuccess {
+                Spacer()
                 HStack {
                     Spacer()
                     Text("Thank you for your Tip!")
@@ -17,7 +18,7 @@ struct TipView: View {
                     Spacer()
                 }
             }
-            Spacer()
+        
             HStack {
                 Spacer()
                 if tipViewModel.canMakePayments {

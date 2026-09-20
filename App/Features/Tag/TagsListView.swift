@@ -31,6 +31,7 @@ struct TagsListView: View {
             appSync.requestSync()
             viewModel.load()
         }
+        .accessibilityIdentifier("tags_list")
         .listStyle(.inset)
         .task {
             viewModel.load()

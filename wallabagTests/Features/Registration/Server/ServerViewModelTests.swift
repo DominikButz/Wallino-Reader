@@ -1,6 +1,6 @@
 import Combine
 import SharedLib
-@testable import wallabag
+@testable import Wallino_Reader
 import XCTest
 
 final class ServerViewModelTests: XCTestCase {

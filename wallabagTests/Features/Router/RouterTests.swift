@@ -1,4 +1,4 @@
-@testable import wallabag
+@testable import Wallino_Reader
 import XCTest
 
 class RouterTests: XCTestCase {

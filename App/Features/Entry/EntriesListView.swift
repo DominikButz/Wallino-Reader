@@ -68,6 +68,7 @@ struct EntriesListView: View {
                 })
             }
         }
+        .accessibilityIdentifier("entry_list")
         .refreshable { appSync.requestSync() }
         .listStyle(.inset)
         .alert("Auto-tag", isPresented: Binding(

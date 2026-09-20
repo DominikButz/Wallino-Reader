@@ -28,13 +28,14 @@ struct EntryView: View {
     #endif
 
     var body: some View {
-        Group {
+        ZStack {
             #if os(iOS)
                 WebView(entry: entry, progress: $progress, annotationEditor: annotationEditor)
             #else
                 WebView(entry: entry, progress: $progress)
             #endif
         }
+        .accessibilityIdentifier("entry_detail")
         .ignoresSafeArea()
             .safeAreaInset(edge: .top) {
                 VStack(spacing: 0) {
@@ -57,6 +58,7 @@ struct EntryView: View {
                         .labelStyle(.iconOnly)
                 })
                 .accessibilityLabel("Entry option")
+                .accessibilityIdentifier("entry_option_menu")
                 .frame(width: 28, height: 28)
                 .contentShape(Rectangle())
             }

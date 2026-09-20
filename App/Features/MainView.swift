@@ -7,7 +7,7 @@ struct MainView: View {
     @Environment(Router.self) var router: Router
 
     var body: some View {
-        if appState.registred {
+        if appState.registred || ProcessInfo.processInfo.arguments.contains("-skipLogin") {
             mainView
         } else {
             RegistrationView()

@@ -1,17 +1,94 @@
 # This file contains the fastlane.tools configuration
 # You can find the documentation at https://docs.fastlane.tools
 
+require "tmpdir"
+require "deliver"
+
+# Workaround for a fastlane bug (still present in current versions): on a brand
+# new App Store version there is no App Review detail yet, and
+# `Deliver::UploadMetadata#review_attachment_file` calls
+# `version.fetch_app_store_review_detail` without rescuing the resulting
+# `No data` error, which aborts the whole metadata upload. `review_information`
+# (the step before it) only creates that detail when `app_review_information`
+# is supplied, which we intentionally don't. Re-wrap the method so a missing
+# detail is treated as a no-op; once the detail exists in App Store Connect
+# this behaves exactly like upstream.
+#
+# NOTE: this must reference the real top-level `::Deliver` constant explicitly.
+# A Fastfile is evaluated via `eval` with `Fastlane::FastFile` as its lexical
+# scope, so a plain `module Deliver` would define `Fastlane::FastFile::Deliver`
+# instead of reopening the gem's class.
+::Deliver::UploadMetadata.class_eval do
+  def review_attachment_file(version)
+    app_store_review_detail = begin
+      version.fetch_app_store_review_detail
+    rescue => error
+      ::FastlaneCore::UI.error("Error fetching app store review detail - #{error.message}")
+      nil
+    end
+
+    if app_store_review_detail.nil?
+      ::FastlaneCore::UI.important("Skipping review attachment upload: no App Review detail exists yet for this version") if options[:app_review_attachment_file]
+      return
+    end
+
+    app_store_review_attachments = app_store_review_detail.app_store_review_attachments || []
+
+    if options[:app_review_attachment_file]
+      app_store_review_attachments.each do |app_store_review_attachment|
+        ::FastlaneCore::UI.message("Removing previous review attachment file from App Store Connect")
+        app_store_review_attachment.delete!
+      end
+
+      ::FastlaneCore::UI.message("Uploading review attachment file to App Store Connect")
+      app_store_review_detail.upload_attachment(path: options[:app_review_attachment_file])
+    else
+      app_store_review_attachments.each(&:delete!)
+      ::FastlaneCore::UI.message("Removing review attachment file to App Store Connect") unless app_store_review_attachments.empty?
+    end
+  end
+end
+
 default_platform(:ios)
 
+# Metadata languages that should be uploaded to App Store Connect.
+UPLOAD_LOCALES = ["en-GB"].freeze
+
 platform :ios do
-  desc "Build and upload a new build to TestFlight"
-  lane :beta do
-    api_key = app_store_connect_api_key(
+  def asc_api_key
+    app_store_connect_api_key(
       key_id: ENV["ASC_KEY_ID"] || "DNRQX7V8X4",
       issuer_id: ENV["ASC_ISSUER_ID"],
       key_filepath: ENV["ASC_KEY_FILEPATH"] || "api_keys/AuthKey_DNRQX7V8X4.p8",
       in_house: false
     )
+  end
+
+  # Builds a temporary metadata directory containing only the given locales
+  # (plus the non-localized root files) so `upload_to_app_store` doesn't touch
+  # the other localized folders that live in fastlane/metadata.
+  def filtered_metadata_path(locales = UPLOAD_LOCALES)
+    fastlane_dir = FastlaneCore::FastlaneFolder.path
+    source = File.join(fastlane_dir, "metadata")
+    target = Dir.mktmpdir("wallino-metadata")
+
+    Dir.children(source).each do |entry|
+      source_entry = File.join(source, entry)
+      target_entry = File.join(target, entry)
+
+      if File.directory?(source_entry)
+        File.symlink(source_entry, target_entry) if locales.include?(entry)
+      else
+        File.symlink(source_entry, target_entry)
+      end
+    end
+
+    target
+  end
+
+  desc "Build and upload a new build to TestFlight"
+  lane :beta do
+    api_key = asc_api_key
 
     increment_build_number(xcodeproj: "wallino-reader.xcodeproj")
 
@@ -25,6 +102,48 @@ platform :ios do
     )
 
     upload_to_testflight(api_key: api_key)
+  end
+
+  desc "Increment build number, build and upload the latest version to App Store Connect (all metadata, no screenshots, no review submission)"
+  lane :release do
+    api_key = asc_api_key
+
+    increment_build_number(xcodeproj: "wallino-reader.xcodeproj")
+
+    build_app(
+      scheme: "Wallino Reader",
+      project: "wallino-reader.xcodeproj",
+      export_method: "app-store",
+      output_directory: "fastlane/build",
+      xcargs: "-allowProvisioningUpdates",
+      export_xcargs: "-allowProvisioningUpdates"
+    )
+
+    upload_to_app_store(
+      api_key: api_key,
+      ipa: "fastlane/build/Wallino Reader.ipa",
+      app_version: ENV["APP_VERSION"] || "1.0",
+      metadata_path: filtered_metadata_path,
+      skip_screenshots: true,
+      submit_for_review: false,
+      run_precheck_before_submit: false,
+      force: true
+    )
+  end
+
+  desc "Upload screenshots and metadata only (no binary, no review submission)"
+  lane :upload_screenshots do
+    api_key = asc_api_key
+
+    upload_to_app_store(
+      api_key: api_key,
+      app_version: ENV["APP_VERSION"] || "1.0",
+      metadata_path: filtered_metadata_path,
+      skip_binary_upload: true,
+      submit_for_review: false,
+      run_precheck_before_submit: false,
+      force: true
+    )
   end
 
   desc "Increment build number"
@@ -41,10 +160,5 @@ platform :ios do
   desc "Run tests"
   lane :test do
     run_tests(scheme: "Wallino Reader")
-  end
-
-  desc "Generate new localized screenshots"
-  lane :screenshots do
-    capture_screenshots(scheme: "Wallino Reader")
   end
 end

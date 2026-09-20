@@ -49,15 +49,17 @@ struct EntriesView: View {
                 }, label: {
                     Label("Sort options", systemImage: "line.3.horizontal.decrease.circle")
                 })
-                RefreshButton()
+                
+                Button(action: {
+                    router.path.append(RoutePath.addEntry)
+                }, label: {
+                    Image(systemName: "plus.circle")
+                })
             }
-            ToolbarItem(placement: .navigationBarLeading) {
+            
+            ToolbarItemGroup(placement: .navigationBarLeading) {
                 Menu(content: {
-                    Button(action: {
-                        router.path.append(RoutePath.addEntry)
-                    }, label: {
-                        Label("Add entry", systemImage: "tray.and.arrow.down")
-                    })
+       
                     Button(action: {
                         router.path.append(RoutePath.about)
                     }, label: {
@@ -84,6 +86,8 @@ struct EntriesView: View {
                 }, label: {
                     Label("Menu", systemImage: "list.bullet")
                 })
+                
+                RefreshButton()
             }
         }
         .navigationTitle("Entries")

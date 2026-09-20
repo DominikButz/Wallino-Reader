@@ -58,6 +58,17 @@
                ReferencedContainer = "container:WallabagKit">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "B4B8F8CB305E697F00BC1A8A"
+               BuildableName = "WallinoReaderUITests.xctest"
+               BlueprintName = "WallinoReaderUITests"
+               ReferencedContainer = "container:wallino-reader.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

@@ -22,6 +22,11 @@ final class AppState: ObservableObject {
     }
 
     func initSession() async {
+        if ProcessInfo.processInfo.arguments.contains("-uiTesting") {
+            logger.info("UI testing mode: skipping session refresh, sync and config fetch")
+            return
+        }
+
         if registred {
             logger.info("App state request session")
 

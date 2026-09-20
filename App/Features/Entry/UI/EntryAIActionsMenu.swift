@@ -27,13 +27,14 @@ struct EntryAIActionsMenu: View {
                     await summaryViewModel.summarize(entry: entry)
                 }
             } label: {
-                Label("Summarize", systemImage: "text.line3.summary")
+                Label("Summarize", systemImage: "text.line.3.summary")
             }
         } label: {
             Label("AI actions", systemImage: "apple.intelligence")
                 .labelStyle(.iconOnly)
         }
         .accessibilityLabel("AI actions")
+        .accessibilityIdentifier("ai_actions_menu")
         .alert("Auto-tag", isPresented: Binding(
             get: { autoTagMessage != nil },
             set: { if !$0 { autoTagMessage = nil } }

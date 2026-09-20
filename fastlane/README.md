@@ -23,6 +23,22 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 Build and upload a new build to TestFlight
 
+### ios release
+
+```sh
+[bundle exec] fastlane ios release
+```
+
+Increment build number, build and upload the latest version to App Store Connect (all metadata, no screenshots, no review submission)
+
+### ios upload_screenshots
+
+```sh
+[bundle exec] fastlane ios upload_screenshots
+```
+
+Upload screenshots and metadata only (no binary, no review submission)
+
 ### ios incrementbuildnumber
 
 ```sh
@@ -46,14 +62,6 @@ Set version
 ```
 
 Run tests
-
-### ios screenshots
-
-```sh
-[bundle exec] fastlane ios screenshots
-```
-
-Generate new localized screenshots
 
 ----
 
