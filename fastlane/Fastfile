@@ -52,7 +52,7 @@ end
 default_platform(:ios)
 
 # Metadata languages that should be uploaded to App Store Connect.
-UPLOAD_LOCALES = ["en-GB"].freeze
+UPLOAD_LOCALES = ["en-GB", "de-DE", "fr-FR"].freeze
 
 platform :ios do
   def asc_api_key
@@ -68,6 +68,8 @@ platform :ios do
   # (plus the non-localized root files) so `upload_to_app_store` doesn't touch
   # the other localized folders that live in fastlane/metadata.
   def filtered_metadata_path(locales = UPLOAD_LOCALES)
+    require "fileutils"
+
     fastlane_dir = FastlaneCore::FastlaneFolder.path
     source = File.join(fastlane_dir, "metadata")
     target = Dir.mktmpdir("wallino-metadata")
@@ -77,9 +79,9 @@ platform :ios do
       target_entry = File.join(target, entry)
 
       if File.directory?(source_entry)
-        File.symlink(source_entry, target_entry) if locales.include?(entry)
+        FileUtils.cp_r(source_entry, target_entry) if locales.include?(entry)
       else
-        File.symlink(source_entry, target_entry)
+        FileUtils.cp(source_entry, target_entry)
       end
     end
 
@@ -144,6 +146,22 @@ platform :ios do
       run_precheck_before_submit: false,
       force: true
     )
+  end
+
+  desc "Upload metadata only (no binary, no screenshots, no build, no review submission)"
+  lane :upload_metadata do
+    api_key = asc_api_key
+
+    upload_to_app_store(
+      api_key: api_key,
+      app_version: ENV["APP_VERSION"] || "1.0",
+      metadata_path: filtered_metadata_path,
+      skip_screenshots: true,
+      skip_binary_upload: true,
+      submit_for_review: false,
+      run_precheck_before_submit: false,
+      force: true
+    ) 
   end
 
   desc "Increment build number"

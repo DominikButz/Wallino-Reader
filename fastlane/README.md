@@ -39,6 +39,14 @@ Increment build number, build and upload the latest version to App Store Connect
 
 Upload screenshots and metadata only (no binary, no review submission)
 
+### ios upload_metadata
+
+```sh
+[bundle exec] fastlane ios upload_metadata
+```
+
+Upload metadata only (no binary, no screenshots, no build, no review submission)
+
 ### ios incrementbuildnumber
 
 ```sh

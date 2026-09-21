@@ -74,7 +74,7 @@ final class WallinoReaderUITests: XCTestCase {
         let lower = code.lowercased()
         if lower.hasPrefix("de") { return "de-DE" }
         if lower.hasPrefix("fr") { return "fr-FR" }
-        if lower.hasPrefix("en") { return "en-US" }
+        if lower.hasPrefix("en") { return "en-GB" }
         return code
     }
 
@@ -112,13 +112,13 @@ final class WallinoReaderUITests: XCTestCase {
         takeScreenshot("01_EntryList")
     }
 
-    @MainActor
-    func testEntryDetail() throws {
-        launchApp()
-        tapFirstEntry()
-        waitForEntryDetail()
-        takeScreenshot("02_EntryDetail")
-    }
+//    @MainActor
+//    func testEntryDetail() throws {
+//        launchApp()
+//        tapFirstEntry()
+//        waitForEntryDetail()
+//        takeScreenshot("02_EntryDetail")
+//    }
 
     @MainActor
     func testEntryDetailMenu() throws {
@@ -130,7 +130,7 @@ final class WallinoReaderUITests: XCTestCase {
         menuButton.tap()
 
         sleep(1)
-        takeScreenshot("03_EntryDetailMenu")
+        takeScreenshot("02_EntryDetailMenu")
     }
 
     @MainActor
@@ -146,7 +146,7 @@ final class WallinoReaderUITests: XCTestCase {
         aiButton.tap()
 
         sleep(1)
-        takeScreenshot("04_EntryDetailAI")
+        takeScreenshot("03_EntryDetailAI")
     }
 
     @MainActor
@@ -159,6 +159,6 @@ final class WallinoReaderUITests: XCTestCase {
         let tagsList = app.collectionViews["tags_list"]
         XCTAssertTrue(tagsList.waitForExistence(timeout: 15))
         sleep(2)
-        takeScreenshot("05_TagsList")
+        takeScreenshot("04_TagsList")
     }
 }
