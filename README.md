@@ -7,12 +7,12 @@ Wallino Reader is a an iOS app for a self-hosted Wallabag server app (check out 
 
 Wallino Reader is free and open source, currently hosted on Github. 
 
-<a href="" style="display: inline-block;">
+<a href="https://apps.apple.com/hk/app/wallino-reader/id6809148776?l=en-GB" style="display: inline-block;">
 	<img src="https://toolbox.marketingtools.apple.com/api/v2/badges/download-on-the-app-store/black/en-us?releaseDate=1479340800" alt="Download on the App Store" style="width: 246px; height: 82px; vertical-align: middle; object-fit: contain;" />
 </a>
 
 
-[Join TestFlight Beta]()
+
 
 ## Features
 
@@ -33,5 +33,5 @@ Wallino Reader is a free and open source project developed by volunteers. Issue 
 
 ## License
 
-This application is released under MIT (see [LICENSE](LICENSE)).
+This application is released under MIT (see [license](license.md)).
 Some of the used libraries are released under different licenses.
