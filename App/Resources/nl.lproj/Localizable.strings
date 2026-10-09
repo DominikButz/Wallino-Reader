@@ -81,6 +81,7 @@
 "Report issue" = "Probleem melden";
 "Delete" = "Verwijderen";
 "Refresh" = "Vernieuwen";
+"Refetch" = "Opnieuw ophalen";
 "Refres entries from server" = "Artikelen vernieuwen vanaf de server";
 "Refresh entries" = "Artikelen vernieuwen";
 "Settings" = "Instellingen";

@@ -81,6 +81,7 @@
 "Report issue" = "Problem melden";
 "Delete" = "Löschen";
 "Refresh" = "Aktualisieren";
+"Refetch" = "Erneut laden";
 "Refres entries from server" = "Einträge vom Server aktualisieren";
 "Refresh entries" = "Einträge aktualisieren";
 "Settings" = "Einstellungen";

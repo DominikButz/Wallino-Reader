@@ -1,0 +1,1 @@
+Les articles dont l'enregistrement échouait s'affichent désormais avec tout leur contenu : lorsque le serveur wallabag est bloqué, Wallino Reader récupère la page depuis votre appareil. Touchez « Re-récupérer » sur un ancien article défectueux pour le réparer également.

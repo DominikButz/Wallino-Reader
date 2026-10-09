@@ -81,6 +81,7 @@
 "Report issue" = "Sorun bildir";
 "Delete" = "Sil";
 "Refresh" = "Yenile";
+"Refetch" = "Yeniden getir";
 "Refres entries from server" = "Makaleleri sunucudan yenile";
 "Refresh entries" = "Makaleleri yenile";
 "Settings" = "Ayarlar";

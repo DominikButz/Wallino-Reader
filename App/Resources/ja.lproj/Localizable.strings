@@ -81,6 +81,7 @@
 "Report issue" = "問題を報告";
 "Delete" = "削除";
 "Refresh" = "更新";
+"Refetch" = "再取得";
 "Refres entries from server" = "サーバーから記事を更新";
 "Refresh entries" = "記事を更新";
 "Settings" = "設定";

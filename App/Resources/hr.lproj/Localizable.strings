@@ -81,6 +81,7 @@
 "Report issue" = "Prijavi problem";
 "Delete" = "Izbriši";
 "Refresh" = "Osvježi";
+"Refetch" = "Ponovno dohvati";
 "Refres entries from server" = "Osvježi članke s poslužitelja";
 "Refresh entries" = "Osvježi članke";
 "Settings" = "Postavke";

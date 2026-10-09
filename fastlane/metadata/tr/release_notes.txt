@@ -1,0 +1,1 @@
+Daha önce kaydedilemeyen makaleler artık tüm içeriğiyle yükleniyor: wallabag sunucusu engellendiğinde Wallino Reader sayfayı cihazınızdan getirir. Eski ve bozuk bir makaleyi de düzeltmek için 'Yeniden getir' seçeneğine dokunun.

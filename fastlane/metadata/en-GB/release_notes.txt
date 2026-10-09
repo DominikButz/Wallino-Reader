@@ -1,0 +1,1 @@
+Articles that failed to save now load with their full content: when the wallabag server is blocked, Wallino Reader fetches the page from your device. Tap "Refetch" on an old broken article to repair it as well.

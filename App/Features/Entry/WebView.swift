@@ -22,6 +22,9 @@ import WebKit
 
             private var webView: WebView
             weak var wkWebView: WKWebView?
+            /// Last content rendered, used to reload the web view when an entry
+            /// is refreshed/repaired without recreating the whole view.
+            var lastLoadedContent: String?
 
             init(_ webView: WebView, appSetting: AppSetting) {
                 self.webView = webView
@@ -208,13 +211,21 @@ import WebKit
 
             context.coordinator.attach(webView)
 
-            webView.load(content: entry.titleHtml + (entry.content ?? ""), justify: UserDefaults.standard.bool(forKey: "justifyArticle"))
+            let content = entry.titleHtml + (entry.content ?? "")
+            context.coordinator.lastLoadedContent = content
+            webView.load(content: content, justify: UserDefaults.standard.bool(forKey: "justifyArticle"))
 
             return webView
         }
 
-        func updateUIView(_ webView: WKWebView, context _: Context) {
+        func updateUIView(_ webView: WKWebView, context: Context) {
             webView.fontSizePercent(appSetting.webFontSizePercent)
+
+            let content = entry.titleHtml + (entry.content ?? "")
+            if content != context.coordinator.lastLoadedContent {
+                context.coordinator.lastLoadedContent = content
+                webView.load(content: content, justify: UserDefaults.standard.bool(forKey: "justifyArticle"))
+            }
         }
     }
 #endif
@@ -228,13 +239,21 @@ import WebKit
         func makeNSView(context: Context) -> WKWebView {
             let webView = WKWebView(frame: .zero)
             webView.navigationDelegate = context.coordinator
-            webView.load(content: entry.titleHtml + (entry.content ?? ""), justify: false)
+            let content = entry.titleHtml + (entry.content ?? "")
+            context.coordinator.lastLoadedContent = content
+            webView.load(content: content, justify: false)
 
             return webView
         }
 
-        func updateNSView(_ nsView: WKWebView, context _: Context) {
+        func updateNSView(_ nsView: WKWebView, context: Context) {
             nsView.fontSizePercent(appSetting.webFontSizePercent)
+
+            let content = entry.titleHtml + (entry.content ?? "")
+            if content != context.coordinator.lastLoadedContent {
+                context.coordinator.lastLoadedContent = content
+                nsView.load(content: content, justify: false)
+            }
         }
 
         func makeCoordinator() -> Coordinator {
@@ -246,6 +265,10 @@ import WebKit
             var appSetting: AppSetting
 
             private var webView: WebView
+
+            /// Last content rendered, used to reload the web view when an entry
+            /// is refreshed/repaired without recreating the whole view.
+            var lastLoadedContent: String?
 
             init(_ webView: WebView, appSetting: AppSetting) {
                 self.webView = webView

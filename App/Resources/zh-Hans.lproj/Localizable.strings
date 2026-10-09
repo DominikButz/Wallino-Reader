@@ -81,6 +81,7 @@
 "Report issue" = "报告问题";
 "Delete" = "删除";
 "Refresh" = "刷新";
+"Refetch" = "重新抓取";
 "Refres entries from server" = "从服务器刷新文章";
 "Refresh entries" = "刷新文章";
 "Settings" = "设置";

@@ -89,7 +89,7 @@ final class ShareViewModel {
             try await ensureAuthenticated()
             var createdEntryIds: [Int] = []
             for url in urls {
-                let entry: WallabagEntry = try await kit.send(
+                var entry: WallabagEntry = try await kit.send(
                     to: WallabagEntryEndpoint.add(
                         url: url,
                         title: title,
@@ -99,6 +99,14 @@ final class ShareViewModel {
                         archived: isRead
                     )
                 )
+
+                // Wallabag could not retrieve the article server-side (anti-bot
+                // wall, paywall, ...): fetch it on the device and push the HTML.
+                if ArticleContent.isFetchingError(entry.content),
+                   let repaired = await repairedEntry(entry, fallbackURL: url) {
+                    entry = repaired
+                }
+
                 createdEntryIds.append(entry.id)
             }
             enqueuePendingAutoTagIfNeeded(createdEntryIds)
@@ -106,6 +114,21 @@ final class ShareViewModel {
         } catch {
             errorMessage = error.localizedDescription
         }
+    }
+
+    /// Fetches the article on the device and PATCHes the entry content. Returns
+    /// `nil` when the device fetch or the update failed.
+    private func repairedEntry(_ entry: WallabagEntry, fallbackURL: String) async -> WallabagEntry? {
+        guard let article = try? await ArticleFetcher().fetch(url: entry.url ?? fallbackURL) else {
+            return nil
+        }
+
+        var parameters: WallabagKit.Parameters = ["content": article.html]
+        if let title = article.title, !title.isEmpty {
+            parameters["title"] = title
+        }
+
+        return try? await kit.send(to: WallabagEntryEndpoint.update(id: entry.id, parameters: parameters))
     }
 
     /// When the person did not pick any tag and auto-tagging is enabled, remember

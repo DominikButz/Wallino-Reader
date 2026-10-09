@@ -1,0 +1,1 @@
+Artikel, die zuvor nicht gespeichert werden konnten, werden jetzt vollständig geladen: Wenn der wallabag-Server blockiert wird, ruft Wallino Reader die Seite von deinem Gerät ab. Tippe bei einem alten fehlerhaften Artikel auf „Erneut laden“, um ihn ebenfalls zu reparieren.

@@ -81,6 +81,7 @@
 "Report issue" = "Сообщить о проблеме";
 "Delete" = "Удалить";
 "Refresh" = "Обновить";
+"Refetch" = "Загрузить заново";
 "Refres entries from server" = "Обновить статьи с сервера";
 "Refresh entries" = "Обновить статьи";
 "Settings" = "Настройки";

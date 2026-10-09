@@ -85,11 +85,52 @@ final class WallabagSession: ObservableObject {
 
     @discardableResult
     func addEntry(url: String) async throws -> Entry {
-        let wallabagEntry: WallabagEntry = try await kit.send(to: WallabagEntryEndpoint.add(url: url, title: nil, content: nil, tags: [], starred: false, archived: false))
+        var wallabagEntry: WallabagEntry = try await kit.send(to: WallabagEntryEndpoint.add(url: url, title: nil, content: nil, tags: [], starred: false, archived: false))
+
+        // When the server cannot retrieve the article (anti-bot wall, paywall,
+        // stale site config), fetch it on the device and push the HTML back.
+        if ArticleContent.isFetchingError(wallabagEntry.content),
+           let repaired = try? await repairContent(id: wallabagEntry.id, url: wallabagEntry.url ?? url) {
+            wallabagEntry = repaired
+        }
 
         let entry = Entry(context: coreDataContext)
         entry.hydrate(from: wallabagEntry)
         return entry
+    }
+
+    /// Fetches the entry's article on the device and replaces the server-side
+    /// content with the fetched HTML. Used as a fallback when wallabag's own
+    /// fetch failed.
+    func repairContent(entry: Entry) async throws {
+        let (id, url) = await MainActor.run { (entry.id, entry.url) }
+        guard let url, let repaired = try await repairContent(id: id, url: url) else {
+            return
+        }
+
+        await MainActor.run {
+            entry.hydrate(from: repaired)
+        }
+    }
+
+    /// Fetches `url` on the device and PATCHes the given entry with the result.
+    /// Returns the updated server entry, or `nil` when the device fetch failed.
+    private func repairContent(id: Int, url: String) async throws -> WallabagEntry? {
+        guard let article = try? await ArticleFetcher().fetch(url: url) else {
+            return nil
+        }
+
+        var parameters: WallabagKit.Parameters = ["content": article.html]
+        if let title = article.title, !title.isEmpty {
+            parameters["title"] = title
+        }
+
+        let repaired = try await performAuthenticated {
+            try await kit.send(to: WallabagEntryEndpoint.update(id: id, parameters: parameters))
+        }
+
+        logger.info("Repaired entry \(id) content on device (\(article.html.count) bytes)")
+        return repaired
     }
 
     func update(_ entry: Entry, parameters: WallabagKit.Parameters) async throws {
@@ -110,9 +151,13 @@ final class WallabagSession: ObservableObject {
     }
 
     func refresh(entry: Entry) async throws {
-        let wallabagEntry = try await kit.send(to: WallabagEntryEndpoint.reload(id: entry.id))
+        let wallabagEntry = try await performAuthenticated {
+            try await kit.send(to: WallabagEntryEndpoint.reload(id: entry.id))
+        }
 
-        entry.hydrate(from: wallabagEntry)
+        await MainActor.run {
+            entry.hydrate(from: wallabagEntry)
+        }
     }
 
     func add(annotation text: String, quote: String, ranges: [AnnotationRange], entryId: Int) async throws -> Int? {

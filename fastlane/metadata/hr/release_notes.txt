@@ -1,0 +1,1 @@
+Članci koji se prije nisu mogli spremiti sada se učitavaju s cijelim sadržajem: kada je wallabag poslužitelj blokiran, Wallino Reader dohvaća stranicu s tvog uređaja. Dodirni „Ponovno dohvati“ na starom neispravnom članku da ga također popraviš.

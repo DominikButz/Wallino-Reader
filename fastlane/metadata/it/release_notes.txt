@@ -1,0 +1,1 @@
+Gli articoli che non venivano salvati ora si caricano con tutto il loro contenuto: quando il server wallabag è bloccato, Wallino Reader recupera la pagina dal tuo dispositivo. Tocca «Ricarica» su un vecchio articolo non riuscito per ripararlo.

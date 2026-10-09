@@ -117,9 +117,21 @@ extension AppSync {
         }
     }
 
-    func refresh(entry: Entry) {
+    /// Re-fetches an entry. Tries wallabag's server-side reload first and, when
+    /// that fails or still leaves the "content could not be retrieved" placeholder,
+    /// falls back to fetching the article on the device and pushing the HTML.
+    func refetch(entry: Entry) {
         Task {
-            try? await session.refresh(entry: entry)
+            do {
+                try await session.refresh(entry: entry)
+            } catch {
+                logger.info("Server reload failed for entry \(entry.id), falling back to device fetch")
+            }
+
+            let stillFailed = await MainActor.run { ArticleContent.isFetchingError(entry.content) }
+            if stillFailed {
+                try? await session.repairContent(entry: entry)
+            }
         }
     }
 }

@@ -42,6 +42,11 @@ struct EntriesListView: View {
                         .contextMenu {
                             ArchiveEntryButton(entry: entry)
                             StarEntryButton(entry: entry)
+                            Button(action: {
+                                appSync.refetch(entry: entry)
+                            }, label: {
+                                Label("Refetch", systemImage: "arrow.counterclockwise")
+                            })
                             if #available(iOS 26.0, macOS 26.0, *), AutoTagService.isAvailable {
                                 Divider()
                                 AutoTagButton(entry: entry) { message in

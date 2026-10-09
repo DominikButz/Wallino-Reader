@@ -1,0 +1,1 @@
+Los artículos que no se guardaban ahora se cargan con todo su contenido: cuando el servidor de wallabag está bloqueado, Wallino Reader obtiene la página desde tu dispositivo. Toca «Volver a obtener» en un artículo antiguo defectuoso para repararlo también.

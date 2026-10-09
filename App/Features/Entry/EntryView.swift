@@ -161,9 +161,9 @@ struct EntryView: View {
             Label("Tags", systemImage: showTag ? "tag.fill" : "tag")
         })
         Button(action: {
-            appSync.refresh(entry: entry)
+            appSync.refetch(entry: entry)
         }, label: {
-            Label("Refresh", systemImage: "arrow.counterclockwise")
+            Label("Refetch", systemImage: "arrow.counterclockwise")
         })
         StarEntryButton(entry: entry, showText: true)
         #if os(iOS)

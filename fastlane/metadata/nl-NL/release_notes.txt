@@ -1,0 +1,1 @@
+Artikelen die niet werden opgeslagen, laden nu met hun volledige inhoud: wanneer de wallabag-server wordt geblokkeerd, haalt Wallino Reader de pagina van je apparaat op. Tik op 'Opnieuw ophalen' bij een oud mislukt artikel om het ook te herstellen.
