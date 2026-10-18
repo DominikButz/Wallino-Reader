@@ -106,6 +106,8 @@
 "Unstar" = "Favorilerden çıkar";
 "Entry option" = "Makale seçenekleri";
 "Open in Safari" = "Safari'de aç";
+"Article unavailable" = "Makale kullanılamıyor";
+"The article content could not be retrieved. It may require a subscription or sign-in." = "Makale içeriği alınamadı. Abonelik veya oturum açma gerekebilir.";
 "Text-to-speech" = "Metin okuma";
 "Load entry in text-to-speech player" = "Makaleyi metin okuma oynatıcısında yükle";
 "Great! Entry was added" = "Harika! Makale eklendi";

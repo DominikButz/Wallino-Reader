@@ -87,4 +87,8 @@ extension Entry {
         let escapedTitle = (title ?? "").htmlEscape()
         return "<h1>\(escapedTitle)</h1>"
     }
+
+    var isContentUnavailable: Bool {
+        ArticleContent.isUnusable(content)
+    }
 }

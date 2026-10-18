@@ -75,13 +75,15 @@ class ShareViewController: UIViewController {
            let dictionary = loaded as? NSDictionary,
            let results = dictionary[NSExtensionJavaScriptPreprocessingResultsKey] as? NSDictionary,
            let href = results["href"] as? String {
-            return ([href], results["title"] as? String, results["contentHTML"] as? String)
+            let pageTitle = (results["title"] as? String)?.trimmingCharacters(in: .whitespacesAndNewlines)
+            let title = pageTitle?.isEmpty == false ? pageTitle : fallbackTitle(from: item)
+            return ([href], title, results["contentHTML"] as? String)
         }
 
         if let attachment = attachments.first(where: { $0.hasItemConformingToTypeIdentifier(UTType.url.identifier) }),
            let loaded = try? await loadItem(from: attachment, typeIdentifier: UTType.url.identifier),
            let url = (loaded as? NSURL)?.absoluteString {
-            return ([url], nil, nil)
+            return ([url], fallbackTitle(from: item), nil)
         }
 
         // Many apps (e.g. newspaper apps) export the shared article as plain
@@ -91,11 +93,28 @@ class ShareViewController: UIViewController {
            let text = loaded as? String {
             let urls = text.detectedURLs.map(\.absoluteString)
             if !urls.isEmpty {
-                return (urls, nil, nil)
+                return (urls, fallbackTitle(from: item), nil)
             }
         }
 
         throw ShareExtensionError.retrievingURL
+    }
+
+    private func fallbackTitle(from item: NSExtensionItem) -> String? {
+        guard let rawTitle = item.attributedContentText?.string else {
+            return nil
+        }
+
+        let title = rawTitle
+            .components(separatedBy: .whitespacesAndNewlines)
+            .filter { !$0.isEmpty }
+            .joined(separator: " ")
+
+        guard !title.isEmpty, title.count <= 200 else {
+            return nil
+        }
+
+        return title
     }
 
     private func loadItem(from attachment: NSItemProvider, typeIdentifier: String) async throws -> NSSecureCoding? {

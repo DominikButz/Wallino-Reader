@@ -106,6 +106,8 @@
 "Unstar" = "Убрать из избранного";
 "Entry option" = "Параметры статьи";
 "Open in Safari" = "Открыть в Safari";
+"Article unavailable" = "Статья недоступна";
+"The article content could not be retrieved. It may require a subscription or sign-in." = "Не удалось получить содержимое статьи. Возможно, требуется подписка или вход.";
 "Text-to-speech" = "Озвучивание текста";
 "Load entry in text-to-speech player" = "Загрузить статью в голосовой проигрыватель";
 "Great! Entry was added" = "Отлично! Статья добавлена";

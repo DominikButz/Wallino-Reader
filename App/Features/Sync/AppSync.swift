@@ -128,7 +128,7 @@ extension AppSync {
                 logger.info("Server reload failed for entry \(entry.id), falling back to device fetch")
             }
 
-            let stillFailed = await MainActor.run { ArticleContent.isFetchingError(entry.content) }
+            let stillFailed = await MainActor.run { ArticleContent.isUnusable(entry.content) }
             if stillFailed {
                 try? await session.repairContent(entry: entry)
             }

@@ -102,7 +102,7 @@ final class ShareViewModel {
 
                 // Wallabag could not retrieve the article server-side (anti-bot
                 // wall, paywall, ...): fetch it on the device and push the HTML.
-                if ArticleContent.isFetchingError(entry.content),
+                if ArticleContent.isUnusable(entry.content),
                    let repaired = await repairedEntry(entry, fallbackURL: url) {
                     entry = repaired
                 }

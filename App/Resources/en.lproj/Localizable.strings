@@ -107,6 +107,8 @@
 "Unstar" = "Unstar";
 "Entry option" = "Entry option";
 "Open in Safari" = "Open in Safari";
+"Article unavailable" = "Article unavailable";
+"The article content could not be retrieved. It may require a subscription or sign-in." = "The article content could not be retrieved. It may require a subscription or sign-in.";
 "Text-to-speech" = "Text-to-speech";
 "Load entry in text-to-speech player" = "Load entry in text-to-speech player";
 "Great! Entry was added" = "Great! Entry was added";

@@ -106,6 +106,8 @@
 "Unstar" = "Ukloni iz omiljenih";
 "Entry option" = "Mogućnosti članka";
 "Open in Safari" = "Otvori u Safariju";
+"Article unavailable" = "Članak nije dostupan";
+"The article content could not be retrieved. It may require a subscription or sign-in." = "Nije moguće dohvatiti sadržaj članka. Možda je potrebna pretplata ili prijava.";
 "Text-to-speech" = "Čitač teksta";
 "Load entry in text-to-speech player" = "Učitaj članak u čitač teksta";
 "Great! Entry was added" = "Super! Članak je dodan";

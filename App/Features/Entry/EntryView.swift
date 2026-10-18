@@ -29,11 +29,15 @@ struct EntryView: View {
 
     var body: some View {
         ZStack {
-            #if os(iOS)
-                WebView(entry: entry, progress: $progress, annotationEditor: annotationEditor)
-            #else
-                WebView(entry: entry, progress: $progress)
-            #endif
+            if entry.isContentUnavailable {
+                unavailableView
+            } else {
+                #if os(iOS)
+                    WebView(entry: entry, progress: $progress, annotationEditor: annotationEditor)
+                #else
+                    WebView(entry: entry, progress: $progress)
+                #endif
+            }
         }
         .accessibilityIdentifier("entry_detail")
         .ignoresSafeArea()
@@ -129,6 +133,40 @@ struct EntryView: View {
         .padding(.leading, 5)
         .padding(.top, 8)
         .padding(.bottom, 16)
+    }
+
+    @ViewBuilder
+    private var unavailableView: some View {
+        VStack(spacing: 16) {
+            Image(systemName: "doc.text.magnifyingglass")
+                .font(.system(size: 44))
+                .foregroundStyle(.secondary)
+
+            Text("Article unavailable")
+                .font(.headline)
+
+            Text("The article content could not be retrieved. It may require a subscription or sign-in.")
+                .font(.subheadline)
+                .foregroundStyle(.secondary)
+                .multilineTextAlignment(.center)
+
+            if let url = entry.url?.url {
+                Button {
+                    openURL(url)
+                } label: {
+                    Label("Open in Safari", systemImage: "safari")
+                }
+                .buttonStyle(.borderedProminent)
+            }
+
+            Button {
+                appSync.refetch(entry: entry)
+            } label: {
+                Label("Refetch", systemImage: "arrow.counterclockwise")
+            }
+        }
+        .padding(24)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
     @ViewBuilder

@@ -29,6 +29,69 @@ public enum ArticleContent {
 
         return markers.contains { content.localizedCaseInsensitiveContains($0) }
     }
+
+    public static func isUnusable(_ content: String?) -> Bool {
+        guard let content else { return true }
+        return isFetchingError(content) || isLikelyJavaScriptShell(content)
+    }
+
+    public static func isLikelyJavaScriptShell(_ html: String?) -> Bool {
+        guard let html else { return false }
+
+        let markers = [
+            "id=\"page-skeleton\"",
+            "id='page-skeleton'",
+            "window.serviceUrl",
+            "app.build.min.js",
+        ]
+
+        return markers.contains { html.localizedCaseInsensitiveContains($0) }
+    }
+
+    public static func visibleText(from html: String) -> String {
+        let body = firstMatch(in: html, pattern: "<body[^>]*>(.*?)</body>")
+        var text = body ?? html
+
+        if body == nil {
+            text = text.replacingOccurrences(
+                of: "(?is)<head[^>]*>.*?</head>",
+                with: " ",
+                options: .regularExpression
+            )
+        }
+
+        for tag in ["script", "style", "noscript", "svg", "template"] {
+            text = text.replacingOccurrences(
+                of: "(?is)<\(tag)[^>]*>.*?</\(tag)>",
+                with: " ",
+                options: .regularExpression
+            )
+        }
+
+        text = text.replacingOccurrences(of: "(?is)<[^>]+>", with: " ", options: .regularExpression)
+        text = text.replacingOccurrences(of: "(?i)&[a-zA-Z0-9#]+;", with: " ", options: .regularExpression)
+
+        return text
+            .components(separatedBy: .whitespacesAndNewlines)
+            .filter { !$0.isEmpty }
+            .joined(separator: " ")
+    }
+
+    private static func firstMatch(in text: String, pattern: String) -> String? {
+        guard let regex = try? NSRegularExpression(pattern: pattern, options: [.caseInsensitive, .dotMatchesLineSeparators]) else {
+            return nil
+        }
+
+        let range = NSRange(text.startIndex..., in: text)
+        guard let match = regex.firstMatch(in: text, options: [], range: range),
+              match.numberOfRanges > 1,
+              let matchRange = Range(match.range(at: 1), in: text)
+        else {
+            return nil
+        }
+
+        return String(text[matchRange])
+    }
 }
 
 /// Fetches an article's HTML directly from the device, using a browser-like
@@ -40,6 +103,7 @@ public struct ArticleFetcher {
         case invalidURL
         case decodingFailed
         case emptyResponse
+        case noReadableContent
     }
 
     private let session: URLSession
@@ -78,6 +142,11 @@ public struct ArticleFetcher {
 
         guard let html, !html.isEmpty else {
             throw FetchError.decodingFailed
+        }
+
+        let visibleText = ArticleContent.visibleText(from: html)
+        guard !ArticleContent.isLikelyJavaScriptShell(html), visibleText.count >= 30 else {
+            throw FetchError.noReadableContent
         }
 
         return FetchedArticle(title: ArticleFetcher.extractTitle(from: html), html: html)

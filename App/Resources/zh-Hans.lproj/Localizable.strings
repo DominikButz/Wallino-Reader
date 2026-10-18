@@ -106,6 +106,8 @@
 "Unstar" = "取消收藏";
 "Entry option" = "文章选项";
 "Open in Safari" = "在 Safari 中打开";
+"Article unavailable" = "文章不可用";
+"The article content could not be retrieved. It may require a subscription or sign-in." = "无法获取文章内容。可能需要订阅或登录。";
 "Text-to-speech" = "文字转语音";
 "Load entry in text-to-speech player" = "在语音播放器中加载文章";
 "Great! Entry was added" = "太棒了！文章已添加";

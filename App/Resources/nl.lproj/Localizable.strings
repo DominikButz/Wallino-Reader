@@ -106,6 +106,8 @@
 "Unstar" = "Uit favorieten verwijderen";
 "Entry option" = "Artikelopties";
 "Open in Safari" = "In Safari openen";
+"Article unavailable" = "Artikel niet beschikbaar";
+"The article content could not be retrieved. It may require a subscription or sign-in." = "De inhoud van het artikel kon niet worden opgehaald. Mogelijk is een abonnement of aanmelding vereist.";
 "Text-to-speech" = "Voorlezen";
 "Load entry in text-to-speech player" = "Artikel laden in voorleesspeler";
 "Great! Entry was added" = "Geweldig! Artikel is toegevoegd";

@@ -89,7 +89,7 @@ final class WallabagSession: ObservableObject {
 
         // When the server cannot retrieve the article (anti-bot wall, paywall,
         // stale site config), fetch it on the device and push the HTML back.
-        if ArticleContent.isFetchingError(wallabagEntry.content),
+        if ArticleContent.isUnusable(wallabagEntry.content),
            let repaired = try? await repairContent(id: wallabagEntry.id, url: wallabagEntry.url ?? url) {
             wallabagEntry = repaired
         }

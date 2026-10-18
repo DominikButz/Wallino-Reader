@@ -106,6 +106,8 @@
 "Unstar" = "Favorit entfernen";
 "Entry option" = "Eintragsoptionen";
 "Open in Safari" = "In Safari öffnen";
+"Article unavailable" = "Artikel nicht verfügbar";
+"The article content could not be retrieved. It may require a subscription or sign-in." = "Der Artikelinhalt konnte nicht abgerufen werden. Möglicherweise ist ein Abonnement oder eine Anmeldung erforderlich.";
 "Text-to-speech" = "Vorlesen";
 "Load entry in text-to-speech player" = "Eintrag im Vorlese-Player laden";
 "Great! Entry was added" = "Super! Eintrag wurde hinzugefügt";
