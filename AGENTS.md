@@ -68,6 +68,8 @@ defined in the `App/WallinoStoreKit.storekit` StoreKit test configuration.
   `contentHTML`), a `public.url` attachment, or a `public.plain-text` attachment
   — the latter is common for newspaper apps whose shared "text" embeds the URL;
   URLs are pulled out with `String.detectedURLs`. Any number of URLs is accepted.
+  When no title is supplied, `NSExtensionItem.attributedContentText` is used as a
+  fallback (trimmed and capped at 200 characters).
 - `ShareView.swift` / `ShareViewModel.swift` provide the form (mark-as-read,
   favorite, tag multi-select with search and inline tag creation). Save issues
   one `POST /api/entries` per detected URL, applying the same options to each.
@@ -91,16 +93,24 @@ which still runs its own extraction on the supplied HTML.
 
 - `SharedLib/.../Features/ArticleFetch/ArticleFetcher.swift` — device fetch
   (`URLSession`, Safari User-Agent, 30s timeout), `og:title`/`<title>` scraping,
-  `ArticleContent.isFetchingError(_:)` detection. Shared by app + extension.
+  and `ArticleContent` detection (`isFetchingError`, `isUnusable`,
+  `isLikelyJavaScriptShell`, `visibleText`). The fetcher throws
+  `.noReadableContent` for JavaScript-only shells (for example PressReader) or
+  pages with fewer than 30 visible body characters. Shared by app + extension.
 - `WallabagSession.addEntry` auto-repairs failed content after `POST
   /api/entries`; `WallabagSession.repairContent(entry:)` does the same for an
   existing entry. Both send the HTML via `PATCH /api/entries/{id}.json` with
   `content` (plus `title`); wallabag treats that as manual content, skips the
   server fetch, and runs `cleanupHtml`/extraction on it.
+- Repair paths trigger on `ArticleContent.isUnusable` and skip the PATCH when
+  the device fetch throws, so a JS-only page cannot overwrite the server entry
+  or its title with a shell.
 - The share extension applies the same fallback after its per-URL POST.
 - The entry "Refetch" action (entry toolbar menu + entry-row long-press context
   menu) tries the server `PATCH /api/entries/{id}/reload` first and falls back to
-  the device fetch when it fails or content is still the error placeholder.
+  the device fetch when it fails or content is still unusable.
+- When `entry.content` is unusable, `EntryView` shows an "Article unavailable"
+  view with "Open in Safari" and "Refetch" instead of a blank reader.
 - `WebView` reloads when `entry.content` changes so a refetch/repair is visible.
 
 ## App architecture (`App/`)
@@ -132,9 +142,21 @@ which still runs its own extraction on the supplied HTML.
   live inside the `Entry` feature (`WebView.swift`, `AnnotationEditMenu.swift`,
   `AnnotationEditorView.swift`, plus the
   `App/Resources/html-ressources/annotation.{js,css}` web-view assets).
-- **Add entry:** `App/Features/Entry/Add/` (`AddEntryView`/`AddEntryModel`) accepts
-  free text in the URL field and extracts the URLs with `String.detectedURLs`,
-  creating one entry per URL and ignoring the surrounding text.
+- **Add entry:** `App/Features/Entry/Add/` (`AddEntryView`/`AddEntryModel`) has an
+  `Url` mode and a `Text` mode. `Url` is the default: it extracts URLs with
+  `String.detectedURLs`, creates one entry per URL, and ignores the surrounding
+  text. `Text` converts pasted text to HTML (first line as the title, blank-line
+  separated paragraphs as `<p>`, single newlines as `<br>`) and creates one
+  entry. Text mode has an optional Domain name field.
+  Wallabag does not accept `domain_name` on create or update; the server derives
+  it from the entry URL host. The app therefore builds a fake URL
+  `https://<normalized-host>/text/<uuid>`, falling back to
+  `https://wallino.local/text/<uuid>` when the field is empty or invalid. The
+  UUID keeps entries unique. Domain input accepts scheme-less hosts, `www.`,
+  `http://`/`https://`, paths, and ports. The fake URL path is not a real article,
+  so opening it in Safari may 404. The text editor uses an overlay on a
+  fixed-height container so the `Form` row cannot grow with the pasted text;
+  both inputs show an accent-colored focus outline.
 - **Navigation:** custom `Router` (`App/Features/Router/`) with `RoutePath` enum
   (includes `.terms`, `.privacy` for legal document views) and
   a `RouteSwiftUIExtension`. Main tab view is `App/Features/MainView.swift`
@@ -209,7 +231,8 @@ create, display, edit, delete — and synced with the server.
 - `Features/RetrieveMode/` — the "all / archived / starred" retrieval mode used
   for filtering entries.
 - `Features/ArticleFetch/` — `ArticleFetcher` (device-side HTML fetch + title
-  scraping) and `ArticleContent.isFetchingError(_:)`; the fallback used by the
+  scraping) and `ArticleContent` detection (`isFetchingError`, `isUnusable`,
+  JavaScript-shell detection, visible-text extraction); the fallback used by the
   app and the share extension when wallabag can't retrieve content.
 
 ## Localization
@@ -222,11 +245,13 @@ key sets in sync. Currently, only 12 languages are registered. When changing, ad
 ## Tests
 
 - iOS unit tests: `wallabagTests/` (organized by feature, e.g. `Features/Router/RouterTests.swift`).
+  `Features/Entry/Add/AddEntryModelTests.swift` covers text-to-HTML conversion,
+  domain normalization, and fake URL generation for text entries.
 - `WallabagKit/Tests/WallabagKitTests/` for the API client (e.g. add/update
   request bodies carry `content`/`title`).
 - `SharedLib/Tests/SharedLibTests/` for shared utilities
-  (e.g. `Features/ArticleFetch/ArticleFetcherTests.swift` for title scraping and
-  `ArticleContent.isFetchingError`).
+  (e.g. `Features/ArticleFetch/ArticleFetcherTests.swift` for title scraping,
+  `ArticleContent.isFetchingError`, and JavaScript-shell detection).
 - UI tests: `WallinoReaderUITests/` (target `WallinoReaderUITests`, min iOS 26.2).
   `WallinoReaderUITests.swift` contains five tests — `testEntryList`, `testEntryDetail`,
   `testEntryDetailMenu`, `testEntryDetailAI`, `testTagsList` — which drive the app and
