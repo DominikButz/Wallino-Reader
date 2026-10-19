@@ -98,6 +98,7 @@
 		09FCA3A32B60768000148104 /* SharedLib in Frameworks */ = {isa = PBXBuildFile; productRef = 09FCA3A22B60768000148104 /* SharedLib */; };
 		81505C5B2B5DC21F003B5CDE /* WallabagIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81505C5A2B5DC21F003B5CDE /* WallabagIntent.swift */; };
 		81505C5D2B5DC23C003B5CDE /* AddEntryIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81505C5C2B5DC23C003B5CDE /* AddEntryIntent.swift */; };
+		B4223BC93084B6F600D37438 /* AddEntryModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4223BC83084B6F600D37438 /* AddEntryModelTests.swift */; };
 		B44D3246305A91540018FAE3 /* WallinoReaderStore1.storekit in Resources */ = {isa = PBXBuildFile; fileRef = B44D3245305A91540018FAE3 /* WallinoReaderStore1.storekit */; };
 		B44D3247305A91540018FAE3 /* WallinoReaderStore1.storekit in Resources */ = {isa = PBXBuildFile; fileRef = B44D3245305A91540018FAE3 /* WallinoReaderStore1.storekit */; };
 		B44D3249305A930A0018FAE3 /* WallinoReaderStoreLocal.storekit in Resources */ = {isa = PBXBuildFile; fileRef = B44D3248305A930A0018FAE3 /* WallinoReaderStoreLocal.storekit */; };
@@ -278,6 +279,7 @@
 		09FA20240000000000000001 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
 		81505C5A2B5DC21F003B5CDE /* WallabagIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallabagIntent.swift; sourceTree = "<group>"; };
 		81505C5C2B5DC23C003B5CDE /* AddEntryIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryIntent.swift; sourceTree = "<group>"; };
+		B4223BC83084B6F600D37438 /* AddEntryModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryModelTests.swift; sourceTree = "<group>"; };
 		B44D3245305A91540018FAE3 /* WallinoReaderStore1.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = WallinoReaderStore1.storekit; sourceTree = SOURCE_ROOT; };
 		B44D3248305A930A0018FAE3 /* WallinoReaderStoreLocal.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; name = WallinoReaderStoreLocal.storekit; path = App/WallinoReaderStoreLocal.storekit; sourceTree = SOURCE_ROOT; };
 		B4B3F29330495FC1007633C9 /* EntriesForTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesForTagView.swift; sourceTree = "<group>"; };
@@ -380,6 +382,7 @@
 			isa = PBXGroup;
 			children = (
 				094AA00E2629E70B006E5605 /* Picture */,
+				B4223BC73084B6EE00D37438 /* Add */,
 			);
 			path = Entry;
 			sourceTree = "<group>";
@@ -827,6 +830,14 @@
 			path = Intents;
 			sourceTree = "<group>";
 		};
+		B4223BC73084B6EE00D37438 /* Add */ = {
+			isa = PBXGroup;
+			children = (
+				B4223BC83084B6F600D37438 /* AddEntryModelTests.swift */,
+			);
+			path = Add;
+			sourceTree = "<group>";
+		};
 		B4B3F2E8304C0000007633C9 /* PDF */ = {
 			isa = PBXGroup;
 			children = (
@@ -1084,6 +1095,7 @@
 			files = (
 				09BCBBD4282BD46A00B234CB /* RouterTests.swift in Sources */,
 				094AA05A2629EB60006E5605 /* ImageCacheTests.swift in Sources */,
+				B4223BC93084B6F600D37438 /* AddEntryModelTests.swift in Sources */,
 				098CF4D629CD830E00DEAE50 /* ServerViewModelTests.swift in Sources */,
 				094AA03E2629EB1F006E5605 /* wallabagTests.swift in Sources */,
 				094AA0692629EB98006E5605 /* ImageDownloaderTests.swift in Sources */,

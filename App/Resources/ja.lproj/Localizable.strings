@@ -113,6 +113,8 @@
 "Great! Entry was added" = "記事が追加されました";
 "Great! %d entries were added" = "記事を %d 件追加しました";
 "Url" = "URL";
+"Text" = "テキスト";
+"Domain name, e.g. newspaper.com (optional)" = "ドメイン名（例: newspaper.com、任意）";
 "Submitting..." = "送信中…";
 "New tag" = "新しいタグ";
 "Tag name" = "タグ名";

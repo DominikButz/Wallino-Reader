@@ -113,6 +113,8 @@
 "Great! Entry was added" = "¡Genial! Se añadió el artículo";
 "Great! %d entries were added" = "¡Genial! Se añadieron %d artículos";
 "Url" = "URL";
+"Text" = "Texto";
+"Domain name, e.g. newspaper.com (optional)" = "Nombre de dominio, p. ej. periodico.es (opcional)";
 "Submitting..." = "Enviando…";
 "New tag" = "Nueva etiqueta";
 "Tag name" = "Nombre de la etiqueta";

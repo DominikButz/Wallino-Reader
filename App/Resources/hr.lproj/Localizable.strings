@@ -113,6 +113,8 @@
 "Great! Entry was added" = "Super! Članak je dodan";
 "Great! %d entries were added" = "Super! Dodano je %d članaka";
 "Url" = "URL";
+"Text" = "Tekst";
+"Domain name, e.g. newspaper.com (optional)" = "Naziv domene, npr. novine.hr (neobavezno)";
 "Submitting..." = "Slanje…";
 "New tag" = "Nova oznaka";
 "Tag name" = "Naziv oznake";

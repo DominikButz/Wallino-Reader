@@ -113,6 +113,8 @@
 "Great! Entry was added" = "太好了！文章已新增";
 "Great! %d entries were added" = "太好了！已新增 %d 篇文章";
 "Url" = "URL";
+"Text" = "文字";
+"Domain name, e.g. newspaper.com (optional)" = "網域名稱，例如 newspaper.com（選填）";
 "Submitting..." = "正在提交…";
 "New tag" = "新標籤";
 "Tag name" = "標籤名稱";

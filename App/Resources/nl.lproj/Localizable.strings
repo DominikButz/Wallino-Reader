@@ -113,6 +113,8 @@
 "Great! Entry was added" = "Geweldig! Artikel is toegevoegd";
 "Great! %d entries were added" = "Geweldig! %d artikelen zijn toegevoegd";
 "Url" = "URL";
+"Text" = "Tekst";
+"Domain name, e.g. newspaper.com (optional)" = "Domeinnaam, bijv. krant.nl (optioneel)";
 "Submitting..." = "Verzenden…";
 "New tag" = "Nieuwe tag";
 "Tag name" = "Tagnaam";

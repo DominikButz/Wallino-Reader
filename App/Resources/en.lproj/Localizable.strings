@@ -114,6 +114,8 @@
 "Great! Entry was added" = "Great! Entry was added";
 "Great! %d entries were added" = "Great! %d entries were added";
 "Url" = "Url";
+"Text" = "Text";
+"Domain name, e.g. newspaper.com (optional)" = "Domain name, e.g. newspaper.com (optional)";
 "Submitting..." = "Submitting...";
 "New tag" = "New tag";
 "Tag name" = "Tag name";

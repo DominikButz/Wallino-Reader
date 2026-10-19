@@ -113,6 +113,8 @@
 "Great! Entry was added" = "Отлично! Статья добавлена";
 "Great! %d entries were added" = "Отлично! Добавлено статей: %d";
 "Url" = "URL";
+"Text" = "Текст";
+"Domain name, e.g. newspaper.com (optional)" = "Доменное имя, например gazeta.ru (необязательно)";
 "Submitting..." = "Отправка…";
 "New tag" = "Новый тег";
 "Tag name" = "Название тега";

@@ -113,6 +113,8 @@
 "Great! Entry was added" = "Harika! Makale eklendi";
 "Great! %d entries were added" = "Harika! %d makale eklendi";
 "Url" = "URL";
+"Text" = "Metin";
+"Domain name, e.g. newspaper.com (optional)" = "Alan adı, örn. gazete.com (isteğe bağlı)";
 "Submitting..." = "Gönderiliyor…";
 "New tag" = "Yeni etiket";
 "Tag name" = "Etiket adı";

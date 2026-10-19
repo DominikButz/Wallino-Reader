@@ -99,6 +99,24 @@ final class WallabagSession: ObservableObject {
         return entry
     }
 
+    @discardableResult
+    func addEntry(title: String, content: String, url: String) async throws -> Entry {
+        let wallabagEntry: WallabagEntry = try await kit.send(
+            to: WallabagEntryEndpoint.add(
+                url: url,
+                title: title,
+                content: content,
+                tags: [],
+                starred: false,
+                archived: false
+            )
+        )
+
+        let entry = Entry(context: coreDataContext)
+        entry.hydrate(from: wallabagEntry)
+        return entry
+    }
+
     /// Fetches the entry's article on the device and replaces the server-side
     /// content with the fetched HTML. Used as a fallback when wallabag's own
     /// fetch failed.
