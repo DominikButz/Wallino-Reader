@@ -216,6 +216,17 @@ create, display, edit, delete — and synced with the server.
   "Delete All Annotations", which removes every annotation both locally and on the
   server via `WallabagSession.deleteAllAnnotations()` (runs off the main queue).
 
+## Tags
+
+- **Server behaviour:** `GET /api/tags` only returns tags attached to at least one
+  entry of the user. Orphan tag rows can still exist in the server database (the
+  API untag and entry-delete endpoints do not clean them up), but they are
+  invisible to clients.
+- **Sync:** `AppSync.synchronizeTags()` treats the `GET /api/tags` response as
+  authoritative: it upserts returned tags, deletes every local `Tag` whose ID is
+  not in the response, and rebuilds its in-memory tag cache. A failed fetch
+  leaves local tags untouched.
+
 ## Shared library (`SharedLib/`)
 
 - `Lib/WallabagUserDefaults.swift` — typed `UserDefaults` access; also defines

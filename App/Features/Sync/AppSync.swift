@@ -166,17 +166,30 @@ extension AppSync {
 
     private func synchronizeTags() async {
         do {
-            for wallabagTag in try await fetchTags() {
+            let remoteTags = try await fetchTags()
+            let remoteIds = Set(remoteTags.map(\.id))
+            var fetchedTags: [Int: Tag] = [:]
+
+            for wallabagTag in remoteTags {
                 if let tag = try? backgroundContext.fetch(Tag.fetchOneById(wallabagTag.id)).first {
-                    tags[tag.id] = tag
+                    fetchedTags[tag.id] = tag
                 } else {
                     let tag = Tag(context: backgroundContext)
                     tag.id = wallabagTag.id
                     tag.label = wallabagTag.label
                     tag.slug = wallabagTag.slug
-                    tags[wallabagTag.id] = tag
+                    fetchedTags[wallabagTag.id] = tag
                 }
             }
+
+            // wallabag only returns tags that are still attached to at least one
+            // entry. Anything else is unused on the server, so drop the local copy.
+            let localTags = (try? backgroundContext.fetch(Tag.fetchRequestSorted())) ?? []
+            for tag in localTags where !remoteIds.contains(tag.id) {
+                backgroundContext.delete(tag)
+            }
+
+            tags = fetchedTags
             try backgroundContext.save()
         } catch _ {}
     }
