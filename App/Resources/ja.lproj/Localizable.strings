@@ -116,6 +116,22 @@
 "Text" = "テキスト";
 "Domain name, e.g. newspaper.com (optional)" = "ドメイン名（例: newspaper.com、任意）";
 "Submitting..." = "送信中…";
+
+// PDF import
+"PDF" = "PDF";
+"Import PDF" = "PDFを読み込む";
+"%d pages" = "%dページ";
+"Converting PDF…" = "PDFを変換中…";
+"Converting PDF… page %d of %d" = "PDFを変換中… %d/%dページ";
+"Could not read the PDF" = "PDFを読み込めませんでした";
+"The PDF has no pages" = "PDFにページがありません";
+"No text could be extracted from the PDF" = "PDFからテキストを抽出できませんでした";
+"Remove PDF" = "PDFを削除";
+"The PDF is too long" = "PDFが長すぎます";
+"Only the first %d of %d characters of the PDF text will be imported" = "PDFのテキストのうち、最初の%d文字（全%d文字）のみが取り込まれます";
+"Import partial text" = "一部のテキストを読み込む";
+"The remaining PDF text was not imported." = "残りのPDFテキストは取り込まれませんでした。";
+"Title" = "タイトル";
 "New tag" = "新しいタグ";
 "Tag name" = "タグ名";
 "Thank you for your Tip!" = "チップをありがとうございます！";

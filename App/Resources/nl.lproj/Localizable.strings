@@ -116,6 +116,22 @@
 "Text" = "Tekst";
 "Domain name, e.g. newspaper.com (optional)" = "Domeinnaam, bijv. krant.nl (optioneel)";
 "Submitting..." = "Verzenden…";
+
+// PDF import
+"PDF" = "PDF";
+"Import PDF" = "PDF importeren";
+"%d pages" = "%d pagina's";
+"Converting PDF…" = "PDF converteren…";
+"Converting PDF… page %d of %d" = "PDF converteren… pagina %d van %d";
+"Could not read the PDF" = "Het PDF kon niet worden gelezen";
+"The PDF has no pages" = "Het PDF bevat geen pagina's";
+"No text could be extracted from the PDF" = "Er kon geen tekst uit het PDF worden gehaald";
+"Remove PDF" = "PDF verwijderen";
+"The PDF is too long" = "Het PDF is te lang";
+"Only the first %d of %d characters of the PDF text will be imported" = "Alleen de eerste %d van de %d tekens van de PDF-tekst worden geïmporteerd";
+"Import partial text" = "Gedeeltelijke tekst importeren";
+"The remaining PDF text was not imported." = "De rest van de PDF-tekst is niet geïmporteerd.";
+"Title" = "Titel";
 "New tag" = "Nieuwe tag";
 "Tag name" = "Tagnaam";
 "Thank you for your Tip!" = "Bedankt voor je fooi!";

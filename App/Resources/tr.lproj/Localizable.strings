@@ -116,6 +116,22 @@
 "Text" = "Metin";
 "Domain name, e.g. newspaper.com (optional)" = "Alan adı, örn. gazete.com (isteğe bağlı)";
 "Submitting..." = "Gönderiliyor…";
+
+// PDF import
+"PDF" = "PDF";
+"Import PDF" = "PDF içe aktar";
+"%d pages" = "%d sayfa";
+"Converting PDF…" = "PDF dönüştürülüyor…";
+"Converting PDF… page %d of %d" = "PDF dönüştürülüyor… sayfa %d/%d";
+"Could not read the PDF" = "PDF okunamadı";
+"The PDF has no pages" = "PDF sayfa içermiyor";
+"No text could be extracted from the PDF" = "PDF'den metin çıkarılamadı";
+"Remove PDF" = "PDF'yi kaldır";
+"The PDF is too long" = "PDF çok uzun";
+"Only the first %d of %d characters of the PDF text will be imported" = "PDF metninin yalnızca ilk %d karakteri (toplam %d) içe aktarılacak";
+"Import partial text" = "Kısmi metni içe aktar";
+"The remaining PDF text was not imported." = "PDF metninin kalanı içe aktarılmadı.";
+"Title" = "Başlık";
 "New tag" = "Yeni etiket";
 "Tag name" = "Etiket adı";
 "Thank you for your Tip!" = "Bahşişiniz için teşekkürler!";

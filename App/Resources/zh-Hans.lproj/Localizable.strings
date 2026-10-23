@@ -116,6 +116,22 @@
 "Text" = "文本";
 "Domain name, e.g. newspaper.com (optional)" = "域名，例如 newspaper.com（可选）";
 "Submitting..." = "正在提交…";
+
+// PDF import
+"PDF" = "PDF";
+"Import PDF" = "导入 PDF";
+"%d pages" = "%d 页";
+"Converting PDF…" = "正在转换 PDF…";
+"Converting PDF… page %d of %d" = "正在转换 PDF… 第 %d 页，共 %d 页";
+"Could not read the PDF" = "无法读取 PDF";
+"The PDF has no pages" = "PDF 没有页面";
+"No text could be extracted from the PDF" = "无法从 PDF 中提取文本";
+"Remove PDF" = "移除 PDF";
+"The PDF is too long" = "PDF 太长";
+"Only the first %d of %d characters of the PDF text will be imported" = "仅导入 PDF 文本的前 %d 个字符（共 %d 个）";
+"Import partial text" = "导入部分内容";
+"The remaining PDF text was not imported." = "其余 PDF 文本未被导入。";
+"Title" = "标题";
 "New tag" = "新标签";
 "Tag name" = "标签名称";
 "Thank you for your Tip!" = "感谢您的小费！";

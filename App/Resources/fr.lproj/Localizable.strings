@@ -116,6 +116,22 @@
 "Text" = "Texte";
 "Domain name, e.g. newspaper.com (optional)" = "Nom de domaine, par ex. journal.fr (facultatif)";
 "Submitting..." = "Envoi en cours…";
+
+// PDF import
+"PDF" = "PDF";
+"Import PDF" = "Importer un PDF";
+"%d pages" = "%d pages";
+"Converting PDF…" = "Conversion du PDF…";
+"Converting PDF… page %d of %d" = "Conversion du PDF… page %d sur %d";
+"Could not read the PDF" = "Impossible de lire le PDF";
+"The PDF has no pages" = "Le PDF ne contient aucune page";
+"No text could be extracted from the PDF" = "Impossible d'extraire du texte du PDF";
+"Remove PDF" = "Retirer le PDF";
+"The PDF is too long" = "Le PDF est trop long";
+"Only the first %d of %d characters of the PDF text will be imported" = "Seuls les %d premiers caractères sur %d du texte du PDF seront importés";
+"Import partial text" = "Importer le texte partiel";
+"The remaining PDF text was not imported." = "Le reste du texte du PDF n'a pas été importé.";
+"Title" = "Titre";
 "New tag" = "Nouveau tag";
 "Tag name" = "Nom du tag";
 "Thank you for your Tip!" = "Merci pour votre pourboire !";

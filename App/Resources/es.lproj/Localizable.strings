@@ -116,6 +116,22 @@
 "Text" = "Texto";
 "Domain name, e.g. newspaper.com (optional)" = "Nombre de dominio, p. ej. periodico.es (opcional)";
 "Submitting..." = "Enviando…";
+
+// PDF import
+"PDF" = "PDF";
+"Import PDF" = "Importar PDF";
+"%d pages" = "%d páginas";
+"Converting PDF…" = "Convirtiendo el PDF…";
+"Converting PDF… page %d of %d" = "Convirtiendo el PDF… página %d de %d";
+"Could not read the PDF" = "No se pudo leer el PDF";
+"The PDF has no pages" = "El PDF no tiene páginas";
+"No text could be extracted from the PDF" = "No se pudo extraer texto del PDF";
+"Remove PDF" = "Quitar el PDF";
+"The PDF is too long" = "El PDF es demasiado largo";
+"Only the first %d of %d characters of the PDF text will be imported" = "Solo se importarán los primeros %d de %d caracteres del texto del PDF";
+"Import partial text" = "Importar texto parcial";
+"The remaining PDF text was not imported." = "El resto del texto del PDF no se importó.";
+"Title" = "Título";
 "New tag" = "Nueva etiqueta";
 "Tag name" = "Nombre de la etiqueta";
 "Thank you for your Tip!" = "¡Gracias por tu propina!";

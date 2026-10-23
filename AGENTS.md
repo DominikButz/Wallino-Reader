@@ -143,7 +143,7 @@ which still runs its own extraction on the supplied HTML.
   `AnnotationEditorView.swift`, plus the
   `App/Resources/html-ressources/annotation.{js,css}` web-view assets).
 - **Add entry:** `App/Features/Entry/Add/` (`AddEntryView`/`AddEntryModel`) has an
-  `Url` mode and a `Text` mode. `Url` is the default: it extracts URLs with
+  `Url` mode, a `Text` mode and a `PDF` mode. `Url` is the default: it extracts URLs with
   `String.detectedURLs`, creates one entry per URL, and ignores the surrounding
   text. `Text` converts pasted text to HTML (first line as the title, blank-line
   separated paragraphs as `<p>`, single newlines as `<br>`) and creates one
@@ -157,6 +157,18 @@ which still runs its own extraction on the supplied HTML.
   so opening it in Safari may 404. The text editor uses an overlay on a
   fixed-height container so the `Form` row cannot grow with the pasted text;
   both inputs show an accent-colored focus outline.
+  `PDF` opens the Files app via `.fileImporter` (only `UTType.pdf`), converts the
+  picked PDF to HTML on the device with `SharedLib`'s `PDFTextExtractor` and
+  creates one entry per PDF. Title comes from the PDF metadata and falls back to
+  the file name; the fake URL is `https://<normalized-host>/pdf/<uuid>`. PDF mode
+  has the same optional Domain name field. Conversion runs in the background with
+  a page progress indicator, the file name and page count are shown once picked,
+  and Submit is enabled only after the conversion finished. Once converted, the
+  entry title is shown in an editable `Title` field (seeded with the detected
+  title, falling back to it again when the field is emptied). When the PDF text is
+  longer than the extractor's limit (400k characters), a confirmation dialog asks
+  before importing the truncated text plus a localized "The remaining PDF text was
+  not imported." notice.
 - **Navigation:** custom `Router` (`App/Features/Router/`) with `RoutePath` enum
   (includes `.terms`, `.privacy` for legal document views) and
   a `RouteSwiftUIExtension`. Main tab view is `App/Features/MainView.swift`
@@ -245,6 +257,12 @@ create, display, edit, delete — and synced with the server.
   scraping) and `ArticleContent` detection (`isFetchingError`, `isUnusable`,
   JavaScript-shell detection, visible-text extraction); the fallback used by the
   app and the share extension when wallabag can't retrieve content.
+- `Features/PDFImport/` — `PDFTextExtractor`, converts a PDF file into an HTML
+  fragment for a wallabag entry. It reads the PDF's text layer (PDFKit line
+  selections, two-column aware reading order, de-hyphenation) and falls back to
+  Vision OCR for pages without extractable text (capped at 50 OCR pages). It
+  reports per-page progress and flags truncation at its length limit. Used by the
+  app's Add-entry `PDF` mode; the share extension does not accept PDFs yet.
 
 ## Localization
 
@@ -257,12 +275,15 @@ key sets in sync. Currently, only 12 languages are registered. When changing, ad
 
 - iOS unit tests: `wallabagTests/` (organized by feature, e.g. `Features/Router/RouterTests.swift`).
   `Features/Entry/Add/AddEntryModelTests.swift` covers text-to-HTML conversion,
-  domain normalization, and fake URL generation for text entries.
+  domain normalization, and fake URL generation for text and PDF entries.
 - `WallabagKit/Tests/WallabagKitTests/` for the API client (e.g. add/update
   request bodies carry `content`/`title`).
 - `SharedLib/Tests/SharedLibTests/` for shared utilities
   (e.g. `Features/ArticleFetch/ArticleFetcherTests.swift` for title scraping,
-  `ArticleContent.isFetchingError`, and JavaScript-shell detection).
+  `ArticleContent.isFetchingError`, and JavaScript-shell detection, and
+  `Features/PDFImport/PDFTextExtractorTests.swift`, which builds PDF fixtures with
+  Core Graphics for reading order, two-column pages, hyphenation, escaping,
+  truncation, and the Vision OCR fallback).
 - UI tests: `WallinoReaderUITests/` (target `WallinoReaderUITests`, min iOS 26.2).
   `WallinoReaderUITests.swift` contains five tests — `testEntryList`, `testEntryDetail`,
   `testEntryDetailMenu`, `testEntryDetailAI`, `testTagsList` — which drive the app and

@@ -80,4 +80,32 @@ final class AddEntryModelTests: XCTestCase {
             AddEntryModel.textEntryURL(domainName: "faz.net")
         )
     }
+
+    func testPdfEntryURLFallsBackToWallinoLocal() {
+        let url = AddEntryModel.pdfEntryURL(domainName: "")
+
+        XCTAssertTrue(url.hasPrefix("https://wallino.local/pdf/"))
+    }
+
+    func testPdfEntryURLUsesPublisherDomain() {
+        let url = AddEntryModel.pdfEntryURL(domainName: "https://www.faz.net")
+
+        XCTAssertTrue(url.hasPrefix("https://www.faz.net/pdf/"))
+    }
+
+    func testPdfEntryURLsAreUnique() {
+        XCTAssertNotEqual(
+            AddEntryModel.pdfEntryURL(domainName: "faz.net"),
+            AddEntryModel.pdfEntryURL(domainName: "faz.net")
+        )
+    }
+
+    func testPdfEntryTitleUsesTheEditedTitle() {
+        XCTAssertEqual("Edited title", AddEntryModel.pdfEntryTitle("  Edited title  ", fallback: "Detected title"))
+    }
+
+    func testPdfEntryTitleFallsBackToTheDetectedTitle() {
+        XCTAssertEqual("Detected title", AddEntryModel.pdfEntryTitle("   ", fallback: " Detected title "))
+        XCTAssertEqual("Detected title", AddEntryModel.pdfEntryTitle("", fallback: "Detected title"))
+    }
 }

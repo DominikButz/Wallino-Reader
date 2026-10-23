@@ -116,6 +116,22 @@
 "Text" = "文字";
 "Domain name, e.g. newspaper.com (optional)" = "網域名稱，例如 newspaper.com（選填）";
 "Submitting..." = "正在提交…";
+
+// PDF import
+"PDF" = "PDF";
+"Import PDF" = "匯入 PDF";
+"%d pages" = "%d 頁";
+"Converting PDF…" = "正在轉換 PDF…";
+"Converting PDF… page %d of %d" = "正在轉換 PDF… 第 %d 頁，共 %d 頁";
+"Could not read the PDF" = "無法讀取 PDF";
+"The PDF has no pages" = "PDF 沒有頁面";
+"No text could be extracted from the PDF" = "無法從 PDF 中擷取文字";
+"Remove PDF" = "移除 PDF";
+"The PDF is too long" = "PDF 太長";
+"Only the first %d of %d characters of the PDF text will be imported" = "僅匯入 PDF 文字的前 %d 個字元（共 %d 個）";
+"Import partial text" = "匯入部分內容";
+"The remaining PDF text was not imported." = "其餘 PDF 文字未被匯入。";
+"Title" = "標題";
 "New tag" = "新標籤";
 "Tag name" = "標籤名稱";
 "Thank you for your Tip!" = "感謝您的小費！";

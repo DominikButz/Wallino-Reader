@@ -116,6 +116,22 @@
 "Text" = "Текст";
 "Domain name, e.g. newspaper.com (optional)" = "Доменное имя, например gazeta.ru (необязательно)";
 "Submitting..." = "Отправка…";
+
+// PDF import
+"PDF" = "PDF";
+"Import PDF" = "Импорт PDF";
+"%d pages" = "%d стр.";
+"Converting PDF…" = "Преобразование PDF…";
+"Converting PDF… page %d of %d" = "Преобразование PDF… страница %d из %d";
+"Could not read the PDF" = "Не удалось прочитать PDF";
+"The PDF has no pages" = "В PDF нет страниц";
+"No text could be extracted from the PDF" = "Не удалось извлечь текст из PDF";
+"Remove PDF" = "Удалить PDF";
+"The PDF is too long" = "PDF слишком длинный";
+"Only the first %d of %d characters of the PDF text will be imported" = "Будет импортировано только первых %d из %d символов текста PDF";
+"Import partial text" = "Импортировать часть текста";
+"The remaining PDF text was not imported." = "Оставшийся текст PDF не был импортирован.";
+"Title" = "Заголовок";
 "New tag" = "Новый тег";
 "Tag name" = "Название тега";
 "Thank you for your Tip!" = "Спасибо за чаевые!";

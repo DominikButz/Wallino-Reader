@@ -115,8 +115,24 @@
 "Great! %d entries were added" = "Great! %d entries were added";
 "Url" = "Url";
 "Text" = "Text";
-"Domain name, e.g. newspaper.com (optional)" = "Domain name, e.g. newspaper.com (optional)";
+"Domain name, e.g. newspaper.com (optional)" = "Domain name, e.g. news.com (optional)";
 "Submitting..." = "Submitting...";
+
+// PDF import
+"PDF" = "PDF";
+"Import PDF" = "Import PDF";
+"%d pages" = "%d pages";
+"Converting PDF…" = "Converting PDF…";
+"Converting PDF… page %d of %d" = "Converting PDF… page %d of %d";
+"Could not read the PDF" = "Could not read the PDF";
+"The PDF has no pages" = "The PDF has no pages";
+"No text could be extracted from the PDF" = "No text could be extracted from the PDF";
+"Remove PDF" = "Remove PDF";
+"The PDF is too long" = "The PDF is too long";
+"Only the first %d of %d characters of the PDF text will be imported" = "Only the first %d of %d characters of the PDF text will be imported";
+"Import partial text" = "Import partial text";
+"The remaining PDF text was not imported." = "The remaining PDF text was not imported.";
+"Title" = "Title";
 "New tag" = "New tag";
 "Tag name" = "Tag name";
 "Thank you for your Tip!" = "Thank you for your Tip!";

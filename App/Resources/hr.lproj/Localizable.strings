@@ -116,6 +116,22 @@
 "Text" = "Tekst";
 "Domain name, e.g. newspaper.com (optional)" = "Naziv domene, npr. novine.hr (neobavezno)";
 "Submitting..." = "Slanje…";
+
+// PDF import
+"PDF" = "PDF";
+"Import PDF" = "Uvezi PDF";
+"%d pages" = "%d stranica";
+"Converting PDF…" = "Pretvaranje PDF-a…";
+"Converting PDF… page %d of %d" = "Pretvaranje PDF-a… stranica %d od %d";
+"Could not read the PDF" = "Nije moguće pročitati PDF";
+"The PDF has no pages" = "PDF nema stranica";
+"No text could be extracted from the PDF" = "Iz PDF-a nije bilo moguće izvući tekst";
+"Remove PDF" = "Ukloni PDF";
+"The PDF is too long" = "PDF je predug";
+"Only the first %d of %d characters of the PDF text will be imported" = "Uvest će se samo prvih %d od %d znakova teksta PDF-a";
+"Import partial text" = "Uvezi djelomični tekst";
+"The remaining PDF text was not imported." = "Preostali tekst PDF-a nije uvezen.";
+"Title" = "Naslov";
 "New tag" = "Nova oznaka";
 "Tag name" = "Naziv oznake";
 "Thank you for your Tip!" = "Hvala na napojnici!";
