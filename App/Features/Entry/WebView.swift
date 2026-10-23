@@ -325,7 +325,7 @@ import WebKit
 
 #endif
 
-//struct WebView_Previews: PreviewProvider {
+// struct WebView_Previews: PreviewProvider {
 //    static var entry: Entry = {
 //        let entry = Entry()
 //        entry.title = "Test"
@@ -345,4 +345,4 @@ import WebKit
 //            .colorScheme(.dark)
 //        }
 //    }
-//}
+// }

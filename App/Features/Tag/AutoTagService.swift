@@ -72,9 +72,10 @@ enum AutoTagService {
     private static func prompt(content: String, existingTags: [String], excerptLimit: Int) -> String {
         let excerpt = String(content.prefix(excerptLimit))
         let tags = String(existingTags.joined(separator: ", ").prefix(maxTagListCharacters))
-        return """
-        Suggest up to two tag names, reflecting the text's topic(s). Here is a list of existing tags: \(tags). If none of them fits, you may suggest up to two new tag names in the predominant language of the existing tags. If the provided tag list is empty, use the language of the text. Prefer the existing tags before suggesting new tags.  Avoid suggesting new combined tag names such as 'german economy', rather pick or suggest two tags, such as 'germany' and 'economy'. 
-        Text: \(excerpt)
-        """
+        return "Suggest up to two tag names, reflecting the text's topic(s). Here is a list of existing tags: \(tags). "
+            + "If none of them fits, you may suggest up to two new tag names in the predominant language of the "
+            + "existing tags. If the provided tag list is empty, use the language of the text. Prefer the existing "
+            + "tags before suggesting new tags.  Avoid suggesting new combined tag names such as 'german economy', "
+            + "rather pick or suggest two tags, such as 'germany' and 'economy'.\nText: \(excerpt)"
     }
 }

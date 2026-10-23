@@ -32,7 +32,7 @@ extension View {
                 SettingView()
             case .registration:
                 RegistrationView()
-            
+
             }
         }
     }

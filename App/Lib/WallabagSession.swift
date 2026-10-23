@@ -275,25 +275,21 @@ final class WallabagSession: ObservableObject {
 
         entry.objectWillChange.send()
 
-        for wallabagTag in wallabagEntry.tags ?? [] {
-            if !currentTags.contains(where: { $0.id == wallabagTag.id }) {
-                let tag: Tag
-                if let existingTag = try? self.coreDataContext.fetch(Tag.fetchOneById(wallabagTag.id)).first {
-                    tag = existingTag
-                } else {
-                    tag = Tag(context: self.coreDataContext)
-                    tag.id = wallabagTag.id
-                    tag.slug = wallabagTag.slug
-                    tag.label = wallabagTag.label
-                }
-                entry.tags.insert(tag)
+        for wallabagTag in wallabagEntry.tags ?? [] where !currentTags.contains(where: { $0.id == wallabagTag.id }) {
+            let tag: Tag
+            if let existingTag = try? self.coreDataContext.fetch(Tag.fetchOneById(wallabagTag.id)).first {
+                tag = existingTag
+            } else {
+                tag = Tag(context: self.coreDataContext)
+                tag.id = wallabagTag.id
+                tag.slug = wallabagTag.slug
+                tag.label = wallabagTag.label
             }
+            entry.tags.insert(tag)
         }
 
-        for tag in currentTags {
-            if !newTagIds.contains(tag.id) {
-                entry.tags.remove(tag)
-            }
+        for tag in currentTags where !newTagIds.contains(tag.id) {
+            entry.tags.remove(tag)
         }
 
         try? coreDataContext.save()

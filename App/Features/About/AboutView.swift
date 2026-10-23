@@ -7,7 +7,7 @@ struct AboutView: View {
 
     @BundleKey("CFBundleVersion")
     var build: String
-    
+
     @BundleKey("CFBundleDisplayName")
     var displayName
 
@@ -33,7 +33,7 @@ struct AboutView: View {
                 }
             }.font(.system(.headline))
             Spacer()
-         
+
             VStack(spacing: 10) {
                 Text("Forked & developed by Dominik Butz").font(.body)
                 Text("Based on Maxime Marinel's Wallabag for iOS".localized).font(.callout).italic()

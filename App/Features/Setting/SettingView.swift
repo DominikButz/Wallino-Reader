@@ -40,7 +40,7 @@ struct SettingView: View {
             }
 #if DEBUG
             Section("Annotations") {
-                
+
                 Button(role: .destructive) {
                     showDeleteAllAnnotationsConfirm = true
                 } label: {
@@ -53,17 +53,16 @@ struct SettingView: View {
                     }
                 }
                 .disabled(isDeletingAllAnnotations)
-                
+
             }
 #endif
-            
+
             Section("Sync") {
                 Stepper("Items per page during sync: \(itemPerPageDuringSync)", value: $itemPerPageDuringSync, in: 20 ... 200)
                 Toggle("Refresh on startup", isOn: $refreshOnStartup)
- 
+
             }
-            
-            
+
         }
         .navigationTitle("Settings")
         .toolbar(.hidden, for: .tabBar)

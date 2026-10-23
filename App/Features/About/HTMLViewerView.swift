@@ -11,8 +11,7 @@ struct HTMLViewerView: UIViewRepresentable {
         webView.scrollView.backgroundColor = .systemBackground
 
         if let path = Bundle.main.path(forResource: fileName, ofType: "html"),
-           let html = try? String(contentsOfFile: path, encoding: .utf8)
-        {
+           let html = try? String(contentsOfFile: path, encoding: .utf8) {
             webView.loadHTMLString(html, baseURL: nil)
         }
 

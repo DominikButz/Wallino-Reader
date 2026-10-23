@@ -49,17 +49,17 @@ struct EntriesView: View {
                 }, label: {
                     Label("Sort options", systemImage: "line.3.horizontal.decrease.circle")
                 })
-                
+
                 Button(action: {
                     router.path.append(RoutePath.addEntry)
                 }, label: {
                     Image(systemName: "plus.circle")
                 })
             }
-            
+
             ToolbarItemGroup(placement: .navigationBarLeading) {
                 Menu(content: {
-       
+
                     Button(action: {
                         router.path.append(RoutePath.about)
                     }, label: {
@@ -82,11 +82,11 @@ struct EntriesView: View {
                     }, label: {
                         Label("Account / Logout", systemImage: "person")
                     })
-                    
+
                 }, label: {
                     Label("Menu", systemImage: "list.bullet")
                 })
-                
+
                 RefreshButton()
             }
         }
@@ -96,7 +96,7 @@ struct EntriesView: View {
     }
 }
 
-//#if DEBUG
+// #if DEBUG
 //    struct ArticleListView_Previews: PreviewProvider {
 //        static var previews: some View {
 //            EntriesView()
@@ -105,4 +105,4 @@ struct EntriesView: View {
 //            #endif
 //        }
 //    }
-//#endif
+// #endif

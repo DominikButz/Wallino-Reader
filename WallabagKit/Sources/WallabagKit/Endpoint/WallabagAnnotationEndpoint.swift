@@ -59,7 +59,7 @@ public enum WallabagAnnotationEndpoint: WallabagKitEndpoint {
             // swiftlint:disable:next force_try
             return try! JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted)
         default:
-            return "".data(using: .utf8)!
+            return Data()
         }
     }
 

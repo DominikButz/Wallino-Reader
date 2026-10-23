@@ -14,7 +14,7 @@ public enum WallabagTagEndpoint: WallabagKitEndpoint {
     }
 
     public func getBody() -> Data {
-        "".data(using: .utf8)!
+        Data()
     }
 
     public func requireAuth() -> Bool {

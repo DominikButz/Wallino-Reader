@@ -8,7 +8,7 @@ struct TipView: View {
             Text("This application is developed on free time")
             Text("It is free and will remain so.")
             Text("But you can contribute financially by making a donation whenever you want to support the project.")
-           
+
             if tipViewModel.paymentSuccess {
                 Spacer()
                 HStack {
@@ -18,7 +18,7 @@ struct TipView: View {
                     Spacer()
                 }
             }
-        
+
             HStack {
                 Spacer()
                 if tipViewModel.canMakePayments {

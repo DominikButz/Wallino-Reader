@@ -10,7 +10,7 @@ import SwiftUI
 
 struct LogoutView: View {
     @EnvironmentObject var appState: AppState
-    
+
     var body: some View {
         VStack(spacing: 15) {
             HStack {
@@ -19,12 +19,12 @@ struct LogoutView: View {
                 } icon: {
                     Image(systemName: "person.circle")
                 }
-                
+
                 HStack {
                     Text(WallabagUserDefaults.login)
                 }
             }
-            
+
             Divider()
             Button(role: .destructive, action: {
                 appState.logout()
@@ -32,13 +32,13 @@ struct LogoutView: View {
                 Label("Logout", systemImage: "person")
             }).foregroundColor(.red)
                 .controlSize(.large)
-            
+
             Spacer()
-            
+
         }.navigationTitle("Account Logout")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(.hidden, for: .tabBar)
-        
+
     }
 }
 

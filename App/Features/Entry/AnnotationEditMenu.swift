@@ -50,11 +50,11 @@ enum AnnotationEditMenu {
 
     private static func findWebView(from responder: AnyObject) -> WKWebView? {
         var current: UIResponder? = responder as? UIResponder
-        while let r = current {
-            if let webView = r as? WKWebView {
+        while let candidate = current {
+            if let webView = candidate as? WKWebView {
                 return webView
             }
-            current = r.next
+            current = candidate.next
         }
         return nil
     }
