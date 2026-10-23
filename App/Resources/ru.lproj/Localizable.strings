@@ -132,6 +132,8 @@
 "Import partial text" = "Импортировать часть текста";
 "The remaining PDF text was not imported." = "Оставшийся текст PDF не был импортирован.";
 "Title" = "Заголовок";
+"Only PDF files can be imported" = "Можно импортировать только файлы PDF";
+"The PDF was not imported." = "PDF не был импортирован.";
 "New tag" = "Новый тег";
 "Tag name" = "Название тега";
 "Thank you for your Tip!" = "Спасибо за чаевые!";

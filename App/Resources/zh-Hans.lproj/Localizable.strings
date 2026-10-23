@@ -132,6 +132,8 @@
 "Import partial text" = "导入部分内容";
 "The remaining PDF text was not imported." = "其余 PDF 文本未被导入。";
 "Title" = "标题";
+"Only PDF files can be imported" = "只能导入 PDF 文件";
+"The PDF was not imported." = "PDF 未被导入。";
 "New tag" = "新标签";
 "Tag name" = "标签名称";
 "Thank you for your Tip!" = "感谢您的小费！";

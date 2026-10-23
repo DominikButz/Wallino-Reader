@@ -132,6 +132,8 @@
 "Import partial text" = "Gedeeltelijke tekst importeren";
 "The remaining PDF text was not imported." = "De rest van de PDF-tekst is niet geïmporteerd.";
 "Title" = "Titel";
+"Only PDF files can be imported" = "Alleen PDF-bestanden kunnen worden geïmporteerd";
+"The PDF was not imported." = "Het PDF is niet geïmporteerd.";
 "New tag" = "Nieuwe tag";
 "Tag name" = "Tagnaam";
 "Thank you for your Tip!" = "Bedankt voor je fooi!";

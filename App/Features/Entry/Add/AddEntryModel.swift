@@ -123,7 +123,7 @@ final class AddEntryModel {
         defer { pdfImporting = false }
 
         do {
-            let localURL = try AddEntryModel.copyToTemporaryDirectory(from: url)
+            let localURL = try PDFImportFile.copyToTemporaryDirectory(from: url)
             defer { try? FileManager.default.removeItem(at: localURL) }
 
             let progress = PDFImportProgress { [weak self] page, total in
@@ -191,6 +191,8 @@ final class AddEntryModel {
 
     private static func importErrorMessage(for error: Error) -> String {
         switch error {
+        case PDFImportFile.ImportError.notAPDF:
+            return "Only PDF files can be imported".localized
         case PDFTextExtractor.ExtractError.empty:
             return "The PDF has no pages".localized
         case PDFTextExtractor.ExtractError.noText:
@@ -198,23 +200,6 @@ final class AddEntryModel {
         default:
             return "Could not read the PDF".localized
         }
-    }
-
-    /// Copies the picked file out of its security scope into the temporary
-    /// directory, so it can be read while the import runs in the background.
-    private static func copyToTemporaryDirectory(from url: URL) throws -> URL {
-        let accessingSecurityScope = url.startAccessingSecurityScopedResource()
-        defer {
-            if accessingSecurityScope {
-                url.stopAccessingSecurityScopedResource()
-            }
-        }
-
-        let localURL = FileManager.default.temporaryDirectory
-            .appendingPathComponent("wallino-pdf-\(UUID().uuidString)")
-            .appendingPathExtension("pdf")
-        try FileManager.default.copyItem(at: url, to: localURL)
-        return localURL
     }
 
     @MainActor
@@ -266,47 +251,21 @@ final class AddEntryModel {
     }
 
     static func normalizedDomainHost(_ input: String) -> String? {
-        let trimmed = input.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !trimmed.isEmpty else { return nil }
-
-        let candidate = trimmed.contains("://") ? trimmed : "https://\(trimmed)"
-        guard let components = URLComponents(string: candidate),
-              var host = components.host?.trimmingCharacters(in: .whitespacesAndNewlines),
-              !host.isEmpty,
-              !host.contains(where: { $0.isWhitespace })
-        else {
-            return nil
-        }
-
-        host = host.lowercased()
-        while host.hasSuffix(".") {
-            host.removeLast()
-        }
-
-        return host.isEmpty ? nil : host
-    }
-
-    static func fakeEntryURL(domainName: String, kind: String) -> String {
-        let host = normalizedDomainHost(domainName) ?? "wallino.local"
-        return "https://\(host)/\(kind)/\(UUID().uuidString)"
+        EntryLink.normalizedHost(input)
     }
 
     static func textEntryURL(domainName: String) -> String {
-        fakeEntryURL(domainName: domainName, kind: "text")
+        EntryLink.fakeURL(domainName: domainName, kind: .text)
     }
 
     static func pdfEntryURL(domainName: String) -> String {
-        fakeEntryURL(domainName: domainName, kind: "pdf")
+        EntryLink.fakeURL(domainName: domainName, kind: .pdf)
     }
 
     /// The entry title of a PDF import: whatever the user entered, or the title
     /// detected from the PDF when the field was left empty.
     static func pdfEntryTitle(_ title: String, fallback: String) -> String {
-        let trimmed = title.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !trimmed.isEmpty else {
-            return fallback.trimmingCharacters(in: .whitespacesAndNewlines)
-        }
-        return trimmed
+        EntryLink.title(title, fallback: fallback)
     }
 
     private func autoTag(_ entries: [Entry]) async {

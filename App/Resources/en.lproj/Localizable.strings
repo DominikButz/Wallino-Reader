@@ -133,6 +133,8 @@
 "Import partial text" = "Import partial text";
 "The remaining PDF text was not imported." = "The remaining PDF text was not imported.";
 "Title" = "Title";
+"Only PDF files can be imported" = "Only PDF files can be imported";
+"The PDF was not imported." = "The PDF was not imported.";
 "New tag" = "New tag";
 "Tag name" = "Tag name";
 "Thank you for your Tip!" = "Thank you for your Tip!";

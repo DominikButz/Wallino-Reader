@@ -1,21 +1,33 @@
+import SharedLib
 import SwiftUI
 import WallabagKit
 
 struct ShareView: View {
     @Bindable var viewModel: ShareViewModel
 
+    private var pdfProgressLabel: String {
+        if viewModel.pdfProgressTotal > 1 {
+            return String(format: "Converting PDF… page %d of %d".localized, arguments: [viewModel.pdfProgressPage, viewModel.pdfProgressTotal])
+        }
+        return "Converting PDF…".localized
+    }
+
     var body: some View {
         NavigationStack {
             Form {
-                Section {
-                    if let title = viewModel.title, !title.isEmpty {
-                        Text(title)
-                            .font(.headline)
-                    }
-                    ForEach(viewModel.urls, id: \.self) { url in
-                        Text(url)
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
+                if viewModel.isPDF {
+                    pdfSection
+                } else {
+                    linkSection
+                }
+
+                if viewModel.isPDF {
+                    Section {
+                        TextField("Title", text: $viewModel.entryTitle)
+                        TextField("Domain name, e.g. newspaper.com (optional)", text: $viewModel.domainName)
+                            .textInputAutocapitalization(.never)
+                            .keyboardType(.URL)
+                            .autocorrectionDisabled()
                     }
                 }
 
@@ -85,6 +97,7 @@ struct ShareView: View {
                                 await viewModel.save()
                             }
                         }
+                        .disabled(!viewModel.canAdd)
                     }
                 }
             }
@@ -101,6 +114,79 @@ struct ShareView: View {
                 Button("Ok", role: .cancel) {}
             } message: {
                 Text(viewModel.errorMessage ?? "")
+            }
+            .confirmationDialog(
+                "The PDF is too long",
+                isPresented: $viewModel.showTruncationConfirmation,
+                titleVisibility: .visible
+            ) {
+                Button("Import partial text") {
+                    viewModel.confirmTruncatedImport()
+                }
+                Button("Cancel", role: .cancel) {
+                    viewModel.cancelTruncatedImport()
+                }
+            } message: {
+                if let pending = viewModel.pendingTruncation {
+                    Text(
+                        String(
+                            format: "Only the first %d of %d characters of the PDF text will be imported".localized,
+                            arguments: [pending.importedCharacterCount, pending.totalCharacterCount]
+                        )
+                    )
+                }
+            }
+        }
+    }
+
+    private var linkSection: some View {
+        Section {
+            if let title = viewModel.pageTitle, !title.isEmpty {
+                Text(title)
+                    .font(.headline)
+            }
+            ForEach(viewModel.urls, id: \.self) { url in
+                Text(url)
+                    .font(.caption)
+                    .foregroundStyle(.secondary)
+            }
+        }
+    }
+
+    private var pdfSection: some View {
+        Section {
+            if let fileName = viewModel.pdfFileName {
+                HStack(spacing: 12) {
+                    Image(systemName: "doc.richtext.fill")
+                        .font(.system(size: 36))
+                        .foregroundStyle(Color.accentColor)
+
+                    VStack(alignment: .leading, spacing: 2) {
+                        Text(fileName)
+                            .lineLimit(2)
+
+                        if viewModel.pdfPageCount > 0 {
+                            Text(String(format: "%d pages".localized, arguments: [viewModel.pdfPageCount]))
+                                .font(.caption)
+                                .foregroundStyle(.secondary)
+                        }
+                    }
+                }
+            }
+
+            if viewModel.isConvertingPDF {
+                HStack(spacing: 8) {
+                    ProgressView()
+                    Text(pdfProgressLabel)
+                        .font(.callout)
+                        .foregroundStyle(.secondary)
+                }
+            }
+
+            if let pdfError = viewModel.pdfError {
+                Text(pdfError)
+                    .font(.callout)
+                    .foregroundStyle(.red)
             }
         }
     }

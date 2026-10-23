@@ -132,6 +132,8 @@
 "Import partial text" = "Importer le texte partiel";
 "The remaining PDF text was not imported." = "Le reste du texte du PDF n'a pas été importé.";
 "Title" = "Titre";
+"Only PDF files can be imported" = "Seuls les fichiers PDF peuvent être importés";
+"The PDF was not imported." = "Le PDF n'a pas été importé.";
 "New tag" = "Nouveau tag";
 "Tag name" = "Nom du tag";
 "Thank you for your Tip!" = "Merci pour votre pourboire !";

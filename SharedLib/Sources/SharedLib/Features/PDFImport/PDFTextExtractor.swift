@@ -14,7 +14,7 @@ public struct PDFTextExtractor {
         case noText
     }
 
-    public struct Result {
+    public struct Result: Sendable {
         /// Title from the PDF metadata, if any.
         public let title: String?
         /// The extracted text as an HTML fragment (a sequence of `<p>` elements).
@@ -201,20 +201,10 @@ public struct PDFTextExtractor {
         let leftRange = verticalRange(of: left)
         let rightRange = verticalRange(of: right)
         let overlap = min(leftRange.maxY, rightRange.maxY) - max(leftRange.minY, rightRange.minY)
-        let minColumnHeight = min(leftRange.height, rightRange.height)
+        let minColumnHeight = min(leftRange.maxY - leftRange.minY, rightRange.maxY - rightRange.minY)
         guard minColumnHeight > 0, overlap > 0.5 * minColumnHeight else { return [block] }
 
         return [left, right]
-    }
-
-    private static func width(of lines: [Line]) -> CGFloat {
-        (lines.map(\.bounds.maxX).max() ?? 0) - (lines.map(\.bounds.minX).min() ?? 0)
-    }
-
-    private static func verticalRange(of lines: [Line]) -> (minY: CGFloat, maxY: CGFloat, height: CGFloat) {
-        let minY = lines.map(\.bounds.minY).min() ?? 0
-        let maxY = lines.map(\.bounds.maxY).max() ?? 0
-        return (minY, maxY, maxY - minY)
     }
 
     static func text(for lines: [Line]) -> String {
@@ -331,5 +321,19 @@ public struct PDFTextExtractor {
             .replacingOccurrences(of: ">", with: "&gt;")
             .replacingOccurrences(of: "\"", with: "&quot;")
             .replacingOccurrences(of: "'", with: "&#39;")
+    }
+}
+
+// MARK: - Column helpers
+
+private extension PDFTextExtractor {
+    static func width(of lines: [Line]) -> CGFloat {
+        (lines.map(\.bounds.maxX).max() ?? 0) - (lines.map(\.bounds.minX).min() ?? 0)
+    }
+
+    static func verticalRange(of lines: [Line]) -> (minY: CGFloat, maxY: CGFloat) {
+        let minY = lines.map(\.bounds.minY).min() ?? 0
+        let maxY = lines.map(\.bounds.maxY).max() ?? 0
+        return (minY, maxY)
     }
 }

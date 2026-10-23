@@ -132,6 +132,8 @@
 "Import partial text" = "一部のテキストを読み込む";
 "The remaining PDF text was not imported." = "残りのPDFテキストは取り込まれませんでした。";
 "Title" = "タイトル";
+"Only PDF files can be imported" = "PDFファイルのみ読み込めます";
+"The PDF was not imported." = "PDFは取り込まれませんでした。";
 "New tag" = "新しいタグ";
 "Tag name" = "タグ名";
 "Thank you for your Tip!" = "チップをありがとうございます！";

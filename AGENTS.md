@@ -46,7 +46,7 @@ defined in the `App/WallinoStoreKit.storekit` StoreKit test configuration.
 | Path | Purpose |
 | --- | --- |
 | `App/` | Main iOS app target (`Wallino Reader`): views, view models, entities, DI. |
-| `iOS-share_ext/` | Share extension target (`iOS-share_ext`): SwiftUI share sheet that adds entries with mark-as-read, favorite, and tag selection. |
+| `iOS-share_ext/` | Share extension target (`iOS-share_ext`): SwiftUI share sheet that adds entries (links or PDFs) with mark-as-read, favorite, and tag selection. |
 | `Intents/` | Siri/Shortcuts intents (`WallabagIntent`, `AddEntryIntent`). |
 | `macOS/` | macOS app target (minimal — only `Info.plist`). |
 | `WallabagKit/` | Local Swift package: pure API client for the wallabag REST API. |
@@ -64,15 +64,31 @@ defined in the `App/WallinoStoreKit.storekit` StoreKit test configuration.
 - `ShareViewController.swift` is a thin UIKit bridge that hosts a SwiftUI
   `ShareView` via `UIHostingController`, extracts the shared item, and calls
   `completeRequest`/`cancelRequest` on `extensionContext`. It resolves the item
-  from (in order) the JavaScript-preprocessing property list (`href`/`title`/
-  `contentHTML`), a `public.url` attachment, or a `public.plain-text` attachment
-  — the latter is common for newspaper apps whose shared "text" embeds the URL;
-  URLs are pulled out with `String.detectedURLs`. Any number of URLs is accepted.
-  When no title is supplied, `NSExtensionItem.attributedContentText` is used as a
-  fallback (trimmed and capped at 200 characters).
+  from (in order) a `public.file-url` attachment, a `com.adobe.pdf` attachment
+  (file URL or raw `Data`), the JavaScript-preprocessing property list
+  (`href`/`title`/`contentHTML`), a `public.url` attachment, or a
+  `public.plain-text` attachment — the latter is common for newspaper apps whose
+  shared "text" embeds the URL; URLs are pulled out with `String.detectedURLs`.
+  Any number of URLs is accepted. When no title is supplied,
+  `NSExtensionItem.attributedContentText` is used as a fallback (trimmed and
+  capped at 200 characters). Loose item types are normalized by
+  `SharedItemParser` (URL / NSURL / Data / String).
+- **PDFs:** a shared `file://` PDF (also when it arrives as a `public.url`, a JS
+  `href`, or a `file://` token in plain text) is copied into the extension's
+  temporary directory with `PDFImportFile` and converted on the device with
+  `PDFTextExtractor` (`maxOCRPages: 25`, since share extensions have less memory
+  headroom than the app). Non-PDF files fail with "Only PDF files can be
+  imported". Overlong PDFs ask for confirmation before the truncated text is
+  used. The temp file is deleted after saving, after a failed conversion, and on
+  cancel.
 - `ShareView.swift` / `ShareViewModel.swift` provide the form (mark-as-read,
   favorite, tag multi-select with search and inline tag creation). Save issues
   one `POST /api/entries` per detected URL, applying the same options to each.
+  In PDF mode the sheet shows a PDF icon with the file name and page count
+  instead of the URL, plus editable `Title` and optional Domain name fields
+  (`EntryLink` builds the fake `https://<host>/pdf/<uuid>` URL), and posts a
+  single entry with the converted HTML. The server-side repair step
+  (`ArticleFetcher`) is skipped for PDFs.
 - The extension links only `WallabagKit` and `SharedLib` (no CoreData/Factory);
   it talks to the wallabag REST API directly and reads credentials from the App
   Group (`WallabagUserDefaults`). Mark-as-read/favorite/tags are sent as
@@ -275,8 +291,17 @@ create, display, edit, delete — and synced with the server.
   fragment for a wallabag entry. It reads the PDF's text layer (PDFKit line
   selections, two-column aware reading order, de-hyphenation) and falls back to
   Vision OCR for pages without extractable text (capped at 50 OCR pages). It
-  reports per-page progress and flags truncation at its length limit. Used by the
-  app's Add-entry `PDF` mode; the share extension does not accept PDFs yet.
+  reports per-page progress and flags truncation at its length limit.
+  `PDFImportFile` prepares picked/shared PDFs: validates the file (extension plus
+  a `%PDF` header check), copies it out of its security scope into a temporary
+  file (or writes raw PDF `Data`), and reports `.notAPDF`/`.unreadable`. Used by
+  the app's Add-entry `PDF` mode and the share extension.
+- `Features/EntryLink/` — `EntryLink`, builds the placeholder entry URLs and
+  titles for locally created entries: `normalizedHost` (accepts scheme-less
+  hosts, `www.`, paths, ports), `fakeURL(domainName:kind:)` for `text` and `pdf`
+  entries (`https://<host>/<kind>/<uuid>`, falling back to `wallino.local`), and
+  `title(_:fallback:)` (edited title, else the detected one). Shared by the app
+  and the share extension so both produce identical URLs.
 
 ## Localization
 
@@ -298,7 +323,8 @@ key sets in sync. Currently, only 12 languages are registered. When changing, ad
   JavaScript-shell detection, and
   `Features/PDFImport/PDFTextExtractorTests.swift`, which builds PDF fixtures with
   Core Graphics for reading order, two-column pages, hyphenation, escaping,
-  truncation, and the Vision OCR fallback).
+  truncation, and the Vision OCR fallback, plus `PDFImportFileTests` and
+  `Features/EntryLink/EntryLinkTests.swift` for file preparation and URL building).
 - UI tests: `WallinoReaderUITests/` (target `WallinoReaderUITests`, min iOS 26.2).
   `WallinoReaderUITests.swift` contains five tests — `testEntryList`, `testEntryDetail`,
   `testEntryDetailMenu`, `testEntryDetailAI`, `testTagsList` — which drive the app and

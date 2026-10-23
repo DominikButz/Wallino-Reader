@@ -132,6 +132,8 @@
 "Import partial text" = "Kısmi metni içe aktar";
 "The remaining PDF text was not imported." = "PDF metninin kalanı içe aktarılmadı.";
 "Title" = "Başlık";
+"Only PDF files can be imported" = "Yalnızca PDF dosyaları içe aktarılabilir";
+"The PDF was not imported." = "PDF içe aktarılmadı.";
 "New tag" = "Yeni etiket";
 "Tag name" = "Etiket adı";
 "Thank you for your Tip!" = "Bahşişiniz için teşekkürler!";

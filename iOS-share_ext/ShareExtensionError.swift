@@ -1,10 +1,13 @@
 import Foundation
+import SharedLib
 
 enum ShareExtensionError: Error, LocalizedError {
     case unregistredApp
     case authError
     case retrievingURL
     case duringAdding
+    case unsupportedFile
+    case unreadableFile
 
     var localizedDescription: String {
         switch self {
@@ -16,6 +19,10 @@ enum ShareExtensionError: Error, LocalizedError {
             "Error retrieve url from extension"
         case .duringAdding:
             "Error during pushing to your wallabag server"
+        case .unsupportedFile:
+            "Only PDF files can be imported".localized
+        case .unreadableFile:
+            "Could not read the PDF".localized
         }
     }
 }

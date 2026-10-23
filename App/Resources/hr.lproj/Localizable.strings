@@ -132,6 +132,8 @@
 "Import partial text" = "Uvezi djelomični tekst";
 "The remaining PDF text was not imported." = "Preostali tekst PDF-a nije uvezen.";
 "Title" = "Naslov";
+"Only PDF files can be imported" = "Mogu se uvesti samo PDF datoteke";
+"The PDF was not imported." = "PDF nije uvezen.";
 "New tag" = "Nova oznaka";
 "Tag name" = "Naziv oznake";
 "Thank you for your Tip!" = "Hvala na napojnici!";
