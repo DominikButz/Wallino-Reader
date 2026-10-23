@@ -92,11 +92,24 @@ fetches the article from the **device** and hands the raw HTML to the server,
 which still runs its own extraction on the supplied HTML.
 
 - `SharedLib/.../Features/ArticleFetch/ArticleFetcher.swift` — device fetch
-  (`URLSession`, Safari User-Agent, 30s timeout), `og:title`/`<title>` scraping,
-  and `ArticleContent` detection (`isFetchingError`, `isUnusable`,
-  `isLikelyJavaScriptShell`, `visibleText`). The fetcher throws
-  `.noReadableContent` for JavaScript-only shells (for example PressReader) or
-  pages with fewer than 30 visible body characters. Shared by app + extension.
+  (`URLSession`, Safari User-Agent plus browser-consistent `Accept`,
+  `Accept-Encoding`, `Sec-Fetch-*`, `Upgrade-Insecure-Requests` headers, 30s
+  timeout), `og:title`/`<title>` scraping, and `ArticleContent` detection
+  (`isFetchingError`, `isUnusable`, `isLikelyJavaScriptShell`, `isAccessBlocked`,
+  `visibleText`). The fetcher throws `.noReadableContent` for JavaScript-only
+  shells (for example PressReader) or pages with fewer than 30 visible body
+  characters, and `.accessBlocked` when a 200 response is an anti-bot block page.
+  Shared by app + extension.
+- `ArticleContent.isAccessBlocked` catches Akamai/TollBit block pages (for
+  example The Telegraph) that a server-side fetch receives instead of the
+  article. They look like readable text, so the other checks miss them. Markers:
+  `ak_ref_id`, `akamai reference number`, `tollbit.dev`, "unusual activity on
+  this connection", "not authorized to access this content". It is part of
+  `isUnusable`, so every repair/refetch path picks it up automatically.
+  Possible follow-up if this proves insufficient: fetch on the device *before*
+  the `POST /api/entries` and pass `content`/`title` on the add request, so the
+  server never stores its blocked response in the first place (costs one extra
+  device request per add).
 - `WallabagSession.addEntry` auto-repairs failed content after `POST
   /api/entries`; `WallabagSession.repairContent(entry:)` does the same for an
   existing entry. Both send the HTML via `PATCH /api/entries/{id}.json` with
@@ -255,7 +268,8 @@ create, display, edit, delete — and synced with the server.
   for filtering entries.
 - `Features/ArticleFetch/` — `ArticleFetcher` (device-side HTML fetch + title
   scraping) and `ArticleContent` detection (`isFetchingError`, `isUnusable`,
-  JavaScript-shell detection, visible-text extraction); the fallback used by the
+  JavaScript-shell detection, anti-bot block-page detection, visible-text
+  extraction); the fallback used by the
   app and the share extension when wallabag can't retrieve content.
 - `Features/PDFImport/` — `PDFTextExtractor`, converts a PDF file into an HTML
   fragment for a wallabag entry. It reads the PDF's text layer (PDFKit line
@@ -280,7 +294,8 @@ key sets in sync. Currently, only 12 languages are registered. When changing, ad
   request bodies carry `content`/`title`).
 - `SharedLib/Tests/SharedLibTests/` for shared utilities
   (e.g. `Features/ArticleFetch/ArticleFetcherTests.swift` for title scraping,
-  `ArticleContent.isFetchingError`, and JavaScript-shell detection, and
+  `ArticleContent.isFetchingError`, anti-bot block-page detection, and
+  JavaScript-shell detection, and
   `Features/PDFImport/PDFTextExtractorTests.swift`, which builds PDF fixtures with
   Core Graphics for reading order, two-column pages, hyphenation, escaping,
   truncation, and the Vision OCR fallback).

@@ -64,6 +64,58 @@ final class ArticleFetcherTests: XCTestCase {
         XCTAssertNil(ArticleFetcher.extractTitle(from: "<html><body><p>No head</p></body></html>"))
     }
 
+    // MARK: - Access block detection
+
+    func testAkamaiBlockPageIsUnusable() {
+        XCTAssertTrue(ArticleContent.isAccessBlocked(akamaiBlockPage))
+        XCTAssertTrue(ArticleContent.isUnusable(akamaiBlockPage))
+    }
+
+    func testAkamaiBlockPageAsPlainTextIsUnusable() {
+        // The server stores the 402 response body without HTML markup.
+        let text = ArticleContent.visibleText(from: akamaiBlockPage)
+        XCTAssertTrue(ArticleContent.isAccessBlocked(text))
+        XCTAssertTrue(ArticleContent.isUnusable(text))
+    }
+
+    func testNormalArticleIsNotAccessBlocked() {
+        let content = "<p>Chinas Exportmotor ist ein Zeichen der Schwäche.</p>"
+        XCTAssertFalse(ArticleContent.isAccessBlocked(content))
+        XCTAssertFalse(ArticleContent.isUnusable(content))
+    }
+
+    func testEmptyContentIsNotAccessBlocked() {
+        XCTAssertFalse(ArticleContent.isAccessBlocked(""))
+        XCTAssertFalse(ArticleContent.isAccessBlocked("   \n"))
+        XCTAssertFalse(ArticleContent.isAccessBlocked(nil))
+    }
+
+    func testFetchThrowsAccessBlockedForBlockPage() async {
+        MockURLProtocol.responseData = Data(akamaiBlockPage.utf8)
+        let configuration = URLSessionConfiguration.ephemeral
+        configuration.protocolClasses = [MockURLProtocol.self]
+        let fetcher = ArticleFetcher(session: URLSession(configuration: configuration))
+
+        do {
+            _ = try await fetcher.fetch(url: "https://example.com/article")
+            XCTFail("Expected accessBlocked")
+        } catch ArticleFetcher.FetchError.accessBlocked {
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+    }
+
+    private var akamaiBlockPage: String {
+        """
+        <html><head><title>Access Issue Help</title></head><body>
+        <h1>Access Issue Help</h1>
+        <p>You are seeing this page because our security systems have detected some unusual activity on this connection.</p>
+        <p>If you’re still having trouble, please contact our Customer Support Team and quote the Akamai Reference Number (ak_ref_id) below.</p>
+        [{"message":"You are not authorized to access this content without a valid TollBit Token.","url":"https://tollbit.dev","metadata":{"ak_ref_id":"18.aad4ce17.1792724281.184ea3ba"}}]
+        </body></html>
+        """
+    }
+
     // MARK: - Shell detection
 
     func testJavaScriptShellIsUnusable() {
@@ -127,11 +179,11 @@ final class ArticleFetcherTests: XCTestCase {
 private final class MockURLProtocol: URLProtocol {
     static var responseData = Data()
 
-    override class func canInit(with _: URLRequest) -> Bool {
+    override static func canInit(with _: URLRequest) -> Bool {
         true
     }
 
-    override class func canonicalRequest(for request: URLRequest) -> URLRequest {
+    override static func canonicalRequest(for request: URLRequest) -> URLRequest {
         request
     }
 

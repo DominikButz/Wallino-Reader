@@ -32,7 +32,26 @@ public enum ArticleContent {
 
     public static func isUnusable(_ content: String?) -> Bool {
         guard let content else { return true }
-        return isFetchingError(content) || isLikelyJavaScriptShell(content)
+        return isFetchingError(content) || isLikelyJavaScriptShell(content) || isAccessBlocked(content)
+    }
+
+    /// Detects anti-bot / licensing block pages (Akamai, TollBit, ...) that a
+    /// server-side fetch often receives instead of the article. They contain
+    /// plenty of readable text, so the other checks cannot catch them.
+    public static func isAccessBlocked(_ content: String?) -> Bool {
+        guard let content, !content.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            return false
+        }
+
+        let markers = [
+            "ak_ref_id",
+            "akamai reference number",
+            "tollbit.dev",
+            "unusual activity on this connection",
+            "not authorized to access this content",
+        ]
+
+        return markers.contains { content.localizedCaseInsensitiveContains($0) }
     }
 
     public static func isLikelyJavaScriptShell(_ html: String?) -> Bool {
@@ -104,6 +123,7 @@ public struct ArticleFetcher {
         case decodingFailed
         case emptyResponse
         case noReadableContent
+        case accessBlocked
     }
 
     private let session: URLSession
@@ -121,9 +141,16 @@ public struct ArticleFetcher {
 
         var request = URLRequest(url: target)
         request.timeoutInterval = 30
+        // Browser-consistent header set: sites such as The Telegraph reject
+        // requests that claim to be Safari but omit the usual navigation headers.
         request.setValue(ArticleFetcher.userAgent, forHTTPHeaderField: "User-Agent")
-        request.setValue("text/html,application/xhtml+xml", forHTTPHeaderField: "Accept")
+        request.setValue("text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8", forHTTPHeaderField: "Accept")
         request.setValue(Locale.preferredLanguages.joined(separator: ","), forHTTPHeaderField: "Accept-Language")
+        request.setValue("gzip, deflate, br", forHTTPHeaderField: "Accept-Encoding")
+        request.setValue("document", forHTTPHeaderField: "Sec-Fetch-Dest")
+        request.setValue("navigate", forHTTPHeaderField: "Sec-Fetch-Mode")
+        request.setValue("none", forHTTPHeaderField: "Sec-Fetch-Site")
+        request.setValue("1", forHTTPHeaderField: "Upgrade-Insecure-Requests")
         request.setValue("no-cache", forHTTPHeaderField: "Cache-Control")
 
         let (data, response) = try await session.data(for: request)
@@ -145,6 +172,10 @@ public struct ArticleFetcher {
         }
 
         let visibleText = ArticleContent.visibleText(from: html)
+        guard !ArticleContent.isAccessBlocked(html) else {
+            throw FetchError.accessBlocked
+        }
+
         guard !ArticleContent.isLikelyJavaScriptShell(html), visibleText.count >= 30 else {
             throw FetchError.noReadableContent
         }
