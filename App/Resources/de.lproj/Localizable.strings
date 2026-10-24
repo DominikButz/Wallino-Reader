@@ -58,6 +58,9 @@
 "Auto" = "Automatisch";
 "Light" = "Hell";
 "Dark" = "Dunkel";
+"Light theme" = "Helles Design";
+"Sepia" = "Sepia";
+"Default Light Theme" = "Helles Standard-Design";
 "Tags" = "Tags";
 "Selected tags" = "Ausgewählte Tags";
 "No tags selected" = "Keine Tags ausgewählt";

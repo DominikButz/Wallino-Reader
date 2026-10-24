@@ -3,6 +3,7 @@ import SwiftUI
 
 struct TagListFor: View {
     @EnvironmentObject var appState: AppState
+    @Environment(\.palette) private var palette
     @State private var tagLabel: String = ""
     @ObservedObject var entry: Entry
 
@@ -28,12 +29,14 @@ struct TagListFor: View {
                         })
                         .disabled(viewModel.isLoading || tagLabel.isEmpty)
                     }
+                    .listRowBackground(palette.surface)
                 }
 
                 Section("Selected tags") {
                     if viewModel.selectedTags.isEmpty {
                         Text("No tags selected")
                             .foregroundStyle(.secondary)
+                            .listRowBackground(palette.surface)
                     } else {
                         ForEach(viewModel.selectedTags) { tag in
                             Button(action: {
@@ -46,6 +49,7 @@ struct TagListFor: View {
                             })
                             .buttonStyle(.plain)
                             .disabled(viewModel.isLoading)
+                            .listRowBackground(palette.surface)
                         }
                     }
                 }
@@ -54,6 +58,7 @@ struct TagListFor: View {
                     if viewModel.filteredAvailableTags.isEmpty {
                         Text("No more tags available")
                             .foregroundStyle(.secondary)
+                            .listRowBackground(palette.surface)
                     } else {
                         ForEach(viewModel.filteredAvailableTags) { tag in
                             Button(action: {
@@ -66,10 +71,13 @@ struct TagListFor: View {
                             })
                             .buttonStyle(.plain)
                             .disabled(viewModel.isLoading)
+                            .listRowBackground(palette.surface)
                         }
                     }
                 }
             }
+            .scrollContentBackground(.hidden)
+            .background(palette.groupedBackground)
             .searchable(text: $viewModel.search, prompt: "Search")
             .task {
                 await viewModel.load(for: entry)

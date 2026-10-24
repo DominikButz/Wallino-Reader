@@ -9,8 +9,12 @@ import WebKit
     struct WebView: UIViewRepresentable {
         var entry: Entry
         @EnvironmentObject var appSetting: AppSetting
+        @Environment(\.colorScheme) private var colorScheme
         @Binding var progress: Double
         var annotationEditor: AnnotationEditorViewModel
+        /// Space reserved at the top for the overlay (progress bar and tags) that
+        /// sits above the article without taking part in the layout.
+        var topInset: CGFloat = 0
 
         func makeCoordinator() -> Coordinator {
             Coordinator(self, appSetting: appSetting)
@@ -25,6 +29,9 @@ import WebKit
             /// Last content rendered, used to reload the web view when an entry
             /// is refreshed/repaired without recreating the whole view.
             var lastLoadedContent: String?
+            /// Light theme stylesheet of the last render, so switching the theme
+            /// reloads an already open article.
+            var lastLoadedThemeStyleSheet: String?
 
             init(_ webView: WebView, appSetting: AppSetting) {
                 self.webView = webView
@@ -208,24 +215,47 @@ import WebKit
             webView.backgroundColor = .clear
             webView.scrollView.backgroundColor = .clear
             webView.scrollView.contentInsetAdjustmentBehavior = .always
+            applyTopInset(to: webView)
 
             context.coordinator.attach(webView)
 
-            let content = entry.titleHtml + (entry.content ?? "")
-            context.coordinator.lastLoadedContent = content
-            webView.load(content: content, justify: UserDefaults.standard.bool(forKey: "justifyArticle"))
+            loadContent(into: webView, context: context)
 
             return webView
         }
 
         func updateUIView(_ webView: WKWebView, context: Context) {
             webView.fontSizePercent(appSetting.webFontSizePercent)
+            applyTopInset(to: webView)
+            loadContent(into: webView, context: context)
+        }
 
+        /// Keeps the article clear of the overlay (progress bar and tags) while
+        /// still letting it scroll underneath once the reader moves down.
+        private func applyTopInset(to webView: WKWebView) {
+            webView.scrollView.contentInset.top = topInset
+            webView.scrollView.verticalScrollIndicatorInsets.top = topInset
+        }
+
+        /// Loads the entry into the web view and reloads it when the content or
+        /// the active light theme changes.
+        private func loadContent(into webView: WKWebView, context: Context) {
             let content = entry.titleHtml + (entry.content ?? "")
-            if content != context.coordinator.lastLoadedContent {
-                context.coordinator.lastLoadedContent = content
-                webView.load(content: content, justify: UserDefaults.standard.bool(forKey: "justifyArticle"))
+            let themeStyleSheet = appSetting.activeLightTheme(for: colorScheme)?.articleStyleSheet
+            let contentChanged = content != context.coordinator.lastLoadedContent
+            let themeChanged = themeStyleSheet != context.coordinator.lastLoadedThemeStyleSheet
+
+            guard contentChanged || themeChanged else {
+                return
             }
+
+            context.coordinator.lastLoadedContent = content
+            context.coordinator.lastLoadedThemeStyleSheet = themeStyleSheet
+            webView.load(
+                content: content,
+                justify: UserDefaults.standard.bool(forKey: "justifyArticle"),
+                themeStyleSheet: themeStyleSheet
+            )
         }
     }
 #endif
@@ -234,26 +264,37 @@ import WebKit
     struct WebView: NSViewRepresentable {
         var entry: Entry
         @EnvironmentObject var appSetting: AppSetting
+        @Environment(\.colorScheme) private var colorScheme
         @Binding var progress: Double
 
         func makeNSView(context: Context) -> WKWebView {
             let webView = WKWebView(frame: .zero)
             webView.navigationDelegate = context.coordinator
-            let content = entry.titleHtml + (entry.content ?? "")
-            context.coordinator.lastLoadedContent = content
-            webView.load(content: content, justify: false)
+            loadContent(into: webView, context: context)
 
             return webView
         }
 
         func updateNSView(_ nsView: WKWebView, context: Context) {
             nsView.fontSizePercent(appSetting.webFontSizePercent)
+            loadContent(into: nsView, context: context)
+        }
 
+        /// Loads the entry into the web view and reloads it when the content or
+        /// the active light theme changes.
+        private func loadContent(into webView: WKWebView, context: Context) {
             let content = entry.titleHtml + (entry.content ?? "")
-            if content != context.coordinator.lastLoadedContent {
-                context.coordinator.lastLoadedContent = content
-                nsView.load(content: content, justify: false)
+            let themeStyleSheet = appSetting.activeLightTheme(for: colorScheme)?.articleStyleSheet
+            let contentChanged = content != context.coordinator.lastLoadedContent
+            let themeChanged = themeStyleSheet != context.coordinator.lastLoadedThemeStyleSheet
+
+            guard contentChanged || themeChanged else {
+                return
             }
+
+            context.coordinator.lastLoadedContent = content
+            context.coordinator.lastLoadedThemeStyleSheet = themeStyleSheet
+            webView.load(content: content, justify: false, themeStyleSheet: themeStyleSheet)
         }
 
         func makeCoordinator() -> Coordinator {
@@ -269,6 +310,9 @@ import WebKit
             /// Last content rendered, used to reload the web view when an entry
             /// is refreshed/repaired without recreating the whole view.
             var lastLoadedContent: String?
+            /// Light theme stylesheet of the last render, so switching the theme
+            /// reloads an already open article.
+            var lastLoadedThemeStyleSheet: String?
 
             init(_ webView: WebView, appSetting: AppSetting) {
                 self.webView = webView

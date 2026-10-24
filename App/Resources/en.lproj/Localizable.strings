@@ -59,6 +59,9 @@
 "Auto" = "Auto";
 "Light" = "Light";
 "Dark" = "Dark";
+"Light theme" = "Light theme";
+"Sepia" = "Sepia";
+"Default Light Theme" = "Default Light Theme";
 "Tags" = "Tags";
 "Selected tags" = "Selected tags";
 "No tags selected" = "No tags selected";

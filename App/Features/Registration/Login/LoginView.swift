@@ -2,6 +2,7 @@ import SwiftUI
 
 struct LoginView: View {
     @State var loginViewModel = LoginViewModel()
+    @Environment(\.palette) private var palette
 
     var body: some View {
         Form {
@@ -11,22 +12,29 @@ struct LoginView: View {
                     .disableAutocorrection(true)
                     .autocapitalization(.none)
                 #endif
+                    .listRowBackground(palette.surface)
             }
             Section(header: Text("Password")) {
                 SecureField("Password", text: $loginViewModel.password)
+                    .listRowBackground(palette.surface)
             }
             Button("Login") {
                 Task {
                     await loginViewModel.tryLogin()
                 }
-            }.disabled(!loginViewModel.isValid)
-            loginViewModel.error.map { error in
+            }
+            .disabled(!loginViewModel.isValid)
+            .listRowBackground(palette.surface)
+            if let error = loginViewModel.error {
                 VStack {
                     Text(error).foregroundColor(.red)
                     Link("Report issue", destination: "https://github.com/DominikButz/Wallino-Reader/issues")
                 }
+                .listRowBackground(palette.surface)
             }
         }
+        .scrollContentBackground(.hidden)
+        .background(palette.groupedBackground)
         #if os(iOS)
         .navigationBarTitle("Login & Password")
         .navigationBarItems(trailing:

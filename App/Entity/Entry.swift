@@ -85,7 +85,7 @@ extension Entry {
 
     var titleHtml: String {
         let escapedTitle = (title ?? "").htmlEscape()
-        return "<h1>\(escapedTitle)</h1>"
+        return "<h2>\(escapedTitle)</h2>"
     }
 
     var isContentUnavailable: Bool {

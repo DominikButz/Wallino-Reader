@@ -58,6 +58,9 @@
 "Auto" = "Otomatik";
 "Light" = "Açık";
 "Dark" = "Koyu";
+"Light theme" = "Açık tema";
+"Sepia" = "Sepya";
+"Default Light Theme" = "Varsayılan açık tema";
 "Tags" = "Etiketler";
 "Selected tags" = "Seçilen etiketler";
 "No tags selected" = "Etiket seçilmedi";

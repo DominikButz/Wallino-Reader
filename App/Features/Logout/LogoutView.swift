@@ -10,6 +10,7 @@ import SwiftUI
 
 struct LogoutView: View {
     @EnvironmentObject var appState: AppState
+    @Environment(\.palette) private var palette
 
     var body: some View {
         VStack(spacing: 15) {
@@ -35,7 +36,10 @@ struct LogoutView: View {
 
             Spacer()
 
-        }.navigationTitle("Account Logout")
+        }
+        .padding()
+        .background(palette.background)
+        .navigationTitle("Account Logout")
         .navigationBarTitleDisplayMode(.inline)
         .toolbar(.hidden, for: .tabBar)
 

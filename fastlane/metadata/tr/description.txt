@@ -3,7 +3,7 @@ Wallino Reader, kendi barındırdığınız (self-hosted) bir Wallabag sunucusu 
 Wallino ücretsiz ve açık kaynaklıdır; GitHub deposuna göz atabilirsiniz.
 
 Özellikler:
-- Haber sitelerinden ve haber uygulamalarından gelen makaleleri arşivleyerek saklayın veya daha sonra okuyun.
+- Haber sitelerinden, haber uygulamalarından ve PDF'lerden gelen makaleleri arşivleyerek saklayın veya daha sonra okuyun. Düz metin içe aktararak yeni bir kayıt da oluşturabilirsiniz.
 - Diğer uygulamalardan paylaşım uzantısını kullanın: Wallino, metinden haber makalesinin bağlantısını bile çıkarabilir.
 - Okuma arşivinizi daha iyi düzenlemek için etiketler belirleyin.
 - Orijinal bağlantıyı veya makale metnini PDF olarak dışa aktararak başkalarıyla paylaşın.

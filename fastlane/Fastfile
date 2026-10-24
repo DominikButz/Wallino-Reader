@@ -49,10 +49,43 @@ require "deliver"
   end
 end
 
+# deliver derives "Sign-in required" (demoAccountRequired) from the demo
+# credentials and forces it off whenever demo_user/demo_password are empty.
+# Wallino always requires a sign-in, so keep the flag on. The demo credentials
+# themselves stay whatever App Store Connect already has, because deliver skips
+# empty values instead of clearing them.
+::Deliver::UploadMetadata.class_eval do
+  alias_method :review_information_without_sign_in, :review_information
+
+  def review_information(version)
+    review_information_without_sign_in(version)
+
+    app_store_review_detail = begin
+      version.fetch_app_store_review_detail
+    rescue => error
+      ::FastlaneCore::UI.error("Error fetching app store review detail - #{error.message}")
+      nil
+    end
+
+    return if app_store_review_detail.nil? || app_store_review_detail.demo_account_required
+
+    ::FastlaneCore::UI.message("Forcing 'Sign-in required' on for version #{version.version_string}")
+    app_store_review_detail.update(attributes: { demo_account_required: true })
+  end
+end
+
 default_platform(:ios)
 
 # Metadata languages that should be uploaded to App Store Connect.
-UPLOAD_LOCALES = ["en-GB", "de-DE", "fr-FR"].freeze
+UPLOAD_LOCALES = ["en-GB", "de-DE", "fr-FR", "es-ES"].freeze
+
+# Folders that live next to the locale folders in fastlane/metadata and must
+# always be uploaded, independent of UPLOAD_LOCALES.
+META_SUB_DIRS = %w[
+  review_information
+  trade_representative_contact_information
+  app_clip_review_information
+].freeze
 
 platform :ios do
   def asc_api_key
@@ -86,7 +119,9 @@ platform :ios do
       target_entry = File.join(target, entry)
 
       if File.directory?(source_entry)
-        FileUtils.cp_r(source_entry, target_entry) if locales.include?(entry)
+        next unless locales.include?(entry) || META_SUB_DIRS.include?(entry)
+
+        FileUtils.cp_r(source_entry, target_entry)
       else
         FileUtils.cp(source_entry, target_entry)
       end

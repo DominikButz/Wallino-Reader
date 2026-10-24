@@ -1,1 +1,3 @@
-Gli articoli che non venivano salvati ora si caricano con tutto il loro contenuto: quando il server wallabag è bloccato, Wallino Reader recupera la pagina dal tuo dispositivo. Tocca «Ricarica» su un vecchio articolo non riuscito per ripararlo.
+- Wallino Reader ora supporta la creazione di voci da testo semplice e file PDF (funziona nell'app e nell'estensione di condivisione)
+- Nuovo tema seppia come variante del tema chiaro
+- Correzioni di bug

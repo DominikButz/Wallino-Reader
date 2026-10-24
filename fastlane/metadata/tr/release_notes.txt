@@ -1,1 +1,3 @@
-Daha önce kaydedilemeyen makaleler artık tüm içeriğiyle yükleniyor: wallabag sunucusu engellendiğinde Wallino Reader sayfayı cihazınızdan getirir. Eski ve bozuk bir makaleyi de düzeltmek için 'Yeniden getir' seçeneğine dokunun.
+- Wallino Reader artık düz metin ve PDF dosyalarından kayıt oluşturabiliyor (uygulamada ve paylaşım uzantısında çalışır)
+- Açık temanın bir varyantı olarak yeni sepya teması
+- Hata düzeltmeleri

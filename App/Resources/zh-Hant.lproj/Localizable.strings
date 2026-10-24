@@ -58,6 +58,9 @@
 "Auto" = "自動";
 "Light" = "淺色";
 "Dark" = "深色";
+"Light theme" = "淺色主題";
+"Sepia" = "米黃色";
+"Default Light Theme" = "預設淺色主題";
 "Tags" = "標籤";
 "Selected tags" = "已選標籤";
 "No tags selected" = "未選擇標籤";

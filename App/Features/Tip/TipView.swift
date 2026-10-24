@@ -2,6 +2,7 @@ import SwiftUI
 
 struct TipView: View {
     @State var tipViewModel = TipViewModel()
+    @Environment(\.palette) private var palette
 
     var body: some View {
         VStack(alignment: .leading, spacing: 20) {
@@ -45,6 +46,8 @@ struct TipView: View {
             Spacer()
         }
         .padding()
+        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
+        .background(palette.background)
         .navigationTitle("Don")
         .toolbar(.hidden, for: .tabBar)
         .task {

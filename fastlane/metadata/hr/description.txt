@@ -3,7 +3,7 @@ Wallino Reader je iOS aplikacija za self-hosted Wallabag poslužitelj. Ako ne ho
 Wallino je besplatan i otvorenog koda, pogledajte GitHub repozitorij.
 
 Značajke:
-- Arhivirajte novinske članke s web stranica i aplikacija za vijesti radi čuvanja ili kasnijeg čitanja.
+- Arhivirajte novinske članke s web stranica, aplikacija za vijesti i PDF datoteka radi čuvanja ili kasnijeg čitanja. Možete čak uvesti obični tekst i stvoriti novi unos.
 - Koristite proširenje za dijeljenje iz drugih aplikacija: Wallino može čak izvući poveznicu na članak iz teksta.
 - Postavite oznake za bolju organizaciju svoje arhive za čitanje.
 - Izvezite izvornu poveznicu ili tekst članka kao PDF za dijeljenje s drugima.

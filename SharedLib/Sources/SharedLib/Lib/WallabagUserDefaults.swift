@@ -60,6 +60,9 @@ public enum WallabagUserDefaults {
     @GeneralSetting("theme", defaultValue: "auto")
     public static var theme: String
 
+    @GeneralSetting("lightTheme", defaultValue: "light")
+    public static var lightTheme: String
+
     /// Whether new entries should be tagged automatically by Apple Intelligence.
     /// Stored in the App Group so the share extension can read it too.
     @Setting("autoTagNewEntry", defaultValue: true)

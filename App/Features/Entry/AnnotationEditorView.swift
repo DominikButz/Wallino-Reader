@@ -150,17 +150,21 @@ final class AnnotationEditorViewModel: ObservableObject {
 
 struct AnnotationEditorView: View {
     @ObservedObject var viewModel: AnnotationEditorViewModel
+    @Environment(\.palette) private var palette
 
     var body: some View {
         NavigationView {
             Form {
                 Section("Selected text") {
                     Text(viewModel.selectedText)
+                        .listRowBackground(palette.surface)
                 }
 
                 Section("Annotation") {
                     TextEditor(text: $viewModel.text)
+                        .scrollContentBackground(.hidden)
                         .frame(minHeight: 120)
+                        .listRowBackground(palette.surface)
                 }
 
                 if viewModel.isEditing {
@@ -170,9 +174,12 @@ struct AnnotationEditorView: View {
                         } label: {
                             Text("Delete")
                         }
+                        .listRowBackground(palette.surface)
                     }
                 }
             }
+            .scrollContentBackground(.hidden)
+            .background(palette.groupedBackground)
             .navigationTitle(viewModel.title)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {

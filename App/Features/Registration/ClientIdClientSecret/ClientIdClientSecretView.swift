@@ -3,6 +3,7 @@ import SwiftUI
 
 struct ClientIdClientSecretView: View {
     @State private var clientIdSecretViewModel = ClientIdSecretViewModel()
+    @Environment(\.palette) private var palette
 
     var body: some View {
         Form {
@@ -12,6 +13,7 @@ struct ClientIdClientSecretView: View {
                 #if os(iOS)
                     .autocapitalization(.none)
                 #endif
+                    .listRowBackground(palette.surface)
             }
             Section(header: Text("Client secret")) {
                 TextField("Client secret", text: $clientIdSecretViewModel.clientSecret)
@@ -19,6 +21,7 @@ struct ClientIdClientSecretView: View {
                 #if os(iOS)
                     .autocapitalization(.none)
                 #endif
+                    .listRowBackground(palette.surface)
             }
             Button(action: {
                 clientIdSecretViewModel.goNext()
@@ -26,7 +29,10 @@ struct ClientIdClientSecretView: View {
                 Text("Next")
             })
             .disabled(!clientIdSecretViewModel.isValid)
+            .listRowBackground(palette.surface)
         }
+        .scrollContentBackground(.hidden)
+        .background(palette.groupedBackground)
         .navigationDestination(isPresented: $clientIdSecretViewModel.shouldGoNextStep) {
             LoginView()
         }

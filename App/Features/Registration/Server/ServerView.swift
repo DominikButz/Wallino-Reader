@@ -2,6 +2,7 @@ import SwiftUI
 
 struct ServerView: View {
     @State private var serverViewModel = ServerViewModel()
+    @Environment(\.palette) private var palette
 
     var body: some View {
         Form {
@@ -11,6 +12,7 @@ struct ServerView: View {
                 #if os(iOS)
                     .autocapitalization(.none)
                 #endif
+                    .listRowBackground(palette.surface)
             }
             Button(action: {
                 serverViewModel.goNext()
@@ -18,7 +20,10 @@ struct ServerView: View {
                 Text("Next")
             })
             .disabled(!serverViewModel.isValid)
+            .listRowBackground(palette.surface)
         }
+        .scrollContentBackground(.hidden)
+        .background(palette.groupedBackground)
         .navigationDestination(isPresented: $serverViewModel.shouldGoNextStep) {
             ClientIdClientSecretView()
         }

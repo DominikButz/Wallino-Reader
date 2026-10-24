@@ -10,6 +10,7 @@ struct SettingView: View {
     @AppStorage("refreshOnStartup") var refreshOnStartup: Bool = false
     @Injected(\.wallabagSession) private var session
     @EnvironmentObject var appSetting: AppSetting
+    @Environment(\.palette) private var palette
     #if DEBUG
         @State private var showDeleteAllAnnotationsConfirm = false
         @State private var isDeletingAllAnnotations = false
@@ -18,24 +19,27 @@ struct SettingView: View {
     var body: some View {
         Form {
             Section("Appearance") {
-                Picker("Theme", selection: $appSetting.theme) {
-                    ForEach(Theme.allCases) { theme in
-                        Text(theme.name).tag(theme)
-                    }
+                NavigationLink("Theme") {
+                    ThemeView()
                 }
+                .listRowBackground(palette.surface)
             }
             Section("Entries list") {
                 Toggle("Show image in list", isOn: $showImageInList)
+                    .listRowBackground(palette.surface)
                 Picker("Default mode", selection: $defaultMode) {
                     ForEach(RetrieveMode.allCases, id: \.rawValue) {
                         Text($0.rawValue).tag($0.settingCase)
                     }
                 }
+                .listRowBackground(palette.surface)
             }
             Section("Entry") {
                 Toggle("Justify entry", isOn: $justifyArticle)
+                    .listRowBackground(palette.surface)
                 if #available(iOS 26.0, macOS 26.0, *) {
                     Toggle("Auto-tag new entry", isOn: $appSetting.autoTagNewEntry)
+                        .listRowBackground(palette.surface)
                 }
             }
 #if DEBUG
@@ -53,17 +57,22 @@ struct SettingView: View {
                     }
                 }
                 .disabled(isDeletingAllAnnotations)
+                .listRowBackground(palette.surface)
 
             }
 #endif
 
             Section("Sync") {
                 Stepper("Items per page during sync: \(itemPerPageDuringSync)", value: $itemPerPageDuringSync, in: 20 ... 200)
+                    .listRowBackground(palette.surface)
                 Toggle("Refresh on startup", isOn: $refreshOnStartup)
+                    .listRowBackground(palette.surface)
 
             }
 
         }
+        .scrollContentBackground(.hidden)
+        .background(palette.groupedBackground)
         .navigationTitle("Settings")
         .toolbar(.hidden, for: .tabBar)
         #if DEBUG

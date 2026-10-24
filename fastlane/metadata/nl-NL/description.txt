@@ -3,7 +3,7 @@ Wallino Reader is een iOS-app voor een self-hosted Wallabag-server. Als je Walla
 Wallino is gratis en open source. Bekijk de GitHub-repository.
 
 Functies:
-- Archiveer nieuwsartikelen van websites en nieuws-apps om ze te bewaren of later te lezen.
+- Archiveer nieuwsartikelen van websites, nieuws-apps en PDF's om ze te bewaren of later te lezen. Je kunt zelfs platte tekst importeren om een nieuw artikel aan te maken.
 - Gebruik de deel-extensie vanuit andere apps: Wallino kan de link naar het artikel zelfs uit tekst halen.
 - Stel tags in voor een betere organisatie van je leesarchief.
 - Exporteer de oorspronkelijke link of de artikeltekst als PDF om met anderen te delen.

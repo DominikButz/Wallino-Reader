@@ -5,6 +5,7 @@ struct EntriesForTagView: View {
     @AppStorage("entriesSortedByCreatedDate") var entriesSortedByCreatedDate = true
     @AppStorage("entriesSortedByReadingTime") var entriesSortedByReadingTime = false
     @AppStorage("entriesSortedByAscending") var entriesSortedByAscending = false
+    @Environment(\.palette) private var palette
 
     let tag: Tag
 
@@ -15,7 +16,7 @@ struct EntriesForTagView: View {
             entriesSortedByReadingTime: entriesSortedByReadingTime,
             entriesSortedByAscending: entriesSortedByAscending
         )
-        .scrollContentBackground(.hidden)
+        .background(palette.background)
         .toolbar {
             ToolbarItemGroup(placement: .navigationBarTrailing) {
                 Menu(content: {

@@ -1,12 +1,14 @@
 import CoreData
 import Factory
 import HTMLEntities
+import SharedLib
 import SwiftUI
 
 struct EntryView: View {
     @Environment(\.managedObjectContext) var context: NSManagedObjectContext
     @Environment(\.openURL) var openURL
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.palette) private var palette
     @Environment(AppSync.self) var appSync: AppSync
     #if os(iOS)
         @Environment(PlayerPublisher.self) var player: PlayerPublisher
@@ -32,15 +34,11 @@ struct EntryView: View {
             if entry.isContentUnavailable {
                 unavailableView
             } else {
-                #if os(iOS)
-                    WebView(entry: entry, progress: $progress, annotationEditor: annotationEditor)
-                #else
-                    WebView(entry: entry, progress: $progress)
-                #endif
+                readerView
             }
         }
         .accessibilityIdentifier("entry_detail")
-        .ignoresSafeArea()
+        .background(palette.background)
             .safeAreaInset(edge: .top) {
                 VStack(spacing: 0) {
                     ProgressView(value: max(0, min(progress, 1)), total: 1)
@@ -109,6 +107,31 @@ struct EntryView: View {
     }
 
     @ViewBuilder
+    private var readerView: some View {
+#if DEBUG
+        if ProcessInfo.processInfo.environment["XCODE_RUNNING_FOR_PREVIEWS"] == "1" {
+            // The Xcode canvas does not capture WKWebView content, so the
+            // article would stay blank. Render it as native text instead.
+            PreviewArticleView(entry: entry)
+        } else {
+            webReader
+        }
+#else
+        webReader
+#endif
+
+    }
+
+    @ViewBuilder
+    private var webReader: some View {
+        #if os(iOS)
+            WebView(entry: entry, progress: $progress, annotationEditor: annotationEditor)
+        #else
+            WebView(entry: entry, progress: $progress)
+        #endif
+    }
+
+    @ViewBuilder
     private var tagsView: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
@@ -121,7 +144,7 @@ struct EntryView: View {
                     .padding(4)
                     .background(
                         Capsule()
-                            .fill(Color.gray.quaternary)
+                            .fill(palette.chipBackground)
                             .clipped()
                     )
                     .clipShape(Capsule())
@@ -132,7 +155,7 @@ struct EntryView: View {
         }
         .padding(.leading, 5)
         .padding(.top, 8)
-        .padding(.bottom, 16)
+        .padding(.bottom, 8)
     }
 
     @ViewBuilder
@@ -188,7 +211,9 @@ struct EntryView: View {
             }
         }
         #if os(iOS)
-            Button(action: shareAsPDF, label: {
+            Button(action: {
+                shareAsPDF()
+            }, label: {
                 Label("Share as PDF", systemImage: "doc.richtext")
             })
             .disabled(isGeneratingPDF)
@@ -249,15 +274,111 @@ struct EntryView: View {
 
 #if DEBUG
     struct EntryView_Previews: PreviewProvider {
+        /// In-memory store so sample objects never end up in the real library.
+        static let previewContainer: NSPersistentContainer = {
+            let container = NSPersistentContainer(name: "wallabagStore")
+            let description = NSPersistentStoreDescription()
+            description.type = NSInMemoryStoreType
+            container.persistentStoreDescriptions = [description]
+            container.loadPersistentStores { _, error in
+                if let error {
+                    assertionFailure("Could not load preview store: \(error)")
+                }
+            }
+            return container
+        }()
+
+        /// Sample article so the preview canvas shows a real reader instead of
+        /// the empty "Article unavailable" state.
+        static let article: Entry = {
+            let coreData = previewContainer
+            let entry = Entry(context: coreData.viewContext)
+            entry.id = 1
+            entry.title = "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+            entry.content = """
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Cras mattis consectetur purus sit amet fermentum. Donec ullamcorper nulla non metus auctor fringilla.</p>
+            <p>Maecenas faucibus mollis interdum. Vestibulum id ligula porta felis euismod semper. Aenean lacinia bibendum nulla sed consectetur. Nullam quis risus eget urna mollis ornare vel eu leo.</p>
+            <h2>Sed posuere consectetur est at lobortis</h2>
+            <p>Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.</p>
+            <blockquote><p>Donec sed odio dui. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.</p></blockquote>
+            <ul>
+                <li>Fringilla euismod porttitor</li>
+                <li>Nullam id dolor id nibh ultricies</li>
+                <li>Cras justo odio dapibus ac facilisis</li>
+            </ul>
+            <p>Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Sed posuere consectetur est at lobortis.</p>
+            """
+            entry.url = "https://example.com/lorem-ipsum"
+            entry.domainName = "example.com"
+            entry.readingTime = 4
+            entry.createdAt = Date()
+            entry.updatedAt = Date()
+
+            let firstTag = Tag(context: coreData.viewContext)
+            firstTag.id = 1
+            firstTag.label = "Swift"
+            firstTag.slug = "swift"
+
+            let secondTag = Tag(context: coreData.viewContext)
+            secondTag.id = 2
+            secondTag.label = "Reading"
+            secondTag.slug = "reading"
+
+            entry.tags = [firstTag, secondTag]
+
+            return entry
+        }()
+
         static var previews: some View {
-            let coreData = Container.shared.coreData()
-            EntryView(entry: Entry(context: coreData.viewContext))
-                .environment(AppSync())
-                .environmentObject(AppSetting())
+            NavigationStack {
+                EntryView(entry: article)
+            }
+            .environment(AppSync())
+            .environmentObject(AppSetting())
             #if os(iOS)
                 .environment(PlayerPublisher())
             #endif
-                .environment(\.managedObjectContext, coreData.viewContext)
+            .environment(\.managedObjectContext, previewContainer.viewContext)
+        }
+    }
+
+    /// Native stand-in for the reader in the Xcode canvas, which cannot render
+    /// `WKWebView` content.
+    private struct PreviewArticleView: View {
+        let entry: Entry
+        @Environment(\.palette) private var palette
+
+        var body: some View {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 16) {
+                    Text(entry.title?.htmlUnescape() ?? "")
+                        .font(.largeTitle.bold())
+                    Text(plainText(from: entry.content ?? ""))
+                        .font(.body)
+                }
+                .padding(.horizontal, 20)
+                .padding(.bottom, 20)
+                .padding(.top, 56)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .background(palette.background)
+        }
+
+        private func plainText(from html: String) -> String {
+            html
+                .replacingOccurrences(of: "</p>", with: "\n\n")
+                .replacingOccurrences(of: "</h1>", with: "\n\n")
+                .replacingOccurrences(of: "</h2>", with: "\n\n")
+                .replacingOccurrences(of: "</h3>", with: "\n\n")
+                .replacingOccurrences(of: "</li>", with: "\n")
+                .replacingOccurrences(of: "</blockquote>", with: "\n\n")
+                .replacingOccurrences(of: "<br>", with: "\n")
+                .replacingOccurrences(of: "<br/>", with: "\n")
+                .replacingOccurrences(of: "<br />", with: "\n")
+                .withoutHTML
+                .htmlUnescape()
+                .replacingOccurrences(of: "\n\n\n", with: "\n\n")
+                .trimmingCharacters(in: .whitespacesAndNewlines)
         }
     }
 #endif

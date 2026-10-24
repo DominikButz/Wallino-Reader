@@ -1,1 +1,3 @@
-Les articles dont l'enregistrement échouait s'affichent désormais avec tout leur contenu : lorsque le serveur wallabag est bloqué, Wallino Reader récupère la page depuis votre appareil. Touchez « Re-récupérer » sur un ancien article défectueux pour le réparer également.
+- Wallino Reader permet désormais de créer un article à partir de texte brut et de fichiers PDF (dans l'app et dans l'extension de partage)
+- Nouveau thème sépia comme variante du thème clair
+- Corrections de bugs

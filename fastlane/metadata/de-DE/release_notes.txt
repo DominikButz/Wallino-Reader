@@ -1,1 +1,3 @@
-Artikel, die zuvor nicht gespeichert werden konnten, werden jetzt vollständig geladen: Wenn der wallabag-Server blockiert wird, ruft Wallino Reader die Seite von deinem Gerät ab. Tippe bei einem alten fehlerhaften Artikel auf „Erneut laden“, um ihn ebenfalls zu reparieren.
+- Wallino Reader erstellt jetzt Einträge aus reinem Text und PDF-Dateien (funktioniert in der App und in der Share-Erweiterung)
+- Neues Sepia-Design als Variante des hellen Designs
+- Fehlerbehebungen

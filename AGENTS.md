@@ -162,7 +162,8 @@ which still runs its own extraction on the supplied HTML.
     `performAuthenticated`, which re-authenticates and retries once on an auth
     failure.
   - `AppSync` / `CoreDataSync` (`App/Features/Sync/`) — server sync.
-  - `Theme`, `WallabagError`, etc.
+  - `Theme`, `LightTheme`, `ThemePalette`, `ThemeSurface` (see "Appearance &
+    light themes (sepia)" below), `WallabagError`, etc.
 - **Features (`App/Features/`)**: one folder per feature area — `Entry`, `Tag`,
   `Registration`, `Router`, `Search`, `Setting`, `Player`, `Tip`,
   `BugReport`, `About`, `PasteBoard`, `Error`, `Haptic`, `Sync`. The `About`
@@ -202,6 +203,57 @@ which still runs its own extraction on the supplied HTML.
   (includes `.terms`, `.privacy` for legal document views) and
   a `RouteSwiftUIExtension`. Main tab view is `App/Features/MainView.swift`
   (Entries + Tags tabs; the Tags tab uses a separate navigation path `tagsPath`).
+
+## Appearance & light themes (sepia)
+
+SwiftUI's `ColorScheme` is a closed enum with only `light` and `dark`, so sepia
+is modelled as a second *light* theme instead of a third color scheme.
+
+- `App/Lib/Theme.swift`: `Theme` (`auto`, `light`, `dark`) drives
+  `.preferredColorScheme`.
+- `App/Lib/LightTheme.swift`: `LightTheme` (`light`, `sepia`). Every case is a
+  light appearance; each carries its palette and the article reader stylesheet
+  (`articleStyleSheet`: `sepia.css`, or `nil` for the default look).
+- `App/Lib/ThemePalette.swift`: semantic colors (`background`,
+  `groupedBackground`, `surface`, `chipBackground`) plus the `\.palette`
+  environment value. `standard` uses dynamic system colors, so dark mode and the
+  default light look stay unchanged. The sepia `background` is `Color("Sepia")`
+  from the asset catalog (`#F4ECD8`), and `sepia.css` mirrors that tone.
+- `App/Lib/ThemeSurface.swift`: `.themed()` resolves the palette and paints the
+  app background. It is applied to `MainView()` **before** the
+  `environmentObject` injections in `WallinoApp`; applied outside them the
+  modifier cannot see `AppSetting` and the app crashes at launch.
+- `AppSetting.activeLightTheme(for:)` / `palette(for:)` decide what is active: a
+  forced `.light` theme always uses the selected light theme, `.auto` follows the
+  interface style, `.dark` never applies sepia.
+- Settings UI: `App/Features/Setting/ThemeView.swift` (`NavigationLink` from
+  `SettingView`). Both pickers use `.pickerStyle(.inline)` with
+  `.labelsHidden()`, otherwise the picker label renders as an extra first row
+  below the section header. The light theme section is hidden while the theme is
+  dark.
+
+Screen rules, both verified against the running app:
+
+- `.scrollContentBackground(.hidden)` must be applied to the `List`/`Form`
+  itself. On a wrapper around the list it does nothing and the list keeps its own
+  opaque background on top of the palette color.
+- `.listRowBackground(palette.surface)` must be applied to each row view
+  (`NavigationLink`, `Toggle`, `Picker`, `Button`, `Text`, `TextField`). Applied
+  to the `List`/`Form` it is ignored and the rows keep the system color.
+- Use `palette.groupedBackground` for `Form` pages and `palette.background` for
+  plain screens and `.inset` lists. Rows and cards use `palette.surface`, tag
+  chips `palette.chipBackground`.
+- Reader: `sepia.css` is linked through the extra `%@` slot in
+  `App/Resources/html-ressources/article.html` and passed with
+  `WKWebView.load(content:justify:themeStyleSheet:)`. `WebView` reloads an open
+  article when the content or the active light theme changes.
+- System-owned chrome (context menus, glass toolbars) keeps the system
+  appearance. WebKit renders the CSS paper tone slightly lighter than the native
+  palette, which can show as a faint edge where an article meets the nav bar.
+- Localization keys: `"Theme"`, `"Auto"`, `"Light"`, `"Dark"`, `"Light theme"`,
+  `"Sepia"`, `"Default Light Theme"` (all 12 registered languages).
+- Tests: `wallabagTests/Features/Setting/AppSettingThemeTests.swift` covers the
+  light/dark/auto resolution and the reader stylesheet mapping.
 
 ## API client (`WallabagKit/`)
 
@@ -315,6 +367,8 @@ key sets in sync. Currently, only 12 languages are registered. When changing, ad
 - iOS unit tests: `wallabagTests/` (organized by feature, e.g. `Features/Router/RouterTests.swift`).
   `Features/Entry/Add/AddEntryModelTests.swift` covers text-to-HTML conversion,
   domain normalization, and fake URL generation for text and PDF entries.
+  `Features/Setting/AppSettingThemeTests.swift` covers the theme resolution
+  (light, dark, auto) and the reader stylesheet of the sepia light theme.
 - `WallabagKit/Tests/WallabagKitTests/` for the API client (e.g. add/update
   request bodies carry `content`/`title`).
 - `SharedLib/Tests/SharedLibTests/` for shared utilities

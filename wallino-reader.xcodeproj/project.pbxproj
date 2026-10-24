@@ -99,6 +99,12 @@
 		81505C5B2B5DC21F003B5CDE /* WallabagIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81505C5A2B5DC21F003B5CDE /* WallabagIntent.swift */; };
 		81505C5D2B5DC23C003B5CDE /* AddEntryIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81505C5C2B5DC23C003B5CDE /* AddEntryIntent.swift */; };
 		B4223BC93084B6F600D37438 /* AddEntryModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4223BC83084B6F600D37438 /* AddEntryModelTests.swift */; };
+		B447C480308B5955000C0FC6 /* ThemePalette.swift in Sources */ = {isa = PBXBuildFile; fileRef = B447C47F308B5955000C0FC6 /* ThemePalette.swift */; };
+		B447C482308B597C000C0FC6 /* LightTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = B447C481308B597C000C0FC6 /* LightTheme.swift */; };
+		B447C484308B597C000C0FC6 /* ThemeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B447C483308B597C000C0FC6 /* ThemeView.swift */; };
+		B447C486308B597C000C0FC6 /* ThemeSurface.swift in Sources */ = {isa = PBXBuildFile; fileRef = B447C485308B597C000C0FC6 /* ThemeSurface.swift */; };
+		B447C488308B5B0C000C0FC6 /* sepia.css in Resources */ = {isa = PBXBuildFile; fileRef = B447C487308B5B0C000C0FC6 /* sepia.css */; };
+		B447C48B308B5D9A000C0FC6 /* AppSettingThemeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B447C48A308B5D9A000C0FC6 /* AppSettingThemeTests.swift */; };
 		B44D3246305A91540018FAE3 /* WallinoReaderStore1.storekit in Resources */ = {isa = PBXBuildFile; fileRef = B44D3245305A91540018FAE3 /* WallinoReaderStore1.storekit */; };
 		B44D3247305A91540018FAE3 /* WallinoReaderStore1.storekit in Resources */ = {isa = PBXBuildFile; fileRef = B44D3245305A91540018FAE3 /* WallinoReaderStore1.storekit */; };
 		B44D3249305A930A0018FAE3 /* WallinoReaderStoreLocal.storekit in Resources */ = {isa = PBXBuildFile; fileRef = B44D3248305A930A0018FAE3 /* WallinoReaderStoreLocal.storekit */; };
@@ -280,6 +286,12 @@
 		81505C5A2B5DC21F003B5CDE /* WallabagIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallabagIntent.swift; sourceTree = "<group>"; };
 		81505C5C2B5DC23C003B5CDE /* AddEntryIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryIntent.swift; sourceTree = "<group>"; };
 		B4223BC83084B6F600D37438 /* AddEntryModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryModelTests.swift; sourceTree = "<group>"; };
+		B447C47F308B5955000C0FC6 /* ThemePalette.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemePalette.swift; sourceTree = "<group>"; };
+		B447C481308B597C000C0FC6 /* LightTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LightTheme.swift; sourceTree = "<group>"; };
+		B447C483308B597C000C0FC6 /* ThemeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeView.swift; sourceTree = "<group>"; };
+		B447C485308B597C000C0FC6 /* ThemeSurface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeSurface.swift; sourceTree = "<group>"; };
+		B447C487308B5B0C000C0FC6 /* sepia.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = sepia.css; sourceTree = "<group>"; };
+		B447C48A308B5D9A000C0FC6 /* AppSettingThemeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingThemeTests.swift; sourceTree = "<group>"; };
 		B44D3245305A91540018FAE3 /* WallinoReaderStore1.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = WallinoReaderStore1.storekit; sourceTree = SOURCE_ROOT; };
 		B44D3248305A930A0018FAE3 /* WallinoReaderStoreLocal.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; name = WallinoReaderStoreLocal.storekit; path = App/WallinoReaderStoreLocal.storekit; sourceTree = SOURCE_ROOT; };
 		B4B3F29330495FC1007633C9 /* EntriesForTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesForTagView.swift; sourceTree = "<group>"; };
@@ -374,6 +386,7 @@
 				098CF4D329CD82F100DEAE50 /* Registration */,
 				09BCBBD2282BD44100B234CB /* Router */,
 				094AA0012629E700006E5605 /* Entry */,
+				B447C489308B5D9A000C0FC6 /* Setting */,
 			);
 			path = Features;
 			sourceTree = "<group>";
@@ -444,6 +457,9 @@
 				09644BD125C9833D000FFDA1 /* DependencyInjection.swift */,
 				09644BD325C9833D000FFDA1 /* WallabagError.swift */,
 				09FA20240000000000000001 /* Theme.swift */,
+				B447C47F308B5955000C0FC6 /* ThemePalette.swift */,
+				B447C481308B597C000C0FC6 /* LightTheme.swift */,
+				B447C485308B597C000C0FC6 /* ThemeSurface.swift */,
 			);
 			path = Lib;
 			sourceTree = "<group>";
@@ -514,6 +530,7 @@
 			children = (
 				09644BB625C98232000FFDA1 /* AppSetting.swift */,
 				09564E0C2851C57200D39E95 /* SettingView.swift */,
+				B447C483308B597C000C0FC6 /* ThemeView.swift */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -743,6 +760,7 @@
 				B4B3F2E6304C0000007633C9 /* pdf.css */,
 				D0C1A1000000000000000004 /* annotation.js */,
 				D0C1A1000000000000000006 /* annotation.css */,
+				B447C487308B5B0C000C0FC6 /* sepia.css */,
 			);
 			path = "html-ressources";
 			sourceTree = "<group>";
@@ -836,6 +854,14 @@
 				B4223BC83084B6F600D37438 /* AddEntryModelTests.swift */,
 			);
 			path = Add;
+			sourceTree = "<group>";
+		};
+		B447C489308B5D9A000C0FC6 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				B447C48A308B5D9A000C0FC6 /* AppSettingThemeTests.swift */,
+			);
+			path = Setting;
 			sourceTree = "<group>";
 		};
 		B4B3F2E8304C0000007633C9 /* PDF */ = {
@@ -1051,6 +1077,7 @@
 				B4B3F2E5304C0000007633C9 /* article-pdf.html in Resources */,
 				B44D3249305A930A0018FAE3 /* WallinoReaderStoreLocal.storekit in Resources */,
 				B4B3F2E7304C0000007633C9 /* pdf.css in Resources */,
+				B447C488308B5B0C000C0FC6 /* sepia.css in Resources */,
 				D0C1A1000000000000000005 /* annotation.js in Resources */,
 				D0C1A1000000000000000007 /* annotation.css in Resources */,
 				B4FAF7D1305BDA2C00DC8A7A /* privacy.html in Resources */,
@@ -1097,6 +1124,7 @@
 				09BCBBD4282BD46A00B234CB /* RouterTests.swift in Sources */,
 				094AA05A2629EB60006E5605 /* ImageCacheTests.swift in Sources */,
 				B4223BC93084B6F600D37438 /* AddEntryModelTests.swift in Sources */,
+				B447C48B308B5D9A000C0FC6 /* AppSettingThemeTests.swift in Sources */,
 				098CF4D629CD830E00DEAE50 /* ServerViewModelTests.swift in Sources */,
 				094AA03E2629EB1F006E5605 /* wallabagTests.swift in Sources */,
 				094AA0692629EB98006E5605 /* ImageDownloaderTests.swift in Sources */,
@@ -1160,6 +1188,7 @@
 				D0C1A1000000000000000002 /* Annotation.swift in Sources */,
 				097F81EB25CB18BA006C85F6 /* Router.swift in Sources */,
 				81505C5D2B5DC23C003B5CDE /* AddEntryIntent.swift in Sources */,
+				B447C480308B5955000C0FC6 /* ThemePalette.swift in Sources */,
 				09644BB725C98232000FFDA1 /* AppSetting.swift in Sources */,
 				09644C7F25C985B8000FFDA1 /* ImageDownloaderPublisher.swift in Sources */,
 				09644CE825C986CC000FFDA1 /* ServerView.swift in Sources */,
@@ -1172,6 +1201,7 @@
 				09644C7C25C985B8000FFDA1 /* ImageDownloader.swift in Sources */,
 				09644D0825C9871A000FFDA1 /* TipView.swift in Sources */,
 				09644BDD25C9833E000FFDA1 /* CoreData.swift in Sources */,
+				B447C484308B597C000C0FC6 /* ThemeView.swift in Sources */,
 				09644D0925C9871A000FFDA1 /* TipViewModel.swift in Sources */,
 				09644CE025C986C6000FFDA1 /* LoginView.swift in Sources */,
 				09644C8725C985CD000FFDA1 /* AboutView.swift in Sources */,
@@ -1180,6 +1210,7 @@
 				09644BDA25C9833E000FFDA1 /* WallabagError.swift in Sources */,
 				09644CDF25C986C6000FFDA1 /* LoginViewModel.swift in Sources */,
 				09644C5D25C98596000FFDA1 /* AddEntryView.swift in Sources */,
+				B447C486308B597C000C0FC6 /* ThemeSurface.swift in Sources */,
 				09644C6025C98596000FFDA1 /* EntryView.swift in Sources */,
 				09644CFF25C9870C000FFDA1 /* TagsForEntryViewModel.swift in Sources */,
 				B4B3F29C30496013007633C9 /* TagsListViewModel.swift in Sources */,
@@ -1198,6 +1229,7 @@
 				B4C0DE0000000000000002B2 /* AutoTagViewModel.swift in Sources */,
 				B4C0DE0000000000000002C2 /* AutoTagButton.swift in Sources */,
 				B4C0DE0000000000000002D2 /* AutoTagCoordinator.swift in Sources */,
+				B447C482308B597C000C0FC6 /* LightTheme.swift in Sources */,
 				B4C0DE0000000000000003A2 /* SummaryService.swift in Sources */,
 				B4C0DE0000000000000003B2 /* SummaryViewModel.swift in Sources */,
 				B4C0DE0000000000000003C2 /* EntryAIActionsMenu.swift in Sources */,
@@ -1318,7 +1350,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "iOS-share_ext/iOS-share_extDebug.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 76FXG652LY;
 				INFOPLIST_FILE = "iOS-share_ext/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Wallino Debug";
@@ -1327,7 +1359,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.duoyun.wallino-reader.debug.ios-share";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1342,7 +1374,7 @@
 			buildSettings = {
 				CODE_SIGN_ENTITLEMENTS = "iOS-share_ext/iOS-share_ext.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 76FXG652LY;
 				INFOPLIST_FILE = "iOS-share_ext/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Wallino Reader";
@@ -1351,7 +1383,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.duoyun.wallino-reader.ios-share";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1496,7 +1528,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = wallinoDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 76FXG652LY;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
@@ -1507,7 +1539,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.duoyun.wallino-reader.debug";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "com.duoyun.wallino-reader.debug";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = "com.duoyun.wallino-reader.debug";
@@ -1530,7 +1562,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = wallino.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 76FXG652LY;
 				ENABLE_HARDENED_RUNTIME = NO;
 				ENABLE_PREVIEWS = YES;
@@ -1541,7 +1573,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.duoyun.wallino-reader";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=iphoneos*]" = "com.duoyun.wallino-reader";
 				"PRODUCT_BUNDLE_IDENTIFIER[sdk=macosx*]" = "com.duoyun.wallino-reader";
@@ -1564,7 +1596,7 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 76FXG652LY;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -1591,7 +1623,7 @@
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 11;
 				DEVELOPMENT_TEAM = 76FXG652LY;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GENERATE_INFOPLIST_FILE = YES;

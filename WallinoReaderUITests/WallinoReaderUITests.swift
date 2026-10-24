@@ -112,13 +112,13 @@ final class WallinoReaderUITests: XCTestCase {
         takeScreenshot("01_EntryList")
     }
 
-//    @MainActor
-//    func testEntryDetail() throws {
-//        launchApp()
-//        tapFirstEntry()
-//        waitForEntryDetail()
-//        takeScreenshot("02_EntryDetail")
-//    }
+    @MainActor
+    func testEntryDetail() throws {
+        launchApp()
+        tapFirstEntry()
+        waitForEntryDetail()
+        takeScreenshot("02_EntryDetail")
+    }
 
     @MainActor
     func testEntryDetailMenu() throws {

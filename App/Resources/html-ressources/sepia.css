@@ -1,0 +1,37 @@
+/* ==========================================================================
+   Sepia light theme for the article reader.
+
+   Loaded after main.css so it wins over the default light rules. The colors
+   match ThemePalette.sepia in the app so the reader and the app chrome line up.
+   ========================================================================== */
+
+html,
+body {
+  background: #F4ECD8;
+}
+
+body {
+  color: #4A3F35;
+}
+
+p,
+li {
+  color: #5B4F42;
+}
+
+a {
+  color: #7A5C3E;
+}
+
+blockquote {
+  background: #EFE3C8;
+}
+
+h2:after {
+  background: #7A5C3E;
+}
+
+::selection {
+  color: #F4ECD8;
+  background: #7A5C3E;
+}

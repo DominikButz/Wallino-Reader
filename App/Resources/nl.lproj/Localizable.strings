@@ -58,6 +58,9 @@
 "Auto" = "Automatisch";
 "Light" = "Licht";
 "Dark" = "Donker";
+"Light theme" = "Licht thema";
+"Sepia" = "Sepia";
+"Default Light Theme" = "Standaard licht thema";
 "Tags" = "Tags";
 "Selected tags" = "Geselecteerde tags";
 "No tags selected" = "Geen tags geselecteerd";

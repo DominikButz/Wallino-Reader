@@ -1,1 +1,3 @@
-Članci koji se prije nisu mogli spremiti sada se učitavaju s cijelim sadržajem: kada je wallabag poslužitelj blokiran, Wallino Reader dohvaća stranicu s tvog uređaja. Dodirni „Ponovno dohvati“ na starom neispravnom članku da ga također popraviš.
+- Wallino Reader sada podržava stvaranje unosa iz običnog teksta i PDF datoteka (radi u aplikaciji i u proširenju za dijeljenje)
+- Novi sepija izgled kao varijanta svijetle teme
+- Ispravci grešaka

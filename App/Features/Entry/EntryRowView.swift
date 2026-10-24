@@ -6,6 +6,7 @@ import SwiftUI
 struct EntryRowView: View {
     @ObservedObject var entry: Entry
     @EnvironmentObject var appState: AppState
+    @Environment(\.palette) private var palette
     @AppStorage("readingSpeed") var readingSpeed: Double = 200
 
     var body: some View {
@@ -36,7 +37,7 @@ struct EntryRowView: View {
                             .padding(4)
                             .background(
                                 Capsule()
-                                    .fill(Color.gray.quaternary)
+                                    .fill(palette.chipBackground)
                                     .clipped()
                             )
                             .clipShape(Capsule())

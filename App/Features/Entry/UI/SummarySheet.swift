@@ -10,6 +10,7 @@ import SwiftUI
 struct SummarySheet: View {
     let viewModel: SummaryViewModel
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.palette) private var palette
     @State private var didCopy = false
 
     var body: some View {
@@ -30,6 +31,7 @@ struct SummarySheet: View {
                     }
                 }
             }
+            .background(palette.background)
             .navigationTitle("Summary")
             #if os(iOS)
                 .navigationBarTitleDisplayMode(.inline)

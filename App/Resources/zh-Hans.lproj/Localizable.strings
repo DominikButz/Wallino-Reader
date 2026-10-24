@@ -58,6 +58,9 @@
 "Auto" = "自动";
 "Light" = "浅色";
 "Dark" = "深色";
+"Light theme" = "浅色主题";
+"Sepia" = "米黄色";
+"Default Light Theme" = "默认浅色主题";
 "Tags" = "标签";
 "Selected tags" = "已选标签";
 "No tags selected" = "未选择标签";

@@ -4,6 +4,7 @@ import SwiftUI
 #if os(iOS)
     struct PlayerView: View {
         @Environment(PlayerPublisher.self) var playerPublisher: PlayerPublisher
+        @Environment(\.palette) private var palette
 
         var body: some View {
             VStack {
@@ -43,7 +44,7 @@ import SwiftUI
                 }
             }
             .frame(width: 200, height: 200, alignment: .center)
-            .background(Color.primary.colorInvert())
+            .background(palette.surface)
             .cornerRadius(6)
             .shadow(radius: 10)
             .gesture(DragGesture().onEnded { swipe in

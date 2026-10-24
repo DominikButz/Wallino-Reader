@@ -5,6 +5,7 @@ import SwiftUI
 struct EntriesView: View {
     @Environment(Router.self) var router: Router
     @EnvironmentObject var appState: AppState
+    @Environment(\.palette) private var palette
     @StateObject var searchViewModel = SearchViewModel()
     @AppStorage("entriesSortedByCreatedDate") var entriesSortedByCreatedDate = true
     @AppStorage("entriesSortedByReadingTime") var entriesSortedByReadingTime = false
@@ -17,7 +18,7 @@ struct EntriesView: View {
             entriesSortedByReadingTime: entriesSortedByReadingTime,
             entriesSortedByAscending: entriesSortedByAscending
         )
-        .scrollContentBackground(.hidden)
+        .background(palette.background)
         .safeAreaInset(edge: .top) {
             VStack(spacing: 0) {
                 #if os(iOS)

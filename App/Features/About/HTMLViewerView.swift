@@ -3,12 +3,12 @@ import WebKit
 
 struct HTMLViewerView: UIViewRepresentable {
     let fileName: String
+    @Environment(\.palette) private var palette
 
     func makeUIView(context _: Context) -> WKWebView {
         let webView = WKWebView(frame: .zero)
         webView.isOpaque = false
-        webView.backgroundColor = .systemBackground
-        webView.scrollView.backgroundColor = .systemBackground
+        updateBackground(of: webView)
 
         if let path = Bundle.main.path(forResource: fileName, ofType: "html"),
            let html = try? String(contentsOfFile: path, encoding: .utf8) {
@@ -18,7 +18,16 @@ struct HTMLViewerView: UIViewRepresentable {
         return webView
     }
 
-    func updateUIView(_: WKWebView, context _: Context) {}
+    func updateUIView(_ webView: WKWebView, context _: Context) {
+        updateBackground(of: webView)
+    }
+
+    /// The documents ship their own colors, this keeps the bounce area themed.
+    private func updateBackground(of webView: WKWebView) {
+        let background = UIColor(palette.background)
+        webView.backgroundColor = background
+        webView.scrollView.backgroundColor = background
+    }
 }
 
 struct HTMLViewerContainerView: View {

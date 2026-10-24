@@ -6,6 +6,7 @@ import SwiftUI
 struct EntriesListView: View {
     @Environment(\.managedObjectContext) var context: NSManagedObjectContext
     @Environment(AppSync.self) var appSync: AppSync
+    @Environment(\.palette) private var palette
     @FetchRequest var entries: FetchedResults<Entry>
     @State private var autoTagMessage: String?
 
@@ -56,6 +57,7 @@ struct EntriesListView: View {
                         }
                 }
                 .buttonStyle(.plain)
+                .listRowBackground(palette.surface)
                 .swipeActions(allowsFullSwipe: false, content: {
                     ArchiveEntryButton(entry: entry)
                         .tint(.blue)
@@ -76,6 +78,8 @@ struct EntriesListView: View {
         .accessibilityIdentifier("entry_list")
         .refreshable { appSync.requestSync() }
         .listStyle(.inset)
+        .scrollContentBackground(.hidden)
+        .background(palette.background)
         .alert("Auto-tag", isPresented: Binding(
             get: { autoTagMessage != nil },
             set: { if !$0 { autoTagMessage = nil } }

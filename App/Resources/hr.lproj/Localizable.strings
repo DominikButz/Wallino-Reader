@@ -58,6 +58,9 @@
 "Auto" = "Automatski";
 "Light" = "Svijetlo";
 "Dark" = "Tamno";
+"Light theme" = "Svijetla tema";
+"Sepia" = "Sepija";
+"Default Light Theme" = "Zadana svijetla tema";
 "Tags" = "Oznake";
 "Selected tags" = "Odabrane oznake";
 "No tags selected" = "Nije odabrana nijedna oznaka";

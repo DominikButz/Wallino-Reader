@@ -5,6 +5,7 @@ import UniformTypeIdentifiers
 struct AddEntryView: View {
     @State private var model = AddEntryModel()
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.palette) private var palette
     @FocusState private var focusedField: Field?
     @State private var showPDFImporter = false
 
@@ -57,6 +58,7 @@ struct AddEntryView: View {
             .pickerStyle(.segmented)
             .labelsHidden()
             .listRowInsets(EdgeInsets(top: 8, leading: 20, bottom: 8, trailing: 20))
+            .listRowBackground(palette.surface)
 
             switch model.mode {
             case .url:
@@ -69,6 +71,7 @@ struct AddEntryView: View {
                     .padding(.horizontal, 10)
                     .padding(.vertical, 8)
                     .overlay(inputOutline(isFocused: focusedField == .url))
+                    .listRowBackground(palette.surface)
             case .text:
                 VStack(alignment: .leading, spacing: 10) {
                     Color.clear
@@ -93,6 +96,7 @@ struct AddEntryView: View {
 
                     domainNameField
                 }
+                .listRowBackground(palette.surface)
             case .pdf:
                 VStack(alignment: .leading, spacing: 10) {
                     Button {
@@ -160,6 +164,7 @@ struct AddEntryView: View {
 
                     domainNameField
                 }
+                .listRowBackground(palette.surface)
             }
 
             HStack {
@@ -178,8 +183,11 @@ struct AddEntryView: View {
                 }
             }
             .disabled(!model.canSubmit)
+            .listRowBackground(palette.surface)
         }
         .contentMargins(.top, 0, for: .scrollContent)
+        .scrollContentBackground(.hidden)
+        .background(palette.groupedBackground)
         .animation(.easeInOut, value: model.succeeded)
         .animation(.easeInOut, value: model.submitting)
         .animation(.easeInOut, value: model.pdfImporting)

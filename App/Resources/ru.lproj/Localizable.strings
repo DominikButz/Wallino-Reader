@@ -58,6 +58,9 @@
 "Auto" = "Автоматически";
 "Light" = "Светлая";
 "Dark" = "Темная";
+"Light theme" = "Светлая тема";
+"Sepia" = "Сепия";
+"Default Light Theme" = "Светлая тема по умолчанию";
 "Tags" = "Теги";
 "Selected tags" = "Выбранные теги";
 "No tags selected" = "Теги не выбраны";

@@ -2,6 +2,7 @@ import SwiftUI
 
 struct AboutView: View {
     @Environment(Router.self) var router: Router
+    @Environment(\.palette) private var palette
     @BundleKey("CFBundleShortVersionString")
     var version: String
 
@@ -34,11 +35,13 @@ struct AboutView: View {
             }.font(.system(.headline))
             Spacer()
 
-            VStack(spacing: 10) {
+            VStack(alignment: .leading, spacing: 10) {
                 Text("Forked & developed by Dominik Butz").font(.body)
                 Text("Based on Maxime Marinel's Wallabag for iOS".localized).font(.callout).italic()
-            }
+            }.padding()
         }
+        .padding()
+        .background(palette.background)
         .navigationTitle("About")
         .toolbar(.hidden, for: .tabBar)
     }

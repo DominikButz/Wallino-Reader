@@ -1,1 +1,3 @@
-Articles that failed to save now load with their full content: when the wallabag server is blocked, Wallino Reader fetches the page from your device. Tap "Refetch" on an old broken article to repair it as well.
+- Wallino Reader now supports creating an entry from plain text and PDF files (works in the app and in the share extension)
+- Introducing sepia color scheme as light theme variant
+- Bug fixes

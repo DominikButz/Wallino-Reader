@@ -58,6 +58,9 @@
 "Auto" = "自動";
 "Light" = "ライト";
 "Dark" = "ダーク";
+"Light theme" = "ライトテーマ";
+"Sepia" = "セピア";
+"Default Light Theme" = "デフォルトのライトテーマ";
 "Tags" = "タグ";
 "Selected tags" = "選択したタグ";
 "No tags selected" = "タグが選択されていません";

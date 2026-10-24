@@ -1,1 +1,3 @@
-Los artículos que no se guardaban ahora se cargan con todo su contenido: cuando el servidor de wallabag está bloqueado, Wallino Reader obtiene la página desde tu dispositivo. Toca «Volver a obtener» en un artículo antiguo defectuoso para repararlo también.
+- Wallino Reader ahora crea entradas a partir de texto sin formato y archivos PDF (funciona en la app y en la extensión de compartir)
+- Nuevo tema sepia como variante del tema claro
+- Corrección de errores

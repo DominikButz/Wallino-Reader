@@ -4,6 +4,7 @@ import SwiftUI
 struct TagsListView: View {
     @Environment(Router.self) var router: Router
     @Environment(AppSync.self) var appSync: AppSync
+    @Environment(\.palette) private var palette
     @State var viewModel = TagsListViewModel()
 
     var body: some View {
@@ -24,6 +25,7 @@ struct TagsListView: View {
                     .contentShape(Rectangle())
                 })
                 .buttonStyle(.plain)
+                .listRowBackground(palette.surface)
             }
         }
         .searchable(text: $viewModel.search, prompt: "Search")
@@ -33,6 +35,8 @@ struct TagsListView: View {
         }
         .accessibilityIdentifier("tags_list")
         .listStyle(.inset)
+        .scrollContentBackground(.hidden)
+        .background(palette.background)
         .task {
             viewModel.load()
         }

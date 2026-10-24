@@ -28,6 +28,7 @@ struct WallinoApp: App {
     var body: some Scene {
         WindowGroup {
             MainView()
+                .themed()
                 .environmentObject(appState)
             #if os(iOS)
                 .environment(playerPublisher)

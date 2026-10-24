@@ -58,6 +58,9 @@
 "Auto" = "Auto";
 "Light" = "Clair";
 "Dark" = "Sombre";
+"Light theme" = "Thème clair";
+"Sepia" = "Sépia";
+"Default Light Theme" = "Thème clair par défaut";
 "Tags" = "Tags";
 "Selected tags" = "Tags sélectionnés";
 "No tags selected" = "Aucun tag sélectionné";
